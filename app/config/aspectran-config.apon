@@ -5,6 +5,7 @@ context: {
         /config
     ]
     scan: [
+        org.mybatis.jpetstore
         com.aspectran.demo
     ]
     profiles: {
