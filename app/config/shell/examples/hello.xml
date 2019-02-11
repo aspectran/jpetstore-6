@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 6.0//EN"
+        "http://aspectran.github.io/dtd/aspectran-6.dtd">
+<aspectran>
+
+    <description>
+        A simple example that prints "Hello, World!".
+    </description>
+
+    <aspect id="helloAdviceAspect">
+        <description>
+            If a translet that executes the helloWorld method of the helloAction bean is found,
+            executes the welcome() method of the helloAdvice bean before executing the translet,
+            and executes the goodbye() method of the helloAdvice bean after executing the translet.
+        </description>
+        <joinpoint target="translet">
+            pointcut: {
+                +: hello*@helloAction^helloWorld
+            }
+        </joinpoint>
+        <advice bean="helloAdvice">
+            <before>
+                <action method="welcome"/>
+            </before>
+            <after>
+                <action method="goodbye"/>
+            </after>
+        </advice>
+    </aspect>
+
+    <translet name="hello">
+        <description style="apon">
+            |
+            |   Executes the method helloAction.helloWorld() and prints the
+            |   returned value to the console.
+            |   Maybe the words "Hello, World!" will be printed on the console.
+            |   Is it difficult to find the words "Hello, World!" printed on
+            |   the console? If so, try running the "hello2" command.
+            |
+        </description>
+        <transform type="transform/text">
+            <action id="helloWorld" bean="helloAction" method="helloWorld"/>
+        </transform>
+    </translet>
+
+    <translet name="hello2">
+        <description style="apon">
+            |
+            |   Executes the method helloAction.helloWorld() and prints the
+            |   returned value to the console using ANSI coloring.
+            |   Maybe the word "Hello, World!" will be printed on the console
+            |   with proper margin.
+            |
+        </description>
+        <action id="helloWorld" bean="helloAction" method="helloWorld"/>
+        <transform type="transform/text">
+            <template style="apon">
+                |
+                |   {{bg:green}}                         {{reset}}
+                |   {{bg:green}}   {{magenta,bg:white}}                   {{bg:blue}}   {{reset}}
+                |   {{bg:green}}   {{magenta,bg:white}}   @{helloWorld}   {{bg:blue}}   {{reset}}
+                |   {{bg:green}}   {{magenta,bg:white}}                   {{bg:blue}}   {{reset}}
+                |   {{magenta,bg:blue}}                         {{reset}}
+                |
+            </template>
+        </transform>
+    </translet>
+
+    <template id="hello" style="apon">
+        |Hello, ${what}!
+    </template>
+
+</aspectran>

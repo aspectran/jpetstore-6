@@ -15,6 +15,8 @@
  */
 package org.mybatis.jpetstore.mapper;
 
+import com.aspectran.core.component.bean.annotation.Bean;
+import com.aspectran.core.component.bean.annotation.Component;
 import org.mybatis.jpetstore.domain.Account;
 
 /**
@@ -22,6 +24,8 @@ import org.mybatis.jpetstore.domain.Account;
  *
  * @author Eduardo Macarron
  */
+@Component
+@Bean
 public interface AccountMapper {
 
   Account getAccountByUsername(String username);

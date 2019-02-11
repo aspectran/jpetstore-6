@@ -1,0 +1,12 @@
+# Stop the Jetty server
+command: jetty
+parameters: {
+    item: {
+        name: mode
+        value: stop
+    }
+    item: {
+        name: server
+        value: jetty.server
+    }
+}

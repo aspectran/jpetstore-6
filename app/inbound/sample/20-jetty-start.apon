@@ -1,0 +1,12 @@
+# Start the Jetty server
+command: jetty
+parameters: {
+    item: {
+        name: mode
+        value: start
+    }
+    item: {
+        name: server
+        value: jetty.server
+    }
+}

@@ -15,6 +15,8 @@
  */
 package org.mybatis.jpetstore.service;
 
+import com.aspectran.core.component.bean.annotation.Bean;
+import com.aspectran.core.component.bean.annotation.Component;
 import org.mybatis.jpetstore.domain.Account;
 import org.mybatis.jpetstore.mapper.AccountMapper;
 import org.springframework.stereotype.Service;
@@ -27,7 +29,8 @@ import java.util.Optional;
  *
  * @author Eduardo Macarron
  */
-@Service
+@Component
+@Bean("accountService")
 public class AccountService {
 
   private final AccountMapper accountMapper;

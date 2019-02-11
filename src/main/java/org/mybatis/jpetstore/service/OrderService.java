@@ -19,6 +19,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.aspectran.core.component.bean.annotation.Bean;
+import com.aspectran.core.component.bean.annotation.Component;
 import org.mybatis.jpetstore.domain.Item;
 import org.mybatis.jpetstore.domain.Order;
 import org.mybatis.jpetstore.domain.Sequence;
@@ -34,7 +36,8 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Eduardo Macarron
  */
-@Service
+@Component
+@Bean("orderService")
 public class OrderService {
 
   private final ItemMapper itemMapper;

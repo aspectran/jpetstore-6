@@ -1,0 +1,12 @@
+# Restart the Jetty server
+command: jetty
+parameters: {
+    item: {
+        name: mode
+        value: restart
+    }
+    item: {
+        name: server
+        value: jetty.server
+    }
+}
