@@ -18,8 +18,6 @@ package org.mybatis.jpetstore.service;
 import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
-import org.apache.ibatis.session.SqlSession;
-import org.mybatis.jpetstore.dao.SimpleSqlSession;
 import org.mybatis.jpetstore.domain.Category;
 import org.mybatis.jpetstore.domain.Item;
 import org.mybatis.jpetstore.domain.Product;
@@ -39,30 +37,28 @@ import java.util.List;
 @Bean("catalogService")
 public class CatalogService {
 
-  private final SqlSession sqlSession;
+  @Autowired
+  public CategoryMapper categoryMapper;
 
   @Autowired
-  public CatalogService(SimpleSqlSession sqlSession) {
-    this.sqlSession = sqlSession;
-  }
+  public ProductMapper productMapper;
+
+  @Autowired
+  public ItemMapper itemMapper;
 
   public List<Category> getCategoryList() {
-    CategoryMapper categoryMapper = sqlSession.getMapper(CategoryMapper.class);
     return categoryMapper.getCategoryList();
   }
 
   public Category getCategory(String categoryId) {
-    CategoryMapper categoryMapper = sqlSession.getMapper(CategoryMapper.class);
     return categoryMapper.getCategory(categoryId);
   }
 
   public Product getProduct(String productId) {
-    ProductMapper productMapper = sqlSession.getMapper(ProductMapper.class);
     return productMapper.getProduct(productId);
   }
 
   public List<Product> getProductListByCategory(String categoryId) {
-    ProductMapper productMapper = sqlSession.getMapper(ProductMapper.class);
     return productMapper.getProductListByCategory(categoryId);
   }
 
@@ -74,7 +70,6 @@ public class CatalogService {
    * @return the list
    */
   public List<Product> searchProductList(String keywords) {
-    ProductMapper productMapper = sqlSession.getMapper(ProductMapper.class);
     List<Product> products = new ArrayList<>();
     for (String keyword : keywords.split("\\s+")) {
       products.addAll(productMapper.searchProductList("%" + keyword.toLowerCase() + "%"));
@@ -83,17 +78,14 @@ public class CatalogService {
   }
 
   public List<Item> getItemListByProduct(String productId) {
-    ItemMapper itemMapper = sqlSession.getMapper(ItemMapper.class);
     return itemMapper.getItemListByProduct(productId);
   }
 
   public Item getItem(String itemId) {
-    ItemMapper itemMapper = sqlSession.getMapper(ItemMapper.class);
     return itemMapper.getItem(itemId);
   }
 
   public boolean isItemInStock(String itemId) {
-    ItemMapper itemMapper = sqlSession.getMapper(ItemMapper.class);
     return itemMapper.getInventoryQuantity(itemId) > 0;
   }
 }

@@ -23,7 +23,7 @@
 
   <cache />
   
-  <select id="getCategory" resultType="Category">
+  <select id="getCategory" resultType="org.mybatis.jpetstore.domain.Category">
     SELECT
       CATID AS categoryId,
       NAME,
@@ -32,7 +32,7 @@
     WHERE CATID = #{categoryId}
   </select>
 
-  <select id="getCategoryList" resultType="Category">
+  <select id="getCategoryList" resultType="org.mybatis.jpetstore.domain.Category">
     SELECT
       CATID AS categoryId,
       NAME,

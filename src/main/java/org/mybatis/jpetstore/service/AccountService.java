@@ -18,8 +18,6 @@ package org.mybatis.jpetstore.service;
 import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
-import org.apache.ibatis.session.SqlSession;
-import org.mybatis.jpetstore.dao.SimpleSqlSession;
 import org.mybatis.jpetstore.domain.Account;
 import org.mybatis.jpetstore.mapper.AccountMapper;
 
@@ -34,20 +32,14 @@ import java.util.Optional;
 @Bean("accountService")
 public class AccountService {
 
-  private final SqlSession sqlSession;
-
   @Autowired
-  public AccountService(SimpleSqlSession sqlSession) {
-    this.sqlSession = sqlSession;
-  }
+  public AccountMapper accountMapper;
 
   public Account getAccount(String username) {
-    AccountMapper accountMapper = sqlSession.getMapper(AccountMapper.class);
     return accountMapper.getAccountByUsername(username);
   }
 
   public Account getAccount(String username, String password) {
-    AccountMapper accountMapper = sqlSession.getMapper(AccountMapper.class);
     return accountMapper.getAccountByUsernameAndPassword(username, password);
   }
 
@@ -58,7 +50,6 @@ public class AccountService {
    *          the account
    */
   public void insertAccount(Account account) {
-    AccountMapper accountMapper = sqlSession.getMapper(AccountMapper.class);
     accountMapper.insertAccount(account);
     accountMapper.insertProfile(account);
     accountMapper.insertSignon(account);
@@ -71,7 +62,6 @@ public class AccountService {
    *          the account
    */
   public void updateAccount(Account account) {
-    AccountMapper accountMapper = sqlSession.getMapper(AccountMapper.class);
     accountMapper.updateAccount(account);
     accountMapper.updateProfile(account);
 

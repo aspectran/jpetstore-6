@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 6.0//EN"
+        "http://aspectran.github.io/dtd/aspectran-6.dtd">
+<aspectran>
+
+    <description>
+        Configuration for Database Transactions.
+    </description>
+
+    <!-- Environment for using H2 Database -->
+    <environment profile="h2">
+        <properties>
+            <item name="mybatis.environment" value="default"/>
+            <item name="mybatis.db.driver" value="%{classpath:memo.db.properties^driver}"/>
+            <item name="mybatis.db.url" value="%{classpath:memo.db.properties^url}"/>
+            <item name="mybatis.db.username" value="%{classpath:memo.db.properties^username}"/>
+            <item name="mybatis.db.password" value="%{classpath:memo.db.properties^password}"/>
+        </properties>
+    </environment>
+
+    <!-- Environment for using MySql -->
+    <environment profile="mysql">
+        <properties>
+            <item name="mybatis.environment" value="default"/>
+            <item name="mybatis.db.driver" value="%{classpath:db.encrypted.properties^driver}"/>
+            <item name="mybatis.db.url" value="%{classpath:db.encrypted.properties^url}"/>
+            <item name="mybatis.db.username" value="%{classpath:db.encrypted.properties^username}"/>
+            <item name="mybatis.db.password" value="%{classpath:db.encrypted.properties^password}"/>
+        </properties>
+    </environment>
+
+    <bean id="sqlSessionFactory" class="com.aspectran.with.mybatis.SqlSessionFactoryBean">
+        <description>
+            FactoryBean that creates an MyBatis SqlSessionFactory using default MyBatis Configuration.
+        </description>
+        <properties>
+            <item name="configLocation" value="/config/mybatis/mybatis-config.xml"/>
+            <item name="environment" value="%{mybatis.environment}"/>
+            <item name="properties" type="properties">
+                <value name="driver">%{mybatis.db.driver}</value>
+                <value name="url">%{mybatis.db.url}</value>
+                <value name="username">%{mybatis.db.username}</value>
+                <value name="password">%{mybatis.db.password}</value>
+            </item>
+        </properties>
+    </bean>
+
+    <bean id="sqlSessionTxAdvice" class="com.aspectran.with.mybatis.SqlSessionTxAdvice" scope="prototype">
+        <description>
+            Advice for Database Transactions.
+        </description>
+        <constructor>
+            <arguments>
+                <item><call bean="sqlSessionFactory"/></item>
+            </arguments>
+        </constructor>
+    </bean>
+
+    <aspect id="simpleTxAspect" order="0" isolated="true">
+        <description>
+            Advice to handle database transactions in simple mode.
+            * A transaction scope will be started (i.e. NOT auto-commit).
+            * A Connection object will be acquired from the DataSource instance
+              configured by the active environment.
+            * The transaction isolation level will be the default used by the driver or
+              data source.
+            * No PreparedStatements will be reused, and no updates will be batched.
+        </description>
+        <joinpoint target="translet">
+            pointcut: {
+                +: **@simpleSqlSession
+            }
+        </joinpoint>
+        <advice bean="sqlSessionTxAdvice">
+            <before>
+                <action method="open"/>
+            </before>
+            <after>
+                <action method="commit"/>
+            </after>
+            <finally>
+                <action method="close"/>
+            </finally>
+        </advice>
+    </aspect>
+
+    <aspect id="batchTxAspect" order="0" isolated="true">
+        <description>
+            Advice to handle database transactions in batch mode.
+            Batches all updates (including inserts and deletes), SELECTs can be run as needed.
+        </description>
+        <joinpoint target="translet">
+            pointcut: {
+                +: **@batchSqlSession
+            }
+        </joinpoint>
+        <advice bean="sqlSessionTxAdvice">
+            <before>
+                <action method="open">
+                    <arguments>
+                        <item name="executorType" value="BATCH"/>
+                    </arguments>
+                </action>
+            </before>
+            <after>
+                <action method="commit"/>
+            </after>
+            <finally>
+                <action method="close"/>
+            </finally>
+        </advice>
+    </aspect>
+
+    <aspect id="reuseTxAspect" order="0" isolated="true">
+        <description>
+            Advice to handle database transactions in reuse mode.
+            PreparedStatements will be reused.
+        </description>
+        <joinpoint target="translet">
+            pointcut: {
+                +: **@reuseSqlSession
+            }
+        </joinpoint>
+        <advice bean="sqlSessionTxAdvice">
+            <before>
+                <action method="open">
+                    <arguments>
+                        <item name="executorType" value="REUSE"/>
+                    </arguments>
+                </action>
+            </before>
+            <after>
+                <action method="commit"/>
+            </after>
+            <finally>
+                <action method="close"/>
+            </finally>
+        </advice>
+    </aspect>
+
+</aspectran>

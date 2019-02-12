@@ -1,38 +1,47 @@
 /**
- *    Copyright 2010-2017 the original author or authors.
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
+ * Copyright 2010-2017 the original author or authors.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.mybatis.jpetstore.mapper;
 
+import com.aspectran.core.component.bean.annotation.Bean;
+import com.aspectran.core.component.bean.annotation.Component;
+import org.mybatis.jpetstore.domain.Item;
+import org.mybatis.jpetstore.session.SimpleSqlSession;
+
 import java.util.List;
 import java.util.Map;
-
-import org.mybatis.jpetstore.domain.Item;
 
 /**
  * The Interface ItemMapper.
  *
  * @author Eduardo Macarron
  */
+@Component
 public interface ItemMapper {
 
-  void updateInventoryQuantity(Map<String, Object> param);
+    @Bean
+    static ItemMapper ItemMapper(SimpleSqlSession sqlSession) {
+        return sqlSession.getMapper(ItemMapper.class);
+    }
 
-  int getInventoryQuantity(String itemId);
+    void updateInventoryQuantity(Map<String, Object> param);
 
-  List<Item> getItemListByProduct(String productId);
+    int getInventoryQuantity(String itemId);
 
-  Item getItem(String itemId);
+    List<Item> getItemListByProduct(String productId);
+
+    Item getItem(String itemId);
 
 }

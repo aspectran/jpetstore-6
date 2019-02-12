@@ -1,4 +1,4 @@
-package org.mybatis.jpetstore.dao;
+package org.mybatis.jpetstore.session;
 
 import com.aspectran.core.component.bean.annotation.AvoidAdvice;
 import com.aspectran.core.component.bean.annotation.Bean;

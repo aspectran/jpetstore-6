@@ -18,8 +18,6 @@ package org.mybatis.jpetstore.service;
 import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
-import org.apache.ibatis.session.SqlSession;
-import org.mybatis.jpetstore.dao.SimpleSqlSession;
 import org.mybatis.jpetstore.domain.Item;
 import org.mybatis.jpetstore.domain.Order;
 import org.mybatis.jpetstore.domain.Sequence;
@@ -41,12 +39,17 @@ import java.util.Map;
 @Bean("orderService")
 public class OrderService {
 
-  private final SqlSession sqlSession;
+  @Autowired
+  public ItemMapper itemMapper;
 
   @Autowired
-  public OrderService(SimpleSqlSession sqlSession) {
-    this.sqlSession = sqlSession;
-  }
+  public OrderMapper orderMapper;
+
+  @Autowired
+  public LineItemMapper lineItemMapper;
+
+  @Autowired
+  public SequenceMapper sequenceMapper;
 
   /**
    * Insert order.
@@ -55,7 +58,6 @@ public class OrderService {
    *          the order
    */
   public void insertOrder(Order order) {
-    ItemMapper itemMapper = sqlSession.getMapper(ItemMapper.class);
     order.setOrderId(getNextId("ordernum"));
     order.getLineItems().forEach(lineItem -> {
       String itemId = lineItem.getItemId();
@@ -66,8 +68,6 @@ public class OrderService {
       itemMapper.updateInventoryQuantity(param);
     });
 
-    OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
-    LineItemMapper lineItemMapper = sqlSession.getMapper(LineItemMapper.class);
     orderMapper.insertOrder(order);
     orderMapper.insertOrderStatus(order);
     order.getLineItems().forEach(lineItem -> {
@@ -84,10 +84,6 @@ public class OrderService {
    * @return the order
    */
   public Order getOrder(int orderId) {
-    ItemMapper itemMapper = sqlSession.getMapper(ItemMapper.class);
-    OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
-    LineItemMapper lineItemMapper = sqlSession.getMapper(LineItemMapper.class);
-
     Order order = orderMapper.getOrder(orderId);
     order.setLineItems(lineItemMapper.getLineItemsByOrderId(orderId));
 
@@ -108,7 +104,6 @@ public class OrderService {
    * @return the orders by username
    */
   public List<Order> getOrdersByUsername(String username) {
-    OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
     return orderMapper.getOrdersByUsername(username);
   }
 
@@ -120,7 +115,6 @@ public class OrderService {
    * @return the next id
    */
   public int getNextId(String name) {
-    SequenceMapper sequenceMapper = sqlSession.getMapper(SequenceMapper.class);
     Sequence sequence = sequenceMapper.getSequence(new Sequence(name, -1));
     if (sequence == null) {
       throw new RuntimeException(
