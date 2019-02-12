@@ -34,7 +34,7 @@ import java.util.List;
  * @author Eduardo Macarron
  */
 @Component
-@Bean("catalogService")
+@Bean(id = "catalogService")
 public class CatalogService {
 
   @Autowired

@@ -15,10 +15,7 @@
  */
 package org.mybatis.jpetstore.mapper;
 
-import com.aspectran.core.component.bean.annotation.Bean;
-import com.aspectran.core.component.bean.annotation.Component;
 import org.mybatis.jpetstore.domain.Category;
-import org.mybatis.jpetstore.session.SimpleSqlSession;
 
 import java.util.List;
 
@@ -27,13 +24,7 @@ import java.util.List;
  *
  * @author Eduardo Macarron
  */
-@Component
 public interface CategoryMapper {
-
-    @Bean
-    static CategoryMapper categoryMapper(SimpleSqlSession sqlSession) {
-        return sqlSession.getMapper(CategoryMapper.class);
-    }
 
     List<Category> getCategoryList();
 

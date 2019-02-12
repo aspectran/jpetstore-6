@@ -15,10 +15,7 @@
  */
 package org.mybatis.jpetstore.mapper;
 
-import com.aspectran.core.component.bean.annotation.Bean;
-import com.aspectran.core.component.bean.annotation.Component;
 import org.mybatis.jpetstore.domain.Order;
-import org.mybatis.jpetstore.session.SimpleSqlSession;
 
 import java.util.List;
 
@@ -27,13 +24,7 @@ import java.util.List;
  *
  * @author Eduardo Macarron
  */
-@Component
 public interface OrderMapper {
-
-  @Bean
-  static OrderMapper orderMapper(SimpleSqlSession sqlSession) {
-    return sqlSession.getMapper(OrderMapper.class);
-  }
 
   List<Order> getOrdersByUsername(String username);
 

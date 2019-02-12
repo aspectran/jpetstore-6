@@ -15,10 +15,7 @@
  */
 package org.mybatis.jpetstore.mapper;
 
-import com.aspectran.core.component.bean.annotation.Bean;
-import com.aspectran.core.component.bean.annotation.Component;
 import org.mybatis.jpetstore.domain.Item;
-import org.mybatis.jpetstore.session.SimpleSqlSession;
 
 import java.util.List;
 import java.util.Map;
@@ -28,13 +25,7 @@ import java.util.Map;
  *
  * @author Eduardo Macarron
  */
-@Component
 public interface ItemMapper {
-
-    @Bean
-    static ItemMapper ItemMapper(SimpleSqlSession sqlSession) {
-        return sqlSession.getMapper(ItemMapper.class);
-    }
 
     void updateInventoryQuantity(Map<String, Object> param);
 

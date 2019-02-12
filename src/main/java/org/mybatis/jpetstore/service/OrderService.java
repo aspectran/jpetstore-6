@@ -36,7 +36,7 @@ import java.util.Map;
  * @author Eduardo Macarron
  */
 @Component
-@Bean("orderService")
+@Bean(id = "orderService")
 public class OrderService {
 
   @Autowired

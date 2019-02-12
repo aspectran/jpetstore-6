@@ -23,7 +23,7 @@
 
   <cache />
 
-  <select id="getOrder" resultType="Order">
+  <select id="getOrder" resultType="org.mybatis.jpetstore.domain.Order">
     select
       BILLADDR1 AS billAddress1,
       BILLADDR2 AS billAddress2,
@@ -56,7 +56,7 @@
       AND ORDERS.ORDERID = ORDERSTATUS.ORDERID
   </select>
 
-  <select id="getOrdersByUsername" resultType="Order">
+  <select id="getOrdersByUsername" resultType="org.mybatis.jpetstore.domain.Order">
     SELECT
       BILLADDR1 AS billAddress1,
       BILLADDR2 AS billAddress2,

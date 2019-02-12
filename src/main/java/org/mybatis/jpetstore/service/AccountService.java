@@ -29,7 +29,7 @@ import java.util.Optional;
  * @author Eduardo Macarron
  */
 @Component
-@Bean("accountService")
+@Bean(id = "accountService")
 public class AccountService {
 
   @Autowired

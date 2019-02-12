@@ -15,10 +15,7 @@
  */
 package org.mybatis.jpetstore.mapper;
 
-import com.aspectran.core.component.bean.annotation.Bean;
-import com.aspectran.core.component.bean.annotation.Component;
 import org.mybatis.jpetstore.domain.LineItem;
-import org.mybatis.jpetstore.session.SimpleSqlSession;
 
 import java.util.List;
 
@@ -27,13 +24,7 @@ import java.util.List;
  *
  * @author Eduardo Macarron
  */
-@Component
 public interface LineItemMapper {
-
-    @Bean
-    static LineItemMapper lineItemMapper(SimpleSqlSession sqlSession) {
-        return sqlSession.getMapper(LineItemMapper.class);
-    }
 
     List<LineItem> getLineItemsByOrderId(int orderId);
 

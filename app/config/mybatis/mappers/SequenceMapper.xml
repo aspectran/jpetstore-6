@@ -23,7 +23,7 @@
 
   <cache />
 
-  <select id="getSequence" resultType="Sequence">
+  <select id="getSequence" resultType="org.mybatis.jpetstore.domain.Sequence">
     SELECT name, nextid
     FROM SEQUENCE
     WHERE NAME = #{name}

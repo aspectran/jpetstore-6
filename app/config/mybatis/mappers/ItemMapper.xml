@@ -23,7 +23,7 @@
 
   <cache />
 
-  <select id="getItemListByProduct" resultType="Item">
+  <select id="getItemListByProduct" resultType="org.mybatis.jpetstore.domain.Item">
     SELECT
       I.ITEMID,
       LISTPRICE,
@@ -44,7 +44,7 @@
     AND I.PRODUCTID = #{value}
   </select>
 
-  <select id="getItem" resultType="Item">
+  <select id="getItem" resultType="org.mybatis.jpetstore.domain.Item">
     select
       I.ITEMID,
       LISTPRICE,

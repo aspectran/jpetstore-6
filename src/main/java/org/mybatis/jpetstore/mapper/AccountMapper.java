@@ -15,23 +15,14 @@
  */
 package org.mybatis.jpetstore.mapper;
 
-import com.aspectran.core.component.bean.annotation.Bean;
-import com.aspectran.core.component.bean.annotation.Component;
 import org.mybatis.jpetstore.domain.Account;
-import org.mybatis.jpetstore.session.SimpleSqlSession;
 
 /**
  * The Interface AccountMapper.
  *
  * @author Eduardo Macarron
  */
-@Component
 public interface AccountMapper {
-
-    @Bean
-    static AccountMapper accountMapper(SimpleSqlSession sqlSession) {
-        return sqlSession.getMapper(AccountMapper.class);
-    }
 
     Account getAccountByUsername(String username);
 

@@ -23,7 +23,7 @@
 
   <cache />
 
-  <select id="getLineItemsByOrderId" resultType="LineItem">
+  <select id="getLineItemsByOrderId" resultType="org.mybatis.jpetstore.domain.LineItem">
     SELECT
       ORDERID,
       LINENUM AS lineNumber,
