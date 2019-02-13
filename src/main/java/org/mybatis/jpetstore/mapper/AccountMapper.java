@@ -15,6 +15,7 @@
  */
 package org.mybatis.jpetstore.mapper;
 
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.jpetstore.domain.Account;
 
 /**
@@ -23,6 +24,10 @@ import org.mybatis.jpetstore.domain.Account;
  * @author Eduardo Macarron
  */
 public interface AccountMapper {
+
+    static AccountMapper getInstance(SqlSession sqlSession) {
+        return sqlSession.getMapper(AccountMapper.class);
+    }
 
     Account getAccountByUsername(String username);
 

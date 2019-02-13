@@ -15,6 +15,7 @@
  */
 package org.mybatis.jpetstore.mapper;
 
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.jpetstore.domain.LineItem;
 
 import java.util.List;
@@ -25,6 +26,10 @@ import java.util.List;
  * @author Eduardo Macarron
  */
 public interface LineItemMapper {
+
+    static LineItemMapper getInstance(SqlSession sqlSession) {
+        return sqlSession.getMapper(LineItemMapper.class);
+    }
 
     List<LineItem> getLineItemsByOrderId(int orderId);
 

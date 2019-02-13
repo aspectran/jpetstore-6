@@ -15,7 +15,7 @@
  */
 package org.mybatis.jpetstore.mapper;
 
-import com.aspectran.core.component.bean.annotation.Component;
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.jpetstore.domain.Sequence;
 
 /**
@@ -23,8 +23,11 @@ import org.mybatis.jpetstore.domain.Sequence;
  *
  * @author Eduardo Macarron
  */
-@Component
 public interface SequenceMapper {
+
+    static SequenceMapper getInstance(SqlSession sqlSession) {
+        return sqlSession.getMapper(SequenceMapper.class);
+    }
 
     Sequence getSequence(Sequence sequence);
 

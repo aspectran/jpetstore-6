@@ -15,6 +15,7 @@
  */
 package org.mybatis.jpetstore.mapper;
 
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.jpetstore.domain.Item;
 
 import java.util.List;
@@ -26,6 +27,10 @@ import java.util.Map;
  * @author Eduardo Macarron
  */
 public interface ItemMapper {
+
+    static ItemMapper getInstance(SqlSession sqlSession) {
+        return sqlSession.getMapper(ItemMapper.class);
+    }
 
     void updateInventoryQuantity(Map<String, Object> param);
 

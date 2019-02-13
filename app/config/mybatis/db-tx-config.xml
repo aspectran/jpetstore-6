@@ -7,25 +7,14 @@
         Configuration for Database Transactions.
     </description>
 
-    <!-- Environment for using H2 Database -->
-    <environment profile="h2">
+    <!-- Environment for using HSQLDB Database -->
+    <environment>
         <properties>
             <item name="mybatis.environment" value="default"/>
-            <item name="mybatis.db.driver" value="%{classpath:memo.db.properties^driver}"/>
-            <item name="mybatis.db.url" value="%{classpath:memo.db.properties^url}"/>
-            <item name="mybatis.db.username" value="%{classpath:memo.db.properties^username}"/>
-            <item name="mybatis.db.password" value="%{classpath:memo.db.properties^password}"/>
-        </properties>
-    </environment>
-
-    <!-- Environment for using MySql -->
-    <environment profile="mysql">
-        <properties>
-            <item name="mybatis.environment" value="default"/>
-            <item name="mybatis.db.driver" value="%{classpath:db.encrypted.properties^driver}"/>
-            <item name="mybatis.db.url" value="%{classpath:db.encrypted.properties^url}"/>
-            <item name="mybatis.db.username" value="%{classpath:db.encrypted.properties^username}"/>
-            <item name="mybatis.db.password" value="%{classpath:db.encrypted.properties^password}"/>
+            <item name="mybatis.db.driver" value="%{classpath:jpetstore.db.properties^driver}"/>
+            <item name="mybatis.db.url" value="%{classpath:jpetstore.db.properties^url}"/>
+            <item name="mybatis.db.username" value="%{classpath:jpetstore.db.properties^username}"/>
+            <item name="mybatis.db.password" value="%{classpath:jpetstore.db.properties^password}"/>
         </properties>
     </environment>
 
