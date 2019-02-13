@@ -18,7 +18,7 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
 <div id="BackLink"><stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"
+	beanclass="org.mybatis.jpetstore.web.actions.CatalogAction"
 	event="viewProduct">
 	<stripes:param name="productId" value="${actionBean.product.productId}" />
 	Return to ${actionBean.product.productId}
@@ -56,7 +56,7 @@
 
 	<tr>
 		<td><stripes:link class="Button"
-			beanclass="org.mybatis.jpetstore.web.actions.CartActionBean"
+			beanclass="org.mybatis.jpetstore.web.actions.CartAction"
 			event="addItemToCart">
 			<stripes:param name="workingItemId" value="${actionBean.item.itemId}" />
        	Add to Cart

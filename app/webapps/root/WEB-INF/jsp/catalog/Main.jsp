@@ -29,35 +29,35 @@
 <div id="Main">
 <div id="Sidebar">
 <div id="SidebarContent"><stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"
+	beanclass="org.mybatis.jpetstore.web.actions.CatalogAction"
 	event="viewCategory">
 	<stripes:param name="categoryId" value="FISH" />
 	<img src="../images/fish_icon.gif" />
 </stripes:link> <br />
 Saltwater, Freshwater <br />
 <stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"
+	beanclass="org.mybatis.jpetstore.web.actions.CatalogAction"
 	event="viewCategory">
 	<stripes:param name="categoryId" value="DOGS" />
 	<img src="../images/dogs_icon.gif" />
 </stripes:link> <br />
 Various Breeds <br />
 <stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"
+	beanclass="org.mybatis.jpetstore.web.actions.CatalogAction"
 	event="viewCategory">
 	<stripes:param name="categoryId" value="CATS" />
 	<img src="../images/cats_icon.gif" />
 </stripes:link> <br />
 Various Breeds, Exotic Varieties <br />
 <stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"
+	beanclass="org.mybatis.jpetstore.web.actions.CatalogAction"
 	event="viewCategory">
 	<stripes:param name="categoryId" value="REPTILES" />
 	<img src="../images/reptiles_icon.gif" />
 </stripes:link> <br />
 Lizards, Turtles, Snakes <br />
 <stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"
+	beanclass="org.mybatis.jpetstore.web.actions.CatalogAction"
 	event="viewCategory">
 	<stripes:param name="categoryId" value="BIRDS" />
 	<img src="../images/birds_icon.gif" />

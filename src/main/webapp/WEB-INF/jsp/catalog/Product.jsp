@@ -18,10 +18,10 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
 <jsp:useBean id="catalog"
-	class="org.mybatis.jpetstore.web.actions.CatalogActionBean" />
+	class="org.mybatis.jpetstore.web.actions.CatalogAction" />
 
 <div id="BackLink"><stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"
+	beanclass="org.mybatis.jpetstore.web.actions.CatalogAction"
 	event="viewCategory">
 	<stripes:param name="categoryId"
 		value="${actionBean.product.categoryId}" />
@@ -43,7 +43,7 @@
 	<c:forEach var="item" items="${actionBean.itemList}">
 		<tr>
 			<td><stripes:link
-				beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"
+				beanclass="org.mybatis.jpetstore.web.actions.CatalogAction"
 				event="viewItem">
 				<stripes:param name="itemId" value="${item.itemId}" />
 				${item.itemId}
@@ -54,7 +54,7 @@
 			<td><fmt:formatNumber value="${item.listPrice}"
 				pattern="$#,##0.00" /></td>
 			<td><stripes:link class="Button"
-				beanclass="org.mybatis.jpetstore.web.actions.CartActionBean"
+				beanclass="org.mybatis.jpetstore.web.actions.CartAction"
 				event="addItemToCart">
 				<stripes:param name="workingItemId" value="${item.itemId}" />
         	Add to Cart

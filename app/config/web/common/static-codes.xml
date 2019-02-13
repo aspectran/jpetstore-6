@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 6.0//EN"
+        "http://aspectran.github.io/dtd/aspectran-6.dtd">
+<aspectran>
+
+    <description>
+        여기 정의된 각 빈은 정적 코드 그룹입니다.
+        변하지 않는 코드를 정적 코드라고 하며, 메모리 상에 HashMap 인스턴스로 적재되고, 빈으로 관리됩니다.
+        반대로 동적 코드는 데이터베이스 내에서 관리되며, 데이터베이스 질의에 의해 동적으로 불러올 수 있습니다.
+    </description>
+
+    <!-- 자주 사용하는 코드 그룹 묶음-->
+    <environment>
+        <properties>
+            <item name="staticCodes" type="map">
+                <value name="languages">#{codes.languages}</value>
+                <value name="categories">#{codes.categories}</value>
+                <value name="cardTypes">#{codes.codes.cardTypes}</value>
+            </item>
+        </properties>
+    </environment>
+
+    <bean id="codes.languages" class="java.util.LinkedHashMap">
+        <description>
+            Languages
+        </description>
+        <constructor>
+            <arguments>
+                <item type="map">
+                    <value name="english">english</value>
+                    <value name="japanese">japanese</value>
+                </item>
+            </arguments>
+        </constructor>
+    </bean>
+    
+    <bean id="codes.categories" class="java.util.LinkedHashMap">
+        <description>
+            Categories
+        </description>
+        <constructor>
+            <arguments>
+                <item type="map">
+                    <value name="FISH">FISH</value>
+                    <value name="DOGS">DOGS</value>
+                    <value name="REPTILES">REPTILES</value>
+                    <value name="CATS">CATS</value>
+                    <value name="BIRDS">BIRDS</value>
+                </item>
+            </arguments>
+        </constructor>
+    </bean>
+
+    <bean id="codes.cardTypes" class="java.util.LinkedHashMap">
+        <description>
+            Card Types
+        </description>
+        <constructor>
+            <arguments>
+                <item type="map">
+                    <value name="Visa">Visa</value>
+                    <value name="MasterCard">MasterCard</value>
+                    <value name="American Express">American Express</value>
+                </item>
+            </arguments>
+        </constructor>
+    </bean>
+
+</aspectran>

@@ -377,7 +377,7 @@ public interface OrderMapper {
 }]]></source>
 
 <source><![CDATA[
-<mapper namespace="org.mybatis.jpetstore.mapper.OrderMapper">
+<mapper namespace="org.mybatis.jpetstore.common.mybatis.mapper.OrderMapper">
 
   <cache />
 

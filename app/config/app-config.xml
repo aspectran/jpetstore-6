@@ -42,8 +42,8 @@
     </aspect>
 
     <append file="/config/jetty/jetty-config.xml"/>
+    <append file="/config/mybatis/db-tx-config.xml"/>
     <!--<append file="/config/shell/shell-config.xml"/>-->
     <append file="/config/web/web-config.xml"/>
-    <append file="/config/mybatis/db-tx-config.xml"/>
 
 </aspectran>

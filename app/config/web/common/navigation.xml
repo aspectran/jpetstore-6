@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 6.0//EN"
+        "http://aspectran.github.io/dtd/aspectran-6.dtd">
+<aspectran>
+
+    <aspect id="navigationDataMountAspect">
+        <description>
+            Mounts the navigation data as an attribute named "navigation".
+            Normally you will access the JSTL tag ${navigation}.
+        </description>
+        <joinpoint target="translet">
+            pointcut: {
+                +: /**
+            }
+        </joinpoint>
+        <advice bean="navigationManager">
+            <before>
+                <action method="mountNavigationData"/>
+            </before>
+        </advice>
+    </aspect>
+
+</aspectran>

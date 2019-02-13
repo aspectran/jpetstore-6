@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 6.0//EN"
+        "http://aspectran.github.io/dtd/aspectran-6.dtd">
+<aspectran>
+
+    <aspect id="userAuthenticationAspect" order="1">
+        <description>
+            Retrieves UserSessionVO from the session
+            and stores it as a request attribute.
+            The attribute name is "user".
+        </description>
+        <joinpoint target="translet">
+            pointcut: {
+                +: /**
+                -: /login
+                -: /test/**
+                -: /examples/**
+            }
+        </joinpoint>
+        <advice bean="userSessionManager">
+            <before>
+                <action method="authenticateUser"/>
+            </before>
+        </advice>
+    </aspect>
+
+</aspectran>

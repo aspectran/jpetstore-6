@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 6.0//EN"
+        "http://aspectran.github.io/dtd/aspectran-6.dtd">
+<aspectran>
+
+    <bean id="xssPreventionFilter" class="org.mybatis.jpetstore.common.filter.XSSPreventionFilter">
+        <description>
+            <![CDATA[
+            Pattern.compile("<script>(.*?)</script>", Pattern.CASE_INSENSITIVE),
+            Pattern.compile("src[\r\n]*=[\r\n]*\\\'(.*?)\\\'", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
+            Pattern.compile("src[\r\n]*=[\r\n]*\\\"(.*?)\\\"", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
+            Pattern.compile("", Pattern.CASE_INSENSITIVE),
+            Pattern.compile("<script(.*?)>", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
+            Pattern.compile("", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
+            Pattern.compile("eval\\((.*?)\\)", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
+            Pattern.compile("expression\\((.*?)\\)", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
+            Pattern.compile("javascript:", Pattern.CASE_INSENSITIVE),
+            Pattern.compile("vbscript:", Pattern.CASE_INSENSITIVE),
+            Pattern.compile("onload(.*?)=", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL)
+            ]]>
+        </description>
+        <properties>
+            <item name="patterns">
+                <![CDATA[
+                patterns: [
+                    {
+                        pattern: <script>(.*?)</script>
+                        caseInsensitive: true
+                        multiline: false
+                        dotall: false
+                    }
+                    {
+                        pattern: src[\r\n]*=[\r\n]*\'(.*?)\'
+                        caseInsensitive: true
+                        multiline: true
+                        dotall: true
+                    }
+                    {
+                        pattern: src[\r\n]*=[\r\n]*\"(.*?)\"
+                        caseInsensitive: true
+                        multiline: true
+                        dotall: true
+                    }
+                    {
+                        pattern: ""
+                        caseInsensitive: true
+                        multiline: false
+                        dotall: false
+                    }
+                    {
+                        pattern: <script(.*?)>
+                        caseInsensitive: true
+                        multiline: true
+                        dotall: true
+                    }
+                    {
+                        pattern: ""
+                        caseInsensitive: true
+                        multiline: true
+                        dotall: true
+                    }
+                    {
+                        pattern: eval\((.*?)\)
+                        caseInsensitive: true
+                        multiline: true
+                        dotall: true
+                    }
+                    {
+                        pattern: expression\((.*?)\)
+                        caseInsensitive: true
+                        multiline: true
+                        dotall: true
+                    }
+                    {
+                        pattern: javascript:
+                        caseInsensitive: true
+                        multiline: false
+                        dotall: false
+                    }
+                    {
+                        pattern: vbscript:
+                        caseInsensitive: true
+                        multiline: false
+                        dotall: false
+                    }
+                    {
+                        pattern: onload(.*?)=
+                        caseInsensitive: true
+                        multiline: true
+                        dotall: true
+                    }
+                ]
+                ]]>
+            </item>
+        </properties>
+    </bean>
+
+    <aspect id="xssPreventionAspect" order="0">
+        <description>
+            Specifies the environment variables used during request and response processing.
+        </description>
+        <joinpoint target="translet">
+            pointcut: {
+                +: /**
+            }
+        </joinpoint>
+        <advice>
+            <before>
+                <action bean="xssPreventionFilter" method="filter"/>
+            </before>
+        </advice>
+    </aspect>
+
+</aspectran>

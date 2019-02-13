@@ -18,7 +18,7 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
 <div id="BackLink"><stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean">
+	beanclass="org.mybatis.jpetstore.web.actions.CatalogAction">
 	Return to Main Menu
 	</stripes:link></div>
 
@@ -108,7 +108,7 @@ press continue...
 </table>
 
 <stripes:link class="Button"
-	beanclass="org.mybatis.jpetstore.web.actions.OrderActionBean"
+	beanclass="org.mybatis.jpetstore.web.actions.OrderAction"
 	event="newOrder">
 	<stripes:param name="confirmed" value="true" />
 Confirm

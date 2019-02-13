@@ -21,7 +21,7 @@
 	<ul>
 		<c:forEach var="product" items="${accountBean.myList}">
 			<li><stripes:link
-				beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"
+				beanclass="org.mybatis.jpetstore.web.actions.CatalogAction"
 				event="viewProduct">
 				<stripes:param name="productId" value="${product.productId}" />
 			${product.name}

@@ -18,7 +18,7 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
 <div id="BackLink"><stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean">
+	beanclass="org.mybatis.jpetstore.web.actions.CatalogAction">
 	Return to Main Menu</stripes:link></div>
 
 <div id="Catalog">
@@ -33,7 +33,7 @@
 	<c:forEach var="product" items="${actionBean.productList}">
 		<tr>
 			<td><stripes:link
-				beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"
+				beanclass="org.mybatis.jpetstore.web.actions.CatalogAction"
 				event="viewProduct">
 				<stripes:param name="productId" value="${product.productId}" />
 				${product.productId}

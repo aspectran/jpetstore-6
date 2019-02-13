@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 6.0//EN"
+        "http://aspectran.github.io/dtd/aspectran-6.dtd">
+<aspectran>
+
+    <aspect id="errorReport">
+        <description>
+            Prints a simple error message to the console if an unexpected error occurs during processing of the translet.
+            Outputs an error page that matches the type of content being rendered.
+        </description>
+        <joinpoint target="translet"/>
+        <exception>
+            <thrown>
+                <transform type="transform/text">
+                    <template style="apon">
+                        |
+                        |An Error Occurred!
+                        |-----------------------------------------------------------------------------------------
+                        |#{currentTranslet^rootCauseOfRaisedException}
+                        |-----------------------------------------------------------------------------------------
+                        |Powered by Aspectran #{class:com.aspectran.core.util.Aspectran^version}
+                        |
+                    </template>
+                </transform>
+                <transform type="transform/text" contentType="text/html" default="true">
+                    <template style="apon">
+                        |<![CDATA[
+                        |<html><body style="color:#eee;background-color:#000;">
+                        |<h1 style="color:red;">An Error Occurred!</h1>
+                        |<hr/>
+                        |<pre>#{currentTranslet^rootCauseOfRaisedException}</pre>
+                        |<hr/>
+                        |<p align="right"><a href="http://www.aspectran.com" target="_blank">Powered by Aspectran #{class:com.aspectran.core.util.Aspectran^version}</a></p>
+                        |</body></html>
+                        |]]>
+                    </template>
+                </transform>
+            </thrown>
+        </exception>
+    </aspect>
+
+</aspectran>
