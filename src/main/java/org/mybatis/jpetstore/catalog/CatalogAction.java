@@ -38,8 +38,12 @@ import java.util.List;
 @Bean("catalogAction")
 public class CatalogAction {
 
+    private CatalogService catalogService;
+
     @Autowired
-    public transient CatalogService catalogService;
+    public CatalogAction(CatalogService catalogService) {
+        this.catalogService = catalogService;
+    }
 
     @Request("/viewMain")
     @Dispatch("catalog/Main")

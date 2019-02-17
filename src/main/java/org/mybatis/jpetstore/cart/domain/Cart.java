@@ -123,4 +123,9 @@ public class Cart implements Serializable {
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
+    public void clear() {
+        itemMap.clear();
+        itemList.clear();
+    }
+
 }

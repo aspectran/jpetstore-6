@@ -15,7 +15,6 @@
  */
 package org.mybatis.jpetstore.account;
 
-import com.aspectran.core.activity.Translet;
 import com.aspectran.core.component.bean.annotation.Action;
 import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
@@ -23,15 +22,13 @@ import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.core.component.bean.annotation.Dispatch;
 import com.aspectran.core.component.bean.annotation.Redirect;
 import com.aspectran.core.component.bean.annotation.Request;
+import org.mybatis.jpetstore.account.domain.Account;
+import org.mybatis.jpetstore.account.service.AccountService;
+import org.mybatis.jpetstore.catalog.domain.Product;
+import org.mybatis.jpetstore.catalog.service.CatalogService;
 import org.mybatis.jpetstore.common.user.UserSession;
 import org.mybatis.jpetstore.common.user.UserSessionManager;
-import org.mybatis.jpetstore.account.domain.Account;
-import org.mybatis.jpetstore.catalog.domain.Product;
-import org.mybatis.jpetstore.account.service.AccountService;
-import org.mybatis.jpetstore.catalog.service.CatalogService;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -62,8 +59,7 @@ public class AccountAction {
      */
     @Request("/newAccount")
     @Redirect("/viewMain")
-    public void newAccount(Translet translet) {
-        Account account = translet.getModel(Account.class);
+    public void newAccount(Account account) {
         accountService.insertAccount(account);
         account = accountService.getAccount(account.getUsername());
         List<Product> products = catalogService.getProductListByCategory(account.getFavouriteCategoryId());
@@ -86,8 +82,7 @@ public class AccountAction {
      */
     @Request("/editAccount")
     @Redirect("/viewMain")
-    public void editAccount(Translet translet) {
-        Account account = translet.getModel(Account.class);
+    public void editAccount(Account account) {
         accountService.updateAccount(account);
         account = accountService.getAccount(account.getUsername());
         List<Product> products = catalogService.getProductListByCategory(account.getFavouriteCategoryId());
@@ -109,11 +104,9 @@ public class AccountAction {
      * Signon.
      */
     @Request("/signon")
-    @Action(id = "result")
+    @Action("result")
     @Redirect("/viewMain")
-    public String signon(Translet translet) {
-        String username = translet.getParameter("username");
-        String password = translet.getParameter("password");
+    public String signon(String username, String password) {
         Account account = accountService.getAccount(username, password);
         if (account == null) {
             String result = "Invalid username or password.  Signon failed.";

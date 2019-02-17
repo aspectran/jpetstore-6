@@ -47,7 +47,7 @@ daemon: {
     }
 }
 shell: {
-    prompt: "{{green}}aspectran-demo>{{reset}} "
+    prompt: "{{green}}jpetstore>{{reset}} "
     commands: [
         com.aspectran.shell.command.builtins.JettyCommand
         com.aspectran.shell.command.builtins.TransletCommand

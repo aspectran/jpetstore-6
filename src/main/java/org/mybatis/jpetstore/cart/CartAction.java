@@ -50,7 +50,7 @@ public class CartAction {
      * Removes the item from cart.
      */
     @Request("/addItemToCart")
-    @Action(id = "result")
+    @Action("result")
     @Dispatch("cart/Cart")
     public String removeItemFromCart(Translet translet) {
         String itemId = translet.getParameter("itemId");

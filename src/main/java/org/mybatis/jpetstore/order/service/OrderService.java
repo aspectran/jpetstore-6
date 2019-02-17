@@ -41,7 +41,7 @@ import java.util.Map;
 @Bean("orderService")
 public class OrderService {
 
-    public SqlSession sqlSession;
+    private SqlSession sqlSession;
 
     @Autowired
     public OrderService(SimpleSqlSession sqlSession) {
