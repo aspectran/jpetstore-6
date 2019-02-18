@@ -11,9 +11,7 @@
         </description>
         <joinpoint target="translet">
             pointcut: {
-                +: /**
-                -: /account/signonForm
-                -: /viewMain
+                +: /order/**
             }
         </joinpoint>
         <advice bean="userSessionManager">

@@ -13,14 +13,15 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
+#Header {
+  background-color: #000;
+  color: #eaac00;
+}
 #Logo {
   width: 33%;
   height: 9ex;
   margin: 0ex 0ex 0ex 0ex;
   padding: 0ex 0ex 0ex 0ex;
-  border-width: 0ex 0ex .3ex 0px;
-  border-style: solid;
-  border-color: #ccc;
   float: left;
   background-color: #000;
   color: #fff;
@@ -39,9 +40,6 @@ body>#Logo {
   height: 9ex;
   margin: 0ex 0ex 0ex 0ex;
   padding: 0ex 0ex 0ex 0ex;
-  border-width: 0ex 0ex .3ex 0px;
-  border-style: solid;
-  border-color: #ccc;
   float: left;
   background-color: #000;
   color: #eaac00;
@@ -65,16 +63,12 @@ body>#Menu {
 }
 
 #Search {
-  width: 33%;
+  width: 20%;
   height: 9ex;
-  margin: 0ex 0ex 0ex 0ex;
-  padding: 0ex 0ex 0ex 0ex;
-  border-width: 0ex 0ex .3ex 0px;
-  border-style: solid;
-  border-color: #ccc;
-  float: left;
+  margin: 0;
+  padding: 0 15px 0 0;
+  float: right;
   text-align: center;
-  background-color: #000;
   color: #eaac00;
   line-height: 9ex;
   voice-family: "\"}\"";
@@ -87,8 +81,6 @@ body>#Search {
 }
 
 #Search input {
-  border-width: .1ex .1ex .1ex .1ex;
-  border-style: solid;
   border-color: #aaa;
   background-color: #666;
   color: #eaac00;
@@ -96,18 +88,23 @@ body>#Search {
 
 #QuickLinks {
   text-align: center;
-  background-color: #FFF;
-  width: 99%;
+  background-color: #ccc;
+  width: 100%;
+  clear: both;
+  padding:4px 4px;
+}
+
+#Footer {
+  background-color: #000;
+  color: #fff;
+  overflow: auto;
 }
 
 #PoweredBy {
   width: 30%;
   height: 9ex;
-  margin: 0ex 0ex 0ex 0ex;
-  padding: 0ex 0ex 0ex 0ex;
-  border-width: .3ex 0ex .3ex 0px;
-  border-style: solid;
-  border-color: #ccc;
+  margin: 0;
+  padding: 0 0 0 15px;
   float: left;
   background-color: #000;
   color: #fff;
@@ -126,10 +123,7 @@ body>#PoweredBy {
   height: 9ex;
   margin: 0ex 0ex 0ex 0ex;
   padding: 0ex 0ex 0ex 0ex;
-  border-width: .3ex 0ex .3ex 0px;
-  border-style: solid;
-  border-color: #ccc;
-  float: left;
+  float: right;
   background-color: #000;
   color: #fff;
   line-height: 9ex;
@@ -143,10 +137,30 @@ body>#Banner {
 }
 
 #Content {
-  margin: 0;
-  padding: 0ex 0ex 0ex 0ex;
-  width: 99%;
+  margin: 15px 0 0 0;
+  padding: 0;
+  width: 100%;
   border-width: 0;
+  clear: both;
+  position: relative;
+}
+
+#Content h2 {
+  text-align: left;
+}
+
+#Content table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#Content table td .button {
+  margin: 0;
+}
+#Content table td input {
+  margin: 0;
 }
 
 #Separator {
@@ -157,10 +171,6 @@ body>#Banner {
 
 #Main {
   margin: 0;
-  padding: 1ex;
-  border-width: 1ex 0ex 2ex 0px;
-  border-style: solid;
-  border-color: #fff;
 }
 
 #Sidebar {
@@ -173,47 +183,29 @@ body>#Banner {
   float: left;
   background:inherit;
   text-align:center;
-  width: 50%;
+  width: 42%;
+}
+
+#MainImageContent {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  margin-bottom: 15px;
 }
 
 #Catalog {
-  padding: 1ex;
   background:inherit;
   text-align:center;
 }
 
-#Catalog input[type="submit"]{
-  padding: .3ex;
-  color: #fff;
-  background-color: #005e21;
-  text-decoration: none;
-  font-family: helvetica, tahoma, arial, verdana, sans-serif;
-  font-size: 1.5ex;
-  border-width:0;
-}
-#Catalog input[type="submit"]:hover {
-  color: #000;
-  background-color: #54c07a;
-  cursor:pointer;
-}
 
-#Catalog table{
-  margin-left:auto;
-  margin-right:auto;
-}
-
-#BackLink{
-  padding: 1ex;
-  float: right;
-  border-width: .1ex 0ex .1ex 0px;
-  border-style: solid;
-  border-color: #000;
+#BackLink {
+  position: absolute;
+  right: 5px;
+  top: 0;
 }
 
 #Cart{
-  width: 69.99%;
-  float: left;
-  background-color:#fff;
+  width: 100%;
 }
 
 #MyList{

@@ -20,7 +20,10 @@ import com.aspectran.core.component.bean.annotation.Action;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.core.component.bean.annotation.Dispatch;
+import com.aspectran.core.component.bean.annotation.Redirect;
 import com.aspectran.core.component.bean.annotation.Request;
+import com.aspectran.core.component.bean.annotation.Required;
+import org.mybatis.jpetstore.cart.domain.Cart;
 import org.mybatis.jpetstore.cart.domain.CartItem;
 import org.mybatis.jpetstore.cart.service.CartService;
 
@@ -38,32 +41,34 @@ public class CartAction {
     /**
      * Adds the item to cart.
      */
-    @Request("/addItemToCart")
-    @Dispatch("cart/Cart")
-    public void addItemToCart(Translet translet) {
-        String itemId = translet.getParameter("itemId");
+    @Request("/cart/addItemToCart")
+    @Redirect("/cart/viewCart")
+    @Action("cart")
+    public Cart addItemToCart(Translet translet, @Required String itemId) {
         CartService cartService = translet.getBean("cartService");
         cartService.addItemToCart(itemId);
+        return cartService.getCart();
     }
 
     /**
      * Removes the item from cart.
      */
-    @Request("/addItemToCart")
-    @Action("result")
-    @Dispatch("cart/Cart")
-    public String removeItemFromCart(Translet translet) {
-        String itemId = translet.getParameter("itemId");
+    @Request("/cart/removeItemFromCart")
+    @Redirect("/cart/viewCart")
+    @Action("cart")
+    public Cart removeItemFromCart(Translet translet, @Required String cartItem) {
         CartService cartService = translet.getBean("cartService");
-        return cartService.removeItemFromCart(itemId);
+        cartService.removeItemFromCart(cartItem);
+        return cartService.getCart();
     }
 
     /**
      * Update cart quantities.
      */
-    @Request("/updateCartQuantities")
-    @Dispatch("cart/Cart")
-    public void updateCartQuantities(Translet translet) {
+    @Request("/cart/updateCartQuantities")
+    @Redirect("/cart/viewCart")
+    @Action("cart")
+    public Cart updateCartQuantities(Translet translet) {
         CartService cartService = translet.getBean("cartService");
         Iterator<CartItem> cartItems = cartService.getAllCartItems();
         while (cartItems.hasNext()) {
@@ -79,16 +84,21 @@ public class CartAction {
                 // ignore parse exceptions on purpose
             }
         }
+        return cartService.getCart();
     }
 
-    @Request("/viewCart")
+    @Request("/cart/viewCart")
     @Dispatch("cart/Cart")
-    public void viewCart() {
+    @Action("cart")
+    public Cart viewCart(Translet translet) {
+        CartService cartService = translet.getBean("cartService");
+        return cartService.getCart();
     }
 
-    @Request("/checkOut")
+    @Request("/cart/checkOut")
     @Dispatch("cart/Checkout")
-    public void checkOut() {
+    public Cart checkOut(Translet translet) {
+        return viewCart(translet);
     }
 
 }

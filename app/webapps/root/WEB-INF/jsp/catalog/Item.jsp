@@ -18,13 +18,15 @@
        limitations under the License.
 
 --%>
+<%@ include file="../common/IncludeTop.jsp"%>
+
 <div id="BackLink">
-	<a href="/viewProduct?productId=${product.productId}">Return to ${product.productId}</a>
+	<a href="/catalog/viewProduct?productId=${product.productId}">Return to ${product.productId}</a>
 </div>
 
 <div id="Catalog">
 
-	<table>
+	<table style="width:50%;">
 		<tr>
 			<td>${product.description}</td>
 		</tr>
@@ -47,16 +49,16 @@
 			</td>
 		</tr>
 		<tr>
-			<td><fmt:formatNumber value="${actionBean.item.listPrice}" pattern="$#,##0.00" /></td>
+			<td><fmt:formatNumber value="${item.listPrice}" pattern="$#,##0.00" /></td>
 		</tr>
 		<tr>
 			<td>
-				<button type="button" class="button" onclick="window.location.href='/addItemToCart?workingItemId=${item.itemId}">Add to Cart</button>
+				<a class="button" href="/cart/addItemToCart?itemId=${item.itemId}">Add to Cart</a>
 			</td>
 		</tr>
 	</table>
 
 </div>
 
-
+<%@ include file="../common/IncludeBottom.jsp"%>
 

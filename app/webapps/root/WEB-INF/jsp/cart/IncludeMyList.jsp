@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%--
 
        Copyright 2010-2016 the original author or authors.
@@ -15,18 +17,13 @@
        limitations under the License.
 
 --%>
-<c:if test="${!empty accountBean.myList}">
+<c:if test="${!empty user.account.myList}">
 	<p>Pet Favorites <br />
-	Shop for more of your favorite pets here.</p>
+		Shop for more of your favorite pets here.</p>
 	<ul>
-		<c:forEach var="product" items="${accountBean.myList}">
-			<li><stripes:link
-				beanclass="org.mybatis.jpetstore.web.actions.CatalogAction"
-				event="viewProduct">
-				<stripes:param name="productId" value="${product.productId}" />
-			${product.name}
-		</stripes:link> (${product.productId})</li>
+		<c:forEach var="product" items="${user.account.myList}">
+			<li>
+				<a href="/catalog/viewProduct?productId=${product.productId}">${product.name}</li>
 		</c:forEach>
 	</ul>
-
 </c:if>

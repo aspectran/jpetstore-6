@@ -20,6 +20,7 @@ import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.core.component.bean.annotation.Dispatch;
+import com.aspectran.core.component.bean.annotation.Redirect;
 import com.aspectran.core.component.bean.annotation.Request;
 import com.aspectran.core.util.StringUtils;
 import org.mybatis.jpetstore.catalog.domain.Category;
@@ -45,7 +46,12 @@ public class CatalogAction {
         this.catalogService = catalogService;
     }
 
-    @Request("/viewMain")
+    @Request("/")
+    @Redirect("/catalog/")
+    public void home() {
+    }
+
+    @Request("/catalog/")
     @Dispatch("catalog/Main")
     public void viewMain() {
     }
@@ -53,7 +59,7 @@ public class CatalogAction {
     /**
      * View category.
      */
-    @Request("/viewCategory")
+    @Request("/catalog/viewCategory")
     @Dispatch("catalog/Category")
     public void viewCategory(Translet translet) {
         String categoryId = translet.getParameter("categoryId");
@@ -68,7 +74,7 @@ public class CatalogAction {
     /**
      * View product.
      */
-    @Request("/viewProduct")
+    @Request("/catalog/viewProduct")
     @Dispatch("catalog/Product")
     public void viewProduct(Translet translet) {
         String productId = translet.getParameter("productId");
@@ -83,7 +89,7 @@ public class CatalogAction {
     /**
      * View item.
      */
-    @Request("/viewItem")
+    @Request("/catalog/viewItem")
     @Dispatch("catalog/Item")
     public void viewItem(Translet translet) {
         String itemId = translet.getParameter("itemId");
@@ -96,7 +102,7 @@ public class CatalogAction {
     /**
      * Search products.
      */
-    @Request("/searchProducts")
+    @Request("/catalog/searchProducts")
     @Dispatch("catalog/SearchProducts")
     public void searchProducts(Translet translet) {
         String keyword = translet.getParameter("keyword");

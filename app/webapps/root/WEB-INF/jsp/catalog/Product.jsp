@@ -18,8 +18,10 @@
        limitations under the License.
 
 --%>
+<%@ include file="../common/IncludeTop.jsp"%>
+
 <div id="BackLink">
-	<a href="/viewCategory?categoryId=${product.categoryId}">Return to ${product.categoryId}</a>
+	<a href="/catalog/viewCategory?categoryId=${product.categoryId}">Return to ${product.categoryId}</a>
 </div>
 
 <div id="Catalog">
@@ -37,7 +39,7 @@
 		<c:forEach var="item" items="${itemList}">
 			<tr>
 				<td>
-					<a href="/viewItem?itemId=${item.itemId}">${item.itemId}</a>
+					<a href="/catalog/viewItem?itemId=${item.itemId}">${item.itemId}</a>
 				</td>
 				<td>${item.product.productId}</td>
 				<td>
@@ -46,7 +48,7 @@
 				</td>
 				<td><fmt:formatNumber value="${item.listPrice}" pattern="$#,##0.00" /></td>
 				<td>
-					<button type="button" class="button small" onclick="window.location.href='/addItemToCart?workingItemId=${item.itemId}'">Add to Cart</button>
+					<a class="button" href="/cart/addItemToCart?itemId=${item.itemId}">Add to Cart</a>
 				</td>
 			</tr>
 		</c:forEach>
@@ -54,7 +56,5 @@
 
 </div>
 
-
-
-
+<%@ include file="../common/IncludeBottom.jsp"%>
 

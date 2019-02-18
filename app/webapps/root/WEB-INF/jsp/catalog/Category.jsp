@@ -17,8 +17,10 @@
        limitations under the License.
 
 --%>
+<%@ include file="../common/IncludeTop.jsp"%>
+
 <div id="BackLink">
-	<a href="/viewMain">Return to Main Menu</a>
+	<a href="/catalog/">Return to Main Menu</a>
 </div>
 
 <div id="Catalog">
@@ -33,7 +35,7 @@
 		<c:forEach var="product" items="${productList}">
 			<tr>
 				<td>
-					<a href="/viewProduct?productId=${product.productId}">${product.productId}</a>
+					<a href="/catalog/viewProduct?productId=${product.productId}">${product.productId}</a>
 				</td>
 				<td>${product.name}</td>
 			</tr>
@@ -42,4 +44,5 @@
 
 </div>
 
+<%@ include file="../common/IncludeBottom.jsp"%>
 

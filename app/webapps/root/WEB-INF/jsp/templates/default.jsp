@@ -50,7 +50,7 @@
         ga('send', 'pageview');
     </script>
 </head>
-<body id="top-of-page" class="article" itemscope itemtype="http://schema.org/WebPage">
+<body id="top-of-page" class="plate article" itemscope itemtype="http://schema.org/WebPage">
 <nav id="navigation" class="no-js">
     <div class="title-bar" data-responsive-toggle="gnb-menu" data-hide-for="large" style="display:none">
         <div class="title-bar-left">
@@ -162,17 +162,21 @@
     </div>
     <div class="row">
         <div class="large-12 columns">
-            <c:if test="${not empty INCLUDE_PAGE}">
-                <jsp:include page="/WEB-INF/jsp/${INCLUDE_PAGE}.jsp"/>
-            </c:if>
+            <div class="row content">
+                <div class="xlarge-10 xlarge-offset-1 columns t15">
+                    <c:if test="${not empty INCLUDE_PAGE}">
+                        <jsp:include page="/WEB-INF/jsp/${INCLUDE_PAGE}.jsp"/>
+                    </c:if>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 <div id="up-to-top" class="row">
     <div class="small-12 columns" style="text-align: right;">
         <a class="iconfont" href="#top-of-page">&#xf108;</a>
-    </div><!-- /.small-12.columns -->
-</div><!-- /.row -->
+    </div>
+</div>
 <footer id="footer-content">
     <div id="footer">
         <div class="row">

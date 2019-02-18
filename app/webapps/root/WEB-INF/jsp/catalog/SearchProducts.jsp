@@ -17,41 +17,30 @@
 --%>
 <%@ include file="../common/IncludeTop.jsp"%>
 
-<div id="BackLink"><stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.CatalogAction">
-	Return to Main Menu
-</stripes:link></div>
+<div id="BackLink">
+	<a href="/catalog/">Return to Main Menu</a>
+</div>
 
 <div id="Catalog">
 
-<table>
-	<tr>
-		<th>&nbsp;</th>
-		<th>Product ID</th>
-		<th>Name</th>
-	</tr>
-	<c:forEach var="product" items="${actionBean.productList}">
+	<table>
 		<tr>
-			<td><stripes:link
-				beanclass="org.mybatis.jpetstore.web.actions.CatalogAction"
-				event="viewProduct">
-				<stripes:param name="productId" value="${product.productId}" />
-				${product.description}
-			</stripes:link></td>
-			<td><b> <stripes:link
-				beanclass="org.mybatis.jpetstore.web.actions.CatalogAction"
-				event="viewProduct">
-				<stripes:param name="productId" value="${product.productId}" />
-				<font color="BLACK"> ${product.productId} </font>
-			</stripes:link> </b></td>
-			<td>${product.name}</td>
+			<th>&nbsp;</th>
+			<th>Product ID</th>
+			<th>Name</th>
 		</tr>
-	</c:forEach>
-	<tr>
-		<td></td>
-	</tr>
-
-</table>
+		<c:forEach var="product" items="${productList}">
+			<tr>
+				<td>
+					<a href="/catalog/viewProduct?productId=${product.productId}">${product.description}</a>
+				</td>
+				<td>
+					<strong><a href="/catalog/viewProduct?productId=${product.productId}">${product.productId}</a></strong>
+				</td>
+				<td>${product.name}</td>
+			</tr>
+		</c:forEach>
+	</table>
 
 </div>
 

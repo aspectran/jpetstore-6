@@ -18,6 +18,8 @@ package org.mybatis.jpetstore.order;
 import com.aspectran.core.activity.Translet;
 import com.aspectran.core.component.bean.annotation.Action;
 import com.aspectran.core.component.bean.annotation.Autowired;
+import com.aspectran.core.component.bean.annotation.Bean;
+import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.core.component.bean.annotation.Dispatch;
 import com.aspectran.core.component.bean.annotation.Request;
 import org.mybatis.jpetstore.account.domain.Account;
@@ -35,13 +37,12 @@ import java.util.List;
  *
  * @author Eduardo Macarron
  */
+@Component
+@Bean("orderAction")
 public class OrderAction {
 
     @Autowired
     public OrderService orderService;
-
-    @Autowired
-    public CartService cartService;
 
     @Autowired
     public UserSessionManager sessionManager;
@@ -49,7 +50,7 @@ public class OrderAction {
     /**
      * List orders.
      */
-    @Request("/listOrders")
+    @Request("/order/listOrders")
     @Dispatch("order/ListOrders")
     @Action("orderList")
     public List<Order> listOrders() {
@@ -60,13 +61,13 @@ public class OrderAction {
     /**
      * New order form.
      */
-    @Request("/newOrderForm")
+    @Request("/order/newOrderForm")
     @Dispatch("order/NewOrderForm")
     @Action("order")
     public Order newOrderForm(Translet translet) {
         Account account = sessionManager.getUserSession().getAccount();
+        CartService cartService = translet.getBean("cartService");
         Cart cart = cartService.getCart();
-
         if (cart != null) {
             Order order = new Order();
             order.initOrder(account, cart);
@@ -82,7 +83,7 @@ public class OrderAction {
     /**
      * New order.
      */
-    @Request("/newOrder")
+    @Request("/order/newOrder")
     public void newOrder(Translet translet,
                          Order order,
                          boolean shippingAddressRequired,
@@ -94,6 +95,7 @@ public class OrderAction {
             translet.dispatch("order/ConfirmOrder");
         } else {
             orderService.insertOrder(order);
+            CartService cartService = translet.getBean("cartService");
             Cart cart = cartService.getCart();
             cart.clear();
 
@@ -108,7 +110,7 @@ public class OrderAction {
      *
      * @return the resolution
      */
-    @Request("/viewOrder")
+    @Request("/order/viewOrder")
     @Dispatch("order/ViewOrder")
     @Action("order")
     public Order viewOrder(int orderId) {

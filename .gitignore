@@ -1,8 +1,30 @@
-/target
-/.settings
-/.classpath
-/.project
-/.idea
+# Eclipse project files
+.project
+.classpath
+.settings
+
+# IntelliJ IDEA project files and directories
 *.iml
-/build
+*.ipr
+*.iws
+.idea/
+
+# Geany project file
+.geany
+
+# Build targets
+/target
+*/target
+
+# Report directories
+/reports
+*/reports
+
+# Mac-specific directory that no other operating system needs
+.DS_Store
+
+# JVM crash logs
+hs_err_pid*.log
+
+# These are needed if running in IDE without properties set
 .mvn/wrapper/maven-wrapper.jar

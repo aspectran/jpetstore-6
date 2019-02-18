@@ -17,6 +17,7 @@
                 /assets/**
                 /css/**
                 /images/**
+                /**/*.html
             </param-value>
         </init-param>
     </filter>
