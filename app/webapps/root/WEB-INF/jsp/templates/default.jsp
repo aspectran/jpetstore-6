@@ -9,6 +9,7 @@
     <title>${empty page.title ? "Aspectran Demo Site" : page.title}</title>
     <meta name="description" content="${empty page.description ? "Welcome to Aspectran Demo" : page.description}" />
     <link rel="stylesheet" type="text/css" href="http://www.aspectran.com/assets/css/styles_aspectran.css" />
+    <link rel="stylesheet" type="text/css" href="/css/jpetstore.css" />
     <link href="http://fonts.googleapis.com/css?family=Raleway:500,500i,700" rel="stylesheet">
     <script src="http://www.aspectran.com/assets/js/modernizr.js"></script>
     <script src="http://www.aspectran.com/assets/js/jquery.js"></script>
@@ -161,8 +162,8 @@
     </div>
     <div class="row">
         <div class="large-12 columns">
-            <c:if test="${not empty page.include}">
-                <jsp:include page="/WEB-INF/jsp/${page.include}.jsp"/>
+            <c:if test="${not empty INCLUDE_PAGE}">
+                <jsp:include page="/WEB-INF/jsp/${INCLUDE_PAGE}.jsp"/>
             </c:if>
         </div>
     </div>

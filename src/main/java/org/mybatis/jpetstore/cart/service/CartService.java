@@ -27,7 +27,7 @@ import org.mybatis.jpetstore.order.domain.Item;
 import java.util.Iterator;
 
 /**
- * The Class CartAction.
+ * The Class CartService.
  *
  * @author Eduardo Macarron
  */
@@ -35,10 +35,14 @@ import java.util.Iterator;
 @Bean(id = "cartService", scope = ScopeType.SESSION)
 public class CartService {
 
-    @Autowired
-    public transient CatalogService catalogService;
+    private CatalogService catalogService;
 
     private final Cart cart = new Cart();
+
+    @Autowired
+    public CartService(CatalogService catalogService) {
+        this.catalogService = catalogService;
+    }
 
     public Cart getCart() {
         return cart;

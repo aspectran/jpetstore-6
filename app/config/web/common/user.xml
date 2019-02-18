@@ -3,25 +3,29 @@
         "http://aspectran.github.io/dtd/aspectran-6.dtd">
 <aspectran>
 
-    <aspect id="userAuthenticationAspect" order="1">
+    <aspect id="checkUserSessionAspect" order="1">
         <description>
-            Retrieves UserSessionVO from the session
+            Retrieves UserSession from the session
             and stores it as a request attribute.
             The attribute name is "user".
         </description>
         <joinpoint target="translet">
             pointcut: {
                 +: /**
-                -: /login
-                -: /test/**
-                -: /examples/**
+                -: /account/signonForm
+                -: /viewMain
             }
         </joinpoint>
         <advice bean="userSessionManager">
             <before>
-                <action method="authenticateUser"/>
+                <action method="checkUserSession"/>
             </before>
         </advice>
+        <exception>
+            <thrown>
+                <redirect path="/account/signonForm"/>
+            </thrown>
+        </exception>
     </aspect>
 
 </aspectran>

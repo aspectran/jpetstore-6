@@ -95,8 +95,8 @@ public class AccountAction {
     /**
      * Signon form.
      */
-    @Request("/signonForm")
-    @Redirect("account/SignonForm")
+    @Request("/account/signonForm")
+    @Dispatch("account/SignonForm")
     public void signonForm() {
     }
 

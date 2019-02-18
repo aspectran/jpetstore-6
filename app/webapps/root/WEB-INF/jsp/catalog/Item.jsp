@@ -1,3 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%--
 
        Copyright 2010-2016 the original author or authors.
@@ -15,58 +18,45 @@
        limitations under the License.
 
 --%>
-<%@ include file="../common/IncludeTop.jsp"%>
-
-<div id="BackLink"><stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.CatalogAction"
-	event="viewProduct">
-	<stripes:param name="productId" value="${actionBean.product.productId}" />
-	Return to ${actionBean.product.productId}
-</stripes:link></div>
+<div id="BackLink">
+	<a href="/viewProduct?productId=${product.productId}">Return to ${product.productId}</a>
+</div>
 
 <div id="Catalog">
 
-<table>
-	<tr>
-		<td>${actionBean.product.description}</td>
-	</tr>
-	<tr>
-		<td><b> ${actionBean.item.itemId} </b></td>
-	</tr>
-	<tr>
-		<td><b><font size="4"> ${actionBean.item.attribute1}
-		${actionBean.item.attribute2} ${actionBean.item.attribute3}
-		${actionBean.item.attribute4} ${actionBean.item.attribute5}
-		${actionBean.product.name} </font></b></td>
-	</tr>
-	<tr>
-		<td>${actionBean.product.name}</td>
-	</tr>
-	<tr>
-		<td><c:if test="${actionBean.item.quantity <= 0}">
-        Back ordered.
-      </c:if> <c:if test="${actionBean.item.quantity > 0}">
-      	${actionBean.item.quantity} in stock.
-	  </c:if></td>
-	</tr>
-	<tr>
-		<td><fmt:formatNumber value="${actionBean.item.listPrice}"
-			pattern="$#,##0.00" /></td>
-	</tr>
-
-	<tr>
-		<td><stripes:link class="Button"
-			beanclass="org.mybatis.jpetstore.web.actions.CartAction"
-			event="addItemToCart">
-			<stripes:param name="workingItemId" value="${actionBean.item.itemId}" />
-       	Add to Cart
-       </stripes:link></td>
-	</tr>
-</table>
+	<table>
+		<tr>
+			<td>${product.description}</td>
+		</tr>
+		<tr>
+			<td><b> ${item.itemId} </b></td>
+		</tr>
+		<tr>
+			<td><strong><small> ${item.attribute1}
+			${item.attribute2} ${item.attribute3}
+			${item.attribute4} ${item.attribute5}
+			${product.name} </small></strong></td>
+		</tr>
+		<tr>
+			<td>${product.name}</td>
+		</tr>
+		<tr>
+			<td>
+				<c:if test="${item.quantity le 0}">Back ordered.</c:if>
+				<c:if test="${item.quantity gt 0}">${item.quantity} in stock.</c:if>
+			</td>
+		</tr>
+		<tr>
+			<td><fmt:formatNumber value="${actionBean.item.listPrice}" pattern="$#,##0.00" /></td>
+		</tr>
+		<tr>
+			<td>
+				<button type="button" class="button" onclick="window.location.href='/addItemToCart?workingItemId=${item.itemId}">Add to Cart</button>
+			</td>
+		</tr>
+	</table>
 
 </div>
-
-<%@ include file="../common/IncludeBottom.jsp"%>
 
 
 

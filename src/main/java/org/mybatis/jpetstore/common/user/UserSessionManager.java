@@ -30,7 +30,7 @@ public class UserSessionManager implements ActivityContextAware {
         getSessionAdapter().removeAttribute(USER_SESSION_KEY);
     }
 
-    public void authenticateUser() {
+    public void checkUserSession() {
         Translet translet = activityContext.getCurrentActivity().getTranslet();
         if (translet == null) {
             throw new UnsupportedOperationException("There is no Translet in " +
@@ -38,7 +38,7 @@ public class UserSessionManager implements ActivityContextAware {
         }
         UserSession userSession = getUserSession();
         if (userSession == null) {
-            translet.redirect("/signonForm", new HashMap<String, String>() {{
+            translet.redirect("/account/signonForm", new HashMap<String, String>() {{
                 put("referrer", translet.getRequestName());
             }});
         }

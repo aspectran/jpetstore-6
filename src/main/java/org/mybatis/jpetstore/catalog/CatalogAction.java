@@ -58,10 +58,10 @@ public class CatalogAction {
     public void viewCategory(Translet translet) {
         String categoryId = translet.getParameter("categoryId");
         if (categoryId != null) {
-            List<Product> productList = catalogService.getProductListByCategory(categoryId);
             Category category = catalogService.getCategory(categoryId);
-            translet.setAttribute("productList", productList);
+            List<Product> productList = catalogService.getProductListByCategory(categoryId);
             translet.setAttribute("category", category);
+            translet.setAttribute("productList", productList);
         }
     }
 
@@ -73,10 +73,10 @@ public class CatalogAction {
     public void viewProduct(Translet translet) {
         String productId = translet.getParameter("productId");
         if (productId != null) {
-            List<Item> itemList = catalogService.getItemListByProduct(productId);
             Product product = catalogService.getProduct(productId);
-            translet.setAttribute("itemList", itemList);
+            List<Item> itemList = catalogService.getItemListByProduct(productId);
             translet.setAttribute("product", product);
+            translet.setAttribute("itemList", itemList);
         }
     }
 

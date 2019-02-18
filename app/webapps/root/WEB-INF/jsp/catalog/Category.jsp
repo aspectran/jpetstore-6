@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%--
 
        Copyright 2010-2016 the original author or authors.
@@ -15,36 +17,29 @@
        limitations under the License.
 
 --%>
-<%@ include file="../common/IncludeTop.jsp"%>
-
-<div id="BackLink"><stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.CatalogAction">
-	Return to Main Menu</stripes:link></div>
+<div id="BackLink">
+	<a href="/viewMain">Return to Main Menu</a>
+</div>
 
 <div id="Catalog">
 
-<h2>${actionBean.category.name}</h2>
+	<h2>${category.name}</h2>
 
-<table>
-	<tr>
-		<th>Product ID</th>
-		<th>Name</th>
-	</tr>
-	<c:forEach var="product" items="${actionBean.productList}">
+	<table>
 		<tr>
-			<td><stripes:link
-				beanclass="org.mybatis.jpetstore.web.actions.CatalogAction"
-				event="viewProduct">
-				<stripes:param name="productId" value="${product.productId}" />
-				${product.productId}
-			</stripes:link></td>
-			<td>${product.name}</td>
+			<th>Product ID</th>
+			<th>Name</th>
 		</tr>
-	</c:forEach>
-</table>
+		<c:forEach var="product" items="${productList}">
+			<tr>
+				<td>
+					<a href="/viewProduct?productId=${product.productId}">${product.productId}</a>
+				</td>
+				<td>${product.name}</td>
+			</tr>
+		</c:forEach>
+	</table>
 
 </div>
-
-<%@ include file="../common/IncludeBottom.jsp"%>
 
 

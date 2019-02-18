@@ -86,7 +86,7 @@ public class CatalogService {
     }
 
     public boolean isItemInStock(String itemId) {
-        return ItemMapper.getInstance(sqlSession).getInventoryQuantity(itemId) > 0;
+        return (ItemMapper.getInstance(sqlSession).getInventoryQuantity(itemId) > 0);
     }
 
 }

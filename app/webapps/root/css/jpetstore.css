@@ -13,113 +13,6 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-body {
-  margin: 0ex 10ex 0ex 10ex;
-  padding: 0ex;
-  font-family: helvetica, tahoma, arial, verdana, sans-serif;
-  font-size: 2ex;
-  color: #333;
-  background-color: #444;
-}
-
-pre {
-  font-family: "Courier New", Courier, mono;
-
-  font-style: normal;
-  background-color: #FFFFFF;
-  white-space: pre
-}
-
-h1 {
-  margin: 1ex 0ex 1ex 0ex;
-  padding: 0ex;
-
-  line-height: 3ex;
-  font-weight: 900;
-  color: #666;
-}
-
-h2 {
-  margin: 2ex 0ex 1ex 0ex;
-  padding: 0ex;
-
-  line-height: 2ex;
-  font-weight: 700;
-  color: #444;
-}
-
-h3 {
-  margin: 1ex 0ex 1ex 0ex;
-  padding: 0ex;
-
-  line-height: 1.6ex;
-  font-weight: 700;
-  color: #222;
-}
-
-p {
-  font-family: helvetica, tahoma, arial, verdana, sans-serif;
-
-  margin: 0ex 0ex 0ex 0ex;
-  padding: 2ex;
-}
-
-img {
-  border: 0;
-}
-
-li {
-  font-family: helvetica, tahoma, arial, verdana, sans-serif;
-
-  margin: 0ex 0ex 0ex 0ex;
-  padding: 0ex;
-}
-
-table {
-  border-width: 0;
-  empty-cells: show;
-}
-
-td, th {
-  empty-cells: show;
-  padding: .3ex .3ex;
-  vertical-align: top;
-  text-align: left;
-  border-width: 0;
-  border-spacing: 0;
-  background-color: #ececec
-}
-
-th {
-  font-weight: bold;
-  background-color: #e2e2e2;
-}
-
-a, a:visited, a:link {
-  color: #039;
-
-  text-decoration: none;
-  font-family: helvetica, tahoma, arial, verdana, sans-serif;
-}
-
-a:hover {
-  color: #69f;
-}
-
-a.Button, a.Button:link, a.Button:visited {
-  padding: .3ex;
-  color: #fff;
-  background-color: #005e21;
-  text-decoration: none;
-  font-family: helvetica, tahoma, arial, verdana, sans-serif;
-  font-size: 1.5ex;
-}
-
-a.Button:hover {
-  color: #000;
-  background-color: #54c07a;
-}
-
 #Logo {
   width: 33%;
   height: 9ex;
@@ -169,9 +62,6 @@ body>#Logo {
 
 body>#Menu {
   height: 9ex;
-}
-
- {
 }
 
 #Search {
@@ -256,8 +146,6 @@ body>#Banner {
   margin: 0;
   padding: 0ex 0ex 0ex 0ex;
   width: 99%;
-  color: #333;
-  background-color: #FFF;
   border-width: 0;
 }
 
@@ -270,8 +158,6 @@ body>#Banner {
 #Main {
   margin: 0;
   padding: 1ex;
-  color: #333;
-  background-color: #FFF;
   border-width: 1ex 0ex 2ex 0px;
   border-style: solid;
   border-color: #fff;

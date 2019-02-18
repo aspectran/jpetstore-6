@@ -9,27 +9,30 @@
         always start with a forward slash (/).
     </description>
 
-    <bean id="jspViewDispatcher" class="com.aspectran.web.support.view.JspViewDispatcher">
+    <bean id="defaultJspTemplate" class="com.aspectran.web.support.view.JspTemplateViewDispatcher">
         <description>
-            Register a JSP View Dispatcher.
+            Register a JSP Template View Dispatcher.
         </description>
         <properties>
-            <item name="prefix">/WEB-INF/jsp/</item>
-            <item name="suffix">.jsp</item>
+            <item name="contentType">text/html</item>
+            <item name="template">/WEB-INF/jsp/templates/default.jsp</item>
+            <item name="includePageKey">INCLUDE_PAGE</item>
         </properties>
     </bean>
 
-    <aspect id="transletSettings">
+    <aspect id="defaultTransletSettings">
         <description>
             Specifies the environment variables used during request and response processing.
         </description>
         <joinpoint target="translet"/>
         <settings>
             <setting name="characterEncoding" value="utf-8"/>
-            <setting name="viewDispatcher" value="jspViewDispatcher"/>
+            <setting name="viewDispatcher" value="defaultJspTemplate"/>
             <setting name="indentString" value="  "/>
         </settings>
     </aspect>
+
+    <append file="/config/web/common/user.xml"/>
 
     <!--<append file="/config/web/home/main.xml"/>-->
     <!--<append file="/config/web/examples/hello-world.xml"/>-->
