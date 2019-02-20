@@ -98,6 +98,7 @@ body>#Search {
   background-color: #000;
   color: #fff;
   overflow: auto;
+  margin-top: 15px;
 }
 
 #PoweredBy {
@@ -204,13 +205,31 @@ body>#Banner {
   top: 0;
 }
 
-#Cart{
+#Cart {
   width: 100%;
 }
 
-#MyList{
+#MyList {
   width: 30%;
   float: left;
   background-color:#ccc;
   text-align:left;
+}
+
+#Signon .panel {
+  max-width: 450px;
+  margin: 0 auto;
+  overflow: auto;
+}
+#Signon .panel.register {
+  margin-top: 10px;
+  background-color: #FFFFFF;
+}
+#Signon .panel.failed {
+  background-color: red;
+  color: white;
+  border: none;
+}
+#Signon .button-group {
+  text-align: center;
 }

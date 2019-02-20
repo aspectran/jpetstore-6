@@ -6,8 +6,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <meta name="google" content="notranslate">
-    <title>${empty page.title ? "Aspectran Demo Site" : page.title}</title>
-    <meta name="description" content="${empty page.description ? "Welcome to Aspectran Demo" : page.description}" />
+    <title>JPetStore Demo</title>
+    <meta name="description" content="JPetStore is a full web application built on top of MyBatis 3, Aspectran 6." />
     <link rel="stylesheet" type="text/css" href="http://www.aspectran.com/assets/css/styles_aspectran.css" />
     <link rel="stylesheet" type="text/css" href="/css/jpetstore.css" />
     <link href="http://fonts.googleapis.com/css?family=Raleway:500,500i,700" rel="stylesheet">
@@ -50,7 +50,7 @@
         ga('send', 'pageview');
     </script>
 </head>
-<body id="top-of-page" class="plate article" itemscope itemtype="http://schema.org/WebPage">
+<body id="top-of-page" class="plate solid article" itemscope itemtype="http://schema.org/WebPage">
 <nav id="navigation" class="no-js">
     <div class="title-bar" data-responsive-toggle="gnb-menu" data-hide-for="large" style="display:none">
         <div class="title-bar-left">
@@ -134,9 +134,9 @@
             <div class="small-12 columns">
                 <header>
                     <p class="subheadline" itemprop="alternativeHeadline">${page.subheadline}</p>
-                    <h1 itemprop="headline">${page.headline}</h1>
+                    <h1 itemprop="headline">JPetStore Demo</h1>
                     <p class="teaser" itemprop="description">
-                        ${page.teaser}
+                        JPetStore is a full web application built on top of MyBatis 3, Aspectran 6.
                     </p>
                 </header>
                 <div class="hexagons">
@@ -163,7 +163,7 @@
     <div class="row">
         <div class="large-12 columns">
             <div class="row content">
-                <div class="xlarge-10 xlarge-offset-1 columns t15">
+                <div class="xlarge-10 xlarge-offset-1 columns">
                     <c:if test="${not empty INCLUDE_PAGE}">
                         <jsp:include page="/WEB-INF/jsp/${INCLUDE_PAGE}.jsp"/>
                     </c:if>

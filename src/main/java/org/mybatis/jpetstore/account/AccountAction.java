@@ -15,13 +15,14 @@
  */
 package org.mybatis.jpetstore.account;
 
-import com.aspectran.core.component.bean.annotation.Action;
+import com.aspectran.core.activity.Translet;
 import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.core.component.bean.annotation.Dispatch;
 import com.aspectran.core.component.bean.annotation.Redirect;
 import com.aspectran.core.component.bean.annotation.Request;
+import com.aspectran.core.component.bean.annotation.RequestToPost;
 import org.mybatis.jpetstore.account.domain.Account;
 import org.mybatis.jpetstore.account.service.AccountService;
 import org.mybatis.jpetstore.catalog.domain.Product;
@@ -49,7 +50,7 @@ public class AccountAction {
     @Autowired
     public UserSessionManager sessionManager;
 
-    @Request("/newAccountForm")
+    @Request("/account/newAccountForm")
     @Dispatch("account/NewAccountForm")
     public void newAccountForm() {
     }
@@ -57,7 +58,7 @@ public class AccountAction {
     /**
      * New account.
      */
-    @Request("/newAccount")
+    @Request("/account/newAccount")
     @Redirect("/viewMain")
     public void newAccount(Account account) {
         accountService.insertAccount(account);
@@ -72,7 +73,7 @@ public class AccountAction {
     /**
      * Edits the account form.
      */
-    @Request("/editAccountForm")
+    @Request("/account/editAccountForm")
     @Dispatch("account/EditAccountForm")
     public void editAccountForm() {
     }
@@ -80,8 +81,8 @@ public class AccountAction {
     /**
      * Edits the account.
      */
-    @Request("/editAccount")
-    @Redirect("/viewMain")
+    @Request("/account/editAccount")
+    @Redirect("/catalog/")
     public void editAccount(Account account) {
         accountService.updateAccount(account);
         account = accountService.getAccount(account.getUsername());
@@ -103,14 +104,12 @@ public class AccountAction {
     /**
      * Signon.
      */
-    @Request("/signon")
-    @Action("result")
-    @Redirect("/viewMain")
-    public String signon(String username, String password) {
+    @RequestToPost("/account/signon")
+    @Redirect("/catalog/")
+    public void signon(Translet translet, String username, String password) {
         Account account = accountService.getAccount(username, password);
         if (account == null) {
-            String result = "Invalid username or password.  Signon failed.";
-            return result;
+            translet.redirect("/account/signonForm?retry=true");
         } else {
             account.setPassword(null);
             List<Product> products = catalogService.getProductListByCategory(account.getFavouriteCategoryId());
@@ -118,15 +117,14 @@ public class AccountAction {
             userSession.setAccount(account);
             userSession.setProducts(products);
             sessionManager.save(userSession);
-            return null;
         }
     }
 
     /**
      * Signoff.
      */
-    @Request("/signoff")
-    @Redirect("/viewMain")
+    @Request("/account/signoff")
+    @Redirect("/catalog/")
     public void signoff() {
         sessionManager.expire();
     }
