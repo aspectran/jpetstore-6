@@ -15,7 +15,7 @@
             <item name="staticCodes" type="map">
                 <value name="languages">#{codes.languages}</value>
                 <value name="categories">#{codes.categories}</value>
-                <value name="cardTypes">#{codes.codes.cardTypes}</value>
+                <value name="cardTypes">#{codes.cardTypes}</value>
             </item>
         </properties>
     </environment>
@@ -28,6 +28,7 @@
             <arguments>
                 <item type="map">
                     <value name="english">english</value>
+                    <value name="korean">korean</value>
                     <value name="japanese">japanese</value>
                 </item>
             </arguments>

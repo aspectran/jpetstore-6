@@ -35,16 +35,18 @@
 		</c:if>
 		<c:if test="${not empty user.account}">
 			<img align="middle" src="../images/separator.gif" />
-			<a href="/account/signoff">Sign Out</a>
-			<img align="middle" src="../images/separator.gif" />
 			<a href="/account/editAccountForm">My Account</a>
+			<img align="middle" src="../images/separator.gif" />
+			<a href="/order/listOrders">My Orders</a>
+			<img align="middle" src="../images/separator.gif" />
+			<a href="/account/signoff">Sign Out</a>
 		</c:if>
 		<img align="middle" src="../images/separator.gif" />
 		<a href="../help.html">?</a>
 	</div>
 </div>
 
-<div id="Search">
+<div id="Search" data-hide-for="large">
 	<div id="SearchContent">
 		<form action="/catalog/searchProducts">
 			<div class="input-group">

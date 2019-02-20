@@ -28,7 +28,7 @@
 
 	<div id="Cart">
 
-		<h2>Shopping Cart</h2>
+		<h3>Shopping Cart</h3>
 
 		<form method="post" action="/cart/updateCartQuantities">
 			<table>
@@ -68,10 +68,10 @@
 					</tr>
 				</c:forEach>
 				<tr>
-					<td colspan="8">
-						Sub Total: <fmt:formatNumber value="${cart.subTotal}" pattern="$#,##0.00" />
-						<button class="button" type="submit">Update Cart</button>
-					</td>
+					<td colspan="5"></td>
+					<td><strong>Sub Total:</strong></td>
+					<td><strong><fmt:formatNumber value="${cart.subTotal}" pattern="$#,##0.00" /></strong></td>
+					<td><button class="button" type="submit">Update Cart</button></td>
 				</tr>
 			</table>
 

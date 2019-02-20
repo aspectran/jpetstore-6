@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%--
 
        Copyright 2010-2016 the original author or authors.
@@ -17,32 +19,35 @@
 --%>
 <%@ include file="../common/IncludeTop.jsp"%>
 
-<div id="Catalog"><stripes:form
-	beanclass="org.mybatis.jpetstore.web.actions.AccountActionBean"
-	focus="">
+<div id="CenterForm">
 
-	<h3>User Information</h3>
+	<form method="post" action="/account/editAccount">
 
-	<table>
-		<tr>
-			<td>User ID:</td>
-			<td>${actionBean.username}</td>
-		</tr>
-		<tr>
-			<td>New password:</td>
-			<td><stripes:text name="password" /></td>
-		</tr>
-		<tr>
-			<td>Repeat password:</td>
-			<td><stripes:text name="repeatedPassword" /></td>
-		</tr>
-	</table>
-	<%@ include file="IncludeAccountFields.jsp"%>
+		<h3>User Information</h3>
 
-	<stripes:submit name="editAccount" value="Save Account Information" />
+		<table>
+			<tr>
+				<td>User ID:</td>
+				<td>${user.account.username}</td>
+			</tr>
+			<tr>
+				<td>New password:</td>
+				<td><input type="text" name="password"/></td>
+			</tr>
+			<tr>
+				<td>Repeat password:</td>
+				<td><input type="text" name="repeatedPassword"/></td>
+			</tr>
+		</table>
 
-</stripes:form> <stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.OrderAction"
-	event="listOrders">My Orders</stripes:link></div>
+		<%@ include file="IncludeAccountFields.jsp" %>
+
+		<div class="button-group">
+			<button type="submit" class="button">Save Account Information</button>
+		</div>
+
+	</form>
+
+</div>
 
 <%@ include file="../common/IncludeBottom.jsp"%>

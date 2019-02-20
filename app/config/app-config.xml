@@ -21,28 +21,10 @@
     <bean id="basePath" class="com.aspectran.core.support.BasePathFactoryBean"/>
     <bean id="currentTranslet" class="com.aspectran.core.support.CurrentTransletFactoryBean" scope="request"/>
 
-    <aspect id="errorReport">
-        <description>
-            Prints a simple error message to the console if an unexpected error occurs during processing of the Translet.
-        </description>
-        <joinpoint target="translet"/>
-        <exception>
-            <thrown>
-                <transform type="transform/text">
-                    <template style="apon">
-                        |
-                        |   An Error Occurred!
-                        |-----------------------------------------------------------------------------------------
-                        |   #{currentTranslet^rootCauseOfRaisedException}
-                        |
-                    </template>
-                </transform>
-            </thrown>
-        </exception>
-    </aspect>
-
+    <append file="/config/error-report-dev.xml" profile="dev"/>
     <append file="/config/jetty/jetty-config.xml"/>
     <append file="/config/mybatis/db-tx-config.xml"/>
+
     <!--<append file="/config/shell/shell-config.xml"/>-->
     <append file="/config/web/web-config.xml"/>
 

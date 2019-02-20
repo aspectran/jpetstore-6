@@ -20,15 +20,12 @@
 #Logo {
   width: 33%;
   height: 9ex;
-  margin: 0ex 0ex 0ex 0ex;
-  padding: 0ex 0ex 0ex 0ex;
+  margin: 0;
+  padding: 0;
   float: left;
   background-color: #000;
   color: #fff;
   line-height: 9ex;
-  voice-family: "\"}\"";
-  voice-family: inherit;
-  height: 9ex;
 }
 
 body>#Logo {
@@ -38,8 +35,8 @@ body>#Logo {
 #Menu {
   width: 33%;
   height: 9ex;
-  margin: 0ex 0ex 0ex 0ex;
-  padding: 0ex 0ex 0ex 0ex;
+  margin: 0;
+  padding: 0;
   float: left;
   background-color: #000;
   color: #eaac00;
@@ -47,9 +44,6 @@ body>#Logo {
   font-family: helvetica, tahoma, arial, verdana, sans-serif;
   text-align: center;
   line-height: 9ex;
-  voice-family: "\"}\"";
-  voice-family: inherit;
-  height: 9ex;
 }
 
 #Menu, #Menu a, #Menu a:link, #Menu a:visited, #Menu a:hover {
@@ -63,7 +57,6 @@ body>#Menu {
 }
 
 #Search {
-  width: 20%;
   height: 9ex;
   margin: 0;
   padding: 0 15px 0 0;
@@ -71,9 +64,6 @@ body>#Menu {
   text-align: center;
   color: #eaac00;
   line-height: 9ex;
-  voice-family: "\"}\"";
-  voice-family: inherit;
-  height: 9ex;
 }
 
 body>#Search {
@@ -102,7 +92,7 @@ body>#Search {
 }
 
 #PoweredBy {
-  width: 30%;
+  width: 50%;
   height: 9ex;
   margin: 0;
   padding: 0 0 0 15px;
@@ -110,9 +100,6 @@ body>#Search {
   background-color: #000;
   color: #fff;
   line-height: 9ex;
-  voice-family: "\"}\"";
-  voice-family: inherit;
-  height: 9ex;
 }
 
 body>#PoweredBy {
@@ -120,17 +107,15 @@ body>#PoweredBy {
 }
 
 #Banner {
-  width: 69%;
+  width: 50%;
   height: 9ex;
-  margin: 0ex 0ex 0ex 0ex;
-  padding: 0ex 0ex 0ex 0ex;
+  margin: 0;
+  padding: 0;
   float: right;
   background-color: #000;
   color: #fff;
   line-height: 9ex;
-  voice-family: "\"}\"";
-  voice-family: inherit;
-  height: 9ex;
+    text-align: center;
 }
 
 body>#Banner {
@@ -146,7 +131,7 @@ body>#Banner {
   position: relative;
 }
 
-#Content h2 {
+#Content h3 {
   text-align: left;
 }
 
@@ -164,6 +149,11 @@ body>#Banner {
   margin: 0;
 }
 
+#Content #CenterForm {
+  width: 50%;
+  margin: 0 auto;
+}
+
 #Separator {
   clear:both;
   margin: 0;
@@ -171,13 +161,16 @@ body>#Banner {
 }
 
 #Main {
-  margin: 0;
+    margin: 0;
+}
+
+#Welcome {
+    text-align: right;
 }
 
 #Sidebar {
-  float: left;
-  background:inherit;
-  width: 30%;
+    float: left;
+    width: 30%;
 }
 
 #MainImage {
@@ -212,7 +205,6 @@ body>#Banner {
 #MyList {
   width: 30%;
   float: left;
-  background-color:#ccc;
   text-align:left;
 }
 
@@ -230,6 +222,6 @@ body>#Banner {
   color: white;
   border: none;
 }
-#Signon .button-group {
+.button-group {
   text-align: center;
 }

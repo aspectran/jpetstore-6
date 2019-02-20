@@ -24,9 +24,9 @@
 	<a href="/catalog/viewProduct?productId=${product.productId}">Return to ${product.productId}</a>
 </div>
 
-<div id="Catalog">
+<div id="CenterForm">
 
-	<table style="width:50%;">
+	<table>
 		<tr>
 			<td>${product.description}</td>
 		</tr>

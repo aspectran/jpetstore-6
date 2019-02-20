@@ -32,6 +32,7 @@
         </settings>
     </aspect>
 
+    <append file="/config/web/common/static-codes.xml"/>
     <append file="/config/web/common/user.xml"/>
 
     <!--<append file="/config/web/home/main.xml"/>-->

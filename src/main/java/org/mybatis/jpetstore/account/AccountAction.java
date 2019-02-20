@@ -52,7 +52,8 @@ public class AccountAction {
 
     @Request("/account/newAccountForm")
     @Dispatch("account/NewAccountForm")
-    public void newAccountForm() {
+    public void newAccountForm(Translet translet) {
+        translet.setAttribute("staticCodes", translet.getProperty("staticCodes"));
     }
 
     /**
@@ -75,15 +76,18 @@ public class AccountAction {
      */
     @Request("/account/editAccountForm")
     @Dispatch("account/EditAccountForm")
-    public void editAccountForm() {
+    public void editAccountForm(Translet translet) {
+        translet.setAttribute("staticCodes", translet.getProperty("staticCodes"));
     }
 
     /**
      * Edits the account.
      */
-    @Request("/account/editAccount")
+    @RequestToPost("/account/editAccount")
     @Redirect("/catalog/")
     public void editAccount(Account account) {
+        String username = sessionManager.getUserSession().getAccount().getUsername();
+        account.setUsername(username);
         accountService.updateAccount(account);
         account = accountService.getAccount(account.getUsername());
         List<Product> products = catalogService.getProductListByCategory(account.getFavouriteCategoryId());

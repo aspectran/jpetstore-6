@@ -26,7 +26,7 @@
 
 <div id="Catalog">
 
-	<h2>${product.name}</h2>
+	<h3>${product.name}</h3>
 
 	<table>
 		<tr>

@@ -17,13 +17,16 @@
        limitations under the License.
 
 --%>
-<c:if test="${!empty user.account.myList}">
-	<p>Pet Favorites <br />
-		Shop for more of your favorite pets here.</p>
-	<ul>
-		<c:forEach var="product" items="${user.account.myList}">
-			<li>
-				<a href="/catalog/viewProduct?productId=${product.productId}">${product.name}</li>
-		</c:forEach>
-	</ul>
+<c:if test="${not empty user.products}">
+	<div class="panel">
+		<h4>Pet Favorites </h4>
+		<p>Shop for more of your favorite pets here.</p>
+		<ul>
+			<c:forEach var="product" items="${user.products}">
+				<li>
+					<a href="/catalog/viewProduct?productId=${product.productId}">${product.name}</a>
+				</li>
+			</c:forEach>
+		</ul>
+	</div>
 </c:if>
