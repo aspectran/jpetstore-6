@@ -110,7 +110,7 @@ public class AccountAction {
      */
     @RequestToPost("/account/signon")
     @Redirect("/catalog/")
-    public void signon(Translet translet, String username, String password) {
+    public void signon(Translet translet, String username, String password, String referer) {
         Account account = accountService.getAccount(username, password);
         if (account == null) {
             translet.redirect("/account/signonForm?retry=true");
@@ -120,7 +120,12 @@ public class AccountAction {
             UserSession userSession = new UserSession();
             userSession.setAccount(account);
             userSession.setProducts(products);
+            userSession.setAuthenticated(true);
             sessionManager.save(userSession);
+
+            if (referer != null) {
+                translet.redirect(referer);
+            }
         }
     }
 

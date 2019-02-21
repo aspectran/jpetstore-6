@@ -29,11 +29,11 @@
 <div id="Menu">
 	<div id="MenuContent">
 		<a href="/cart/viewCart"><img align="middle" name="img_cart" src="../images/cart.gif" /></a>
-		<c:if test="${empty user.account}">
+		<c:if test="${not user.authenticated}">
 			<img align="middle" src="../images/separator.gif" />
 			<a href="/account/signonForm">Sign In</a>
 		</c:if>
-		<c:if test="${not empty user.account}">
+		<c:if test="${user.authenticated}">
 			<img align="middle" src="../images/separator.gif" />
 			<a href="/account/editAccountForm">My Account</a>
 			<img align="middle" src="../images/separator.gif" />

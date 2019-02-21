@@ -1,6 +1,7 @@
 package org.mybatis.jpetstore.common.user;
 
 import org.mybatis.jpetstore.account.domain.Account;
+import org.mybatis.jpetstore.cart.domain.Cart;
 import org.mybatis.jpetstore.catalog.domain.Product;
 
 import java.io.Serializable;
@@ -13,6 +14,10 @@ public class UserSession implements Serializable {
     private Account account;
 
     private List<Product> products;
+
+    private Cart cart = new Cart();
+
+    private boolean authenticated;
 
     public Account getAccount() {
         return account;
@@ -28,6 +33,22 @@ public class UserSession implements Serializable {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public boolean isAuthenticated() {
+        return authenticated;
+    }
+
+    public void setAuthenticated(boolean authenticated) {
+        this.authenticated = authenticated;
     }
 
 }

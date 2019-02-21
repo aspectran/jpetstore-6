@@ -26,7 +26,7 @@
 		<th>Total Price</th>
 	</tr>
 
-	<c:forEach var="order" items="${actionBean.orderList}">
+	<c:forEach var="order" items="${orderList}">
 		<tr>
 			<td><stripes:link
 				beanclass="org.mybatis.jpetstore.web.actions.OrderAction"

@@ -23,7 +23,7 @@
 		<div class="panel">
 			<h5>Please enter your username and password.</h5>
 			<label>Username: <input type="text" name="username" value="j2ee"/></label>
-			<label>Password: <input type="text" name="password" value="j2ee"/></label>
+			<label>Password: <input type="password" name="password" value="j2ee"/></label>
 			<div class="button-group">
 				<button type="submit" class="button">Login</button>
 			</div>

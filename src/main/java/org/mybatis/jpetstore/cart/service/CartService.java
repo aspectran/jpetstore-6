@@ -18,10 +18,10 @@ package org.mybatis.jpetstore.cart.service;
 import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
-import com.aspectran.core.context.rule.type.ScopeType;
 import org.mybatis.jpetstore.cart.domain.Cart;
 import org.mybatis.jpetstore.cart.domain.CartItem;
 import org.mybatis.jpetstore.catalog.service.CatalogService;
+import org.mybatis.jpetstore.common.user.UserSessionManager;
 import org.mybatis.jpetstore.order.domain.Item;
 
 import java.util.Iterator;
@@ -32,42 +32,38 @@ import java.util.Iterator;
  * @author Eduardo Macarron
  */
 @Component
-@Bean(id = "cartService", scope = ScopeType.SESSION)
+@Bean("cartService")
 public class CartService {
 
     private CatalogService catalogService;
 
-    private final Cart cart = new Cart();
+    private UserSessionManager sessionManager;
 
     @Autowired
-    public CartService(CatalogService catalogService) {
+    public CartService(CatalogService catalogService, UserSessionManager sessionManager) {
         this.catalogService = catalogService;
+        this.sessionManager = sessionManager;
     }
 
     public Cart getCart() {
-        return cart;
+        return sessionManager.getUserSession().getCart();
     }
 
     public void addItemToCart(String itemId) {
-        if (cart.containsItemId(itemId)) {
-            cart.incrementQuantityByItemId(itemId);
+        if (getCart().containsItemId(itemId)) {
+            getCart().incrementQuantityByItemId(itemId);
         } else {
             // isInStock is a "real-time" property that must be updated
             // every time an item is added to the cart, even if other
             // item details are cached.
             boolean isInStock = catalogService.isItemInStock(itemId);
             Item item = catalogService.getItem(itemId);
-            cart.addItem(item, isInStock);
+            getCart().addItem(item, isInStock);
         }
     }
 
-    public String removeItemFromCart(String itemId) {
-        Item item = cart.removeItemById(itemId);
-        if (item == null) {
-            return "Attempted to remove null CartItem from Cart.";
-        } else {
-            return null;
-        }
+    public void removeItemFromCart(String itemId) {
+        getCart().removeItemById(itemId);
     }
 
     public Iterator<CartItem> getAllCartItems() {

@@ -3,7 +3,7 @@
         "http://aspectran.github.io/dtd/aspectran-6.dtd">
 <aspectran>
 
-    <aspect id="checkUserSessionAspect" order="1">
+    <aspect id="checkUserAuthenticatedAspect" order="1">
         <description>
             Retrieves UserSession from the session
             and stores it as a request attribute.
@@ -16,12 +16,16 @@
         </joinpoint>
         <advice bean="userSessionManager">
             <before>
-                <action method="checkUserSession"/>
+                <action method="checkUserAuthenticated"/>
             </before>
         </advice>
         <exception>
-            <thrown>
-                <redirect path="/account/signonForm"/>
+            <thrown type="org.mybatis.jpetstore.common.user.UserAuthenticationRequiredException">
+                <redirect path="/account/signonForm">
+                    <parameters>
+                        <item name="referer">#{currentTranslet^getRequestName}</item>
+                    </parameters>
+                </redirect>
             </thrown>
         </exception>
     </aspect>
