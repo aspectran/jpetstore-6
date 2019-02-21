@@ -1,3 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%--
 
        Copyright 2010-2016 the original author or authors.
@@ -17,7 +20,7 @@
 --%>
 <%@ include file="../common/IncludeTop.jsp"%>
 
-<h2>My Orders</h2>
+<h3>My Orders</h3>
 
 <table>
 	<tr>
@@ -25,19 +28,13 @@
 		<th>Date</th>
 		<th>Total Price</th>
 	</tr>
-
 	<c:forEach var="order" items="${orderList}">
 		<tr>
-			<td><stripes:link
-				beanclass="org.mybatis.jpetstore.web.actions.OrderAction"
-				event="viewOrder">
-				<stripes:param name="orderId" value="${order.orderId}" />
-			    ${order.orderId}
-			  </stripes:link></td>
-			<td><fmt:formatDate value="${order.orderDate}"
-				pattern="yyyy/MM/dd hh:mm:ss" /></td>
-			<td><fmt:formatNumber value="${order.totalPrice}"
-				pattern="$#,##0.00" /></td>
+			<td>
+				<a href="/order/viewOrder?orderId=${order.orderId}">${order.orderId}</a>
+			</td>
+			<td><fmt:formatDate value="${order.orderDate}" pattern="yyyy-MM-dd hh:mm:ss" /></td>
+			<td><fmt:formatNumber value="${order.totalPrice}" pattern="$#,##0.00" /></td>
 		</tr>
 	</c:forEach>
 </table>

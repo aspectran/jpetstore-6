@@ -1,3 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%--
 
        Copyright 2010-2016 the original author or authors.
@@ -17,75 +20,91 @@
 --%>
 <%@ include file="../common/IncludeTop.jsp"%>
 
-<div id="Catalog"><stripes:form
-	beanclass="org.mybatis.jpetstore.web.actions.OrderAction">
+<div id="CenterForm">
 
-	<table>
-		<tr>
-			<th colspan=2>Payment Details</th>
-		</tr>
-		<tr>
-			<td>Card Type:</td>
-			<td><stripes:select name="order.cardType">
-				<stripes:options-collection
-					collection="${actionBean.creditCardTypes}" />
-			</stripes:select></td>
-		</tr>
-		<tr>
-			<td>Card Number:</td>
-			<td><stripes:text name="order.creditCard" /> * Use a fake
-			number!</td>
-		</tr>
-		<tr>
-			<td>Expiry Date (MM/YYYY):</td>
-			<td><stripes:text name="order.expiryDate" /></td>
-		</tr>
-		<tr>
-			<th colspan=2>Billing Address</th>
-		</tr>
+	<form method="post" action="/order/newOrder">
 
-		<tr>
-			<td>First name:</td>
-			<td><stripes:text name="order.billToFirstName" /></td>
-		</tr>
-		<tr>
-			<td>Last name:</td>
-			<td><stripes:text name="order.billToLastName" /></td>
-		</tr>
-		<tr>
-			<td>Address 1:</td>
-			<td><stripes:text size="40" name="order.billAddress1" /></td>
-		</tr>
-		<tr>
-			<td>Address 2:</td>
-			<td><stripes:text size="40" name="order.billAddress2" /></td>
-		</tr>
-		<tr>
-			<td>City:</td>
-			<td><stripes:text name="order.billCity" /></td>
-		</tr>
-		<tr>
-			<td>State:</td>
-			<td><stripes:text size="4" name="order.billState" /></td>
-		</tr>
-		<tr>
-			<td>Zip:</td>
-			<td><stripes:text size="10" name="order.billZip" /></td>
-		</tr>
-		<tr>
-			<td>Country:</td>
-			<td><stripes:text size="15" name="order.billCountry" /></td>
-		</tr>
+		<table>
+			<colgroup>
+				<col style="width: 30%"/>
+				<col/>
+			</colgroup>
+			<tr>
+				<th colspan="2">Payment Details</th>
+			</tr>
+			<tr>
+				<td>Card Type:</td>
+				<td>
+					<select name="cardType">
+						<c:forEach items="${staticCodes.creditCardTypes}" var="item">
+							<option value="${item.key}"<c:if test="${order.cardType eq item.key}"> selected</c:if>>${item.value}</option>
+						</c:forEach>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Card Number:</td>
+				<td>
+					<input type="text" name="creditCard"/>
+					<p>* Use a fake number!</p>
+				</td>
+			</tr>
+			<tr>
+				<td>Expiry Date (MM/YYYY):</td>
+				<td><input type="text" name="expiryDate"/></td>
+			</tr>
+			<tr>
+				<th colspan="2">Billing Address</th>
+			</tr>
 
-		<tr>
-			<td colspan=2><stripes:checkbox name="shippingAddressRequired" />
-			Ship to different address...</td>
-		</tr>
+			<tr>
+				<td>First name:</td>
+				<td><input type="text" name="billToFirstName"/></td>
+			</tr>
+			<tr>
+				<td>Last name:</td>
+				<td><input type="text" name="billToLastName"/></td>
+			</tr>
+			<tr>
+				<td>Address 1:</td>
+				<td><input type="text" name="billAddress1"/></td>
+			</tr>
+			<tr>
+				<td>Address 2:</td>
+				<td><input type="text" name="billAddress2"/></td>
+			</tr>
+			<tr>
+				<td>City:</td>
+				<td><input type="text" name="billCity"/></td>
+			</tr>
+			<tr>
+				<td>State:</td>
+				<td><input type="text" name="billState"/></td>
+			</tr>
+			<tr>
+				<td>Zip:</td>
+				<td><input type="text" name="billZip"/></td>
+			</tr>
+			<tr>
+				<td>Country:</td>
+				<td><input type="text" name="billCountry"/></td>
+			</tr>
 
-	</table>
+			<tr>
+				<td></td>
+				<td>
+					<input type="checkbox" name="shippingAddressRequired" value="true"/>
+					Ship to different address...
+				</td>
+			</tr>
+		</table>
 
-	<stripes:submit name="newOrder" value="Continue" />
+		<div class="button-group">
+			<button type="submit" class="button">Continue</button>
+		</div>
 
-</stripes:form></div>
+	</form>
+
+</div>
 
 <%@ include file="../common/IncludeBottom.jsp"%>

@@ -45,6 +45,9 @@ public class OrderAction {
     public OrderService orderService;
 
     @Autowired
+    public CartService cartService;
+
+    @Autowired
     public UserSessionManager sessionManager;
 
     /**
@@ -65,8 +68,8 @@ public class OrderAction {
     @Dispatch("order/NewOrderForm")
     @Action("order")
     public Order newOrderForm(Translet translet) {
+        translet.setAttribute("staticCodes", translet.getProperty("staticCodes"));
         Account account = sessionManager.getUserSession().getAccount();
-        CartService cartService = translet.getBean("cartService");
         Cart cart = cartService.getCart();
         if (cart != null) {
             Order order = new Order();
@@ -95,7 +98,6 @@ public class OrderAction {
             translet.dispatch("order/ConfirmOrder");
         } else {
             orderService.insertOrder(order);
-            CartService cartService = translet.getBean("cartService");
             Cart cart = cartService.getCart();
             cart.clear();
 
