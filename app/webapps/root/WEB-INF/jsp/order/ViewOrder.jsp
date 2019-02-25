@@ -1,3 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%--
 
        Copyright 2010-2016 the original author or authors.
@@ -17,110 +20,113 @@
 --%>
 <%@ include file="../common/IncludeTop.jsp"%>
 
-<div id="BackLink"><stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.CatalogAction">
-	Return to Main Menu</stripes:link></div>
+<div id="BackLink">
+	<a href="/catalog/">Return to Main Menu</a>
+</div>
 
-<div id="Catalog">
+<div id="CenterForm">
 
 <table>
 	<tr>
-		<th align="center" colspan="2">Order #${actionBean.order.orderId}
-		<fmt:formatDate value="${actionBean.order.orderDate}"
-			pattern="yyyy/MM/dd hh:mm:ss" /></th>
+		<th align="center" colspan="2">
+			Order #${order.orderId}
+			<fmt:formatDate value="${actionBean.order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss" />
+		</th>
 	</tr>
 	<tr>
 		<th colspan="2">Payment Details</th>
 	</tr>
 	<tr>
 		<td>Card Type:</td>
-		<td><c:out value="${actionBean.order.cardType}" /></td>
+		<td><c:out value="${order.cardType}" /></td>
 	</tr>
 	<tr>
 		<td>Card Number:</td>
-		<td><c:out value="${actionBean.order.creditCard}" /> * Fake
-		number!</td>
+		<td>
+			<c:out value="${order.creditCard}" />
+			* Fake number!
+		</td>
 	</tr>
 	<tr>
 		<td>Expiry Date (MM/YYYY):</td>
-		<td><c:out value="${actionBean.order.expiryDate}" /></td>
+		<td><c:out value="${order.expiryDate}" /></td>
 	</tr>
 	<tr>
 		<th colspan="2">Billing Address</th>
 	</tr>
 	<tr>
 		<td>First name:</td>
-		<td><c:out value="${actionBean.order.billToFirstName}" /></td>
+		<td><c:out value="${order.billToFirstName}" /></td>
 	</tr>
 	<tr>
 		<td>Last name:</td>
-		<td><c:out value="${actionBean.order.billToLastName}" /></td>
+		<td><c:out value="${order.billToLastName}" /></td>
 	</tr>
 	<tr>
 		<td>Address 1:</td>
-		<td><c:out value="${actionBean.order.billAddress1}" /></td>
+		<td><c:out value="${order.billAddress1}" /></td>
 	</tr>
 	<tr>
 		<td>Address 2:</td>
-		<td><c:out value="${actionBean.order.billAddress2}" /></td>
+		<td><c:out value="${order.billAddress2}" /></td>
 	</tr>
 	<tr>
 		<td>City:</td>
-		<td><c:out value="${actionBean.order.billCity}" /></td>
+		<td><c:out value="${order.billCity}" /></td>
 	</tr>
 	<tr>
 		<td>State:</td>
-		<td><c:out value="${actionBean.order.billState}" /></td>
+		<td><c:out value="${order.billState}" /></td>
 	</tr>
 	<tr>
 		<td>Zip:</td>
-		<td><c:out value="${actionBean.order.billZip}" /></td>
+		<td><c:out value="${order.billZip}" /></td>
 	</tr>
 	<tr>
 		<td>Country:</td>
-		<td><c:out value="${actionBean.order.billCountry}" /></td>
+		<td><c:out value="${order.billCountry}" /></td>
 	</tr>
 	<tr>
 		<th colspan="2">Shipping Address</th>
 	</tr>
 	<tr>
 		<td>First name:</td>
-		<td><c:out value="${actionBean.order.shipToFirstName}" /></td>
+		<td><c:out value="${order.shipToFirstName}" /></td>
 	</tr>
 	<tr>
 		<td>Last name:</td>
-		<td><c:out value="${actionBean.order.shipToLastName}" /></td>
+		<td><c:out value="${order.shipToLastName}" /></td>
 	</tr>
 	<tr>
 		<td>Address 1:</td>
-		<td><c:out value="${actionBean.order.shipAddress1}" /></td>
+		<td><c:out value="${order.shipAddress1}" /></td>
 	</tr>
 	<tr>
 		<td>Address 2:</td>
-		<td><c:out value="${actionBean.order.shipAddress2}" /></td>
+		<td><c:out value="${order.shipAddress2}" /></td>
 	</tr>
 	<tr>
 		<td>City:</td>
-		<td><c:out value="${actionBean.order.shipCity}" /></td>
+		<td><c:out value="${order.shipCity}" /></td>
 	</tr>
 	<tr>
 		<td>State:</td>
-		<td><c:out value="${actionBean.order.shipState}" /></td>
+		<td><c:out value="${order.shipState}" /></td>
 	</tr>
 	<tr>
 		<td>Zip:</td>
-		<td><c:out value="${actionBean.order.shipZip}" /></td>
+		<td><c:out value="${order.shipZip}" /></td>
 	</tr>
 	<tr>
 		<td>Country:</td>
-		<td><c:out value="${actionBean.order.shipCountry}" /></td>
+		<td><c:out value="${order.shipCountry}" /></td>
 	</tr>
 	<tr>
 		<td>Courier:</td>
-		<td><c:out value="${actionBean.order.courier}" /></td>
+		<td><c:out value="${order.courier}" /></td>
 	</tr>
 	<tr>
-		<td colspan="2">Status: <c:out value="${actionBean.order.status}" /></td>
+		<td colspan="2">Status: <c:out value="${order.status}" /></td>
 	</tr>
 	<tr>
 		<td colspan="2">
@@ -132,40 +138,37 @@
 				<th>Price</th>
 				<th>Total Cost</th>
 			</tr>
-			<c:forEach var="lineItem" items="${actionBean.order.lineItems}">
+			<c:forEach var="lineItem" items="${order.lineItems}">
 				<tr>
-					<td><stripes:link
-						beanclass="org.mybatis.jpetstore.web.actions.CatalogAction"
-						event="viewItem">
-						<stripes:param name="itemId" value="${lineItem.item.itemId}" />
-						${lineItem.item.itemId}
-					</stripes:link></td>
-					<td><c:if test="${lineItem.item != null}">
-						${lineItem.item.attribute1}
-						${lineItem.item.attribute2}
-						${lineItem.item.attribute3}
-						${lineItem.item.attribute4}
-						${lineItem.item.attribute5}
-						${lineItem.item.product.name}
-					</c:if> <c:if test="${lineItem.item == null}">
-						<i>{description unavailable}</i>
-					</c:if></td>
-
+					<td>
+						<a href="/catalog/viewItem?itemId=${lineItem.item.itemId}">${lineItem.item.itemId}</a>
+					</td>
+					<td>
+						<c:if test="${not empty lineItem.item}">
+							${lineItem.item.attribute1}
+							${lineItem.item.attribute2}
+							${lineItem.item.attribute3}
+							${lineItem.item.attribute4}
+							${lineItem.item.attribute5}
+							${lineItem.item.product.name}
+						</c:if>
+						<c:if test="${empty lineItem.item}">
+							<i>{description unavailable}</i>
+						</c:if>
+					</td>
 					<td>${lineItem.quantity}</td>
-					<td><fmt:formatNumber value="${lineItem.unitPrice}"
-						pattern="$#,##0.00" /></td>
-					<td><fmt:formatNumber value="${lineItem.total}"
-						pattern="$#,##0.00" /></td>
+					<td><fmt:formatNumber value="${lineItem.unitPrice}" pattern="$#,##0.00" /></td>
+					<td><fmt:formatNumber value="${lineItem.total}" pattern="$#,##0.00" /></td>
 				</tr>
 			</c:forEach>
 			<tr>
-				<th colspan="5">Total: <fmt:formatNumber
-					value="${actionBean.order.totalPrice}" pattern="$#,##0.00" /></th>
+				<th colspan="5">
+					Total: <fmt:formatNumber value="${order.totalPrice}" pattern="$#,##0.00" />
+				</th>
 			</tr>
 		</table>
 		</td>
 	</tr>
-
 </table>
 
 </div>

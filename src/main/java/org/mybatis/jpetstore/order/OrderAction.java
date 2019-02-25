@@ -93,15 +93,17 @@ public class OrderAction {
                          boolean confirmed
     ) {
         if (shippingAddressRequired) {
+            translet.setAttribute("order", order);
             translet.dispatch("order/ShippingForm");
         } else if (!confirmed) {
+            translet.setAttribute("order", order);
             translet.dispatch("order/ConfirmOrder");
         } else {
             orderService.insertOrder(order);
             Cart cart = cartService.getCart();
             cart.clear();
 
-            translet.redirect("/viewOrder", new HashMap<String, String>() {{
+            translet.redirect("/order/viewOrder", new HashMap<String, String>() {{
                 put("orderId", Integer.toString(order.getOrderId()));
             }});
         }

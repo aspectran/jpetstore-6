@@ -23,7 +23,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aspectran.version>6.0.0-RC10</aspectran.version>
+        <aspectran.version>6.0.0-RC11-SNAPSHOT</aspectran.version>
     </properties>
     <build>
         <plugins>
