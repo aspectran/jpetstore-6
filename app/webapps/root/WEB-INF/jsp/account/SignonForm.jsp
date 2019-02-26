@@ -20,6 +20,8 @@
 <div id="Signon">
 
 	<form method="post" action="../account/signon">
+		<input type="hidden" name="referer" value="${param.referer}"/>
+
 		<div class="panel">
 			<h5>Please enter your username and password.</h5>
 			<label>Username: <input type="text" name="username" value="j2ee"/></label>
@@ -33,7 +35,9 @@
 				</div>
 			</c:if>
 		</div>
+
 	</form>
+
 	<div class="panel register">
 		Need a user name and password?
 		<a href="../account/newAccountForm">Register Now!</a>

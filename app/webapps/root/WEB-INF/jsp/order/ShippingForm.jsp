@@ -17,51 +17,53 @@
 --%>
 <%@ include file="../common/IncludeTop.jsp"%>
 
-<div id="Catalog"><stripes:form
-	beanclass="org.mybatis.jpetstore.web.actions.OrderAction">
+<div id="CenterForm">
 
-	<table>
-		<tr>
-			<th colspan="2">Shipping Address</th>
-		</tr>
-		<tr>
-			<td>First name:</td>
-			<td><stripes:text name="order.shipToFirstName" /></td>
-		</tr>
-		<tr>
-			<td>Last name:</td>
-			<td><stripes:text name="order.shipToLastName" /></td>
-		</tr>
-		<tr>
-			<td>Address 1:</td>
-			<td><stripes:text size="40" name="order.shipAddress1" /></td>
-		</tr>
-		<tr>
-			<td>Address 2:</td>
-			<td><stripes:text size="40" name="order.shipAddress2" /></td>
-		</tr>
-		<tr>
-			<td>City:</td>
-			<td><stripes:text name="order.shipCity" /></td>
-		</tr>
-		<tr>
-			<td>State:</td>
-			<td><stripes:text size="4" name="order.shipState" /></td>
-		</tr>
-		<tr>
-			<td>Zip:</td>
-			<td><stripes:text size="10" name="order.shipZip" /></td>
-		</tr>
-		<tr>
-			<td>Country:</td>
-			<td><stripes:text size="15" name="order.shipCountry" /></td>
-		</tr>
+	<form method="post" action="/order/newOrder">
 
+		<h3>Shipping Address</h3>
 
-	</table>
+		<table>
+			<tr>
+				<td>First name:</td>
+				<td><input type="text" name="shipToFirstName" value="${user.order.shipToFirstName}"/></td>
+			</tr>
+			<tr>
+				<td>Last name:</td>
+				<td><input type="text" name="shipToLastName" value="${user.order.shipToLastName}"/></td>
+			</tr>
+			<tr>
+				<td>Address 1:</td>
+				<td><input type="text" name="shipAddress1" value="${user.order.shipAddress1}"/></td>
+			</tr>
+			<tr>
+				<td>Address 2:</td>
+				<td><input type="text" name="shipAddress2" value="${user.order.shipAddress2}"/></td>
+			</tr>
+			<tr>
+				<td>City:</td>
+				<td><input type="text" name="shipCity" value="${user.order.shipCity}"/></td>
+			</tr>
+			<tr>
+				<td>State:</td>
+				<td><input type="text" name="shipState" value="${user.order.shipState}"/></td>
+			</tr>
+			<tr>
+				<td>Zip:</td>
+				<td><input type="text" name="shipZip" value="${user.order.shipZip}"/></td>
+			</tr>
+			<tr>
+				<td>Country:</td>
+				<td><input type="text" name="shipCountry" value="${user.order.shipCountry}"/></td>
+			</tr>
+		</table>
 
-	<stripes:submit name="newOrder" value="Continue" />
+		<div class="button-group">
+			<button type="submit" class="button">Continue</button>
+		</div>
 
-</stripes:form></div>
+	</form>
+
+</div>
 
 <%@ include file="../common/IncludeBottom.jsp"%>

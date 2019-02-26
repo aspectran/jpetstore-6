@@ -121,7 +121,7 @@ public class OrderAction {
             }
     )
     @Action("order")
-    public Order submitOrder(Translet translet) {
+    public Order submitOrder() {
         Account account = sessionManager.getUserSession().getAccount();
         Cart cart = cartService.getCart();
 

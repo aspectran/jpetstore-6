@@ -23,7 +23,7 @@
             <thrown type="org.mybatis.jpetstore.common.user.UserAuthenticationRequiredException">
                 <redirect path="/account/signonForm">
                     <parameters>
-                        <item name="referer">#{currentTranslet^getRequestName}</item>
+                        <item name="referer">#{currentTranslet^requestName}</item>
                     </parameters>
                 </redirect>
             </thrown>
