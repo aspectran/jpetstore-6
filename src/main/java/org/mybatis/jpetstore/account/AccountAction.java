@@ -65,10 +65,10 @@ public class AccountAction {
         accountService.insertAccount(account);
         account = accountService.getAccount(account.getUsername());
         List<Product> products = catalogService.getProductListByCategory(account.getFavouriteCategoryId());
-        UserSession userSession = new UserSession();
+        UserSession userSession = sessionManager.getUserSession();
         userSession.setAccount(account);
         userSession.setProducts(products);
-        sessionManager.save(userSession);
+        userSession.setAuthenticated(true);
     }
 
     /**
@@ -94,7 +94,6 @@ public class AccountAction {
         UserSession userSession = sessionManager.getUserSession();
         userSession.setAccount(account);
         userSession.setProducts(products);
-        sessionManager.save(userSession);
     }
 
     /**
@@ -117,11 +116,10 @@ public class AccountAction {
         } else {
             account.setPassword(null);
             List<Product> products = catalogService.getProductListByCategory(account.getFavouriteCategoryId());
-            UserSession userSession = new UserSession();
+            UserSession userSession = sessionManager.getUserSession();
             userSession.setAccount(account);
             userSession.setProducts(products);
             userSession.setAuthenticated(true);
-            sessionManager.save(userSession);
 
             if (referer != null) {
                 translet.redirect(referer);

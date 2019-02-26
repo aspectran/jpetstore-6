@@ -26,6 +26,10 @@
 		<h3>User Information</h3>
 
 		<table>
+			<colgroup>
+				<col style="width: 30%"/>
+				<col/>
+			</colgroup>
 			<tr>
 				<td>User ID:</td>
 				<td>${user.account.username}</td>

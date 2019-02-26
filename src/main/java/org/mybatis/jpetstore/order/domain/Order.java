@@ -336,4 +336,55 @@ public class Order implements Serializable {
         lineItems.add(lineItem);
     }
 
+    public void update(Order order) {
+        if (order.getShipAddress1() != null) {
+            setShipAddress1(order.getShipAddress1());
+        }
+        if (order.getShipAddress2() != null) {
+            setShipAddress2(order.getShipAddress2());
+        }
+        if (order.getShipCity() != null) {
+            setShipCity(order.getShipCity());
+        }
+        if (order.getShipState() != null) {
+            setShipState(order.getShipState());
+        }
+        if (order.getShipZip() != null) {
+            setShipZip(order.getShipZip());
+        }
+        if (order.getShipCountry() != null) {
+            setShipCountry(order.getShipCountry());
+        }
+        if (order.getBillAddress1() != null) {
+            setBillAddress1(order.getBillAddress1());
+        }
+        if (order.getBillAddress2() != null) {
+            setBillAddress2(order.getBillAddress2());
+        }
+        if (order.getBillCity() != null) {
+            setBillCity(order.getBillCity());
+        }
+        if (order.getBillState() != null) {
+            setBillState(order.getBillState());
+        }
+        if (order.getBillZip() != null) {
+            setBillZip(order.getBillZip());
+        }
+        if (order.getBillCountry() != null) {
+            setBillCountry(order.getBillCountry());
+        }
+        if (order.getBillToFirstName() != null) {
+            setBillToFirstName(order.getBillToFirstName());
+        }
+        if (order.getBillToLastName() != null) {
+            setBillToLastName(order.getBillToLastName());
+        }
+        if (order.getShipToFirstName() != null) {
+            setShipToFirstName(order.getShipToFirstName());
+        }
+        if (order.getShipToLastName() != null) {
+            setShipToLastName(order.getShipToLastName());
+        }
+    }
+
 }

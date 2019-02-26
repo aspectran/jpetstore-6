@@ -27,7 +27,7 @@
 <div id="CenterForm">
 	Please confirm the information below and then press continue...
 
-	<form method="post" action="/order/newOrder">
+	<form method="post" action="/order/submitOrder">
 		<input type="hidden" name="confirmed" value="true"/>
 		<table>
 			<colgroup>
@@ -38,7 +38,7 @@
 				<th align="center" colspan="2">
 					<strong>Order</strong>
 					<br />
-					<strong> <fmt:formatDate value="${order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss" /></strong>
+					<fmt:formatDate value="${user.order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss" />
 				</th>
 			</tr>
 			<tr>
@@ -46,70 +46,70 @@
 			</tr>
 			<tr>
 				<td>First name:</td>
-				<td><c:out value="${order.billToFirstName}" /></td>
+				<td><c:out value="${user.order.billToFirstName}" /></td>
 			</tr>
 			<tr>
 				<td>Last name:</td>
-				<td><c:out value="${order.billToLastName}" /></td>
+				<td><c:out value="${user.order.billToLastName}" /></td>
 			</tr>
 			<tr>
 				<td>Address 1:</td>
-				<td><c:out value="${order.billAddress1}" /></td>
+				<td><c:out value="${user.order.billAddress1}" /></td>
 			</tr>
 			<tr>
 				<td>Address 2:</td>
-				<td><c:out value="${order.billAddress2}" /></td>
+				<td><c:out value="${user.order.billAddress2}" /></td>
 			</tr>
 			<tr>
 				<td>City:</td>
-				<td><c:out value="${order.billCity}" /></td>
+				<td><c:out value="${user.order.billCity}" /></td>
 			</tr>
 			<tr>
 				<td>State:</td>
-				<td><c:out value="${order.billState}" /></td>
+				<td><c:out value="${user.order.billState}" /></td>
 			</tr>
 			<tr>
 				<td>Zip:</td>
-				<td><c:out value="${order.billZip}" /></td>
+				<td><c:out value="${user.order.billZip}" /></td>
 			</tr>
 			<tr>
 				<td>Country:</td>
-				<td><c:out value="${order.billCountry}" /></td>
+				<td><c:out value="${user.order.billCountry}" /></td>
 			</tr>
 			<tr>
 				<th colspan="2">Shipping Address</th>
 			</tr>
 			<tr>
 				<td>First name:</td>
-				<td><c:out value="${order.shipToFirstName}" /></td>
+				<td><c:out value="${user.order.shipToFirstName}" /></td>
 			</tr>
 			<tr>
 				<td>Last name:</td>
-				<td><c:out value="${order.shipToLastName}" /></td>
+				<td><c:out value="${user.order.shipToLastName}" /></td>
 			</tr>
 			<tr>
 				<td>Address 1:</td>
-				<td><c:out value="${order.shipAddress1}" /></td>
+				<td><c:out value="${user.order.shipAddress1}" /></td>
 			</tr>
 			<tr>
 				<td>Address 2:</td>
-				<td><c:out value="${order.shipAddress2}" /></td>
+				<td><c:out value="${user.order.shipAddress2}" /></td>
 			</tr>
 			<tr>
 				<td>City:</td>
-				<td><c:out value="${order.shipCity}" /></td>
+				<td><c:out value="${user.order.shipCity}" /></td>
 			</tr>
 			<tr>
 				<td>State:</td>
-				<td><c:out value="${order.shipState}" /></td>
+				<td><c:out value="${user.order.shipState}" /></td>
 			</tr>
 			<tr>
 				<td>Zip:</td>
-				<td><c:out value="${order.shipZip}" /></td>
+				<td><c:out value="${user.order.shipZip}" /></td>
 			</tr>
 			<tr>
 				<td>Country:</td>
-				<td><c:out value="${order.shipCountry}" /></td>
+				<td><c:out value="${user.order.shipCountry}" /></td>
 			</tr>
 
 		</table>

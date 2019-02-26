@@ -14,150 +14,156 @@
  *    limitations under the License.
  */
 #Header {
-  background-color: #000;
-  color: #eaac00;
-}
-#Logo {
-  width: 33%;
-  height: 9ex;
-  margin: 0;
-  padding: 0;
-  float: left;
-  background-color: #000;
-  color: #fff;
-  line-height: 9ex;
+    background-color: #000;
+    color: #eaac00;
 }
 
-body>#Logo {
-  height: 9ex;
+#Logo {
+    width: 33%;
+    height: 9ex;
+    margin: 0;
+    padding: 0;
+    float: left;
+    background-color: #000;
+    color: #fff;
+    line-height: 9ex;
+}
+
+body > #Logo {
+    height: 9ex;
 }
 
 #Menu {
-  width: 33%;
-  height: 9ex;
-  margin: 0;
-  padding: 0;
-  float: left;
-  background-color: #000;
-  color: #eaac00;
-  text-decoration: none;
-  font-family: helvetica, tahoma, arial, verdana, sans-serif;
-  text-align: center;
-  line-height: 9ex;
+    width: 33%;
+    height: 9ex;
+    margin: 0;
+    padding: 0;
+    float: left;
+    background-color: #000;
+    color: #eaac00;
+    text-decoration: none;
+    font-family: helvetica, tahoma, arial, verdana, sans-serif;
+    text-align: center;
+    line-height: 9ex;
 }
 
 #Menu, #Menu a, #Menu a:link, #Menu a:visited, #Menu a:hover {
-  color: #eaac00;
-  text-decoration: none;
-  font-family: helvetica, tahoma, arial, verdana, sans-serif;
+    color: #eaac00;
+    text-decoration: none;
+    font-family: helvetica, tahoma, arial, verdana, sans-serif;
 }
 
-body>#Menu {
-  height: 9ex;
+body > #Menu {
+    height: 9ex;
 }
 
 #Search {
-  height: 9ex;
-  margin: 0;
-  padding: 0 15px 0 0;
-  float: right;
-  text-align: center;
-  color: #eaac00;
-  line-height: 9ex;
+    height: 9ex;
+    margin: 0;
+    padding: 0 15px 0 0;
+    float: right;
+    text-align: center;
+    color: #eaac00;
+    line-height: 9ex;
 }
 
-body>#Search {
-  height: 9ex;
+body > #Search {
+    height: 9ex;
 }
 
 #Search input {
-  border-color: #aaa;
-  background-color: #666;
-  color: #eaac00;
+    border-color: #aaa;
+    background-color: #666;
+    color: #eaac00;
 }
 
 #QuickLinks {
-  text-align: center;
-  background-color: #ccc;
-  width: 100%;
-  clear: both;
-  padding:4px 4px;
+    text-align: center;
+    background-color: #ccc;
+    width: 100%;
+    clear: both;
+    padding: 4px 4px;
 }
 
 #Footer {
-  background-color: #000;
-  color: #fff;
-  overflow: auto;
-  margin-top: 15px;
+    background-color: #000;
+    color: #fff;
+    overflow: auto;
+    margin-top: 15px;
 }
 
 #PoweredBy {
-  width: 50%;
-  height: 9ex;
-  margin: 0;
-  padding: 0 0 0 15px;
-  float: left;
-  background-color: #000;
-  color: #fff;
-  line-height: 9ex;
+    width: 50%;
+    height: 9ex;
+    margin: 0;
+    padding: 0 0 0 15px;
+    float: left;
+    background-color: #000;
+    color: #fff;
+    line-height: 9ex;
 }
 
-body>#PoweredBy {
-  height: 9ex;
+body > #PoweredBy {
+    height: 9ex;
 }
 
 #Banner {
-  width: 50%;
-  height: 9ex;
-  margin: 0;
-  padding: 0;
-  float: right;
-  background-color: #000;
-  color: #fff;
-  line-height: 9ex;
+    width: 50%;
+    height: 9ex;
+    margin: 0;
+    padding: 0;
+    float: right;
+    background-color: #000;
+    color: #fff;
+    line-height: 9ex;
     text-align: center;
 }
 
-body>#Banner {
-  height: 9ex;
+body > #Banner {
+    height: 9ex;
 }
 
 #Content {
-  margin: 15px 0 0 0;
-  padding: 0;
-  width: 100%;
-  border-width: 0;
-  clear: both;
-  position: relative;
+    margin: 15px 0 0 0;
+    padding: 0;
+    width: 100%;
+    border-width: 0;
+    clear: both;
+    position: relative;
 }
 
 #Content h3 {
-  text-align: left;
+    text-align: left;
 }
 
 #Content table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin-left: auto;
-  margin-right: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Content table td {
+    vertical-align: middle;
 }
 
 #Content table td .button {
-  margin: 0;
+    margin: 0;
 }
+
 #Content table td input {
-  margin: 0;
+    margin: 0;
 }
 
 #Content #CenterForm {
-  width: 50%;
-  margin: 0 auto;
+    width: 50%;
+    margin: 0 auto;
 }
 
 #Separator {
-  clear:both;
-  margin: 0;
-  height:0;
+    clear: both;
+    margin: 0;
+    height: 0;
 }
 
 #Main {
@@ -174,54 +180,57 @@ body>#Banner {
 }
 
 #MainImage {
-  float: left;
-  background:inherit;
-  text-align:center;
-  width: 42%;
+    float: left;
+    background: inherit;
+    text-align: center;
+    width: 42%;
 }
 
 #MainImageContent {
-  border: 1px solid #ccc;
-  background-color: #fff;
-  margin-bottom: 15px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin-bottom: 15px;
 }
 
 #Catalog {
-  background:inherit;
-  text-align:center;
+    background: inherit;
+    text-align: center;
 }
 
 
 #BackLink {
-  position: absolute;
-  right: 5px;
-  top: 0;
+    position: absolute;
+    right: 5px;
+    top: 0;
 }
 
 #Cart {
-  width: 100%;
+    width: 100%;
 }
 
 #MyList {
-  width: 30%;
-  float: left;
-  text-align:left;
+    width: 30%;
+    float: left;
+    text-align: left;
 }
 
 #Signon .panel {
-  max-width: 450px;
-  margin: 0 auto;
-  overflow: auto;
+    max-width: 450px;
+    margin: 0 auto;
+    overflow: auto;
 }
+
 #Signon .panel.register {
-  margin-top: 10px;
-  background-color: #FFFFFF;
+    margin-top: 10px;
+    background-color: #FFFFFF;
 }
+
 #Signon .panel.failed {
-  background-color: red;
-  color: white;
-  border: none;
+    background-color: red;
+    color: white;
+    border: none;
 }
+
 .button-group {
-  text-align: center;
+    text-align: center;
 }

@@ -26,21 +26,20 @@
 
 <div id="CenterForm">
 
+	<h3>${product.name}</h3>
+
 	<table>
 		<tr>
 			<td>${product.description}</td>
 		</tr>
 		<tr>
-			<td><b> ${item.itemId} </b></td>
+			<td><strong>${item.itemId}</strong></td>
 		</tr>
 		<tr>
 			<td><strong><small> ${item.attribute1}
 			${item.attribute2} ${item.attribute3}
 			${item.attribute4} ${item.attribute5}
 			${product.name} </small></strong></td>
-		</tr>
-		<tr>
-			<td>${product.name}</td>
 		</tr>
 		<tr>
 			<td>
@@ -51,12 +50,10 @@
 		<tr>
 			<td><fmt:formatNumber value="${item.listPrice}" pattern="$#,##0.00" /></td>
 		</tr>
-		<tr>
-			<td>
-				<a class="button" href="/cart/addItemToCart?itemId=${item.itemId}">Add to Cart</a>
-			</td>
-		</tr>
 	</table>
+	<div class="button-group">
+		<a class="button" href="/cart/addItemToCart?itemId=${item.itemId}">Add to Cart</a>
+	</div>
 
 </div>
 

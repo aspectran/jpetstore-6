@@ -18,8 +18,11 @@
 
 --%>
 <h3>Account Information</h3>
-
 <table>
+	<colgroup>
+		<col style="width: 30%"/>
+		<col/>
+	</colgroup>
 	<tr>
 		<td>First name:</td>
 		<td><input type="text" name="firstName" value="${user.account.firstName}"/></td>
@@ -63,8 +66,11 @@
 </table>
 
 <h3>Profile Information</h3>
-
 <table>
+	<colgroup>
+		<col style="width: 30%"/>
+		<col/>
+	</colgroup>
 	<tr>
 		<td>Language Preference:</td>
 		<td>

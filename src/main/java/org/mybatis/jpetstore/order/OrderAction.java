@@ -21,6 +21,8 @@ import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.core.component.bean.annotation.Dispatch;
+import com.aspectran.core.component.bean.annotation.Parameter;
+import com.aspectran.core.component.bean.annotation.Redirect;
 import com.aspectran.core.component.bean.annotation.Request;
 import org.mybatis.jpetstore.account.domain.Account;
 import org.mybatis.jpetstore.cart.domain.Cart;
@@ -29,7 +31,6 @@ import org.mybatis.jpetstore.common.user.UserSessionManager;
 import org.mybatis.jpetstore.order.domain.Order;
 import org.mybatis.jpetstore.order.service.OrderService;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -74,6 +75,7 @@ public class OrderAction {
         if (cart != null) {
             Order order = new Order();
             order.initOrder(account, cart);
+            sessionManager.getUserSession().setOrder(order);
             return order;
         } else {
             String message = "An order could not be created because a cart could not be found.";
@@ -92,21 +94,46 @@ public class OrderAction {
                          boolean shippingAddressRequired,
                          boolean confirmed
     ) {
+        Order order2 = sessionManager.getUserSession().getOrder();
+        if (order2 == null) {
+            translet.redirect("/cart/viewCart");
+            return;
+        }
+        order2.update(order);
         if (shippingAddressRequired) {
-            translet.setAttribute("order", order);
             translet.dispatch("order/ShippingForm");
         } else if (!confirmed) {
-            translet.setAttribute("order", order);
             translet.dispatch("order/ConfirmOrder");
         } else {
-            orderService.insertOrder(order);
-            Cart cart = cartService.getCart();
-            cart.clear();
-
-            translet.redirect("/order/viewOrder", new HashMap<String, String>() {{
-                put("orderId", Integer.toString(order.getOrderId()));
-            }});
+            sessionManager.getUserSession().clearOrder();
+            translet.redirect("/cart/viewCart");
         }
+    }
+
+    /**
+     * Confirm order.
+     */
+    @Request("/order/submitOrder")
+    @Redirect(
+            path = "/order/viewOrder",
+            parameters = {
+                    @Parameter(name = "orderId", value = "@{order^orderId}")
+            }
+    )
+    @Action("order")
+    public Order submitOrder(Translet translet) {
+        Account account = sessionManager.getUserSession().getAccount();
+        Cart cart = cartService.getCart();
+
+        Order order = sessionManager.getUserSession().getOrder();
+        order.initOrder(account, cart);
+
+        orderService.insertOrder(order);
+
+        sessionManager.getUserSession().clearOrder();
+        cart.clear();
+
+        return order;
     }
 
     /**
