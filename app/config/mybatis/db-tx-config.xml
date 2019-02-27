@@ -18,7 +18,7 @@
         </properties>
     </environment>
 
-    <bean id="sqlSessionFactory" class="com.aspectran.with.mybatis.SqlSessionFactoryBean">
+    <bean id="sqlSessionFactory" class="com.aspectran.mybatis.SqlSessionFactoryBean">
         <description>
             FactoryBean that creates an MyBatis SqlSessionFactory using default MyBatis Configuration.
         </description>
@@ -34,7 +34,7 @@
         </properties>
     </bean>
 
-    <bean id="sqlSessionTxAdvice" class="com.aspectran.with.mybatis.SqlSessionTxAdvice" scope="prototype">
+    <bean id="sqlSessionTxAdvice" class="com.aspectran.mybatis.SqlSessionTxAdvice" scope="prototype">
         <description>
             Advice for Database Transactions.
         </description>
