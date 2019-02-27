@@ -36,11 +36,11 @@
 			</tr>
 			<tr>
 				<td>New password:</td>
-				<td><input type="text" name="password"/></td>
+				<td><input type="password" name="password"/></td>
 			</tr>
 			<tr>
 				<td>Repeat password:</td>
-				<td><input type="text" name="repeatedPassword"/></td>
+				<td><input type="password" name="repeatedPassword"/></td>
 			</tr>
 		</table>
 

@@ -88,12 +88,14 @@ public class OrderService {
         LineItemMapper lineItemMapper = LineItemMapper.getInstance(sqlSession);
 
         Order order = orderMapper.getOrder(orderId);
-        order.setLineItems(lineItemMapper.getLineItemsByOrderId(orderId));
-        order.getLineItems().forEach(lineItem -> {
-            Item item = itemMapper.getItem(lineItem.getItemId());
-            item.setQuantity(itemMapper.getInventoryQuantity(lineItem.getItemId()));
-            lineItem.setItem(item);
-        });
+        if (order != null) {
+            order.setLineItems(lineItemMapper.getLineItemsByOrderId(orderId));
+            order.getLineItems().forEach(lineItem -> {
+                Item item = itemMapper.getItem(lineItem.getItemId());
+                item.setQuantity(itemMapper.getInventoryQuantity(lineItem.getItemId()));
+                lineItem.setItem(item);
+            });
+        }
         return order;
     }
 

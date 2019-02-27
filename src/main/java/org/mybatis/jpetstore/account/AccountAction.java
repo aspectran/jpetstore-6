@@ -23,6 +23,7 @@ import com.aspectran.core.component.bean.annotation.Dispatch;
 import com.aspectran.core.component.bean.annotation.Redirect;
 import com.aspectran.core.component.bean.annotation.Request;
 import com.aspectran.core.component.bean.annotation.RequestToPost;
+import com.aspectran.core.util.StringUtils;
 import org.mybatis.jpetstore.account.domain.Account;
 import org.mybatis.jpetstore.account.service.AccountService;
 import org.mybatis.jpetstore.catalog.domain.Product;
@@ -60,7 +61,7 @@ public class AccountAction {
      * New account.
      */
     @Request("/account/newAccount")
-    @Redirect("/viewMain")
+    @Redirect("/catalog/")
     public void newAccount(Account account) {
         accountService.insertAccount(account);
         account = accountService.getAccount(account.getUsername());
@@ -121,7 +122,7 @@ public class AccountAction {
             userSession.setProducts(products);
             userSession.setAuthenticated(true);
 
-            if (referer != null) {
+            if (StringUtils.hasLength(referer)) {
                 translet.redirect(referer);
             }
         }

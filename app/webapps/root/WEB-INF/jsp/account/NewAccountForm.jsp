@@ -17,35 +17,38 @@
 --%>
 <%@ include file="../common/IncludeTop.jsp"%>
 
-<div id="Catalog"><stripes:form
-	beanclass="org.mybatis.jpetstore.web.actions.AccountActionBean"
-	focus="">
+<div id="CenterForm">
 
-	<h3>User Information</h3>
+	<form method="post" action="/account/newAccount">
 
-	<table>
-		<colgroup>
-			<col style="width: 30%"/>
-			<col/>
-		</colgroup>
-		<tr>
-			<td>User ID:</td>
-			<td><stripes:text name="username" /></td>
-		</tr>
-		<tr>
-			<td>New password:</td>
-			<td><stripes:text name="password" /></td>
-		</tr>
-		<tr>
-			<td>Repeat password:</td>
-			<td><stripes:text name="repeatedPassword" /></td>
-		</tr>
-	</table>
+		<h3>User Information</h3>
+		<table>
+			<colgroup>
+				<col style="width: 30%"/>
+				<col/>
+			</colgroup>
+			<tr>
+				<td>User ID:</td>
+				<td><input type="text" name="username"/></td>
+			</tr>
+			<tr>
+				<td>New password:</td>
+				<td><input type="password" name="password"/></td>
+			</tr>
+			<tr>
+				<td>Repeat password:</td>
+				<td><input type="password" name="repeatedPassword"/></td>
+			</tr>
+		</table>
 
-	<%@ include file="IncludeAccountFields.jsp"%>
+		<%@ include file="IncludeAccountFields.jsp"%>
 
-	<stripes:submit name="newAccount" value="Save Account Information" />
+		<div class="button-group">
+			<button type="submit" class="button">Save Account Information</button>
+		</div>
 
-</stripes:form></div>
+	</form>
+
+</div>
 
 <%@ include file="../common/IncludeBottom.jsp"%>

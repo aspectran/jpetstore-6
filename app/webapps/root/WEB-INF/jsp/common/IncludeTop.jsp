@@ -32,6 +32,8 @@
 		<c:if test="${not user.authenticated}">
 			<img align="middle" src="../images/separator.gif" />
 			<a href="/account/signonForm">Sign In</a>
+			<img align="middle" src="../images/separator.gif" />
+			<a href="/account/newAccountForm">Sign Up</a>
 		</c:if>
 		<c:if test="${user.authenticated}">
 			<img align="middle" src="../images/separator.gif" />

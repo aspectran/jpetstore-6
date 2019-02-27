@@ -111,7 +111,6 @@
 				<td>Country:</td>
 				<td><c:out value="${user.order.shipCountry}" /></td>
 			</tr>
-
 		</table>
 
 		<div class="button-group">
