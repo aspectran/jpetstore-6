@@ -73,15 +73,10 @@
             <div class="top-bar-left">
                 <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
                     <li>
-                        <a href="/examples/hello-world">Examples</a>
+                        <a href="/catalog/">Examples</a>
                         <ul class="menu" data-submenu data-close-on-click-inside="false">
-                            <li><a href="/examples/hello-world">Hello World</a></li>
-                            <li><a href="/examples/gs-rest-service/">RESTful Web Service</a></li>
-                            <li><a href="/examples/file-upload/">File Upload</a></li>
+                            <li><a href="/catalog/">JPetStore Demo</a></li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="/terminal/">Terminal</a>
                     </li>
                 </ul>
             </div>
@@ -117,7 +112,6 @@
                 <nav role="navigation" aria-label="You are here:">
                     <ul class="breadcrumbs" itemprop="breadcrumb">
                         <li><a href="http://www.aspectran.com/">Aspectran</a></li>
-                        <li><a href="/">Demo</a></li>
                     </ul>
                 </nav>
             </div>
@@ -154,7 +148,6 @@
                 <nav role="navigation" aria-label="You are here:">
                     <ul class="breadcrumbs" itemprop="breadcrumb">
                         <li><a href="http://www.aspectran.com/">Aspectran</a></li>
-                        <li><a href="/">Demo</a></li>
                     </ul>
                 </nav>
             </div>
@@ -228,7 +221,7 @@
     <div id="subfooter">
         <nav class="row b30">
             <section id="subfooter-left" class="medium-6 columns credits">
-                <p>© 2008–2018 The Aspectran Project. All rights reserved.</p>
+                <p>© 2008–2019 The Aspectran Project. All rights reserved.</p>
             </section>
             <section id="subfooter-right" class="medium-6 columns social-icons">
                 <ul>

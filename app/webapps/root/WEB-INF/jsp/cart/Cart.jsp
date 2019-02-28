@@ -44,7 +44,7 @@
 				</tr>
 				<c:if test="${cart.numberOfItems eq 0}">
 					<tr>
-						<td colspan="8"><b>Your cart is empty.</b></td>
+						<td colspan="8">Your cart is empty.</td>
 					</tr>
 				</c:if>
 				<c:forEach var="cartItem" items="${cart.cartItems}">

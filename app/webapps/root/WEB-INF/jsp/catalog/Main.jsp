@@ -62,6 +62,15 @@
 			usemap="#estoremap" width="350" />
 		</div>
 	</div>
+	<div id="RightSidebar">
+		<div id="MyList">
+			<c:if test="${not empty user.account}">
+				<c:if test="${!empty user.account.listOption}">
+					<%@ include file="../cart/IncludeMyList.jsp"%>
+				</c:if>
+			</c:if>
+		</div>
+	</div>
 
 	<div id="Separator">&nbsp;</div>
 </div>

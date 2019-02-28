@@ -20,24 +20,35 @@
 --%>
 <%@ include file="../common/IncludeTop.jsp"%>
 
-<h3>My Orders</h3>
+<div id="Catalog">
 
-<table>
-	<tr>
-		<th>Order ID</th>
-		<th>Date</th>
-		<th>Total Price</th>
-	</tr>
-	<c:forEach var="order" items="${orderList}">
+	<h3>My Orders</h3>
+
+	<table>
 		<tr>
-			<td>
-				<a href="/order/viewOrder?orderId=${order.orderId}">${order.orderId}</a>
-			</td>
-			<td><fmt:formatDate value="${order.orderDate}" pattern="yyyy-MM-dd hh:mm:ss" /></td>
-			<td><fmt:formatNumber value="${order.totalPrice}" pattern="$#,##0.00" /></td>
+			<th>Order ID</th>
+			<th>Date</th>
+			<th>Total Price</th>
 		</tr>
-	</c:forEach>
-</table>
+		<c:forEach var="order" items="${orderList}">
+			<tr>
+				<td>
+					<a href="/order/viewOrder?orderId=${order.orderId}">${order.orderId}</a>
+				</td>
+				<td><fmt:formatDate value="${order.orderDate}" pattern="yyyy-MM-dd hh:mm:ss" /></td>
+				<td><fmt:formatNumber value="${order.totalPrice}" pattern="$#,##0.00" /></td>
+			</tr>
+		</c:forEach>
+		<c:if test="${empty orderList}">
+			<tr>
+				<td colspan="3">
+					You have placed no orders.
+				</td>
+			</tr>
+		</c:if>
+	</table>
+
+</div>
 
 <%@ include file="../common/IncludeBottom.jsp"%>
 

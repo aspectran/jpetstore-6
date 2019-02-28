@@ -178,12 +178,20 @@ body > #Banner {
     float: left;
     width: 30%;
 }
+#RightSidebar {
+    float: right;
+    width: 30%;
+}
+#RightSidebar #MyList {
+    width: 96%;
+    float: right;
+}
 
 #MainImage {
     float: left;
     background: inherit;
     text-align: center;
-    width: 42%;
+    width: 40%;
 }
 
 #MainImageContent {

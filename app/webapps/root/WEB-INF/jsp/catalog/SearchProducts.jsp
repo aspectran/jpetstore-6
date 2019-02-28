@@ -23,7 +23,14 @@
 
 <div id="Catalog">
 
+	<h3>Search Results for "${param.keyword}"</h3>
+
 	<table>
+		<colgroup>
+			<col style="width: 30%"/>
+			<col style="width: 30%"/>
+			<col/>
+		</colgroup>
 		<tr>
 			<th>&nbsp;</th>
 			<th>Product ID</th>

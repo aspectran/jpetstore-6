@@ -104,8 +104,7 @@ public class CatalogAction {
      */
     @Request("/catalog/searchProducts")
     @Dispatch("catalog/SearchProducts")
-    public void searchProducts(Translet translet) {
-        String keyword = translet.getParameter("keyword");
+    public void searchProducts(Translet translet, String keyword) {
         if (!StringUtils.isEmpty(keyword)) {
             List<Product> productList = catalogService.searchProductList(keyword.toLowerCase());
             translet.setAttribute("productList", productList);

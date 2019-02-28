@@ -26,18 +26,30 @@
 
 <div id="CenterForm">
 
-	<h3>Order #${order.orderId}</h3>
+	<h3>Order</h3>
 	<table>
+		<colgroup>
+			<col style="width: 30%"/>
+			<col/>
+		</colgroup>
 		<tr>
-			<th align="center" colspan="2">
+			<td>Order No.</td>
+			<td>#${order.orderId}</td>
+		</tr>
+		<tr>
+			<td>Order Date</td>
+			<td>
 				<fmt:formatDate value="${order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss" />
-			</th>
+			</td>
 		</tr>
 	</table>
 
 	<h3>Payment Details</h3>
 	<table>
-		<tr>
+		<colgroup>
+			<col style="width: 30%"/>
+			<col/>
+		</colgroup>		<tr>
 			<td>Card Type:</td>
 			<td><c:out value="${order.cardType}" /></td>
 		</tr>
@@ -56,6 +68,10 @@
 
 	<h3>Billing Address</h3>
 	<table>
+		<colgroup>
+			<col style="width: 30%"/>
+			<col/>
+		</colgroup>
 		<tr>
 			<td>First name:</td>
 			<td><c:out value="${order.billToFirstName}" /></td>
@@ -92,6 +108,10 @@
 
 	<h3>Shipping Address</h3>
 	<table>
+		<colgroup>
+			<col style="width: 30%"/>
+			<col/>
+		</colgroup>
 		<tr>
 			<td>First name:</td>
 			<td><c:out value="${order.shipToFirstName}" /></td>
@@ -143,7 +163,7 @@
 		</tr>
 		<c:forEach var="lineItem" items="${order.lineItems}">
 			<tr>
-				<td>
+				<td align="center">
 					<a href="/catalog/viewItem?itemId=${lineItem.item.itemId}">${lineItem.item.itemId}</a>
 				</td>
 				<td>
@@ -159,13 +179,13 @@
 						<i>{description unavailable}</i>
 					</c:if>
 				</td>
-				<td>${lineItem.quantity}</td>
-				<td><fmt:formatNumber value="${lineItem.unitPrice}" pattern="$#,##0.00" /></td>
-				<td><fmt:formatNumber value="${lineItem.total}" pattern="$#,##0.00" /></td>
+				<td align="center">${lineItem.quantity}</td>
+				<td align="center"><fmt:formatNumber value="${lineItem.unitPrice}" pattern="$#,##0.00" /></td>
+				<td align="center"><fmt:formatNumber value="${lineItem.total}" pattern="$#,##0.00" /></td>
 			</tr>
 		</c:forEach>
 		<tr>
-			<th colspan="5">
+			<th colspan="5" align="center">
 				Total: <fmt:formatNumber value="${order.totalPrice}" pattern="$#,##0.00" />
 			</th>
 		</tr>
