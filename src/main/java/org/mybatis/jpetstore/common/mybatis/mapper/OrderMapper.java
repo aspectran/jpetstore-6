@@ -27,7 +27,7 @@ import java.util.List;
  */
 public interface OrderMapper {
 
-    static OrderMapper getInstance(SqlSession sqlSession) {
+    static OrderMapper getMapper(SqlSession sqlSession) {
         return sqlSession.getMapper(OrderMapper.class);
     }
 

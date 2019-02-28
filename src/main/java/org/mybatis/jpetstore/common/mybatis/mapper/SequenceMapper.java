@@ -25,7 +25,7 @@ import org.mybatis.jpetstore.order.domain.Sequence;
  */
 public interface SequenceMapper {
 
-    static SequenceMapper getInstance(SqlSession sqlSession) {
+    static SequenceMapper getMapper(SqlSession sqlSession) {
         return sqlSession.getMapper(SequenceMapper.class);
     }
 

@@ -27,7 +27,7 @@ import java.util.List;
  */
 public interface CategoryMapper {
 
-    static CategoryMapper getInstance(SqlSession sqlSession) {
+    static CategoryMapper getMapper(SqlSession sqlSession) {
         return sqlSession.getMapper(CategoryMapper.class);
     }
 

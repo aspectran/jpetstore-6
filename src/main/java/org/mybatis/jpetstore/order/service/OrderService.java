@@ -41,7 +41,7 @@ import java.util.Map;
 @Bean("orderService")
 public class OrderService {
 
-    private SqlSession sqlSession;
+    private final SqlSession sqlSession;
 
     @Autowired
     public OrderService(SimpleSqlSession sqlSession) {
@@ -54,18 +54,18 @@ public class OrderService {
      * @param order the order
      */
     public void insertOrder(Order order) {
-        ItemMapper itemMapper = ItemMapper.getInstance(sqlSession);
-        OrderMapper orderMapper = OrderMapper.getInstance(sqlSession);
-        LineItemMapper lineItemMapper = LineItemMapper.getInstance(sqlSession);
+        ItemMapper itemMapper = ItemMapper.getMapper(sqlSession);
+        OrderMapper orderMapper = OrderMapper.getMapper(sqlSession);
+        LineItemMapper lineItemMapper = LineItemMapper.getMapper(sqlSession);
 
         order.setOrderId(getNextId("ordernum"));
         order.getLineItems().forEach(lineItem -> {
             String itemId = lineItem.getItemId();
             Integer increment = lineItem.getQuantity();
-            Map<String, Object> param = new HashMap<>(2);
-            param.put("itemId", itemId);
-            param.put("increment", increment);
-            itemMapper.updateInventoryQuantity(param);
+            Map<String, Object> params = new HashMap<>();
+            params.put("itemId", itemId);
+            params.put("increment", increment);
+            itemMapper.updateInventoryQuantity(params);
         });
 
         orderMapper.insertOrder(order);
@@ -83,9 +83,9 @@ public class OrderService {
      * @return the order
      */
     public Order getOrder(int orderId) {
-        ItemMapper itemMapper = ItemMapper.getInstance(sqlSession);
-        OrderMapper orderMapper = OrderMapper.getInstance(sqlSession);
-        LineItemMapper lineItemMapper = LineItemMapper.getInstance(sqlSession);
+        ItemMapper itemMapper = ItemMapper.getMapper(sqlSession);
+        OrderMapper orderMapper = OrderMapper.getMapper(sqlSession);
+        LineItemMapper lineItemMapper = LineItemMapper.getMapper(sqlSession);
 
         Order order = orderMapper.getOrder(orderId);
         if (order != null) {
@@ -106,7 +106,7 @@ public class OrderService {
      * @return the orders by username
      */
     public List<Order> getOrdersByUsername(String username) {
-        return OrderMapper.getInstance(sqlSession).getOrdersByUsername(username);
+        return OrderMapper.getMapper(sqlSession).getOrdersByUsername(username);
     }
 
     /**
@@ -116,11 +116,11 @@ public class OrderService {
      * @return the next id
      */
     public int getNextId(String name) {
-        SequenceMapper sequenceMapper = SequenceMapper.getInstance(sqlSession);
+        SequenceMapper sequenceMapper = SequenceMapper.getMapper(sqlSession);
         Sequence sequence = sequenceMapper.getSequence(new Sequence(name, -1));
         if (sequence == null) {
             throw new RuntimeException(
-                    "Error: A null sequence was returned from the database (could not get next " + name + " sequence).");
+                    "Error: A null sequence was returned from the database (could not get next " + name + " sequence)");
         }
         Sequence parameterObject = new Sequence(name, sequence.getNextId() + 1);
         sequenceMapper.updateSequence(parameterObject);

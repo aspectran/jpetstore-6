@@ -28,7 +28,7 @@ import java.util.Map;
  */
 public interface ItemMapper {
 
-    static ItemMapper getInstance(SqlSession sqlSession) {
+    static ItemMapper getMapper(SqlSession sqlSession) {
         return sqlSession.getMapper(ItemMapper.class);
     }
 

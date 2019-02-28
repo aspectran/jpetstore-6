@@ -35,9 +35,9 @@ import java.util.Iterator;
 @Bean("cartService")
 public class CartService {
 
-    private CatalogService catalogService;
+    private final CatalogService catalogService;
 
-    private UserSessionManager sessionManager;
+    private final UserSessionManager sessionManager;
 
     @Autowired
     public CartService(CatalogService catalogService, UserSessionManager sessionManager) {

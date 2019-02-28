@@ -25,7 +25,7 @@ import org.mybatis.jpetstore.account.domain.Account;
  */
 public interface AccountMapper {
 
-    static AccountMapper getInstance(SqlSession sqlSession) {
+    static AccountMapper getMapper(SqlSession sqlSession) {
         return sqlSession.getMapper(AccountMapper.class);
     }
 

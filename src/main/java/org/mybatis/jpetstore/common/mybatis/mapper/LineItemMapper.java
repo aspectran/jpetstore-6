@@ -27,7 +27,7 @@ import java.util.List;
  */
 public interface LineItemMapper {
 
-    static LineItemMapper getInstance(SqlSession sqlSession) {
+    static LineItemMapper getMapper(SqlSession sqlSession) {
         return sqlSession.getMapper(LineItemMapper.class);
     }
 

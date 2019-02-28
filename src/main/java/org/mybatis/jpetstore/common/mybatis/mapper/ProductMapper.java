@@ -27,7 +27,7 @@ import java.util.List;
  */
 public interface ProductMapper {
 
-    static ProductMapper getInstance(SqlSession sqlSession) {
+    static ProductMapper getMapper(SqlSession sqlSession) {
         return sqlSession.getMapper(ProductMapper.class);
     }
 

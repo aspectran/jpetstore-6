@@ -61,8 +61,7 @@ public class CatalogAction {
      */
     @Request("/catalog/viewCategory")
     @Dispatch("catalog/Category")
-    public void viewCategory(Translet translet) {
-        String categoryId = translet.getParameter("categoryId");
+    public void viewCategory(Translet translet, String categoryId) {
         if (categoryId != null) {
             Category category = catalogService.getCategory(categoryId);
             List<Product> productList = catalogService.getProductListByCategory(categoryId);
@@ -76,8 +75,7 @@ public class CatalogAction {
      */
     @Request("/catalog/viewProduct")
     @Dispatch("catalog/Product")
-    public void viewProduct(Translet translet) {
-        String productId = translet.getParameter("productId");
+    public void viewProduct(Translet translet, String productId) {
         if (productId != null) {
             Product product = catalogService.getProduct(productId);
             List<Item> itemList = catalogService.getItemListByProduct(productId);
@@ -91,12 +89,13 @@ public class CatalogAction {
      */
     @Request("/catalog/viewItem")
     @Dispatch("catalog/Item")
-    public void viewItem(Translet translet) {
-        String itemId = translet.getParameter("itemId");
+    public void viewItem(Translet translet, String itemId) {
         Item item = catalogService.getItem(itemId);
-        Product product = item.getProduct();
-        translet.setAttribute("item", item);
-        translet.setAttribute("product", product);
+        if (item != null) {
+            Product product = item.getProduct();
+            translet.setAttribute("item", item);
+            translet.setAttribute("product", product);
+        }
     }
 
     /**

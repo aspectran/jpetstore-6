@@ -110,7 +110,10 @@ public class AccountAction {
      */
     @RequestToPost("/account/signon")
     @Redirect("/catalog/")
-    public void signon(Translet translet, String username, String password, String referer) {
+    public void signon(Translet translet,
+                       String username,
+                       String password,
+                       String referer) {
         Account account = accountService.getAccount(username, password);
         if (account == null) {
             translet.redirect("/account/signonForm?retry=true");

@@ -34,7 +34,7 @@ import java.util.Optional;
 @Bean("accountService")
 public class AccountService {
 
-    public SqlSession sqlSession;
+    public final SqlSession sqlSession;
 
     @Autowired
     public AccountService(SimpleSqlSession sqlSession) {
@@ -42,11 +42,11 @@ public class AccountService {
     }
 
     public Account getAccount(String username) {
-        return AccountMapper.getInstance(sqlSession).getAccountByUsername(username);
+        return AccountMapper.getMapper(sqlSession).getAccountByUsername(username);
     }
 
     public Account getAccount(String username, String password) {
-        return AccountMapper.getInstance(sqlSession).getAccountByUsernameAndPassword(username, password);
+        return AccountMapper.getMapper(sqlSession).getAccountByUsernameAndPassword(username, password);
     }
 
     /**
@@ -55,7 +55,7 @@ public class AccountService {
      * @param account the account
      */
     public void insertAccount(Account account) {
-        AccountMapper accountMapper = AccountMapper.getInstance(sqlSession);
+        AccountMapper accountMapper = AccountMapper.getMapper(sqlSession);
         accountMapper.insertAccount(account);
         accountMapper.insertProfile(account);
         accountMapper.insertSignon(account);
@@ -67,7 +67,7 @@ public class AccountService {
      * @param account the account
      */
     public void updateAccount(Account account) {
-        AccountMapper accountMapper = AccountMapper.getInstance(sqlSession);
+        AccountMapper accountMapper = AccountMapper.getMapper(sqlSession);
         accountMapper.updateAccount(account);
         accountMapper.updateProfile(account);
 

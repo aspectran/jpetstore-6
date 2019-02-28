@@ -39,7 +39,7 @@ import java.util.List;
 @Bean("catalogService")
 public class CatalogService {
 
-    public SqlSession sqlSession;
+    public final SqlSession sqlSession;
 
     @Autowired
     public CatalogService(SimpleSqlSession sqlSession) {
@@ -47,19 +47,19 @@ public class CatalogService {
     }
 
     public List<Category> getCategoryList() {
-        return CategoryMapper.getInstance(sqlSession).getCategoryList();
+        return CategoryMapper.getMapper(sqlSession).getCategoryList();
     }
 
     public Category getCategory(String categoryId) {
-        return CategoryMapper.getInstance(sqlSession).getCategory(categoryId);
+        return CategoryMapper.getMapper(sqlSession).getCategory(categoryId);
     }
 
     public Product getProduct(String productId) {
-        return ProductMapper.getInstance(sqlSession).getProduct(productId);
+        return ProductMapper.getMapper(sqlSession).getProduct(productId);
     }
 
     public List<Product> getProductListByCategory(String categoryId) {
-        return ProductMapper.getInstance(sqlSession).getProductListByCategory(categoryId);
+        return ProductMapper.getMapper(sqlSession).getProductListByCategory(categoryId);
     }
 
     /**
@@ -69,7 +69,7 @@ public class CatalogService {
      * @return the list
      */
     public List<Product> searchProductList(String keywords) {
-        ProductMapper productMapper = ProductMapper.getInstance(sqlSession);
+        ProductMapper productMapper = ProductMapper.getMapper(sqlSession);
         List<Product> products = new ArrayList<>();
         for (String keyword : keywords.split("\\s+")) {
             products.addAll(productMapper.searchProductList("%" + keyword.toLowerCase() + "%"));
@@ -78,15 +78,15 @@ public class CatalogService {
     }
 
     public List<Item> getItemListByProduct(String productId) {
-        return ItemMapper.getInstance(sqlSession).getItemListByProduct(productId);
+        return ItemMapper.getMapper(sqlSession).getItemListByProduct(productId);
     }
 
     public Item getItem(String itemId) {
-        return ItemMapper.getInstance(sqlSession).getItem(itemId);
+        return ItemMapper.getMapper(sqlSession).getItem(itemId);
     }
 
     public boolean isItemInStock(String itemId) {
-        return (ItemMapper.getInstance(sqlSession).getInventoryQuantity(itemId) > 0);
+        return (ItemMapper.getMapper(sqlSession).getInventoryQuantity(itemId) > 0);
     }
 
 }
