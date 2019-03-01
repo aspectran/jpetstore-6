@@ -29,7 +29,7 @@
 	<h3>Order</h3>
 	<table>
 		<colgroup>
-			<col style="width: 30%"/>
+			<col style="width: 25%"/>
 			<col/>
 		</colgroup>
 		<tr>
@@ -47,7 +47,7 @@
 	<h3>Payment Details</h3>
 	<table>
 		<colgroup>
-			<col style="width: 30%"/>
+			<col style="width: 25%"/>
 			<col/>
 		</colgroup>		<tr>
 			<td>Card Type:</td>
@@ -69,7 +69,7 @@
 	<h3>Billing Address</h3>
 	<table>
 		<colgroup>
-			<col style="width: 30%"/>
+			<col style="width: 25%"/>
 			<col/>
 		</colgroup>
 		<tr>
@@ -109,7 +109,7 @@
 	<h3>Shipping Address</h3>
 	<table>
 		<colgroup>
-			<col style="width: 30%"/>
+			<col style="width: 25%"/>
 			<col/>
 		</colgroup>
 		<tr>

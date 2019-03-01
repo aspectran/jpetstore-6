@@ -38,14 +38,19 @@ import java.util.Iterator;
 @Bean("cartAction")
 public class CartAction {
 
+    private final CartService cartService;
+
+    public CartAction(CartService cartService) {
+        this.cartService = cartService;
+    }
+
     /**
      * Adds the item to cart.
      */
     @Request("/cart/addItemToCart")
     @Redirect("/cart/viewCart")
     @Action("cart")
-    public Cart addItemToCart(Translet translet, @Required String itemId) {
-        CartService cartService = translet.getBean("cartService");
+    public Cart addItemToCart(@Required String itemId) {
         cartService.addItemToCart(itemId);
         return cartService.getCart();
     }
@@ -55,11 +60,17 @@ public class CartAction {
      */
     @Request("/cart/removeItemFromCart")
     @Redirect("/cart/viewCart")
-    @Action("cart")
-    public Cart removeItemFromCart(Translet translet, @Required String cartItem) {
-        CartService cartService = translet.getBean("cartService");
+    public void removeItemFromCart(@Required String cartItem) {
         cartService.removeItemFromCart(cartItem);
-        return cartService.getCart();
+    }
+
+    /**
+     * Removes all items from cart.
+     */
+    @Request("/cart/removeAllItemsFromCart")
+    @Redirect("/cart/viewCart")
+    public void removeAllItemsFromCart() {
+        cartService.removeAllItemsFormCart();
     }
 
     /**
@@ -69,7 +80,6 @@ public class CartAction {
     @Redirect("/cart/viewCart")
     @Action("cart")
     public Cart updateCartQuantities(Translet translet) {
-        CartService cartService = translet.getBean("cartService");
         Iterator<CartItem> cartItems = cartService.getAllCartItems();
         while (cartItems.hasNext()) {
             CartItem cartItem = cartItems.next();
@@ -90,15 +100,14 @@ public class CartAction {
     @Request("/cart/viewCart")
     @Dispatch("cart/Cart")
     @Action("cart")
-    public Cart viewCart(Translet translet) {
-        CartService cartService = translet.getBean("cartService");
+    public Cart viewCart() {
         return cartService.getCart();
     }
 
     @Request("/cart/checkOut")
     @Dispatch("cart/Checkout")
-    public Cart checkOut(Translet translet) {
-        return viewCart(translet);
+    public Cart checkOut() {
+        return viewCart();
     }
 
 }

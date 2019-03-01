@@ -61,10 +61,8 @@ public class Cart implements Serializable {
     /**
      * Adds the item.
      *
-     * @param item
-     *          the item
-     * @param isInStock
-     *          the is in stock
+     * @param item the item
+     * @param isInStock the is in stock
      */
     public void addItem(Item item, boolean isInStock) {
         CartItem cartItem = itemMap.get(item.getItemId());
@@ -82,25 +80,23 @@ public class Cart implements Serializable {
     /**
      * Removes the item by id.
      *
-     * @param itemId
-     *          the item id
+     * @param itemId the item id
      * @return the item
      */
     public Item removeItemById(String itemId) {
         CartItem cartItem = itemMap.remove(itemId);
-        if (cartItem == null) {
-            return null;
-        } else {
+        if (cartItem != null) {
             itemList.remove(cartItem);
             return cartItem.getItem();
+        } else {
+            return null;
         }
     }
 
     /**
      * Increment quantity by item id.
      *
-     * @param itemId
-     *          the item id
+     * @param itemId the item id
      */
     public void incrementQuantityByItemId(String itemId) {
         CartItem cartItem = itemMap.get(itemId);

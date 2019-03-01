@@ -53,13 +53,13 @@
 							<a href="/catalog/viewItem?itemId=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
 						</td>
 						<td>${cartItem.item.product.productId}</td>
-						<td>
+						<td align="left">
 							${cartItem.item.attribute1} ${cartItem.item.attribute2}
 							${cartItem.item.attribute3} ${cartItem.item.attribute4}
 							${cartItem.item.attribute5} ${cartItem.item.product.name}
 						</td>
 						<td>${cartItem.inStock}</td>
-						<td><input type="text" name="${cartItem.item.itemId}" size="3" maxlength="3" value="${cartItem.quantity}"/></td>
+						<td><input type="number" name="${cartItem.item.itemId}" size="3" maxlength="3" value="${cartItem.quantity}"/></td>
 						<td><fmt:formatNumber value="${cartItem.item.listPrice}" pattern="$#,##0.00" /></td>
 						<td><fmt:formatNumber value="${cartItem.total}" pattern="$#,##0.00" /></td>
 						<td>
@@ -68,10 +68,19 @@
 					</tr>
 				</c:forEach>
 				<tr>
-					<td colspan="5"></td>
+					<td colspan="4"></td>
+					<td>
+						<c:if test="${cart.numberOfItems gt 0}">
+							<button class="button" type="submit">Update Cart</button>
+						</c:if>
+					</td>
 					<td><strong>Sub Total:</strong></td>
 					<td><strong><fmt:formatNumber value="${cart.subTotal}" pattern="$#,##0.00" /></strong></td>
-					<td><button class="button" type="submit">Update Cart</button></td>
+					<td>
+						<c:if test="${cart.numberOfItems gt 0}">
+							<a class="button" href="/cart/removeAllItemsFromCart">Remove All</a>
+						</c:if>
+					</td>
 				</tr>
 			</table>
 

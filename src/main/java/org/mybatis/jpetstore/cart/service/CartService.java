@@ -66,6 +66,10 @@ public class CartService {
         getCart().removeItemById(itemId);
     }
 
+    public void removeAllItemsFormCart() {
+        getCart().clear();
+    }
+
     public Iterator<CartItem> getAllCartItems() {
         return getCart().getAllCartItems();
     }

@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%--
 
        Copyright 2010-2016 the original author or authors.
@@ -27,7 +26,7 @@
 		<h3>Payment Details</h3>
 		<table>
 			<colgroup>
-				<col style="width: 30%"/>
+				<col style="width: 25%"/>
 				<col/>
 			</colgroup>
 			<tr>
@@ -96,12 +95,21 @@
 			</tr>
 		</table>
 
+		<c:if test="${not empty order}">
 		<div class="button-group">
 			<button type="submit" class="button">Continue</button>
 		</div>
+		</c:if>
 
 	</form>
 
 </div>
+
+<c:if test="${empty order}">
+<script>
+	alert("An order could not be created because a cart could not be found.");
+	location.href = "/catalog/";
+</script>
+</c:if>
 
 <%@ include file="../common/IncludeBottom.jsp"%>

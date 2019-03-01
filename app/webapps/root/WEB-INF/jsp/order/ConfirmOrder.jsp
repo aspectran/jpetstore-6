@@ -25,25 +25,31 @@
 </div>
 
 <div id="CenterForm">
-	Please confirm the information below and then press continue...
-
 	<form method="post" action="/order/submitOrder">
 		<input type="hidden" name="confirmed" value="true"/>
+
+		<h3>Order</h3>
+		<table>
+			<colgroup>
+				<col style="width: 25%"/>
+				<col/>
+			</colgroup>
+			<tr>
+				<td>Order Date</td>
+				<td>
+					<fmt:formatDate value="${user.order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss" />
+				</td>
+			</tr>
+		</table>
+
+		<p>Please confirm the information below and then press continue...</p>
+
+		<h3>Billing Address</h3>
 		<table>
 			<colgroup>
 				<col style="width: 25%;"/>
 				<col/>
 			</colgroup>
-			<tr>
-				<th align="center" colspan="2">
-					<strong>Order</strong>
-					<br />
-					<fmt:formatDate value="${user.order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss" />
-				</th>
-			</tr>
-			<tr>
-				<th colspan="2">Billing Address</th>
-			</tr>
 			<tr>
 				<td>First name:</td>
 				<td><c:out value="${user.order.billToFirstName}" /></td>
@@ -76,9 +82,14 @@
 				<td>Country:</td>
 				<td><c:out value="${user.order.billCountry}" /></td>
 			</tr>
-			<tr>
-				<th colspan="2">Shipping Address</th>
-			</tr>
+		</table>
+
+		<h3>Shipping Address</h3>
+		<table>
+			<colgroup>
+				<col style="width: 25%;"/>
+				<col/>
+			</colgroup>
 			<tr>
 				<td>First name:</td>
 				<td><c:out value="${user.order.shipToFirstName}" /></td>

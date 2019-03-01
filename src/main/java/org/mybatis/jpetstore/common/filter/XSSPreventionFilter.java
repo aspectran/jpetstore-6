@@ -64,7 +64,6 @@ public class XSSPreventionFilter implements ActivityContextAware {
                         list.set(i, stripXSS(list.get(i)));
                     }
                 }
-
             }
             if (requestAdapter.hasParameters()) {
                 for (String[] arr : requestAdapter.getParameterMap().values()) {

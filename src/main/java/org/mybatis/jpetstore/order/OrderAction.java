@@ -72,15 +72,13 @@ public class OrderAction {
         translet.setAttribute("staticCodes", translet.getProperty("staticCodes"));
         Account account = sessionManager.getUserSession().getAccount();
         Cart cart = cartService.getCart();
-        if (cart != null) {
+        if (cart != null && cart.getNumberOfItems() > 0) {
             Order order = new Order();
             order.initOrder(account, cart);
             sessionManager.getUserSession().setOrder(order);
             return order;
         } else {
-            String message = "An order could not be created because a cart could not be found.";
-            translet.setAttribute("message", message);
-            translet.dispatch("error");
+            //String message = "An order could not be created because a cart could not be found.";
             return null;
         }
     }
