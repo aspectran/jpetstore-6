@@ -203,10 +203,7 @@ body > #Banner {
     position: absolute;
     right: 0;
     top: 0;
-    padding: 5px 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 10px;
 }
 
 #Cart {
