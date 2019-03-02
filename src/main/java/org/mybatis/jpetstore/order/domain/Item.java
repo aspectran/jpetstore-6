@@ -23,7 +23,7 @@ import java.math.BigDecimal;
 /**
  * The Class Item.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 public class Item implements Serializable {
 

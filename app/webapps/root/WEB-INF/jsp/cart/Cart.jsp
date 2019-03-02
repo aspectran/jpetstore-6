@@ -50,7 +50,7 @@
 				<c:forEach var="cartItem" items="${cart.cartItems}">
 					<tr>
 						<td>
-							<a href="/catalog/viewItem?itemId=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
+							<a href="/catalog/items/${cartItem.item.itemId}">${cartItem.item.itemId}</a>
 						</td>
 						<td>${cartItem.item.product.productId}</td>
 						<td align="left">

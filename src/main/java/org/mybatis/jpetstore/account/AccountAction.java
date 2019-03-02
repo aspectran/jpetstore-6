@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * The Class AccountAction.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 @Component
 @Bean("accountAction")
@@ -61,15 +61,9 @@ public class AccountAction {
      * New account.
      */
     @Request("/account/newAccount")
-    @Redirect("/catalog/")
+    @Redirect("/account/signonForm?created=true")
     public void newAccount(Account account) {
         accountService.insertAccount(account);
-        account = accountService.getAccount(account.getUsername());
-        List<Product> products = catalogService.getProductListByCategory(account.getFavouriteCategoryId());
-        UserSession userSession = sessionManager.getUserSession();
-        userSession.setAccount(account);
-        userSession.setProducts(products);
-        userSession.setAuthenticated(true);
     }
 
     /**
@@ -85,7 +79,7 @@ public class AccountAction {
      * Edits the account.
      */
     @RequestToPost("/account/editAccount")
-    @Redirect("/catalog/")
+    @Redirect("/account/editAccountForm?updated=true")
     public void editAccount(Account account) {
         String username = sessionManager.getUserSession().getAccount().getUsername();
         account.setUsername(username);

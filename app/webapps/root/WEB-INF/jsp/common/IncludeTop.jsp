@@ -22,28 +22,28 @@
 
 <div id="Logo">
 	<div id="LogoContent">
-		<a href="/catalog/"><img src="../images/logo-topbar.gif" /></a>
+		<a href="/catalog/"><img src="/images/logo-topbar.gif" /></a>
 	</div>
 </div>
 
 <div id="Menu">
 	<div id="MenuContent">
-		<a href="/cart/viewCart"><img align="middle" name="img_cart" src="../images/cart.gif" /></a>
+		<a href="/cart/viewCart"><img align="middle" name="img_cart" src="/images/cart.gif" /></a>
 		<c:if test="${not user.authenticated}">
-			<img align="middle" src="../images/separator.gif" />
+			<img align="middle" src="/images/separator.gif" />
 			<a href="/account/signonForm">Sign In</a>
-			<img align="middle" src="../images/separator.gif" />
+			<img align="middle" src="/images/separator.gif" />
 			<a href="/account/newAccountForm">Sign Up</a>
 		</c:if>
 		<c:if test="${user.authenticated}">
-			<img align="middle" src="../images/separator.gif" />
-			<a href="/account/editAccountForm">My Account</a>
-			<img align="middle" src="../images/separator.gif" />
+			<img align="middle" src="/images/separator.gif" />
 			<a href="/order/listOrders">My Orders</a>
-			<img align="middle" src="../images/separator.gif" />
+			<img align="middle" src="/images/separator.gif" />
+			<a href="/account/editAccountForm">My Account</a>
+			<img align="middle" src="/images/separator.gif" />
 			<a href="/account/signoff">Sign Out</a>
 		</c:if>
-		<img align="middle" src="../images/separator.gif" />
+		<img align="middle" src="/images/separator.gif" />
 		<a href="../help.html">?</a>
 	</div>
 </div>
@@ -62,15 +62,15 @@
 </div>
 
 <div id="QuickLinks">
-	<a href="/catalog/viewCategory?categoryId=FISH"><img src="../images/sm_fish.gif" /></a>
-	<img align="middle" src="../images/separator.gif" />
-	<a href="/catalog/viewCategory?categoryId=DOGS"><img src="../images/sm_dogs.gif" /></a>
-	<img align="middle" src="../images/separator.gif" />
-	<a href="/catalog/viewCategory?categoryId=REPTILES"><img src="../images/sm_reptiles.gif" /></a>
-	<img align="middle" src="../images/separator.gif" />
-	<a href="/catalog/viewCategory?categoryId=CATS"><img src="../images/sm_cats.gif" /></a>
-	<img align="middle" src="../images/separator.gif" />
-	<a href="/catalog/viewCategory?categoryId=BIRDS"><img src="../images/sm_birds.gif" /></a>
+	<a href="/catalog/categories/FISH"><img src="/images/sm_fish.gif" /></a>
+	<img align="middle" src="/images/separator.gif" />
+	<a href="/catalog/categories/DOGS"><img src="/images/sm_dogs.gif" /></a>
+	<img align="middle" src="/images/separator.gif" />
+	<a href="/catalog/categories/REPTILES"><img src="/images/sm_reptiles.gif" /></a>
+	<img align="middle" src="/images/separator.gif" />
+	<a href="/catalog/categories/CATS"><img src="/images/sm_cats.gif" /></a>
+	<img align="middle" src="/images/separator.gif" />
+	<a href="/catalog/categories/BIRDS"><img src="/images/sm_birds.gif" /></a>
 </div>
 </div>
 

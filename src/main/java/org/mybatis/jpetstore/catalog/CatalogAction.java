@@ -16,6 +16,7 @@
 package org.mybatis.jpetstore.catalog;
 
 import com.aspectran.core.activity.Translet;
+import com.aspectran.core.component.bean.annotation.Action;
 import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
@@ -33,7 +34,7 @@ import java.util.List;
 /**
  * The Class CatalogAction.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 @Component
 @Bean("catalogAction")
@@ -59,7 +60,7 @@ public class CatalogAction {
     /**
      * View category.
      */
-    @Request("/catalog/viewCategory")
+    @Request("/catalog/categories/${categoryId}")
     @Dispatch("catalog/Category")
     public void viewCategory(Translet translet, String categoryId) {
         if (categoryId != null) {
@@ -73,7 +74,7 @@ public class CatalogAction {
     /**
      * View product.
      */
-    @Request("/catalog/viewProduct")
+    @Request("/catalog/products/${productId}")
     @Dispatch("catalog/Product")
     public void viewProduct(Translet translet, String productId) {
         if (productId != null) {
@@ -87,7 +88,7 @@ public class CatalogAction {
     /**
      * View item.
      */
-    @Request("/catalog/viewItem")
+    @Request("/catalog/items/${itemId}")
     @Dispatch("catalog/Item")
     public void viewItem(Translet translet, String itemId) {
         Item item = catalogService.getItem(itemId);
@@ -103,10 +104,12 @@ public class CatalogAction {
      */
     @Request("/catalog/searchProducts")
     @Dispatch("catalog/SearchProducts")
-    public void searchProducts(Translet translet, String keyword) {
+    @Action("productList")
+    public List<Product> searchProducts(String keyword) {
         if (!StringUtils.isEmpty(keyword)) {
-            List<Product> productList = catalogService.searchProductList(keyword.toLowerCase());
-            translet.setAttribute("productList", productList);
+            return catalogService.searchProductList(keyword.toLowerCase());
+        } else {
+            return null;
         }
     }
 

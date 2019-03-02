@@ -21,7 +21,7 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
 <div id="BackLink">
-	<a href="/catalog/viewCategory?categoryId=${product.categoryId}">Return to ${product.categoryId}</a>
+	<a href="/catalog/categories/${product.categoryId}">Return to ${product.categoryId}</a>
 </div>
 
 <div id="Catalog">
@@ -39,7 +39,7 @@
 		<c:forEach var="item" items="${itemList}">
 			<tr>
 				<td>
-					<a href="/catalog/viewItem?itemId=${item.itemId}">${item.itemId}</a>
+					<a href="/catalog/items/${item.itemId}">${item.itemId}</a>
 				</td>
 				<td>${item.product.productId}</td>
 				<td>

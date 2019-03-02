@@ -19,7 +19,8 @@
 
 <div id="Footer">
 	<div id="PoweredBy">
-		<a href="http://www.mybatis.org">www.mybatis.org</a>
+		<a href="http://www.aspectran.com">aspectran.com</a><br/>
+		<a href="http://www.mybatis.org">mybatis.org</a>
 	</div>
 	<div id="Banner">
 		<c:if test="${not empty user.account}">

@@ -20,7 +20,7 @@ import java.io.Serializable;
 /**
  * The Class Category.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 public class Category implements Serializable {
 

@@ -20,6 +20,12 @@
 --%>
 <%@ include file="../common/IncludeTop.jsp"%>
 
+<c:if test="${param.submitted eq 'true'}">
+	<div id="MessageBar">
+		<p>Thank you, your order has been submitted.</p>
+	</div>
+</c:if>
+
 <div id="BackLink">
 	<a href="/catalog/">Return to Main Menu</a>
 </div>
@@ -164,7 +170,7 @@
 		<c:forEach var="lineItem" items="${order.lineItems}">
 			<tr>
 				<td align="center">
-					<a href="/catalog/viewItem?itemId=${lineItem.item.itemId}">${lineItem.item.itemId}</a>
+					<a href="/catalog/items/${lineItem.item.itemId}">${lineItem.item.itemId}</a>
 				</td>
 				<td>
 					<c:if test="${not empty lineItem.item}">

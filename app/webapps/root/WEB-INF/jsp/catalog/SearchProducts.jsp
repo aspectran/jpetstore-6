@@ -39,10 +39,10 @@
 		<c:forEach var="product" items="${productList}">
 			<tr>
 				<td>
-					<a href="/catalog/viewProduct?productId=${product.productId}">${product.description}</a>
+					<a href="/catalog/products/${product.productId}">${product.description}</a>
 				</td>
 				<td>
-					<strong><a href="/catalog/viewProduct?productId=${product.productId}">${product.productId}</a></strong>
+					<strong><a href="/catalog/products/${product.productId}">${product.productId}</a></strong>
 				</td>
 				<td>${product.name}</td>
 			</tr>

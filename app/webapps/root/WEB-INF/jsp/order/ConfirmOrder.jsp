@@ -20,6 +20,10 @@
 --%>
 <%@ include file="../common/IncludeTop.jsp"%>
 
+<div id="MessageBar">
+	<p>Please confirm the information below and then press continue...</p>
+</div>
+
 <div id="BackLink">
 	<a href="/catalog/">Return to Main Menu</a>
 </div>
@@ -41,8 +45,6 @@
 				</td>
 			</tr>
 		</table>
-
-		<p>Please confirm the information below and then press continue...</p>
 
 		<h3>Billing Address</h3>
 		<table>
@@ -124,7 +126,7 @@
 			</tr>
 		</table>
 
-		<div class="button-group">
+		<div class="button-bar">
 			<button type="submit" class="button">Confirm</button>
 		</div>
 	</form>

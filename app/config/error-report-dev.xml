@@ -24,15 +24,17 @@
                 </transform>
                 <transform type="transform/text" contentType="text/html" default="true">
                     <template style="apon">
-                        |<![CDATA[
-                        |<html><body style="color:#eee;background-color:#000;">
+                        <![CDATA[
+                        |<html>
+                        |<body style="color:#eee;background-color:#000;">
                         |<h1 style="color:red;">An Error Occurred!</h1>
                         |<hr/>
                         |<pre>#{currentTranslet^rootCauseOfRaisedException}</pre>
                         |<hr/>
                         |<p align="right"><a href="http://www.aspectran.com" target="_blank">Powered by Aspectran #{class:com.aspectran.core.util.Aspectran^version}</a></p>
-                        |</body></html>
-                        |]]>
+                        |</body>
+                        |</html>
+                        ]]>
                     </template>
                 </transform>
             </thrown>

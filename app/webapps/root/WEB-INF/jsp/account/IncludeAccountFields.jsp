@@ -20,7 +20,7 @@
 <h3>Account Information</h3>
 <table>
 	<colgroup>
-		<col style="width: 30%"/>
+		<col style="width: 25%"/>
 		<col/>
 	</colgroup>
 	<tr>
@@ -68,7 +68,7 @@
 <h3>Profile Information</h3>
 <table>
 	<colgroup>
-		<col style="width: 30%"/>
+		<col style="width: 25%"/>
 		<col/>
 	</colgroup>
 	<tr>

@@ -20,7 +20,7 @@ import java.io.Serializable;
 /**
  * The Class Product.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 public class Product implements Serializable {
 

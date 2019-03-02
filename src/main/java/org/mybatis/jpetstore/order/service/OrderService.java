@@ -35,7 +35,7 @@ import java.util.Map;
 /**
  * The Class OrderService.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 @Component
 @Bean("orderService")

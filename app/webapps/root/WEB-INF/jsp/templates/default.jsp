@@ -50,7 +50,7 @@
         ga('send', 'pageview');
     </script>
 </head>
-<body id="top-of-page" class="plate solid article" itemscope itemtype="http://schema.org/WebPage">
+<body id="top-of-page" class="plate solid" itemscope itemtype="http://schema.org/WebPage">
 <nav id="navigation" class="no-js">
     <div class="title-bar" data-responsive-toggle="gnb-menu" data-hide-for="large" style="display:none">
         <div class="title-bar-left">
@@ -156,7 +156,7 @@
     <div class="row">
         <div class="large-12 columns">
             <div class="row content">
-                <div class="xlarge-10 xlarge-offset-1 columns">
+                <div class="xlarge-10 xlarge-offset-1 columns" style="min-width:900px">
                     <c:if test="${not empty INCLUDE_PAGE}">
                         <jsp:include page="/WEB-INF/jsp/${INCLUDE_PAGE}.jsp"/>
                     </c:if>

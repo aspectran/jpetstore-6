@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * The Class Cart.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 public class Cart implements Serializable {
 

@@ -54,6 +54,10 @@
 
 		<h3>Billing Address</h3>
 		<table>
+			<colgroup>
+				<col style="width: 25%"/>
+				<col/>
+			</colgroup>
 			<tr>
 				<td>First name:</td>
 				<td><input type="text" name="billToFirstName" value="${order.billToFirstName}"/></td>
@@ -96,7 +100,7 @@
 		</table>
 
 		<c:if test="${not empty order}">
-		<div class="button-group">
+		<div class="button-bar">
 			<button type="submit" class="button">Continue</button>
 		</div>
 		</c:if>

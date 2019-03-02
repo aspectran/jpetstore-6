@@ -20,7 +20,7 @@ import java.io.Serializable;
 /**
  * The Class Account.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 public class Account implements Serializable {
 

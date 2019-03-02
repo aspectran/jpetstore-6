@@ -17,6 +17,12 @@
 --%>
 <%@ include file="../common/IncludeTop.jsp"%>
 
+<c:if test="${param.created eq 'true'}">
+	<div id="MessageBar">
+		<p>Your account has been created. Please try login.</p>
+	</div>
+</c:if>
+
 <div id="Signon">
 
 	<form method="post" action="../account/signon">
@@ -26,7 +32,7 @@
 			<h5>Please enter your username and password.</h5>
 			<label>Username: <input type="text" name="username" value="j2ee"/></label>
 			<label>Password: <input type="password" name="password" value="j2ee"/></label>
-			<div class="button-group">
+			<div class="button-bar">
 				<button type="submit" class="button">Login</button>
 			</div>
 			<c:if test="${param.retry eq 'true'}">

@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 #Header {
-    background-color: #000;
+    background-color: #333;
     color: #eaac00;
 }
 
@@ -24,7 +24,6 @@
     margin: 0;
     padding: 0;
     float: left;
-    background-color: #000;
     color: #fff;
     line-height: 9ex;
 }
@@ -39,7 +38,6 @@ body > #Logo {
     margin: 0;
     padding: 0;
     float: left;
-    background-color: #000;
     color: #eaac00;
     text-decoration: none;
     font-family: helvetica, tahoma, arial, verdana, sans-serif;
@@ -86,7 +84,7 @@ body > #Search {
 }
 
 #Footer {
-    background-color: #000;
+    background-color: #333;
     color: #fff;
     overflow: auto;
     margin-top: 15px;
@@ -96,11 +94,8 @@ body > #Search {
     width: 50%;
     height: 9ex;
     margin: 0;
-    padding: 0 0 0 15px;
+    padding: 10px 0 0 15px;
     float: left;
-    background-color: #000;
-    color: #fff;
-    line-height: 9ex;
 }
 
 body > #PoweredBy {
@@ -113,8 +108,6 @@ body > #PoweredBy {
     margin: 0;
     padding: 0;
     float: right;
-    background-color: #000;
-    color: #fff;
     line-height: 9ex;
     text-align: center;
 }
@@ -151,12 +144,13 @@ body > #Banner {
     margin: 0;
 }
 
-#Content table td input {
+#Content table td input, #Content table td select {
     margin: 0;
 }
 
 #Content #CenterForm {
-    width: 50%;
+    width: 60%;
+    min-width: 680px;
     margin: 0 auto;
 }
 
@@ -205,11 +199,14 @@ body > #Banner {
     text-align: center;
 }
 
-
 #BackLink {
     position: absolute;
-    right: 5px;
+    right: 0;
     top: 0;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 #Cart {
@@ -239,6 +236,16 @@ body > #Banner {
     border: none;
 }
 
-.button-group {
+.button-bar {
     text-align: center;
+}
+
+#MessageBar {
+    padding: 10px;
+    background-color: #eaac00;
+    text-align: center;
+    margin: -15px 0 20px 0;
+}
+#MessageBar p {
+    margin: 0;
 }

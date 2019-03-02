@@ -24,7 +24,7 @@
 		<ul>
 			<c:forEach var="product" items="${user.products}">
 				<li>
-					<a href="/catalog/viewProduct?productId=${product.productId}">${product.name}</a>
+					<a href="/catalog/products/${product.productId}">${product.name}</a>
 				</li>
 			</c:forEach>
 		</ul>

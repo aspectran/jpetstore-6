@@ -21,7 +21,7 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
 <div id="BackLink">
-	<a href="/catalog/viewProduct?productId=${product.productId}">Return to ${product.productId}</a>
+	<a href="/catalog/products/${product.productId}">Return to ${product.productId}</a>
 </div>
 
 <div id="CenterForm">
@@ -51,7 +51,7 @@
 			<td><fmt:formatNumber value="${item.listPrice}" pattern="$#,##0.00" /></td>
 		</tr>
 	</table>
-	<div class="button-group">
+	<div class="button-bar">
 		<a class="button" href="/cart/addItemToCart?itemId=${item.itemId}">Add to Cart</a>
 	</div>
 

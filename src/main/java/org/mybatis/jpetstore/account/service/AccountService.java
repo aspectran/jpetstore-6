@@ -28,7 +28,7 @@ import java.util.Optional;
 /**
  * The Class AccountService.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 @Component
 @Bean("accountService")

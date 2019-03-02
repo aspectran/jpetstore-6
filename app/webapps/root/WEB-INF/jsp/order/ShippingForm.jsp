@@ -22,7 +22,6 @@
 	<form method="post" action="/order/newOrder">
 
 		<h3>Shipping Address</h3>
-
 		<table>
 			<tr>
 				<td>First name:</td>
@@ -58,7 +57,7 @@
 			</tr>
 		</table>
 
-		<div class="button-group">
+		<div class="button-bar">
 			<button type="submit" class="button">Continue</button>
 		</div>
 

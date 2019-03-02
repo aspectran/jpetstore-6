@@ -24,7 +24,7 @@
 		<h3>User Information</h3>
 		<table>
 			<colgroup>
-				<col style="width: 30%"/>
+				<col style="width: 25%"/>
 				<col/>
 			</colgroup>
 			<tr>
@@ -43,7 +43,7 @@
 
 		<%@ include file="IncludeAccountFields.jsp"%>
 
-		<div class="button-group">
+		<div class="button-bar">
 			<button type="submit" class="button">Save Account Information</button>
 		</div>
 

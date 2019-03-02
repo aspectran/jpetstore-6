@@ -24,7 +24,7 @@ import java.util.Optional;
 /**
  * The Class CartItem.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 public class CartItem implements Serializable {
 

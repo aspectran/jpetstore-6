@@ -23,7 +23,6 @@
 <div id="Catalog">
 
 	<h3>My Orders</h3>
-
 	<table>
 		<tr>
 			<th>Order ID</th>

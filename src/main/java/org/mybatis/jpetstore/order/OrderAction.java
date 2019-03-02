@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * The Class OrderAction.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 @Component
 @Bean("orderAction")
@@ -115,7 +115,8 @@ public class OrderAction {
     @Redirect(
             path = "/order/viewOrder",
             parameters = {
-                    @Parameter(name = "orderId", value = "@{order^orderId}")
+                    @Parameter(name = "orderId", value = "@{order^orderId}"),
+                    @Parameter(name = "submitted", value = "true")
             }
     )
     @Action("order")

@@ -29,7 +29,7 @@ import java.util.Iterator;
 /**
  * The Class CartService.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 @Component
 @Bean("cartService")

@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * The Class Order.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 public class Order implements Serializable {
 

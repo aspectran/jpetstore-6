@@ -19,15 +19,20 @@
 --%>
 <%@ include file="../common/IncludeTop.jsp"%>
 
+<c:if test="${param.updated eq 'true'}">
+	<div id="MessageBar">
+		<p>Your account has been updated.</p>
+	</div>
+</c:if>
+
 <div id="CenterForm">
 
 	<form method="post" action="/account/editAccount">
 
 		<h3>User Information</h3>
-
 		<table>
 			<colgroup>
-				<col style="width: 30%"/>
+				<col style="width: 25%"/>
 				<col/>
 			</colgroup>
 			<tr>
@@ -46,7 +51,7 @@
 
 		<%@ include file="IncludeAccountFields.jsp" %>
 
-		<div class="button-group">
+		<div class="button-bar">
 			<button type="submit" class="button">Save Account Information</button>
 		</div>
 

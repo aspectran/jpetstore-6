@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * The Interface ProductMapper.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 public interface ProductMapper {
 

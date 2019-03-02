@@ -24,7 +24,7 @@ import java.util.Map;
 /**
  * The Interface ItemMapper.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 public interface ItemMapper {
 

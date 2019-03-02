@@ -32,7 +32,7 @@ import java.util.Iterator;
 /**
  * The Class CartAction.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 @Component
 @Bean("cartAction")

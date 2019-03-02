@@ -24,7 +24,7 @@ import java.util.Optional;
 /**
  * The Class LineItem.
  *
- * @author Eduardo Macarron
+ * @author Juho Jeong
  */
 public class LineItem implements Serializable {
 
