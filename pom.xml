@@ -38,7 +38,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aspectran.version>6.0.0-RC13-SNAPSHOT</aspectran.version>
+        <aspectran.version>6.0.0-RC13</aspectran.version>
     </properties>
     <build>
         <plugins>
@@ -170,19 +170,9 @@
             <version>1.2</version>
         </dependency>
         <dependency>
-            <groupId>net.sf.sociaal</groupId>
-            <artifactId>freetts</artifactId>
-            <version>1.2.2</version>
-        </dependency>
-        <dependency>
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
             <version>2.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>2.4.1</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
