@@ -16,6 +16,7 @@
 #Header {
     background-color: #333;
     color: #eaac00;
+    margin: 0 -15px;
 }
 
 #Logo {
@@ -87,7 +88,8 @@ body > #Search {
     background-color: #333;
     color: #fff;
     overflow: auto;
-    margin-top: 15px;
+    margin: 15px -15px 0;
+    border-radius: 0 0 10px 10px;
 }
 
 #PoweredBy {
