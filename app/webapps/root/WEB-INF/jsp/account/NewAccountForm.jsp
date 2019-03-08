@@ -29,15 +29,24 @@
 			</colgroup>
 			<tr>
 				<td>User ID:</td>
-				<td><input type="text" name="username"/></td>
+				<td>
+					<input type="text" name="username" value="${account.username}"/>
+					<span class="error-msg">${errors.username}</span>
+				</td>
 			</tr>
 			<tr>
 				<td>New password:</td>
-				<td><input type="password" name="password"/></td>
+				<td>
+					<input type="password" name="password" value="${account.password}"/>
+					<span class="error-msg">${errors.password}</span>
+				</td>
 			</tr>
 			<tr>
 				<td>Repeat password:</td>
-				<td><input type="password" name="repeatedPassword"/></td>
+				<td>
+					<input type="password" name="repeatedPassword"/>
+					<span class="error-msg">${errors.repeatedPassword}</span>
+				</td>
 			</tr>
 		</table>
 

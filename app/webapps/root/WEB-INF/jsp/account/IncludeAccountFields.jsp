@@ -25,43 +25,73 @@
 	</colgroup>
 	<tr>
 		<td>First name:</td>
-		<td><input type="text" name="firstName" value="${user.account.firstName}"/></td>
+		<td>
+			<input type="text" name="firstName" value="${account.firstName}"/>
+			<span class="error-msg">${errors.firstName}</span>
+		</td>
 	</tr>
 	<tr>
 		<td>Last name:</td>
-		<td><input type="text" name="lastName" value="${user.account.lastName}"/></td>
+		<td>
+			<input type="text" name="lastName" value="${account.lastName}"/>
+			<span class="error-msg">${errors.lastName}</span>
+		</td>
 	</tr>
 	<tr>
 		<td>Email:</td>
-		<td><input type="text" name="email" value="${user.account.email}"/></td>
+		<td>
+			<input type="text" name="email" value="${account.email}"/>
+			<span class="error-msg">${errors.email}</span>
+		</td>
 	</tr>
 	<tr>
 		<td>Phone:</td>
-		<td><input type="text" name="phone" value="${user.account.phone}"/></td>
+		<td>
+			<input type="text" name="phone" value="${account.phone}"/>
+			<span class="error-msg">${errors.phone}</span>
+		</td>
 	</tr>
 	<tr>
 		<td>Address 1:</td>
-		<td><input type="text" name="address1" value="${user.account.address1}"/></td>
+		<td>
+			<input type="text" name="address1" value="${account.address1}"/>
+			<span class="error-msg">${errors.address1}</span>
+		</td>
 	</tr>
 	<tr>
 		<td>Address 2:</td>
-		<td><input type="text" name="address2" value="${user.account.address2}"/></td>
+		<td>
+			<input type="text" name="address2" value="${account.address2}"/>
+			<span class="error-msg">${errors.address2}</span>
+		</td>
 	</tr>
 	<tr>
 		<td>City:</td>
-		<td><input type="text" name="city" value="${user.account.city}"/></td>
+		<td>
+			<input type="text" name="city" value="${account.city}"/>
+			<span class="error-msg">${errors.city}</span>
+		</td>
 	</tr>
 	<tr>
 		<td>State:</td>
-		<td><input type="text" name="state" value="${user.account.state}"/></td>
+		<td>
+			<input type="text" name="state" value="${account.state}"/>
+			<span class="error-msg">${errors.state}</span>
+		</td>
 	</tr>
 	<tr>
 		<td>Zip:</td>
-		<td><input type="text" name="zip" value="${user.account.zip}"/></td>
+		<td>
+			<input type="text" name="zip" value="${account.zip}"/>
+			<span class="error-msg">${errors.zip}</span>
+		</td>
 	</tr>
 	<tr>
 		<td>Country:</td>
-		<td><input type="text" name="country" value="${user.account.country}"/></td>
+		<td>
+			<input type="text" name="country" value="${account.country}"/>
+			<span class="error-msg">${errors.country}</span>
+		</td>
 	</tr>
 </table>
 
@@ -76,9 +106,10 @@
 		<td>
 			<select name="languagePreference">
 				<c:forEach items="${staticCodes.languages}" var="item">
-					<option value="${item.key}"<c:if test="${user.account.languagePreference eq item.key}"> selected</c:if>>${item.value}</option>
+					<option value="${item.key}"<c:if test="${account.languagePreference eq item.key}"> selected</c:if>>${item.value}</option>
 				</c:forEach>
 			</select>
+			<span class="error-msg">${errors.languagePreference}</span>
 		</td>
 	</tr>
 	<tr>
@@ -86,21 +117,22 @@
 		<td>
 			<select name="favouriteCategoryId">
 				<c:forEach items="${staticCodes.categories}" var="item">
-					<option value="${item.key}"<c:if test="${user.account.favouriteCategoryId eq item.key}"> selected</c:if>>${item.value}</option>
+					<option value="${item.key}"<c:if test="${account.favouriteCategoryId eq item.key}"> selected</c:if>>${item.value}</option>
 				</c:forEach>
 			</select>
+			<span class="error-msg">${errors.favouriteCategoryId}</span>
 		</td>
 	</tr>
 	<tr>
 		<td>Enable MyList</td>
 		<td>
-			<input type="checkbox" name="listOption" value="true"<c:if test="${user.account.listOption}"> checked</c:if>/>
+			<input type="checkbox" name="listOption" value="true"<c:if test="${account.listOption}"> checked</c:if>/>
 		</td>
 	</tr>
 	<tr>
 		<td>Enable MyBanner</td>
 		<td>
-			<input type="checkbox" name="bannerOption" value="true"<c:if test="${user.account.bannerOption}"> checked</c:if>/>
+			<input type="checkbox" name="bannerOption" value="true"<c:if test="${account.bannerOption}"> checked</c:if>/>
 		</td>
 	</tr>
 </table>

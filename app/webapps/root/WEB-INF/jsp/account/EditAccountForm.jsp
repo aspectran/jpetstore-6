@@ -37,7 +37,7 @@
 			</colgroup>
 			<tr>
 				<td>User ID:</td>
-				<td>${user.account.username}</td>
+				<td>${account.username}</td>
 			</tr>
 			<tr>
 				<td>New password:</td>

@@ -248,3 +248,7 @@ body > #Banner {
 #MessageBar p {
     margin: 0;
 }
+
+.error-msg {
+    color: red;
+}

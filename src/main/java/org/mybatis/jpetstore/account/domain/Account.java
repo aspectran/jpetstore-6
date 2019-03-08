@@ -15,6 +15,11 @@
  */
 package org.mybatis.jpetstore.account.domain;
 
+import org.mybatis.jpetstore.common.validation.TelephoneNumber;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -26,21 +31,64 @@ public class Account implements Serializable {
 
     private static final long serialVersionUID = 8751282105532159742L;
 
+    @NotBlank(groups = Create.class)
+    @Size(max = 40)
     private String username;
+
+    @NotBlank(groups = Create.class)
+    @Size(min = 8)
     private String password;
+
+    @NotBlank
+    @Email
     private String email;
+
+    @NotBlank
+    @Size(max = 40)
     private String firstName;
+
+    @NotBlank
+    @Size(max = 40)
     private String lastName;
-    private String status;
+
+    @NotBlank
+    @Size(max = 40)
     private String address1;
+
+    @NotBlank
+    @Size(max = 40)
     private String address2;
+
+    @NotBlank
+    @Size(max = 40)
     private String city;
+
+    @NotBlank
+    @Size(max = 40)
     private String state;
+
+    @NotBlank
+    @Size(max = 20)
     private String zip;
+
+    @NotBlank
+    @Size(max = 40)
     private String country;
+
+    @NotBlank
+    @Size(max = 40)
+    @TelephoneNumber
     private String phone;
+
+    @NotBlank
+    @Size(max = 30)
     private String favouriteCategoryId;
+
+    @NotBlank
+    @Size(max = 40)
     private String languagePreference;
+
+    private String status;
     private boolean listOption;
     private boolean bannerOption;
     private String bannerName;
@@ -187,6 +235,9 @@ public class Account implements Serializable {
 
     public void setBannerName(String bannerName) {
         this.bannerName = bannerName;
+    }
+
+    interface Create {
     }
 
 }

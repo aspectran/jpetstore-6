@@ -30,8 +30,10 @@ import org.mybatis.jpetstore.catalog.domain.Product;
 import org.mybatis.jpetstore.catalog.service.CatalogService;
 import org.mybatis.jpetstore.common.user.UserSession;
 import org.mybatis.jpetstore.common.user.UserSessionManager;
+import org.mybatis.jpetstore.common.validation.BeanFieldValidator;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * The Class AccountAction.
@@ -51,6 +53,9 @@ public class AccountAction {
     @Autowired
     public UserSessionManager sessionManager;
 
+    @Autowired
+    public BeanFieldValidator beanFieldValidator;
+
     @Request("/account/newAccountForm")
     @Dispatch("account/NewAccountForm")
     public void newAccountForm(Translet translet) {
@@ -62,7 +67,14 @@ public class AccountAction {
      */
     @Request("/account/newAccount")
     @Redirect("/account/signonForm?created=true")
-    public void newAccount(Account account) {
+    public void newAccount(Translet translet, Account account) {
+        Map<String, String> errors = beanFieldValidator.validate(account);
+        if (errors != null) {
+            translet.setAttribute("account", account);
+            translet.setAttribute("errors", errors);
+            translet.forward("/account/newAccountForm");
+            return;
+        }
         accountService.insertAccount(account);
     }
 
@@ -73,6 +85,7 @@ public class AccountAction {
     @Dispatch("account/EditAccountForm")
     public void editAccountForm(Translet translet) {
         translet.setAttribute("staticCodes", translet.getProperty("staticCodes"));
+        translet.setAttribute("account", sessionManager.getUserSession().getAccount());
     }
 
     /**

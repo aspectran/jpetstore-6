@@ -1,32 +1,36 @@
 package org.mybatis.jpetstore.common.validation;
 
 import com.aspectran.core.component.bean.ablility.FactoryBean;
+import com.aspectran.core.component.bean.ablility.InitializableBean;
 import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
-import com.aspectran.core.context.rule.type.ScopeType;
 import com.aspectran.core.support.i18n.message.MessageSource;
 
 import javax.validation.Validation;
+import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
-/**
- * <p>Created: 2019-03-07</p>
- */
 @Component
-@Bean(id = "validator", scope = ScopeType.SINGLETON, lazyInit = true)
-public class ValidatorFactoryBean implements FactoryBean {
+@Bean("validator")
+public class ValidatorFactoryBean implements InitializableBean, FactoryBean<Validator> {
 
     private final MessageSource messageSource;
 
-    @Autowired
+    private ValidatorFactory factory;
+
+    @Autowired(required = false)
     public ValidatorFactoryBean(MessageSource messageSource) {
         this.messageSource = messageSource;
     }
 
     @Override
-    public Object getObject() throws Exception {
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+    public void initialize() {
+        factory = Validation.buildDefaultValidatorFactory();
+    }
+
+    @Override
+    public Validator getObject() {
         return factory.getValidator();
     }
 
