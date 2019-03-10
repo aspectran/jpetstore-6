@@ -20,12 +20,18 @@
 
     <bean id="basePath" class="com.aspectran.core.support.BasePathFactoryBean"/>
     <bean id="currentTranslet" class="com.aspectran.core.support.CurrentTransletFactoryBean" scope="request"/>
+    <bean id="messageSource" class="com.aspectran.core.support.i18n.message.ResourceBundleMessageSource">
+        <description>
+            Defines a bean for multilingual processing.
+        </description>
+        <properties>
+            <item name="basename">locale.messages</item>
+        </properties>
+    </bean>
 
     <append file="/config/error-report-dev.xml" profile="dev"/>
     <append file="/config/jetty/jetty-config.xml"/>
     <append file="/config/mybatis/db-tx-config.xml"/>
-
-    <!--<append file="/config/shell/shell-config.xml"/>-->
     <append file="/config/web/web-config.xml"/>
 
 </aspectran>

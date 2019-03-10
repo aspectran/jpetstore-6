@@ -37,12 +37,12 @@
 			<tr>
 				<td>New password:</td>
 				<td>
-					<input type="password" name="password" value="${account.password}"/>
+					<input type="password" name="password"/>
 					<span class="error-msg">${errors.password}</span>
 				</td>
 			</tr>
 			<tr>
-				<td>Repeat password:</td>
+				<td>Confirm password:</td>
 				<td>
 					<input type="password" name="repeatedPassword"/>
 					<span class="error-msg">${errors.repeatedPassword}</span>

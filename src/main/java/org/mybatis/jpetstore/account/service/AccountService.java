@@ -20,8 +20,8 @@ import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.jpetstore.account.domain.Account;
-import org.mybatis.jpetstore.common.mybatis.mapper.AccountMapper;
 import org.mybatis.jpetstore.common.mybatis.SimpleSqlSession;
+import org.mybatis.jpetstore.common.mybatis.mapper.AccountMapper;
 
 import java.util.Optional;
 

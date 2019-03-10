@@ -15,6 +15,7 @@
  */
 package org.mybatis.jpetstore.account.domain;
 
+import org.mybatis.jpetstore.common.validation.RepeatedField;
 import org.mybatis.jpetstore.common.validation.TelephoneNumber;
 
 import javax.validation.constraints.Email;
@@ -27,17 +28,26 @@ import java.io.Serializable;
  *
  * @author Juho Jeong
  */
+@RepeatedField(
+        field = "repeatedPassword",
+        dependField = "password",
+        dependFieldName = "Password",
+        groups = Account.Update.class,
+        message = "Passwords do not match."
+)
 public class Account implements Serializable {
 
     private static final long serialVersionUID = 8751282105532159742L;
 
     @NotBlank(groups = Create.class)
-    @Size(max = 40)
+    @Size(min = 4, max = 40)
     private String username;
 
     @NotBlank(groups = Create.class)
-    @Size(min = 8)
+    @Size(min = 4, max = 20)
     private String password;
+
+    private String repeatedPassword;
 
     @NotBlank
     @Email
@@ -107,6 +117,14 @@ public class Account implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRepeatedPassword() {
+        return repeatedPassword;
+    }
+
+    public void setRepeatedPassword(String repeatedPassword) {
+        this.repeatedPassword = repeatedPassword;
     }
 
     public String getEmail() {
@@ -237,7 +255,10 @@ public class Account implements Serializable {
         this.bannerName = bannerName;
     }
 
-    interface Create {
+    public interface Create {
+    }
+
+    public interface Update {
     }
 
 }

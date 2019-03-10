@@ -27,6 +27,10 @@ public class ValidatorFactoryBean implements InitializableBean, FactoryBean<Vali
     @Override
     public void initialize() {
         factory = Validation.buildDefaultValidatorFactory();
+//        if (messageSource != null) {
+//            MessageInterpolator messageInterpolator = new ResourceBundleMessageInterpolator(locale->
+//                    new MessageSourceResourceBundle(messageSource, locale));
+//        }
     }
 
     @Override

@@ -30,10 +30,9 @@ import org.mybatis.jpetstore.catalog.domain.Product;
 import org.mybatis.jpetstore.catalog.service.CatalogService;
 import org.mybatis.jpetstore.common.user.UserSession;
 import org.mybatis.jpetstore.common.user.UserSessionManager;
-import org.mybatis.jpetstore.common.validation.BeanFieldValidator;
+import org.mybatis.jpetstore.common.validation.BeanValidator;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * The Class AccountAction.
@@ -53,9 +52,6 @@ public class AccountAction {
     @Autowired
     public UserSessionManager sessionManager;
 
-    @Autowired
-    public BeanFieldValidator beanFieldValidator;
-
     @Request("/account/newAccountForm")
     @Dispatch("account/NewAccountForm")
     public void newAccountForm(Translet translet) {
@@ -67,14 +63,17 @@ public class AccountAction {
      */
     @Request("/account/newAccount")
     @Redirect("/account/signonForm?created=true")
-    public void newAccount(Translet translet, Account account) {
-        Map<String, String> errors = beanFieldValidator.validate(account);
-        if (errors != null) {
+    public void newAccount(Translet translet,
+                           Account account,
+                           BeanValidator beanValidator) {
+        beanValidator.validate(translet, account, Account.Create.class);
+        if (beanValidator.hasErrors()) {
             translet.setAttribute("account", account);
-            translet.setAttribute("errors", errors);
+            translet.setAttribute("errors", beanValidator.getErrors());
             translet.forward("/account/newAccountForm");
             return;
         }
+
         accountService.insertAccount(account);
     }
 
@@ -93,7 +92,17 @@ public class AccountAction {
      */
     @RequestToPost("/account/editAccount")
     @Redirect("/account/editAccountForm?updated=true")
-    public void editAccount(Account account) {
+    public void editAccount(Translet translet,
+                            Account account,
+                            BeanValidator beanValidator) {
+        beanValidator.validate(translet, account, Account.Update.class);
+        if (beanValidator.hasErrors()) {
+            translet.setAttribute("account", account);
+            translet.setAttribute("errors", beanValidator.getErrors());
+            translet.forward("/account/editAccountForm");
+            return;
+        }
+
         String username = sessionManager.getUserSession().getAccount().getUsername();
         account.setUsername(username);
         accountService.updateAccount(account);

@@ -19,14 +19,14 @@ import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
 import org.apache.ibatis.session.SqlSession;
-import org.mybatis.jpetstore.order.domain.Item;
-import org.mybatis.jpetstore.order.domain.Order;
-import org.mybatis.jpetstore.order.domain.Sequence;
+import org.mybatis.jpetstore.common.mybatis.SimpleSqlSession;
 import org.mybatis.jpetstore.common.mybatis.mapper.ItemMapper;
 import org.mybatis.jpetstore.common.mybatis.mapper.LineItemMapper;
 import org.mybatis.jpetstore.common.mybatis.mapper.OrderMapper;
 import org.mybatis.jpetstore.common.mybatis.mapper.SequenceMapper;
-import org.mybatis.jpetstore.common.mybatis.SimpleSqlSession;
+import org.mybatis.jpetstore.order.domain.Item;
+import org.mybatis.jpetstore.order.domain.Order;
+import org.mybatis.jpetstore.order.domain.Sequence;
 
 import java.util.HashMap;
 import java.util.List;

@@ -41,11 +41,17 @@
 			</tr>
 			<tr>
 				<td>New password:</td>
-				<td><input type="password" name="password"/></td>
+				<td>
+					<input type="password" name="password" autocomplete="off"/>
+					<span class="error-msg">${errors.password}</span>
+				</td>
 			</tr>
 			<tr>
-				<td>Repeat password:</td>
-				<td><input type="password" name="repeatedPassword"/></td>
+				<td>Confirm password:</td>
+				<td>
+					<input type="password" name="repeatedPassword" autocomplete="off"/>
+					<span class="error-msg">${errors.repeatedPassword}</span>
+				</td>
 			</tr>
 		</table>
 

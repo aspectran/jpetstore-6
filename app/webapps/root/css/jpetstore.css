@@ -57,23 +57,24 @@ body > #Menu {
 }
 
 #Search {
-    height: 9ex;
     margin: 0;
-    padding: 0 15px 0 0;
+    padding: 15px 15px 0 0;
     float: right;
     text-align: center;
     color: #eaac00;
     line-height: 9ex;
 }
 
-body > #Search {
-    height: 9ex;
-}
-
 #Search input {
-    border-color: #aaa;
-    background-color: #666;
     color: #eaac00;
+    margin: 1px;
+    width: 66%;
+    float: left;
+}
+#Search button {
+    margin: 0;
+    width: 33%;
+    float: left;
 }
 
 #QuickLinks {
@@ -243,7 +244,7 @@ body > #Banner {
     padding: 10px;
     background-color: #eaac00;
     text-align: center;
-    margin: -15px 0 20px 0;
+    margin: -15px -15px 20px -15px;
 }
 #MessageBar p {
     margin: 0;

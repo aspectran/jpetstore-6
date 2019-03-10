@@ -51,12 +51,8 @@
 <div id="Search" data-hide-for="large">
 	<div id="SearchContent">
 		<form action="/catalog/searchProducts">
-			<div class="input-group">
-				<input class="input-group-field" type="text" name="keyword" placeholder="Search">
-				<div class="input-group-button">
-					<button type="submit" class="button"><i class="fi-magnifying-glass"></i></button>
-				</div>
-			</div>
+			<input type="text" name="keyword"/>
+			<button type="submit" class="button">Search</button>
 		</form>
 	</div>
 </div>
