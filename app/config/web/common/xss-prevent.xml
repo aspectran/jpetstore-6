@@ -3,7 +3,7 @@
         "http://aspectran.github.io/dtd/aspectran-6.dtd">
 <aspectran>
 
-    <bean id="xssPreventionFilter" class="org.mybatis.jpetstore.common.filter.XSSPreventionFilter">
+    <bean id="xssPreventionFilter" class="com.aspectran.jpetstore.common.filter.XSSPreventionFilter">
         <description>
             <![CDATA[
             Pattern.compile("<script>(.*?)</script>", Pattern.CASE_INSENSITIVE),
