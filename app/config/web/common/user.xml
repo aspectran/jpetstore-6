@@ -12,6 +12,7 @@
         <joinpoint target="translet">
             pointcut: {
                 +: /order/**
+                +: /account/edit**
             }
         </joinpoint>
         <advice bean="userSessionManager">

@@ -95,6 +95,7 @@ public class AccountAction {
     public void editAccount(Translet translet,
                             Account account,
                             BeanValidator beanValidator) {
+        beanValidator.validate(translet, account);
         beanValidator.validate(translet, account, Account.Update.class);
         if (beanValidator.hasErrors()) {
             translet.setAttribute("account", account);

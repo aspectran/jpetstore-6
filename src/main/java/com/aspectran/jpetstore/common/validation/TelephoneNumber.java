@@ -31,9 +31,6 @@ import static java.lang.annotation.ElementType.PARAMETER;
 import static java.lang.annotation.ElementType.TYPE_USE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-/**
- * @author Kazuki Shimizu
- */
 @Documented
 @Constraint(validatedBy = {})
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
@@ -42,7 +39,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Pattern(regexp = "^(\\d+-\\d+-\\d+|\\d+ \\d+ \\d+|\\d+)$")
 public @interface TelephoneNumber {
 
-    String message() default "{com.kazuki43zoo.jpetstore.component.validation.TelephoneNumber.message}";
+    String message() default "{validation.TelephoneNumber}";
 
     Class<?>[] groups() default {};
 

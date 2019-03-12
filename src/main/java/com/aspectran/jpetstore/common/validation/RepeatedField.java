@@ -25,16 +25,13 @@ import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-/**
- * @author Kazuki Shimizu
- */
 @Documented
 @Constraint(validatedBy = RepeatedFieldValidator.class)
 @Target({ TYPE, ANNOTATION_TYPE })
 @Retention(RUNTIME)
 public @interface RepeatedField {
 
-	String message() default "must be same value with {dependFieldName}";
+	String message() default "{validation.RepeatedField}";
 
 	Class<?>[] groups() default {};
 

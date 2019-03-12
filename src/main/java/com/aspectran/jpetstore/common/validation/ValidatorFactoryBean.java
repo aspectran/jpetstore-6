@@ -6,10 +6,12 @@ import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.core.support.i18n.message.MessageSource;
+import com.aspectran.core.support.i18n.message.MessageSourceResourceBundle;
+import org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator;
 
+import javax.validation.MessageInterpolator;
 import javax.validation.Validation;
 import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
 
 @Component
 @Bean("validator")
@@ -17,7 +19,7 @@ public class ValidatorFactoryBean implements InitializableBean, FactoryBean<Vali
 
     private final MessageSource messageSource;
 
-    private ValidatorFactory factory;
+    private Validator validator;
 
     @Autowired(required = false)
     public ValidatorFactoryBean(MessageSource messageSource) {
@@ -26,16 +28,22 @@ public class ValidatorFactoryBean implements InitializableBean, FactoryBean<Vali
 
     @Override
     public void initialize() {
-        factory = Validation.buildDefaultValidatorFactory();
-//        if (messageSource != null) {
-//            MessageInterpolator messageInterpolator = new ResourceBundleMessageInterpolator(locale->
-//                    new MessageSourceResourceBundle(messageSource, locale));
-//        }
+        MessageInterpolator messageInterpolator = null;
+        if (messageSource != null) {
+            messageInterpolator = new ResourceBundleMessageInterpolator(locale->
+                    new MessageSourceResourceBundle(messageSource, locale));
+        }
+
+        this.validator = Validation.byDefaultProvider()
+                .configure()
+                .messageInterpolator(messageInterpolator)
+                .buildValidatorFactory()
+                .getValidator();
     }
 
     @Override
     public Validator getObject() {
-        return factory.getValidator();
+        return validator;
     }
 
 }

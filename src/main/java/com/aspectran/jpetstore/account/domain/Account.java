@@ -87,7 +87,7 @@ public class Account implements Serializable {
 
     @NotBlank
     @Size(max = 40)
-    @TelephoneNumber
+    @TelephoneNumber(groups = Account.Update.class)
     private String phone;
 
     @NotBlank

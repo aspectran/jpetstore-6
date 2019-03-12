@@ -22,9 +22,6 @@ import javax.validation.ConstraintValidatorContext;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
 
-/**
- * @author Kazuki Shimizu
- */
 public class RepeatedFieldValidator implements ConstraintValidator<RepeatedField, Object> {
 
 	private String field;
