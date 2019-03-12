@@ -42,14 +42,14 @@
 			<tr>
 				<td>New password:</td>
 				<td>
-					<input type="password" name="password" autocomplete="off"/>
+					<input type="password" name="password" value="${account.password}" autocomplete="off"/>
 					<span class="error-msg">${errors.password}</span>
 				</td>
 			</tr>
 			<tr>
 				<td>Confirm password:</td>
 				<td>
-					<input type="password" name="repeatedPassword" autocomplete="off"/>
+					<input type="password" name="repeatedPassword" value="${account.repeatedPassword}" autocomplete="off"/>
 					<span class="error-msg">${errors.repeatedPassword}</span>
 				</td>
 			</tr>

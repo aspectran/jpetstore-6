@@ -84,19 +84,23 @@ public class AccountAction {
     @Dispatch("account/EditAccountForm")
     public void editAccountForm(Translet translet) {
         translet.setAttribute("staticCodes", translet.getProperty("staticCodes"));
-        translet.setAttribute("account", sessionManager.getUserSession().getAccount());
+        if (translet.getAttribute("account") == null) {
+            translet.setAttribute("account", sessionManager.getUserSession().getAccount());
+        } else {
+            Account account = translet.getAttribute("account");
+            account.setUsername(sessionManager.getUserSession().getAccount().getUsername());
+        }
     }
 
     /**
      * Edits the account.
      */
-    @RequestToPost("/account/editAccount")
+    @Request("/account/editAccount")
     @Redirect("/account/editAccountForm?updated=true")
     public void editAccount(Translet translet,
                             Account account,
                             BeanValidator beanValidator) {
         beanValidator.validate(translet, account);
-        beanValidator.validate(translet, account, Account.Update.class);
         if (beanValidator.hasErrors()) {
             translet.setAttribute("account", account);
             translet.setAttribute("errors", beanValidator.getErrors());

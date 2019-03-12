@@ -39,7 +39,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Pattern(regexp = "^\\d+$")
 public @interface NumericCharacters {
 
-    String message() default "{validation.NumericCharacters}";
+    String message() default "{validation.NumericCharacters.message}";
 
     Class<?>[] groups() default {};
 

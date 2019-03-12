@@ -20,7 +20,9 @@ import com.aspectran.jpetstore.common.validation.TelephoneNumber;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import javax.validation.groups.Default;
 import java.io.Serializable;
 
 /**
@@ -32,7 +34,6 @@ import java.io.Serializable;
         field = "repeatedPassword",
         dependField = "password",
         dependFieldName = "Password",
-        groups = Account.Update.class,
         message = "Passwords do not match."
 )
 public class Account implements Serializable {
@@ -40,11 +41,11 @@ public class Account implements Serializable {
     private static final long serialVersionUID = 8751282105532159742L;
 
     @NotBlank(groups = Create.class)
-    @Size(min = 4, max = 40)
+    @Size(min = 4, max = 40, groups = Create.class)
     private String username;
 
     @NotBlank(groups = Create.class)
-    @Size(min = 4, max = 20)
+    @Pattern(regexp = "(^$|.{4,20})", message="{validation.password.message}")
     private String password;
 
     private String repeatedPassword;
@@ -87,7 +88,7 @@ public class Account implements Serializable {
 
     @NotBlank
     @Size(max = 40)
-    @TelephoneNumber(groups = Account.Update.class)
+    @TelephoneNumber
     private String phone;
 
     @NotBlank
@@ -255,10 +256,7 @@ public class Account implements Serializable {
         this.bannerName = bannerName;
     }
 
-    public interface Create {
-    }
-
-    public interface Update {
+    public interface Create extends Default {
     }
 
 }

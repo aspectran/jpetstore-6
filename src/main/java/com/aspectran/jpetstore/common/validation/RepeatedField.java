@@ -31,7 +31,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface RepeatedField {
 
-	String message() default "{validation.RepeatedField}";
+	String message() default "{validation.RepeatedField.message}";
 
 	Class<?>[] groups() default {};
 
