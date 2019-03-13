@@ -3,43 +3,43 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <meta name="google" content="notranslate">
     <title>JPetStore Demo</title>
-    <meta name="description" content="JPetStore is a full web application built on top of MyBatis 3, Aspectran 6." />
-    <link rel="stylesheet" type="text/css" href="http://www.aspectran.com/assets/css/styles_aspectran.css" />
-    <link rel="stylesheet" type="text/css" href="/css/jpetstore.css" />
+    <meta name="description" content="JPetStore is a full web application built on top of MyBatis 3, Aspectran 6."/>
+    <link rel="stylesheet" type="text/css" href="http://www.aspectran.com/assets/css/styles_aspectran.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/jpetstore.css"/>
     <link href="http://fonts.googleapis.com/css?family=Raleway:500,500i,700" rel="stylesheet">
     <script src="http://www.aspectran.com/assets/js/modernizr.js"></script>
     <script src="http://www.aspectran.com/assets/js/jquery.js"></script>
     <script src="http://www.aspectran.com/assets/js/fastclick.js"></script>
-    <link rel="mask-icon" href="http://www.aspectran.com/assets/img/aspectran-logo.svg" color="#4B555A" />
-    <link rel="apple-touch-icon" sizes="57x57" href="http://www.aspectran.com/assets/img/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="http://www.aspectran.com/assets/img/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="http://www.aspectran.com/assets/img/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="http://www.aspectran.com/assets/img/apple-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="http://www.aspectran.com/assets/img/apple-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="http://www.aspectran.com/assets/img/apple-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="http://www.aspectran.com/assets/img/apple-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="http://www.aspectran.com/assets/img/apple-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="http://www.aspectran.com/assets/img/apple-icon-180x180.png" />
-    <link rel="icon" type="image/png" sizes="192x192"  href="http://www.aspectran.com/assets/img/android-icon-192x192.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="http://www.aspectran.com/assets/img/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="http://www.aspectran.com/assets/img/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="http://www.aspectran.com/assets/img/favicon-96x96.png" />
-    <meta name="msapplication-TileImage" content="http://www.aspectran.com/assets/img/ms-icon-144x144.png" />
-    <meta name="msapplication-TileColor" content="#4B555A" />
-    <meta name="theme-color" content="#4B555A" />
+    <link rel="mask-icon" href="http://www.aspectran.com/assets/img/aspectran-logo.svg" color="#4B555A"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="http://www.aspectran.com/assets/img/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="http://www.aspectran.com/assets/img/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="http://www.aspectran.com/assets/img/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="http://www.aspectran.com/assets/img/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="http://www.aspectran.com/assets/img/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="http://www.aspectran.com/assets/img/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="http://www.aspectran.com/assets/img/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="http://www.aspectran.com/assets/img/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="http://www.aspectran.com/assets/img/apple-icon-180x180.png"/>
+    <link rel="icon" type="image/png" sizes="192x192"  href="http://www.aspectran.com/assets/img/android-icon-192x192.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="http://www.aspectran.com/assets/img/favicon-16x16.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="http://www.aspectran.com/assets/img/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="http://www.aspectran.com/assets/img/favicon-96x96.png"/>
+    <meta name="msapplication-TileImage" content="http://www.aspectran.com/assets/img/ms-icon-144x144.png"/>
+    <meta name="msapplication-TileColor" content="#4B555A"/>
+    <meta name="theme-color" content="#4B555A"/>
     <!-- Facebook Optimization -->
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Quick Start Guide" />
-    <meta property="og:description" content="Aspectran is a Java framework for building Web and command-line applications." />
-    <meta property="og:url" content="http://www.aspectran.com/getting-started/quickstart/" />
-    <meta property="og:site_name" content="Aspectran" />
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Quick Start Guide"/>
+    <meta property="og:description" content="Aspectran is a Java framework for building Web and command-line applications."/>
+    <meta property="og:url" content="http://www.aspectran.com/getting-started/quickstart/"/>
+    <meta property="og:site_name" content="Aspectran"/>
     <!-- Search Engine Optimization -->
-    <link type="text/plain" rel="author" href="http://www.aspectran.com/humans.txt" />
+    <link type="text/plain" rel="author" href="http://www.aspectran.com/humans.txt"/>
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

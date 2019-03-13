@@ -46,7 +46,7 @@
 					${item.attribute1} ${item.attribute2} ${item.attribute3}
 					${item.attribute4} ${item.attribute5} ${product.name}
 				</td>
-				<td><fmt:formatNumber value="${item.listPrice}" pattern="$#,##0.00" /></td>
+				<td><fmt:formatNumber value="${item.listPrice}" pattern="$#,##0.00"/></td>
 				<td>
 					<a class="button" href="/cart/addItemToCart?itemId=${item.itemId}">Add to Cart</a>
 				</td>

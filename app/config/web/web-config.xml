@@ -20,16 +20,27 @@
         </properties>
     </bean>
 
-    <aspect id="defaultTransletSettings">
+    <aspect id="webTransletSettings">
         <description>
             Specifies the environment variables used during request and response processing.
         </description>
-        <joinpoint target="translet"/>
+        <joinpoint target="translet">
+            pointcut: {
+                +: /**
+            }
+        </joinpoint>
         <settings>
             <setting name="characterEncoding" value="utf-8"/>
             <setting name="viewDispatcher" value="defaultJspTemplate"/>
             <setting name="indentString" value="  "/>
         </settings>
+        <advice>
+            <before>
+                <echo id="navigation">
+                    <item name="categories">%{categories}</item>
+                </echo>
+            </before>
+        </advice>
     </aspect>
 
     <append file="/config/web/common/static-codes.xml"/>

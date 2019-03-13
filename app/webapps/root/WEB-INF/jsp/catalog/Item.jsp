@@ -48,7 +48,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td><fmt:formatNumber value="${item.listPrice}" pattern="$#,##0.00" /></td>
+			<td><fmt:formatNumber value="${item.listPrice}" pattern="$#,##0.00"/></td>
 		</tr>
 	</table>
 	<div class="button-bar">

@@ -60,8 +60,8 @@
 						</td>
 						<td>${cartItem.inStock}</td>
 						<td><input type="number" name="${cartItem.item.itemId}" size="3" maxlength="3" value="${cartItem.quantity}"/></td>
-						<td><fmt:formatNumber value="${cartItem.item.listPrice}" pattern="$#,##0.00" /></td>
-						<td><fmt:formatNumber value="${cartItem.total}" pattern="$#,##0.00" /></td>
+						<td><fmt:formatNumber value="${cartItem.item.listPrice}" pattern="$#,##0.00"/></td>
+						<td><fmt:formatNumber value="${cartItem.total}" pattern="$#,##0.00"/></td>
 						<td>
 							<a class="button" href="/cart/removeItemFromCart?cartItem=${cartItem.item.itemId}">Remove</a>
 						</td>
@@ -75,7 +75,7 @@
 						</c:if>
 					</td>
 					<td><strong>Sub Total:</strong></td>
-					<td><strong><fmt:formatNumber value="${cart.subTotal}" pattern="$#,##0.00" /></strong></td>
+					<td><strong><fmt:formatNumber value="${cart.subTotal}" pattern="$#,##0.00"/></strong></td>
 					<td>
 						<c:if test="${cart.numberOfItems gt 0}">
 							<a class="button" href="/cart/removeAllItemsFromCart">Remove All</a>

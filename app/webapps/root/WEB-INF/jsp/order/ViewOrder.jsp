@@ -45,7 +45,7 @@
 		<tr>
 			<td>Order Date</td>
 			<td>
-				<fmt:formatDate value="${order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss" />
+				<fmt:formatDate value="${order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss"/>
 			</td>
 		</tr>
 	</table>
@@ -57,18 +57,18 @@
 			<col/>
 		</colgroup>		<tr>
 			<td>Card Type:</td>
-			<td><c:out value="${order.cardType}" /></td>
+			<td><c:out value="${order.cardType}"/></td>
 		</tr>
 		<tr>
 			<td>Card Number:</td>
 			<td>
-				<c:out value="${order.creditCard}" />
+				<c:out value="${order.creditCard}"/>
 				* Fake number!
 			</td>
 		</tr>
 		<tr>
 			<td>Expiry Date (MM/YYYY):</td>
-			<td><c:out value="${order.expiryDate}" /></td>
+			<td><c:out value="${order.expiryDate}"/></td>
 		</tr>
 	</table>
 
@@ -80,35 +80,35 @@
 		</colgroup>
 		<tr>
 			<td>First name:</td>
-			<td><c:out value="${order.billToFirstName}" /></td>
+			<td><c:out value="${order.billToFirstName}"/></td>
 		</tr>
 		<tr>
 			<td>Last name:</td>
-			<td><c:out value="${order.billToLastName}" /></td>
+			<td><c:out value="${order.billToLastName}"/></td>
 		</tr>
 		<tr>
 			<td>Address 1:</td>
-			<td><c:out value="${order.billAddress1}" /></td>
+			<td><c:out value="${order.billAddress1}"/></td>
 		</tr>
 		<tr>
 			<td>Address 2:</td>
-			<td><c:out value="${order.billAddress2}" /></td>
+			<td><c:out value="${order.billAddress2}"/></td>
 		</tr>
 		<tr>
 			<td>City:</td>
-			<td><c:out value="${order.billCity}" /></td>
+			<td><c:out value="${order.billCity}"/></td>
 		</tr>
 		<tr>
 			<td>State:</td>
-			<td><c:out value="${order.billState}" /></td>
+			<td><c:out value="${order.billState}"/></td>
 		</tr>
 		<tr>
 			<td>Zip:</td>
-			<td><c:out value="${order.billZip}" /></td>
+			<td><c:out value="${order.billZip}"/></td>
 		</tr>
 		<tr>
 			<td>Country:</td>
-			<td><c:out value="${order.billCountry}" /></td>
+			<td><c:out value="${order.billCountry}"/></td>
 		</tr>
 	</table>
 
@@ -120,42 +120,42 @@
 		</colgroup>
 		<tr>
 			<td>First name:</td>
-			<td><c:out value="${order.shipToFirstName}" /></td>
+			<td><c:out value="${order.shipToFirstName}"/></td>
 		</tr>
 		<tr>
 			<td>Last name:</td>
-			<td><c:out value="${order.shipToLastName}" /></td>
+			<td><c:out value="${order.shipToLastName}"/></td>
 		</tr>
 		<tr>
 			<td>Address 1:</td>
-			<td><c:out value="${order.shipAddress1}" /></td>
+			<td><c:out value="${order.shipAddress1}"/></td>
 		</tr>
 		<tr>
 			<td>Address 2:</td>
-			<td><c:out value="${order.shipAddress2}" /></td>
+			<td><c:out value="${order.shipAddress2}"/></td>
 		</tr>
 		<tr>
 			<td>City:</td>
-			<td><c:out value="${order.shipCity}" /></td>
+			<td><c:out value="${order.shipCity}"/></td>
 		</tr>
 		<tr>
 			<td>State:</td>
-			<td><c:out value="${order.shipState}" /></td>
+			<td><c:out value="${order.shipState}"/></td>
 		</tr>
 		<tr>
 			<td>Zip:</td>
-			<td><c:out value="${order.shipZip}" /></td>
+			<td><c:out value="${order.shipZip}"/></td>
 		</tr>
 		<tr>
 			<td>Country:</td>
-			<td><c:out value="${order.shipCountry}" /></td>
+			<td><c:out value="${order.shipCountry}"/></td>
 		</tr>
 		<tr>
 			<td>Courier:</td>
-			<td><c:out value="${order.courier}" /></td>
+			<td><c:out value="${order.courier}"/></td>
 		</tr>
 		<tr>
-			<td colspan="2">Status: <c:out value="${order.status}" /></td>
+			<td colspan="2">Status: <c:out value="${order.status}"/></td>
 		</tr>
 	</table>
 
@@ -186,13 +186,13 @@
 					</c:if>
 				</td>
 				<td align="center">${lineItem.quantity}</td>
-				<td align="center"><fmt:formatNumber value="${lineItem.unitPrice}" pattern="$#,##0.00" /></td>
-				<td align="center"><fmt:formatNumber value="${lineItem.total}" pattern="$#,##0.00" /></td>
+				<td align="center"><fmt:formatNumber value="${lineItem.unitPrice}" pattern="$#,##0.00"/></td>
+				<td align="center"><fmt:formatNumber value="${lineItem.total}" pattern="$#,##0.00"/></td>
 			</tr>
 		</c:forEach>
 		<tr>
 			<th colspan="5" align="center">
-				Total: <fmt:formatNumber value="${order.totalPrice}" pattern="$#,##0.00" />
+				Total: <fmt:formatNumber value="${order.totalPrice}" pattern="$#,##0.00"/>
 			</th>
 		</tr>
 	</table>
