@@ -84,6 +84,13 @@ body > #Menu {
     clear: both;
     padding: 4px 4px;
 }
+#QuickLinks a {
+    padding: 0 10px;
+    color: #333;
+}
+#QuickLinks a:hover {
+    color: #43921a;
+}
 
 #Footer {
     background-color: #333;
@@ -123,6 +130,7 @@ body > #Banner {
     margin: 15px 0 0 0;
     padding: 0;
     width: 100%;
+    min-height: 200px;
     border-width: 0;
     clear: both;
     position: relative;
@@ -174,6 +182,7 @@ body > #Banner {
 #Sidebar {
     float: left;
     width: 30%;
+    line-height: 160%;
 }
 #RightSidebar {
     float: right;

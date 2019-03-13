@@ -55,7 +55,6 @@ public class AccountAction {
     @Request("/account/newAccountForm")
     @Dispatch("account/NewAccountForm")
     public void newAccountForm(Translet translet) {
-        translet.setAttribute("staticCodes", translet.getProperty("staticCodes"));
     }
 
     /**
@@ -83,7 +82,6 @@ public class AccountAction {
     @Request("/account/editAccountForm")
     @Dispatch("account/EditAccountForm")
     public void editAccountForm(Translet translet) {
-        translet.setAttribute("staticCodes", translet.getProperty("staticCodes"));
         if (translet.getAttribute("account") == null) {
             translet.setAttribute("account", sessionManager.getUserSession().getAccount());
         } else {

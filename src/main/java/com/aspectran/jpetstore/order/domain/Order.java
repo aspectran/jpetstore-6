@@ -18,7 +18,11 @@ package com.aspectran.jpetstore.order.domain;
 import com.aspectran.jpetstore.account.domain.Account;
 import com.aspectran.jpetstore.cart.domain.Cart;
 import com.aspectran.jpetstore.cart.domain.CartItem;
+import com.aspectran.jpetstore.common.validation.NumericCharacters;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -38,27 +42,93 @@ public class Order implements Serializable {
     private int orderId;
     private String username;
     private Date orderDate;
-    private String shipAddress1;
-    private String shipAddress2;
-    private String shipCity;
-    private String shipState;
-    private String shipZip;
-    private String shipCountry;
-    private String billAddress1;
-    private String billAddress2;
-    private String billCity;
-    private String billState;
-    private String billZip;
-    private String billCountry;
-    private String courier;
-    private BigDecimal totalPrice;
-    private String billToFirstName;
-    private String billToLastName;
-    private String shipToFirstName;
-    private String shipToLastName;
-    private String creditCard;
-    private String expiryDate;
+
+    @NotBlank(groups = Billing.class)
+    @Size(max = 40, groups = Billing.class)
     private String cardType;
+
+    @NotBlank(groups = Billing.class)
+    @Size(max = 80, groups = Billing.class)
+    @NumericCharacters(groups = Billing.class)
+    private String creditCard;
+
+    @NotBlank(groups = Billing.class)
+    @Pattern(regexp = "^\\d{2}/\\d{4}$", groups = Billing.class)
+    private String expiryDate;
+
+    @NotBlank(groups = Billing.class)
+    @Size(max = 40, groups = Billing.class)
+    private String billToFirstName;
+
+    @NotBlank(groups = Billing.class)
+    @Size(max = 40, groups = Billing.class)
+    private String billToLastName;
+
+    @NotBlank(groups = Billing.class)
+    @Size(max = 40, groups = Billing.class)
+    private String billAddress1;
+
+    @NotBlank(groups = Billing.class)
+    @Size(max = 40, groups = Billing.class)
+    private String billAddress2;
+
+    @NotBlank(groups = Billing.class)
+    @Size(max = 40, groups = Billing.class)
+    private String billCity;
+
+    @NotBlank(groups = Billing.class)
+    @Size(max = 40, groups = Billing.class)
+    private String billState;
+
+    @NotBlank(groups = Billing.class)
+    @Size(max = 20, groups = Billing.class)
+    @NumericCharacters(groups = Billing.class)
+    private String billZip;
+
+    @NotBlank(groups = Billing.class)
+    @Size(max = 20, groups = Billing.class)
+    private String billCountry;
+
+    @NotBlank
+    @Size(max = 40)
+    private String shipToFirstName;
+
+    @NotBlank
+    @Size(max = 40)
+    private String shipToLastName;
+
+    @NotBlank
+    @Size(max = 40)
+    private String shipAddress1;
+
+    @NotBlank
+    @Size(max = 40)
+    private String shipAddress2;
+
+    @NotBlank
+    @Size(max = 40)
+    private String shipCity;
+
+    @NotBlank
+    @Size(max = 40)
+    private String shipState;
+
+    @NotBlank
+    @Size(max = 20)
+    @NumericCharacters
+    private String shipZip;
+
+    @NotBlank
+    @Size(max = 20)
+    private String shipCountry;
+
+    private String courier;
+
+    private BigDecimal totalPrice;
+
+
+    private boolean shippingAddressRequired;
+
     private String locale;
     private String status;
     private List<LineItem> lineItems = new ArrayList<>();
@@ -255,6 +325,14 @@ public class Order implements Serializable {
         this.cardType = cardType;
     }
 
+    public boolean isShippingAddressRequired() {
+        return shippingAddressRequired;
+    }
+
+    public void setShippingAddressRequired(boolean shippingAddressRequired) {
+        this.shippingAddressRequired = shippingAddressRequired;
+    }
+
     public String getLocale() {
         return locale;
     }
@@ -312,13 +390,14 @@ public class Order implements Serializable {
 
         totalPrice = cart.getSubTotal();
 
-        creditCard = "999 9999 9999 9999";
-        expiryDate = "12/03";
+        creditCard = "999999999999999";
+        expiryDate = "12/2019";
         cardType = "Visa";
         courier = "UPS";
         locale = "CA";
         status = "P";
 
+        lineItems.clear();
         Iterator<CartItem> i = cart.getAllCartItems();
         while (i.hasNext()) {
             CartItem cartItem = i.next();
@@ -385,6 +464,9 @@ public class Order implements Serializable {
         if (order.getShipToLastName() != null) {
             setShipToLastName(order.getShipToLastName());
         }
+    }
+
+    public interface Billing {
     }
 
 }

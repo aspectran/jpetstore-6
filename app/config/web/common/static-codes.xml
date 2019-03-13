@@ -28,11 +28,11 @@
                 <value name="japanese">Japanese</value>
             </item>
             <item name="categories" type="map">
-                <value name="FISH">FISH</value>
-                <value name="DOGS">DOGS</value>
-                <value name="REPTILES">REPTILES</value>
-                <value name="CATS">CATS</value>
-                <value name="BIRDS">BIRDS</value>
+                <value name="FISH">Fish</value>
+                <value name="DOGS">Dogs</value>
+                <value name="REPTILES">Reptiles</value>
+                <value name="CATS">Cats</value>
+                <value name="BIRDS">Birds</value>
             </item>
             <item name="creditCardTypes" type="map">
                 <value name="Visa">Visa</value>

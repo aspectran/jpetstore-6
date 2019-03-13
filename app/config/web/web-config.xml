@@ -36,8 +36,8 @@
         </settings>
         <advice>
             <before>
-                <echo id="navigation">
-                    <item name="categories">%{categories}</item>
+                <echo>
+                    <item name="staticCodes">%{staticCodes}</item>
                 </echo>
             </before>
         </advice>

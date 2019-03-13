@@ -26,6 +26,7 @@ import com.aspectran.core.component.bean.annotation.Redirect;
 import com.aspectran.core.component.bean.annotation.Request;
 import com.aspectran.jpetstore.account.domain.Account;
 import com.aspectran.jpetstore.cart.service.CartService;
+import com.aspectran.jpetstore.common.validation.BeanValidator;
 import com.aspectran.jpetstore.order.domain.Order;
 import com.aspectran.jpetstore.cart.domain.Cart;
 import com.aspectran.jpetstore.common.user.UserSessionManager;
@@ -68,8 +69,7 @@ public class OrderAction {
     @Request("/order/newOrderForm")
     @Dispatch("order/NewOrderForm")
     @Action("order")
-    public Order newOrderForm(Translet translet) {
-        translet.setAttribute("staticCodes", translet.getProperty("staticCodes"));
+    public Order newOrderForm() {
         Account account = sessionManager.getUserSession().getAccount();
         Cart cart = cartService.getCart();
         if (cart != null && cart.getNumberOfItems() > 0) {
@@ -90,8 +90,17 @@ public class OrderAction {
     public void newOrder(Translet translet,
                          Order order,
                          boolean shippingAddressRequired,
-                         boolean confirmed
+                         boolean confirmed,
+                         BeanValidator beanValidator
     ) {
+        beanValidator.validate(translet, order, Order.Billing.class);
+        if (beanValidator.hasErrors()) {
+            translet.setAttribute("order", order);
+            translet.setAttribute("errors", beanValidator.getErrors());
+            translet.dispatch("/order/NewOrderForm");
+            return;
+        }
+
         Order order2 = sessionManager.getUserSession().getOrder();
         if (order2 == null) {
             translet.redirect("/cart/viewCart");

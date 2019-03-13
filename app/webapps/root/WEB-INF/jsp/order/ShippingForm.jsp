@@ -23,6 +23,10 @@
 
 		<h3>Shipping Address</h3>
 		<table>
+			<colgroup>
+				<col style="width: 25%"/>
+				<col/>
+			</colgroup>
 			<tr>
 				<td>First name:</td>
 				<td><input type="text" name="shipToFirstName" value="${user.order.shipToFirstName}"/></td>

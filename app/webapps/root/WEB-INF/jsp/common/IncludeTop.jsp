@@ -58,18 +58,9 @@
 	</div>
 
 	<div id="QuickLinks">
-<c:forEach var="cate" items="${navigation.categories}">
-	<span><${cate.key}:<${cate.value}</span>
-</c:forEach>
-		<a href="/catalog/categories/FISH"><img src="/images/sm_fish.gif"/></a>
-		<img align="middle" src="/images/separator.gif"/>
-		<a href="/catalog/categories/DOGS"><img src="/images/sm_dogs.gif"/></a>
-		<img align="middle" src="/images/separator.gif"/>
-		<a href="/catalog/categories/REPTILES"><img src="/images/sm_reptiles.gif"/></a>
-		<img align="middle" src="/images/separator.gif"/>
-		<a href="/catalog/categories/CATS"><img src="/images/sm_cats.gif"/></a>
-		<img align="middle" src="/images/separator.gif"/>
-		<a href="/catalog/categories/BIRDS"><img src="/images/sm_birds.gif"/></a>
+	<c:forEach var="entry" items="${staticCodes.categories}">
+		<a href="/catalog/categories/${entry.key}">${entry.value}</a>
+	</c:forEach>
 	</div>
 </div>
 

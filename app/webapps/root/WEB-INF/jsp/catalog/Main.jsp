@@ -30,15 +30,15 @@
 <div id="Main">
 	<div id="Sidebar">
 		<div id="SidebarContent">
-			<a href="/catalog/categories/FISH"><img src="../images/fish_icon.gif"/></a><br />
+			<a href="/catalog/categories/FISH">Fish</a><br/>
 			Saltwater, Freshwater<br />
-			<a href="/catalog/categories/DOGS"><img src="../images/dogs_icon.gif"/></a><br />
+			<a href="/catalog/categories/DOGS">Dogs</a><br/>
 			Various Breeds<br />
-			<a href="/catalog/categories/CATS"><img src="../images/cats_icon.gif"/></a><br />
+			<a href="/catalog/categories/CATS">Cats</a><br/>
 			Various Breeds, Exotic Varieties<br />
-			<a href="/catalog/categories/REPTILES"><img src="../images/reptiles_icon.gif"/></a><br />
+			<a href="/catalog/categories/REPTILES">Reptiles</a><br/>
 			Lizards, Turtles, Snakes<br />
-			<a href="/catalog/categories/BIRDS"><img src="../images/birds_icon.gif"/></a><br />
+			<a href="/catalog/categories/BIRDS">Birds</a><br/>
 			Exotic Varieties<br />
 		</div>
 	</div>

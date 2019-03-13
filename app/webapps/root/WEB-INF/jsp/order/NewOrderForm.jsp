@@ -42,13 +42,15 @@
 			<tr>
 				<td>Card Number:</td>
 				<td>
-					<input type="text" name="creditCard"/>
-					<p>* Use a fake number!</p>
+					* Use a fake number!
+					<input type="text" name="creditCard" value="${order.creditCard}"/>
+					<span class="error-msg">${errors.creditCard}</span>
 				</td>
 			</tr>
 			<tr>
 				<td>Expiry Date (MM/YYYY):</td>
-				<td><input type="text" name="expiryDate"/></td>
+				<td><input type="text" name="expiryDate" value="${order.expiryDate}"/>
+					<span class="error-msg">${errors.expiryDate}</span></td>
 			</tr>
 		</table>
 
@@ -60,40 +62,48 @@
 			</colgroup>
 			<tr>
 				<td>First name:</td>
-				<td><input type="text" name="billToFirstName" value="${order.billToFirstName}"/></td>
+				<td><input type="text" name="billToFirstName" value="${order.billToFirstName}"/>
+					<span class="error-msg">${errors.billToFirstName}</span></td>
 			</tr>
 			<tr>
 				<td>Last name:</td>
-				<td><input type="text" name="billToLastName" value="${order.billToLastName}"/></td>
+				<td><input type="text" name="billToLastName" value="${order.billToLastName}"/>
+					<span class="error-msg">${errors.billToLastName}</span></td>
 			</tr>
 			<tr>
 				<td>Address 1:</td>
-				<td><input type="text" name="billAddress1" value="${order.billAddress1}"/></td>
+				<td><input type="text" name="billAddress1" value="${order.billAddress1}"/>
+					<span class="error-msg">${errors.billAddress1}</span></td>
 			</tr>
 			<tr>
 				<td>Address 2:</td>
-				<td><input type="text" name="billAddress2" value="${order.billAddress2}"/></td>
+				<td><input type="text" name="billAddress2" value="${order.billAddress2}"/>
+					<span class="error-msg">${errors.billAddress2}</span></td>
 			</tr>
 			<tr>
 				<td>City:</td>
-				<td><input type="text" name="billCity" value="${order.billCity}"/></td>
+				<td><input type="text" name="billCity" value="${order.billCity}"/>
+					<span class="error-msg">${errors.billCity}</span></td>
 			</tr>
 			<tr>
 				<td>State:</td>
-				<td><input type="text" name="billState" value="${order.billState}"/></td>
+				<td><input type="text" name="billState" value="${order.billState}"/>
+					<span class="error-msg">${errors.billState}</span></td>
 			</tr>
 			<tr>
 				<td>Zip:</td>
-				<td><input type="text" name="billZip" value="${order.billZip}"/></td>
+				<td><input type="text" name="billZip" value="${order.billZip}"/>
+					<span class="error-msg">${errors.billZip}</span></td>
 			</tr>
 			<tr>
 				<td>Country:</td>
-				<td><input type="text" name="billCountry" value="${order.billCountry}"/></td>
+				<td><input type="text" name="billCountry" value="${order.billCountry}"/>
+					<span class="error-msg">${errors.billCountry}</span></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>
-					<input type="checkbox" name="shippingAddressRequired" value="true"/>
+					<input type="checkbox" name="shippingAddressRequired" value="true" <c:if test="${order.shippingAddressRequired}">checked</c:if>/>
 					Ship to different address...
 				</td>
 			</tr>
