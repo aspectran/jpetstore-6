@@ -39,4 +39,8 @@ public interface OrderMapper {
 
     void insertOrderStatus(Order order);
 
+    void deleteOrder(int orderId);
+
+    void deleteOrderStatus(int orderId);
+
 }

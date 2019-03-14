@@ -24,6 +24,7 @@ import com.aspectran.core.component.bean.annotation.Dispatch;
 import com.aspectran.core.component.bean.annotation.Parameter;
 import com.aspectran.core.component.bean.annotation.Redirect;
 import com.aspectran.core.component.bean.annotation.Request;
+import com.aspectran.core.component.bean.annotation.Required;
 import com.aspectran.jpetstore.account.domain.Account;
 import com.aspectran.jpetstore.cart.service.CartService;
 import com.aspectran.jpetstore.common.validation.BeanValidator;
@@ -74,11 +75,10 @@ public class OrderAction {
         Cart cart = cartService.getCart();
         if (cart != null && cart.getNumberOfItems() > 0) {
             Order order = new Order();
-            order.initOrder(account, cart);
+            order.initialize(account, cart);
             sessionManager.getUserSession().setOrder(order);
             return order;
         } else {
-            //String message = "An order could not be created because a cart could not be found.";
             return null;
         }
     }
@@ -150,8 +150,6 @@ public class OrderAction {
         Cart cart = cartService.getCart();
 
         Order order = sessionManager.getUserSession().getOrder();
-        order.initOrder(account, cart);
-
         orderService.insertOrder(order);
 
         sessionManager.getUserSession().clearOrder();
@@ -168,6 +166,15 @@ public class OrderAction {
     @Action("order")
     public Order viewOrder(int orderId) {
         return orderService.getOrder(orderId);
+    }
+
+    /**
+     * Delete order.
+     */
+    @Request("/order/deleteOrder/${orderId}")
+    @Redirect("/order/listOrders")
+    public void deleteOrder(@Required int orderId) {
+        orderService.deleteOrder(orderId);
     }
 
 }

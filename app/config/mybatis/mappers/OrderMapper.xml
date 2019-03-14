@@ -106,4 +106,12 @@
     VALUES (#{orderId,jdbcType=NUMERIC}, #{orderId,jdbcType=NUMERIC}, #{orderDate,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR})
   </insert>
 
+  <delete id="deleteOrder">
+    DELETE FROM ORDERS WHERE ORDERID = #{value}
+  </delete>
+
+  <delete id="deleteOrderStatus">
+    DELETE FROM ORDERSTATUS WHERE ORDERID = #{value}
+  </delete>
+
 </mapper>

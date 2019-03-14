@@ -18,15 +18,15 @@ package com.aspectran.jpetstore.order.service;
 import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
+import com.aspectran.jpetstore.common.mybatis.SimpleSqlSession;
 import com.aspectran.jpetstore.common.mybatis.mapper.ItemMapper;
+import com.aspectran.jpetstore.common.mybatis.mapper.LineItemMapper;
 import com.aspectran.jpetstore.common.mybatis.mapper.OrderMapper;
 import com.aspectran.jpetstore.common.mybatis.mapper.SequenceMapper;
 import com.aspectran.jpetstore.order.domain.Item;
 import com.aspectran.jpetstore.order.domain.Order;
 import com.aspectran.jpetstore.order.domain.Sequence;
 import org.apache.ibatis.session.SqlSession;
-import com.aspectran.jpetstore.common.mybatis.SimpleSqlSession;
-import com.aspectran.jpetstore.common.mybatis.mapper.LineItemMapper;
 
 import java.util.HashMap;
 import java.util.List;
@@ -74,6 +74,16 @@ public class OrderService {
             lineItem.setOrderId(order.getOrderId());
             lineItemMapper.insertLineItem(lineItem);
         });
+    }
+
+    /**
+     * Delete order.
+     *
+     * @param orderId the order id
+     */
+    public void deleteOrder(int orderId) {
+        OrderMapper orderMapper = OrderMapper.getMapper(sqlSession);
+        orderMapper.deleteOrder(orderId);
     }
 
     /**

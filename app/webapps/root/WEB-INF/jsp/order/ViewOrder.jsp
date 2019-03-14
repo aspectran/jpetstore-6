@@ -155,7 +155,8 @@
 			<td><c:out value="${order.courier}"/></td>
 		</tr>
 		<tr>
-			<td colspan="2">Status: <c:out value="${order.status}"/></td>
+			<td>Status:</td>
+			<td><c:out value="${order.status}"/></td>
 		</tr>
 	</table>
 
@@ -191,11 +192,17 @@
 			</tr>
 		</c:forEach>
 		<tr>
-			<th colspan="5" align="center">
-				Total: <fmt:formatNumber value="${order.totalPrice}" pattern="$#,##0.00"/>
+			<th colspan="3"></th>
+			<th>Total</th>
+			<th>
+				<fmt:formatNumber value="${order.totalPrice}" pattern="$#,##0.00"/>
 			</th>
 		</tr>
 	</table>
+
+	<div class="button-bar">
+		<button type="button" class="button" onclick="location.href='/order/deleteOrder/${order.orderId}';">Delete Order</button>
+	</div>
 
 </div>
 
