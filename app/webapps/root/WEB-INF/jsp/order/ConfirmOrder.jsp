@@ -128,6 +128,7 @@
 
 		<div class="button-bar">
 			<button type="submit" class="button">Confirm</button>
+			<button type="button" class="button" onclick="location.href='/order/newOrderForm';">Back</button>
 		</div>
 	</form>
 

@@ -89,24 +89,40 @@ public class OrderAction {
     @Request("/order/newOrder")
     public void newOrder(Translet translet,
                          Order order,
+                         boolean paymentForm,
+                         boolean billingForm,
+                         boolean shippingForm,
                          boolean shippingAddressRequired,
                          boolean confirmed,
                          BeanValidator beanValidator
     ) {
-        beanValidator.validate(translet, order, Order.Billing.class);
-        if (beanValidator.hasErrors()) {
-            translet.setAttribute("order", order);
-            translet.setAttribute("errors", beanValidator.getErrors());
-            translet.dispatch("/order/NewOrderForm");
-            return;
-        }
-
         Order order2 = sessionManager.getUserSession().getOrder();
         if (order2 == null) {
             translet.redirect("/cart/viewCart");
             return;
         }
         order2.update(order);
+        translet.setAttribute("order", order2);
+
+        if (paymentForm) {
+            beanValidator.validate(translet, order2, Order.Payment.class);
+        }
+        if (billingForm) {
+            beanValidator.validate(translet, order2, Order.Billing.class);
+        }
+        if (shippingForm) {
+            beanValidator.validate(translet, order2, Order.Shipping.class);
+        }
+        if (beanValidator.hasErrors()) {
+            translet.setAttribute("errors", beanValidator.getErrors());
+            if (shippingForm) {
+                translet.dispatch("/order/ShippingForm");
+            } else {
+                translet.dispatch("/order/NewOrderForm");
+            }
+            return;
+        }
+
         if (shippingAddressRequired) {
             translet.dispatch("order/ShippingForm");
         } else if (!confirmed) {
@@ -118,7 +134,7 @@ public class OrderAction {
     }
 
     /**
-     * Confirm order.
+     * Submit order.
      */
     @Request("/order/submitOrder")
     @Redirect(
@@ -146,8 +162,6 @@ public class OrderAction {
 
     /**
      * View order.
-     *
-     * @return the resolution
      */
     @Request("/order/viewOrder")
     @Dispatch("order/ViewOrder")

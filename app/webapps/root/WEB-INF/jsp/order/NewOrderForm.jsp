@@ -22,6 +22,8 @@
 <div id="CenterForm">
 
 	<form method="post" action="/order/newOrder">
+		<input type="hidden" name="paymentForm" value="true"/>
+		<input type="hidden" name="billingForm" value="true"/>
 
 		<h3>Payment Details</h3>
 		<table>
@@ -112,6 +114,7 @@
 		<c:if test="${not empty order}">
 		<div class="button-bar">
 			<button type="submit" class="button">Continue</button>
+			<button type="button" class="button" onclick="location.href='/cart/viewCart';">Cancel</button>
 		</div>
 		</c:if>
 

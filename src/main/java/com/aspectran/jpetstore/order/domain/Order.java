@@ -43,17 +43,17 @@ public class Order implements Serializable {
     private String username;
     private Date orderDate;
 
-    @NotBlank(groups = Billing.class)
-    @Size(max = 40, groups = Billing.class)
+    @NotBlank(groups = Payment.class)
+    @Size(max = 40, groups = Payment.class)
     private String cardType;
 
-    @NotBlank(groups = Billing.class)
-    @Size(max = 80, groups = Billing.class)
-    @NumericCharacters(groups = Billing.class)
+    @NotBlank(groups = Payment.class)
+    @Size(max = 80, groups = Payment.class)
+    @NumericCharacters(groups = Payment.class)
     private String creditCard;
 
-    @NotBlank(groups = Billing.class)
-    @Pattern(regexp = "^\\d{2}/\\d{4}$", groups = Billing.class)
+    @NotBlank(groups = Payment.class)
+    @Pattern(regexp = "^\\d{2}/\\d{4}$", groups = Payment.class)
     private String expiryDate;
 
     @NotBlank(groups = Billing.class)
@@ -89,48 +89,49 @@ public class Order implements Serializable {
     @Size(max = 20, groups = Billing.class)
     private String billCountry;
 
-    @NotBlank
-    @Size(max = 40)
+    @NotBlank(groups = Shipping.class)
+    @Size(max = 40, groups = Shipping.class)
     private String shipToFirstName;
 
-    @NotBlank
-    @Size(max = 40)
+    @NotBlank(groups = Shipping.class)
+    @Size(max = 40, groups = Shipping.class)
     private String shipToLastName;
 
-    @NotBlank
-    @Size(max = 40)
+    @NotBlank(groups = Shipping.class)
+    @Size(max = 40, groups = Shipping.class)
     private String shipAddress1;
 
-    @NotBlank
-    @Size(max = 40)
+    @NotBlank(groups = Shipping.class)
+    @Size(max = 40, groups = Shipping.class)
     private String shipAddress2;
 
-    @NotBlank
-    @Size(max = 40)
+    @NotBlank(groups = Shipping.class)
+    @Size(max = 40, groups = Shipping.class)
     private String shipCity;
 
-    @NotBlank
-    @Size(max = 40)
+    @NotBlank(groups = Shipping.class)
+    @Size(max = 40, groups = Shipping.class)
     private String shipState;
 
-    @NotBlank
-    @Size(max = 20)
-    @NumericCharacters
+    @NotBlank(groups = Shipping.class)
+    @Size(max = 20, groups = Shipping.class)
+    @NumericCharacters(groups = Shipping.class)
     private String shipZip;
 
-    @NotBlank
-    @Size(max = 20)
+    @NotBlank(groups = Shipping.class)
+    @Size(max = 20, groups = Shipping.class)
     private String shipCountry;
 
     private String courier;
 
     private BigDecimal totalPrice;
 
-
     private boolean shippingAddressRequired;
 
     private String locale;
+
     private String status;
+
     private List<LineItem> lineItems = new ArrayList<>();
 
     public int getOrderId() {
@@ -466,7 +467,13 @@ public class Order implements Serializable {
         }
     }
 
+    public interface Payment {
+    }
+
     public interface Billing {
+    }
+
+    public interface Shipping {
     }
 
 }
