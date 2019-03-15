@@ -10,7 +10,7 @@
     <environment>
         <properties>
             <item name="jetty.startup" value="true" valueType="boolean"/>
-            <item name="jetty.server.port" value="8088" valueType="int"/>
+            <item name="jetty.server.port" value="8080" valueType="int"/>
             <item name="jetty.server.minThreads" value="3" valueType="int"/>
             <item name="jetty.server.maxThreads" value="10" valueType="int"/>
             <item name="jetty.session.dataStoreDir" value="#{basePath}/temp/sessions"/>
@@ -64,11 +64,6 @@
         <properties profile="dev">
             <item name="handlers" type="array">
                 <value><call bean="jetty.gzipHandler"/></value>
-            </item>
-        </properties>
-        <properties profile="!dev">
-            <item name="handlers" type="array">
-                <value><call bean="jetty.gzipHandler"/></value>
                 <value><call bean="jetty.requestLog"/></value>
             </item>
         </properties>
@@ -96,7 +91,13 @@
     </bean>
 
     <bean id="jetty.contexts" class="org.eclipse.jetty.server.handler.ContextHandlerCollection" scope="prototype">
-        <properties>
+        <properties profile="dev">
+            <item name="handlers" type="array">
+                <value><call bean="jetty.contexts.root"/></value>
+                <value><call bean="jetty.contexts.h2-console"/></value>
+            </item>
+        </properties>
+        <properties profile="!dev">
             <item name="handlers" type="array">
                 <value><call bean="jetty.contexts.root"/></value>
             </item>
@@ -107,6 +108,17 @@
         <properties>
             <item name="contextPath" value="/"/>
             <item name="war" value="#{basePath}/webapps/root"/>
+            <item name="persistTempDirectory" value="true" valueType="boolean"/>
+            <item name="defaultsDescriptor" value="#{basePath}/config/jetty/webdefault.xml"/>
+            <item name="sessionHandler"><call bean="jetty.sessionHandler"/></item>
+        </properties>
+    </bean>
+
+    <bean id="jetty.contexts.h2-console" class="com.aspectran.jetty.JettyWebAppContext" scope="prototype">
+        <properties>
+            <item name="standalone" value="true" valueType="boolean"/>
+            <item name="contextPath" value="/h2-console"/>
+            <item name="war" value="#{basePath}/webapps/h2-console"/>
             <item name="persistTempDirectory" value="true" valueType="boolean"/>
             <item name="defaultsDescriptor" value="#{basePath}/config/jetty/webdefault.xml"/>
             <item name="sessionHandler"><call bean="jetty.sessionHandler"/></item>
@@ -130,19 +142,30 @@
 
     <bean id="jetty.requestLog" class="org.eclipse.jetty.server.handler.RequestLogHandler" scope="prototype">
         <properties>
-            <item name="requestLog">#{jetty.ncsaRequestLog}</item>
+            <item name="requestLog"><call bean="jetty.customRequestLog"/></item>
         </properties>
     </bean>
 
-    <bean id="jetty.ncsaRequestLog" class="org.eclipse.jetty.server.NCSARequestLog" scope="prototype">
+    <bean id="jetty.customRequestLog" class="org.eclipse.jetty.server.CustomRequestLog" scope="prototype">
+        <constructor>
+            <arguments>
+                <item><call bean="jetty.asyncRequestLogWriter"/></item>
+                <item>#{method:org.eclipse.jetty.server.CustomRequestLog^EXTENDED_NCSA_FORMAT}</item>
+            </arguments>
+        </constructor>
+    </bean>
+
+    <bean id="jetty.asyncRequestLogWriter" class="org.eclipse.jetty.server.AsyncRequestLogWriter" scope="prototype">
+        <constructor>
+            <arguments>
+                <item>#{basePath}/logs/demo-yyyy_mm_dd.request.log</item>
+            </arguments>
+        </constructor>
         <properties>
-            <item name="filename">#{basePath}/logs/demo-yyyy_mm_dd.request.log</item>
             <item name="filenameDateFormat">yyyy_MM_dd</item>
-            <item name="logDateFormat">yyyy-MM-dd HH:mm:ss Z</item>
-            <item name="logTimeZone">GMT+9</item>
             <item name="retainDays" valueType="int">90</item>
             <item name="append" valueType="boolean">true</item>
-            <item name="logLatency" valueType="boolean">true</item>
+            <item name="timeZone">GMT+9</item>
         </properties>
     </bean>
 
