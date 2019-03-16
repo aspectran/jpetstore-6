@@ -142,15 +142,15 @@
 
     <bean id="jetty.requestLog" class="org.eclipse.jetty.server.handler.RequestLogHandler" scope="prototype">
         <properties>
-            <item name="requestLog"><call bean="jetty.customRequestLog"/></item>
+            <item name="requestLog">#{jetty.customRequestLog}</item>
         </properties>
     </bean>
 
     <bean id="jetty.customRequestLog" class="org.eclipse.jetty.server.CustomRequestLog" scope="prototype">
         <constructor>
             <arguments>
-                <item><call bean="jetty.asyncRequestLogWriter"/></item>
-                <item>#{method:org.eclipse.jetty.server.CustomRequestLog^EXTENDED_NCSA_FORMAT}</item>
+                <item>#{jetty.asyncRequestLogWriter}</item>
+                <item>#{field:org.eclipse.jetty.server.CustomRequestLog^EXTENDED_NCSA_FORMAT}</item>
             </arguments>
         </constructor>
     </bean>
@@ -158,7 +158,7 @@
     <bean id="jetty.asyncRequestLogWriter" class="org.eclipse.jetty.server.AsyncRequestLogWriter" scope="prototype">
         <constructor>
             <arguments>
-                <item>#{basePath}/logs/demo-yyyy_mm_dd.request.log</item>
+                <item>#{basePath}/logs/jetty-yyyy_mm_dd.request.log</item>
             </arguments>
         </constructor>
         <properties>

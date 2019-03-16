@@ -197,7 +197,7 @@ SUM:                            58            823            612           3464
 <source><![CDATA[
 <jdbc:embedded-database id="dataSource">
   <jdbc:script location="classpath:database/jpetstore-hsqldb-schema.sql"/>
-  <jdbc:script location="classpath:database/jpetstore-hsqldb-dataload.sql"/>
+  <jdbc:script location="classpath:database/jpetstore-dataload.sql"/>
 </jdbc:embedded-database>
 
 <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
