@@ -110,7 +110,7 @@
             <item name="war" value="#{basePath}/webapps/root"/>
             <item name="persistTempDirectory" value="true" valueType="boolean"/>
             <item name="defaultsDescriptor" value="#{basePath}/config/jetty/webdefault.xml"/>
-            <item name="sessionHandler"><call bean="jetty.sessionHandler"/></item>
+            <item name="sessionHandler">#{jetty.sessionHandler}</item>
         </properties>
     </bean>
 
@@ -121,13 +121,13 @@
             <item name="war" value="#{basePath}/webapps/h2-console"/>
             <item name="persistTempDirectory" value="true" valueType="boolean"/>
             <item name="defaultsDescriptor" value="#{basePath}/config/jetty/webdefault.xml"/>
-            <item name="sessionHandler"><call bean="jetty.sessionHandler"/></item>
+            <item name="sessionHandler">#{jetty.sessionHandler}</item>
         </properties>
     </bean>
 
     <bean id="jetty.sessionHandler" class="com.aspectran.jetty.JettySessionHandler" scope="prototype">
         <properties>
-            <item name="sessionDataStore"><call bean="jetty.sessionDataStoreFactory"/></item>
+            <item name="sessionDataStore">#{jetty.sessionDataStoreFactory}</item>
         </properties>
     </bean>
 
