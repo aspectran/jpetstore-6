@@ -54,7 +54,7 @@ public class AccountAction {
 
     @Request("/account/newAccountForm")
     @Dispatch("account/NewAccountForm")
-    public void newAccountForm(Translet translet) {
+    public void newAccountForm() {
     }
 
     /**
