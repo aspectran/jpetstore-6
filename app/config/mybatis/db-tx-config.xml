@@ -7,7 +7,7 @@
         Configuration for Database Transactions.
     </description>
 
-    <!-- Environment for using HSQLDB Database -->
+    <!-- Environment properties for using HSQLDB Database -->
     <environment>
         <properties>
             <item name="mybatis.environment" value="default"/>

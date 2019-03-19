@@ -5,12 +5,6 @@
 
     <description style="apon">
         |
-        |{{bold}}Commands that can run examples:{{bold:off}}
-        |   {{CYAN}}hello{{fg:reset}}      Prints "Hello, World!" in your console
-        |   {{CYAN}}hello2{{fg:reset}}     Prints "Hello, World!" in your console using ANSI color codes
-        |   {{CYAN}}echo1{{fg:reset}}      It accepts parameters and print as is
-        |   --- for more examples, type '{{GREEN}}translet -l{{reset}}' ---
-        |
         |{{bold}}The Jetty Server is currently running.{{bold:off}}
         |Use the command '{{GREEN}}jetty{{reset}}' to control the Jetty Server.
         |When your Jetty Server is running, point your web browser to:

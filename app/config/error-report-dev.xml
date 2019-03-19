@@ -18,7 +18,7 @@
                         |-----------------------------------------------------------------------------------------
                         |#{currentTranslet^rootCauseOfRaisedException}
                         |-----------------------------------------------------------------------------------------
-                        |Powered by Aspectran #{class:com.aspectran.core.util.Aspectran^version}
+                        |#{class:com.aspectran.core.util.Aspectran^poweredBy}
                         |
                     </template>
                 </transform>
@@ -31,7 +31,7 @@
                         |<hr/>
                         |<pre>#{currentTranslet^rootCauseOfRaisedException}</pre>
                         |<hr/>
-                        |<p align="right"><a href="http://www.aspectran.com" target="_blank">Powered by Aspectran #{class:com.aspectran.core.util.Aspectran^version}</a></p>
+                        |<p align="right">#{class:com.aspectran.core.util.Aspectran^poweredByLink}</p>
                         |</body>
                         |</html>
                         ]]>
