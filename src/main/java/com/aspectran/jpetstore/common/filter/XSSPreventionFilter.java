@@ -5,6 +5,7 @@ import com.aspectran.core.component.bean.annotation.AvoidAdvice;
 import com.aspectran.core.component.bean.aware.ActivityContextAware;
 import com.aspectran.core.context.ActivityContext;
 import com.aspectran.core.util.StringUtils;
+import com.aspectran.core.util.apon.AponParseException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,11 @@ public class XSSPreventionFilter implements ActivityContextAware {
             throw new IllegalArgumentException("patternsText cannot be null");
         }
         XSSPatternHolder xssPatternHolder = new XSSPatternHolder();
-        xssPatternHolder.readFrom(patternsText);
+        try {
+            xssPatternHolder.readFrom(patternsText);
+        } catch (AponParseException e) {
+            throw new IllegalArgumentException("Patterns parameter can not be parsed", e);
+        }
         List<XSSPatternItem> list = xssPatternHolder.getParametersList(XSSPatternHolder.patterns);
         List<Pattern> patterns = new ArrayList<>(list.size());
         for (XSSPatternItem item : list) {
