@@ -12,7 +12,7 @@ context: {
             dev
         ]
     }
-    hybridLoad: false
+    hybridLoad: true
     autoReload: {
         reloadMode: hard
         scanIntervalSeconds: 5
@@ -65,15 +65,14 @@ shell: {
     ]
     greetings: (
         |
-        |{{YELLOW}}     ___                         __                      ____  __         ____
-        |{{YELLOW}}    /   |  ___  ____  ___  ___  / /____   ___  ____     / ___|/ /_  ___  / / /
-        |{{GREEN }}   / /| | / __|/ __ |/ _ |/ __|/ __/ __|/ __ |/ __ |   (___  / __ |/ _ |/ / /
-        |{{GREEN }}  / ___ |(__  ) /_/ /  __/ /  / / / /  / /_/ / / / /   ___/ / / / /  __/ / /
-        |{{CYAN  }} /_/  |_|____/ .___/|___/|___/|__/_/   |__(_(_/ /_/   /____/_/ /_/|___/_/_/
-        |{{CYAN  }}=========== /_/ ==========================================================
+        |{{GREEN }}       ______       __  _____ __
+        |{{GREEN }}      / / __ \___  / /_/ ___// /_____  ________
+        |{{GREEN }} __  / / /_/ / _ \/ __/\__ \/ __/ __ \/ ___/ _ \
+        |{{GREEN }}/ /_/ / ____/  __/ /_ ___/ / /_/ /_/ / /  /  __/
+        |{{CYAN  }}\____/_/    \___/\__//____/\__/\____/_/   \___/
         |{{reset }}
-        |{{RED   }}Welcome To Aspectran Shell #{class:com.aspectran.core.util.Aspectran^version}{{reset}}
-        |
+        |{{RED   }}Welcome To JPetStore Demo
+        |{{reset }}
         |If you want a list of all supported built-in commands, type '{{GREEN}}help{{reset}}'.
         |To get help on a specific command, type '{{GREEN}}command_name -h{{reset}}'.
         |If you want a list of all available translets, type '{{GREEN}}translet -l{{reset}}'.
