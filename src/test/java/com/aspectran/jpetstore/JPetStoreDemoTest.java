@@ -24,7 +24,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Test for Aspectran Demo.
+ * Test for JPetStoreDemo.
  *
  * <p>Created: 2017. 11. 19.</p>
  */
