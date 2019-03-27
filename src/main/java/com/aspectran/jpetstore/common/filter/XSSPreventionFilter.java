@@ -29,14 +29,14 @@ public class XSSPreventionFilter implements ActivityContextAware {
         }
         XSSPatternHolder xssPatternHolder = new XSSPatternHolder();
         try {
-            xssPatternHolder.readFrom(patterns);
+            xssPatternHolder.readFrom("patterns: " + StringUtils.trimWhitespace(patterns));
         } catch (AponParseException e) {
             throw new IllegalArgumentException("Patterns parameter can not be parsed", e);
         }
-        setPatterns(xssPatternHolder);
+        setXSSPatternHolder(xssPatternHolder);
     }
 
-    public void setPatterns(XSSPatternHolder xssPatternHolder) {
+    public void setXSSPatternHolder(XSSPatternHolder xssPatternHolder) {
         if (xssPatternHolder == null) {
             throw new IllegalArgumentException("xssPatternHolder must not be null");
         }
