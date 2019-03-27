@@ -23,15 +23,22 @@ public class XSSPreventionFilter implements ActivityContextAware {
         this.activityContext = activityContext;
     }
 
-    public void setPatterns(String patternsText) {
-        if (patternsText == null) {
-            throw new IllegalArgumentException("patternsText cannot be null");
+    public void setPatterns(String patterns) {
+        if (patterns == null) {
+            throw new IllegalArgumentException("patterns must not be null");
         }
         XSSPatternHolder xssPatternHolder = new XSSPatternHolder();
         try {
-            xssPatternHolder.readFrom(patternsText);
+            xssPatternHolder.readFrom(patterns);
         } catch (AponParseException e) {
             throw new IllegalArgumentException("Patterns parameter can not be parsed", e);
+        }
+        setPatterns(xssPatternHolder);
+    }
+
+    public void setPatterns(XSSPatternHolder xssPatternHolder) {
+        if (xssPatternHolder == null) {
+            throw new IllegalArgumentException("xssPatternHolder must not be null");
         }
         List<XSSPatternItem> list = xssPatternHolder.getParametersList(XSSPatternHolder.patterns);
         List<Pattern> patterns = new ArrayList<>(list.size());

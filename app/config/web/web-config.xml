@@ -43,6 +43,7 @@
         </advice>
     </aspect>
 
+    <append file="/config/web/common/xss-prevent.xml"/>
     <append file="/config/web/common/static-codes.xml"/>
     <append file="/config/web/common/user.xml"/>
 

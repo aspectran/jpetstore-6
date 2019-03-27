@@ -21,7 +21,7 @@
     <artifactId>jpetstore</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>JPetStore Demo</name>
-    <description>JPetStore is a full web application built on top of MyBatis 3, Aspectran 6.</description>
+    <description>JPetStore is a full web application built on top of Aspectran 6, MyBatis 3.</description>
     <contributors>
         <contributor>
             <name>Juho Jeong</name>
