@@ -184,5 +184,10 @@
             <artifactId>hibernate-validator</artifactId>
             <version>6.0.15.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.owasp.esapi</groupId>
+            <artifactId>esapi</artifactId>
+            <version>2.1.0.1</version>
+        </dependency>
     </dependencies>
 </project>

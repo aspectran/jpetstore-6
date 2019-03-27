@@ -15,12 +15,16 @@
  */
 package com.aspectran.jpetstore.common.filter;
 
+import com.aspectran.core.util.StringUtils;
 import com.aspectran.core.util.apon.AbstractParameters;
+import com.aspectran.core.util.apon.AponParseException;
 import com.aspectran.core.util.apon.ParameterDefinition;
+
+import java.util.List;
 
 public class XSSPatternHolder extends AbstractParameters {
 
-    public static final ParameterDefinition patterns;
+    private static final ParameterDefinition patterns;
 
     private static final ParameterDefinition[] parameterDefinitions;
 
@@ -34,6 +38,20 @@ public class XSSPatternHolder extends AbstractParameters {
 
     public XSSPatternHolder() {
         super(parameterDefinitions);
+    }
+
+    public XSSPatternHolder(String text) throws AponParseException {
+        this();
+        readFrom("patterns: [\n" + StringUtils.trimWhitespace(text) + "\n]");
+    }
+
+    public List<XSSPatternItem> getXSSPatternItems() {
+        return getParametersList(patterns);
+    }
+
+    public XSSPatternHolder addXSSPatternItem(XSSPatternItem xssPatternItem) {
+        putValue(patterns, xssPatternItem);
+        return this;
     }
 
 }

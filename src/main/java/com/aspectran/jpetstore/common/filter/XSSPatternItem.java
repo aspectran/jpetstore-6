@@ -15,16 +15,17 @@
  */
 package com.aspectran.jpetstore.common.filter;
 
+import com.aspectran.core.util.StringUtils;
 import com.aspectran.core.util.apon.AbstractParameters;
 import com.aspectran.core.util.apon.ParameterDefinition;
 import com.aspectran.core.util.apon.ParameterValueType;
 
 public class XSSPatternItem extends AbstractParameters {
 
-    public static final ParameterDefinition pattern;
-    public static final ParameterDefinition caseInsensitive;
-    public static final ParameterDefinition multiline;
-    public static final ParameterDefinition dotall;
+    private static final ParameterDefinition pattern;
+    private static final ParameterDefinition caseInsensitive;
+    private static final ParameterDefinition multiline;
+    private static final ParameterDefinition dotall;
 
     private static final ParameterDefinition[] parameterDefinitions;
 
@@ -44,6 +45,42 @@ public class XSSPatternItem extends AbstractParameters {
 
     public XSSPatternItem() {
         super(parameterDefinitions);
+    }
+
+    public String getPattern() {
+        return StringUtils.nullToEmpty(getString(pattern));
+    }
+
+    public XSSPatternItem setPattern(String pattern) {
+        putValue(XSSPatternItem.pattern, pattern);
+        return this;
+    }
+
+    public boolean isCaseInsensitive() {
+        return getBoolean(caseInsensitive, false);
+    }
+
+    public XSSPatternItem setCaseInsensitive(boolean caseInsensitive) {
+        putValue(XSSPatternItem.caseInsensitive, caseInsensitive);
+        return this;
+    }
+
+    public boolean isMultiline() {
+        return getBoolean(multiline, false);
+    }
+
+    public XSSPatternItem setMultiline(boolean multiline) {
+        putValue(XSSPatternItem.multiline, multiline);
+        return this;
+    }
+
+    public boolean isDotall() {
+        return getBoolean(dotall, false);
+    }
+
+    public XSSPatternItem setDotall(boolean dotall) {
+        putValue(XSSPatternItem.dotall, dotall);
+        return this;
     }
 
 }
