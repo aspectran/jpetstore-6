@@ -39,7 +39,7 @@ import java.util.List;
 @Bean("catalogService")
 public class CatalogService {
 
-    public final SqlSession sqlSession;
+    private final SqlSession sqlSession;
 
     @Autowired
     public CatalogService(SimpleSqlSession sqlSession) {

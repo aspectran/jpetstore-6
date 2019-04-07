@@ -34,7 +34,7 @@ import java.util.Optional;
 @Bean("accountService")
 public class AccountService {
 
-    public final SqlSession sqlSession;
+    private final SqlSession sqlSession;
 
     @Autowired
     public AccountService(SimpleSqlSession sqlSession) {
