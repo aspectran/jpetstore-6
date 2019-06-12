@@ -40,9 +40,6 @@
     <logger name="com.aspectran" level="debug" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
-    <logger name="com.aspectran.daemon" level="debug" additivity="false">
-        <appender-ref ref="DAEMON"/>
-    </logger>
     <logger name="com.aspectran.scheduler.service.JobActivityReport" level="debug" additivity="false">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE-AUDIT"/>
