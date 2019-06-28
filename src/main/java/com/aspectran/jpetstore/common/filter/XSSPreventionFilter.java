@@ -4,10 +4,11 @@ import com.aspectran.core.activity.Translet;
 import com.aspectran.core.adapter.RequestAdapter;
 import com.aspectran.core.component.bean.annotation.AvoidAdvice;
 import com.aspectran.core.component.bean.aware.ClassLoaderAware;
-import com.aspectran.core.util.apon.AponParseException;
+import com.aspectran.core.util.apon.ArrayParameters;
 import org.owasp.esapi.Encoder;
 import org.owasp.esapi.reference.DefaultEncoder;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -74,21 +75,21 @@ public class XSSPreventionFilter implements ClassLoaderAware {
         if (patterns == null) {
             throw new IllegalArgumentException("patterns must not be null");
         }
-        XSSPatternHolder xssPatternHolder;
+        ArrayParameters<XSSPatternItem> xssPatternParameters;
         try {
-            xssPatternHolder = new XSSPatternHolder(patterns);
-        } catch (AponParseException e) {
+            xssPatternParameters = new ArrayParameters<>(XSSPatternItem.class, patterns);
+        } catch (IOException e) {
             throw new IllegalArgumentException("Patterns parameter can not be parsed", e);
         }
-        setXSSPatternHolder(xssPatternHolder);
+        setXSSPatternParameters(xssPatternParameters);
     }
 
-    public void setXSSPatternHolder(XSSPatternHolder xssPatternHolder) {
-        if (xssPatternHolder == null) {
-            throw new IllegalArgumentException("xssPatternHolder must not be null");
+    public void setXSSPatternParameters(ArrayParameters<XSSPatternItem> xssPatternParameters) {
+        if (xssPatternParameters == null) {
+            throw new IllegalArgumentException("xssPatternParameters must not be null");
         }
         List<Pattern> patterns = null;
-        List<XSSPatternItem> list = xssPatternHolder.getXSSPatternItems();
+        List<XSSPatternItem> list = xssPatternParameters.getParametersList();
         if (list != null) {
             patterns = new ArrayList<>(list.size());
             for (XSSPatternItem item : list) {
