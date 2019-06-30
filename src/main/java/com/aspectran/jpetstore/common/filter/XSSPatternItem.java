@@ -18,7 +18,7 @@ package com.aspectran.jpetstore.common.filter;
 import com.aspectran.core.util.StringUtils;
 import com.aspectran.core.util.apon.AbstractParameters;
 import com.aspectran.core.util.apon.ParameterDefinition;
-import com.aspectran.core.util.apon.ParameterValueType;
+import com.aspectran.core.util.apon.ValueType;
 
 public class XSSPatternItem extends AbstractParameters {
 
@@ -30,10 +30,10 @@ public class XSSPatternItem extends AbstractParameters {
     private static final ParameterDefinition[] parameterDefinitions;
 
     static {
-        pattern = new ParameterDefinition("pattern", ParameterValueType.STRING);
-        caseInsensitive = new ParameterDefinition("caseInsensitive", ParameterValueType.BOOLEAN);
-        multiline = new ParameterDefinition("multiline", ParameterValueType.BOOLEAN);
-        dotall = new ParameterDefinition("dotall", ParameterValueType.BOOLEAN);
+        pattern = new ParameterDefinition("pattern", ValueType.STRING);
+        caseInsensitive = new ParameterDefinition("caseInsensitive", ValueType.BOOLEAN);
+        multiline = new ParameterDefinition("multiline", ValueType.BOOLEAN);
+        dotall = new ParameterDefinition("dotall", ValueType.BOOLEAN);
 
         parameterDefinitions = new ParameterDefinition[] {
                 pattern,

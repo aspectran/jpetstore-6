@@ -75,16 +75,16 @@ public class XSSPreventionFilter implements ClassLoaderAware {
         if (patterns == null) {
             throw new IllegalArgumentException("patterns must not be null");
         }
-        ArrayParameters<XSSPatternItem> xssPatternParameters;
+        ArrayParameters xssPatternParameters;
         try {
-            xssPatternParameters = new ArrayParameters<>(XSSPatternItem.class, patterns);
+            xssPatternParameters = new ArrayParameters(XSSPatternItem.class, patterns);
         } catch (IOException e) {
             throw new IllegalArgumentException("Patterns parameter can not be parsed", e);
         }
         setXSSPatternParameters(xssPatternParameters);
     }
 
-    public void setXSSPatternParameters(ArrayParameters<XSSPatternItem> xssPatternParameters) {
+    public void setXSSPatternParameters(ArrayParameters xssPatternParameters) {
         if (xssPatternParameters == null) {
             throw new IllegalArgumentException("xssPatternParameters must not be null");
         }
