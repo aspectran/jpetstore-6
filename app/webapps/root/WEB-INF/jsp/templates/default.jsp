@@ -49,6 +49,11 @@
         ga('set', 'anonymizeIp', true);
         ga('send', 'pageview');
     </script>
+    <style>
+        #masthead {
+            background-color: #532746;
+        }
+    </style>
 </head>
 <body id="top-of-page" class="plate" itemscope itemtype="http://schema.org/WebPage">
 <nav id="navigation" class="no-js">
@@ -120,10 +125,6 @@
 </nav>
 <section itemscope itemtype="http://schema.org/Article">
     <div id="masthead">
-        <div id="forkme-ribbon" style="position: absolute; top: 0; right: 0; border: 0; width: 149px; height: 149px;">
-            <a href="https://github.com/aspectran/aspectran" target="_blank">
-                <img src="http://aral.github.com/fork-me-on-github-retina-ribbons/right-white@2x.png" width="149" height="149" alt="Fork me on GitHub"></a>
-        </div>
         <div class="row">
             <div class="small-12 columns">
                 <header>
