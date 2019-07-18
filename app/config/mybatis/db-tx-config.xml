@@ -26,10 +26,10 @@
             <item name="configLocation" value="/config/mybatis/mybatis-config.xml"/>
             <item name="environment" value="%{mybatis.environment}"/>
             <item name="properties" type="properties">
-                <value name="driver">%{mybatis.db.driver}</value>
-                <value name="url">%{mybatis.db.url}</value>
-                <value name="username">%{mybatis.db.username}</value>
-                <value name="password">%{mybatis.db.password}</value>
+                <entry name="driver">%{mybatis.db.driver}</value>
+                <entry name="url">%{mybatis.db.url}</value>
+                <entry name="username">%{mybatis.db.username}</value>
+                <entry name="password">%{mybatis.db.password}</value>
             </item>
         </properties>
     </bean>
@@ -62,13 +62,13 @@
         </joinpoint>
         <advice bean="sqlSessionTxAdvice">
             <before>
-                <action method="open"/>
+                <invoke method="open"/>
             </before>
             <after>
-                <action method="commit"/>
+                <invoke method="commit"/>
             </after>
             <finally>
-                <action method="close"/>
+                <invoke method="close"/>
             </finally>
         </advice>
     </aspect>
@@ -85,17 +85,17 @@
         </joinpoint>
         <advice bean="sqlSessionTxAdvice">
             <before>
-                <action method="open">
+                <invoke method="open">
                     <arguments>
                         <item name="executorType" value="BATCH"/>
                     </arguments>
                 </action>
             </before>
             <after>
-                <action method="commit"/>
+                <invoke method="commit"/>
             </after>
             <finally>
-                <action method="close"/>
+                <invoke method="close"/>
             </finally>
         </advice>
     </aspect>
@@ -112,17 +112,17 @@
         </joinpoint>
         <advice bean="sqlSessionTxAdvice">
             <before>
-                <action method="open">
+                <invoke method="open">
                     <arguments>
                         <item name="executorType" value="REUSE"/>
                     </arguments>
                 </action>
             </before>
             <after>
-                <action method="commit"/>
+                <invoke method="commit"/>
             </after>
             <finally>
-                <action method="close"/>
+                <invoke method="close"/>
             </finally>
         </advice>
     </aspect>

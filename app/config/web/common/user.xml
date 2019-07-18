@@ -17,7 +17,7 @@
         </joinpoint>
         <advice bean="userSessionManager">
             <before>
-                <action method="checkUserAuthenticated"/>
+                <invoke method="checkUserAuthenticated"/>
             </before>
         </advice>
         <exception>

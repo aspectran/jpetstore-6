@@ -17,25 +17,25 @@ package com.aspectran.jpetstore.common.filter;
 
 import com.aspectran.core.util.StringUtils;
 import com.aspectran.core.util.apon.AbstractParameters;
-import com.aspectran.core.util.apon.ParameterDefinition;
+import com.aspectran.core.util.apon.ParameterKey;
 import com.aspectran.core.util.apon.ValueType;
 
 public class XSSPatternItem extends AbstractParameters {
 
-    private static final ParameterDefinition pattern;
-    private static final ParameterDefinition caseInsensitive;
-    private static final ParameterDefinition multiline;
-    private static final ParameterDefinition dotall;
+    private static final ParameterKey pattern;
+    private static final ParameterKey caseInsensitive;
+    private static final ParameterKey multiline;
+    private static final ParameterKey dotall;
 
-    private static final ParameterDefinition[] parameterDefinitions;
+    private static final ParameterKey[] parameterKeys;
 
     static {
-        pattern = new ParameterDefinition("pattern", ValueType.STRING);
-        caseInsensitive = new ParameterDefinition("caseInsensitive", ValueType.BOOLEAN);
-        multiline = new ParameterDefinition("multiline", ValueType.BOOLEAN);
-        dotall = new ParameterDefinition("dotall", ValueType.BOOLEAN);
+        pattern = new ParameterKey("pattern", ValueType.STRING);
+        caseInsensitive = new ParameterKey("caseInsensitive", ValueType.BOOLEAN);
+        multiline = new ParameterKey("multiline", ValueType.BOOLEAN);
+        dotall = new ParameterKey("dotall", ValueType.BOOLEAN);
 
-        parameterDefinitions = new ParameterDefinition[] {
+        parameterKeys = new ParameterKey[] {
                 pattern,
                 caseInsensitive,
                 multiline,
@@ -44,7 +44,7 @@ public class XSSPatternItem extends AbstractParameters {
     }
 
     public XSSPatternItem() {
-        super(parameterDefinitions);
+        super(parameterKeys);
     }
 
     public String getPattern() {
