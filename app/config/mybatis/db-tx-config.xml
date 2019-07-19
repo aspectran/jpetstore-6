@@ -26,10 +26,10 @@
             <item name="configLocation" value="/config/mybatis/mybatis-config.xml"/>
             <item name="environment" value="%{mybatis.environment}"/>
             <item name="properties" type="properties">
-                <entry name="driver">%{mybatis.db.driver}</value>
-                <entry name="url">%{mybatis.db.url}</value>
-                <entry name="username">%{mybatis.db.username}</value>
-                <entry name="password">%{mybatis.db.password}</value>
+                <entry name="driver">%{mybatis.db.driver}</entry>
+                <entry name="url">%{mybatis.db.url}</entry>
+                <entry name="username">%{mybatis.db.username}</entry>
+                <entry name="password">%{mybatis.db.password}</entry>
             </item>
         </properties>
     </bean>
@@ -40,7 +40,7 @@
         </description>
         <constructor>
             <arguments>
-                <item><call bean="sqlSessionFactory"/></item>
+                <item>#{sqlSessionFactory}</item>
             </arguments>
         </constructor>
     </bean>
@@ -89,7 +89,7 @@
                     <arguments>
                         <item name="executorType" value="BATCH"/>
                     </arguments>
-                </action>
+                </invoke>
             </before>
             <after>
                 <invoke method="commit"/>
@@ -116,7 +116,7 @@
                     <arguments>
                         <item name="executorType" value="REUSE"/>
                     </arguments>
-                </action>
+                </invoke>
             </before>
             <after>
                 <invoke method="commit"/>

@@ -49,11 +49,6 @@
         ga('set', 'anonymizeIp', true);
         ga('send', 'pageview');
     </script>
-    <style>
-        #masthead {
-            background-color: #532746;
-        }
-    </style>
 </head>
 <body id="top-of-page" class="plate" itemscope itemtype="http://schema.org/WebPage">
 <nav id="navigation" class="no-js">
