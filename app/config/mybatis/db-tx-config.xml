@@ -38,11 +38,9 @@
         <description>
             Advice for Database Transactions.
         </description>
-        <constructor>
-            <arguments>
-                <item>#{sqlSessionFactory}</item>
-            </arguments>
-        </constructor>
+        <arguments>
+            <item>#{sqlSessionFactory}</item>
+        </arguments>
     </bean>
 
     <aspect id="simpleTxAspect" order="0" isolated="true">

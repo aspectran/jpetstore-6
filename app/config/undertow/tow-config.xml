@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 6.0//EN"
+        "http://aspectran.github.io/dtd/aspectran-6.dtd">
+<aspectran>
+
+    <description>
+        An Aspectran configuration for Undertow Server.
+    </description>
+
+    <environment>
+        <properties>
+            <item name="tow.server.startup" valueType="boolean">true</item>
+            <item name="tow.server.listener1.port" valueType="int">8080</item>
+            <item name="tow.server.listener1.host">0.0.0.0</item>
+        </properties>
+    </environment>
+
+    <bean id="tow.server" class="com.aspectran.undertow.server.TowServer">
+        <properties>
+            <item name="autoStart">%{tow.server.startup}</item>
+            <item name="listeners" type="array">
+                <value>
+                    <bean class="io.undertow.Undertow$ListenerBuilder">
+                        <properties>
+                            <item name="type">#{field:io.undertow.Undertow$ListenerType^HTTP}</item>
+                            <item name="port" valueType="int">%{tow.server.listener1.port}</item>
+                            <item name="host">%{tow.server.listener1.host}</item>
+                        </properties>
+                    </bean>
+                </value>
+            </item>
+            <item name="handler">#{tow.defaultHttpHandler}</item>
+        </properties>
+    </bean>
+
+    <bean id="tow.defaultHttpHandler" class="com.aspectran.undertow.server.handlers.http.DefaultHttpHandler" scope="prototype">
+        <properties>
+            <item name="towSessionManager">#{tow.sessionManger}</item>
+            <item name="resourceBase">/webapps/default/assets</item>
+        </properties>
+    </bean>
+
+    <bean id="tow.sessionManger" class="com.aspectran.undertow.server.session.TowSessionManager" scope="prototype">
+        <properties>
+            <item name="sessionConfig">
+                <bean class="com.aspectran.core.context.config.SessionConfig">
+                    <arguments>
+                        <item>
+                            timeout: 1800
+                            maxSessions: 100000
+                            storeType: file
+                            fileStore: {
+                                storeDir: /temp/sessions/tow
+                                deleteUnrestorableFiles: true
+                            }
+                        </item>
+                    </arguments>
+                </bean>
+            </item>
+            <item name="sessionCookieConfig">
+                <bean class="com.aspectran.undertow.server.session.SessionCookieConfig"/>
+            </item>
+        </properties>
+    </bean>
+
+</aspectran>
