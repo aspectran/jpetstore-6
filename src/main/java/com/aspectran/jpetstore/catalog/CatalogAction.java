@@ -21,13 +21,12 @@ import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.core.component.bean.annotation.Dispatch;
-import com.aspectran.core.component.bean.annotation.Redirect;
 import com.aspectran.core.component.bean.annotation.Request;
 import com.aspectran.core.util.StringUtils;
-import com.aspectran.jpetstore.order.domain.Item;
 import com.aspectran.jpetstore.catalog.domain.Category;
 import com.aspectran.jpetstore.catalog.domain.Product;
 import com.aspectran.jpetstore.catalog.service.CatalogService;
+import com.aspectran.jpetstore.order.domain.Item;
 
 import java.util.List;
 
@@ -47,10 +46,10 @@ public class CatalogAction {
         this.catalogService = catalogService;
     }
 
-    @Request("/")
-    @Redirect("/catalog/")
-    public void home() {
-    }
+//    @Request("/")
+//    @Redirect("/catalog/")
+//    public void home() {
+//    }
 
     @Request("/catalog/")
     @Dispatch("catalog/Main")

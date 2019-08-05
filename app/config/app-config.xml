@@ -23,7 +23,7 @@
         </properties>
     </bean>
 
-    <append file="/config/error-report-dev.xml" profile="dev"/>
+<!--    <append file="/config/error-report-dev.xml" profile="dev"/>-->
 <!--    <append file="/config/jetty/jetty-config.xml"/>-->
     <append file="/config/undertow/tow-config.xml"/>
     <append file="/config/mybatis/db-tx-config.xml"/>

@@ -52,8 +52,8 @@
 
     <translet name="/">
         <transform type="text">
-            <template>
-                hello
+            <template style="apon">
+                |Hello~
             </template>
         </transform>
     </translet>
