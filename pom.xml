@@ -127,6 +127,11 @@
         </dependency>
         <dependency>
             <groupId>com.aspectran</groupId>
+            <artifactId>aspectran-with-undertow</artifactId>
+            <version>${aspectran.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aspectran</groupId>
             <artifactId>aspectran-with-mybatis</artifactId>
             <version>${aspectran.version}</version>
         </dependency>

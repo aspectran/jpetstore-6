@@ -1,0 +1,264 @@
+/**
+ *    Copyright 2010-2016 the original author or authors.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+#Header {
+    background-color: #333;
+    color: #eaac00;
+    margin: 0 -15px;
+}
+
+#Logo {
+    width: 33%;
+    height: 9ex;
+    margin: 0;
+    padding: 0;
+    float: left;
+    color: #fff;
+    line-height: 9ex;
+}
+
+body > #Logo {
+    height: 9ex;
+}
+
+#Menu {
+    width: 33%;
+    height: 9ex;
+    margin: 0;
+    padding: 0;
+    float: left;
+    color: #eaac00;
+    text-decoration: none;
+    font-family: helvetica, tahoma, arial, verdana, sans-serif;
+    text-align: center;
+    line-height: 9ex;
+}
+
+#Menu, #Menu a, #Menu a:link, #Menu a:visited, #Menu a:hover {
+    color: #eaac00;
+    text-decoration: none;
+    font-family: helvetica, tahoma, arial, verdana, sans-serif;
+}
+
+body > #Menu {
+    height: 9ex;
+}
+
+#Search {
+    margin: 0;
+    padding: 15px 15px 0 0;
+    float: right;
+    text-align: center;
+    color: #eaac00;
+    line-height: 9ex;
+}
+
+#Search input {
+    color: #eaac00;
+    margin: 1px;
+    width: 66%;
+    float: left;
+}
+#Search button {
+    margin: 0;
+    width: 33%;
+    float: left;
+}
+
+#QuickLinks {
+    text-align: center;
+    background-color: #ccc;
+    width: 100%;
+    clear: both;
+    padding: 4px 4px;
+}
+#QuickLinks a {
+    padding: 0 10px;
+    color: #333;
+}
+#QuickLinks a:hover {
+    color: #43921a;
+}
+
+#Footer {
+    background-color: #333;
+    color: #fff;
+    overflow: auto;
+    margin: 15px -15px 0;
+    border-radius: 0 0 10px 10px;
+}
+
+#PoweredBy {
+    width: 50%;
+    height: 9ex;
+    margin: 0;
+    padding: 10px 0 0 15px;
+    float: left;
+}
+
+body > #PoweredBy {
+    height: 9ex;
+}
+
+#Banner {
+    width: 50%;
+    height: 9ex;
+    margin: 0;
+    padding: 0;
+    float: right;
+    line-height: 9ex;
+    text-align: center;
+}
+
+body > #Banner {
+    height: 9ex;
+}
+
+#Content {
+    margin: 15px 0 0 0;
+    padding: 0;
+    width: 100%;
+    min-height: 200px;
+    border-width: 0;
+    clear: both;
+    position: relative;
+}
+
+#Content h3 {
+    text-align: left;
+}
+
+#Content table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Content table td {
+    vertical-align: middle;
+}
+
+#Content table td .button {
+    margin: 0;
+}
+
+#Content table td input, #Content table td select {
+    margin: 0;
+}
+
+#Content #CenterForm {
+    width: 60%;
+    min-width: 680px;
+    margin: 0 auto;
+}
+
+#Separator {
+    clear: both;
+    margin: 0;
+    height: 0;
+}
+
+#Main {
+    margin: 0;
+}
+
+#Welcome {
+    text-align: right;
+}
+
+#Sidebar {
+    float: left;
+    width: 30%;
+    line-height: 160%;
+}
+#RightSidebar {
+    float: right;
+    width: 30%;
+}
+#RightSidebar #MyList {
+    width: 96%;
+    float: right;
+}
+
+#MainImage {
+    float: left;
+    background: inherit;
+    text-align: center;
+    width: 40%;
+}
+
+#MainImageContent {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin-bottom: 15px;
+}
+
+#Catalog {
+    background: inherit;
+    text-align: center;
+}
+
+#BackLink {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
+}
+
+#Cart {
+    width: 100%;
+}
+
+#MyList {
+    width: 30%;
+    float: left;
+    text-align: left;
+}
+
+#Signon .panel {
+    max-width: 450px;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+#Signon .panel.register {
+    margin-top: 10px;
+    background-color: #FFFFFF;
+}
+
+#Signon .panel.failed {
+    background-color: red;
+    color: white;
+    border: none;
+}
+
+.button-bar {
+    text-align: center;
+}
+
+#MessageBar {
+    padding: 10px;
+    background-color: #eaac00;
+    text-align: center;
+    margin: -15px -15px 20px -15px;
+}
+#MessageBar p {
+    margin: 0;
+}
+
+.error-msg {
+    color: red;
+}

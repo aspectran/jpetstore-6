@@ -103,17 +103,20 @@
             <item name="persistTempDirectory" valueType="boolean">true</item>
             <item name="defaultsDescriptor">#{basePath}/config/jetty/webdefault.xml</item>
             <item name="sessionHandler">#{jetty.sessionHandler}</item>
+            <item name="enableRootWebService" valueType="boolean">true</item>
+            <item name="enableJSP" valueType="boolean">true</item>
         </properties>
     </bean>
 
     <bean id="jetty.contexts.h2-console" class="com.aspectran.jetty.JettyWebAppContext" scope="prototype">
         <properties>
-            <item name="standalone" valueType="boolean">true</item>
             <item name="contextPath">/h2-console</item>
             <item name="war">#{basePath}/webapps/h2-console</item>
             <item name="persistTempDirectory" valueType="boolean">true</item>
             <item name="defaultsDescriptor">#{basePath}/config/jetty/webdefault.xml</item>
             <item name="sessionHandler">#{jetty.sessionHandler}</item>
+            <item name="enableRootWebService" valueType="boolean">false</item>
+            <item name="enableJSP" valueType="boolean">false</item>
         </properties>
     </bean>
 

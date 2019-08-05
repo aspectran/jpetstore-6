@@ -29,36 +29,72 @@
                     </bean>
                 </value>
             </item>
-            <item name="handler">#{tow.defaultHttpHandler}</item>
+            <item name="handler">#{tow.defaultServletHandler}</item>
         </properties>
     </bean>
 
-    <bean id="tow.defaultHttpHandler" class="com.aspectran.undertow.server.handlers.http.DefaultHttpHandler" scope="prototype">
+    <bean id="tow.defaultServletHandler" class="com.aspectran.undertow.server.handlers.servlet.ServletHandlerFactoryBean" scope="prototype">
         <properties>
-            <item name="towSessionManager">#{tow.sessionManger}</item>
+            <item name="towServletContainer">#{tow.defaultServletContainer}</item>
+        </properties>
+    </bean>
+
+    <bean id="tow.defaultServletContainer" class="com.aspectran.undertow.server.handlers.servlet.TowServletContainer" scope="prototype">
+        <properties>
+            <item name="towServletContexts" type="array">
+                <value>#{tow.defaultServletContext}</value>
+            </item>
+        </properties>
+    </bean>
+
+    <bean id="tow.defaultServletContext" class="com.aspectran.undertow.server.handlers.servlet.TowServletContext" scope="prototype">
+        <properties>
+            <item name="deploymentName">jpetsotre.war</item>
+            <item name="contextPath">/</item>
             <item name="resourceBase">/webapps/default/assets</item>
-        </properties>
-    </bean>
-
-    <bean id="tow.sessionManger" class="com.aspectran.undertow.server.session.TowSessionManager" scope="prototype">
-        <properties>
-            <item name="sessionConfig">
-                <bean class="com.aspectran.core.context.config.SessionConfig">
+            <item name="servlets" type="array">
+                <value>#{tow.webActivityServlet}</value>
+            </item>
+            <item name="filters" type="array">
+                <value>#{tow.webActivityFilter}</value>
+            </item>
+            <item name="filterServletMappings" type="array">
+                <bean class="com.aspectran.undertow.server.handlers.servlet.TowFilterServletMapping">
                     <arguments>
-                        <item>
-                            timeout: 1800
-                            maxSessions: 100000
-                            storeType: file
-                            fileStore: {
-                                storeDir: /temp/sessions/tow
-                                deleteUnrestorableFiles: true
-                            }
-                        </item>
+                        <item>web-activity-filter</item>
+                        <item>web-activity-servlet</item>
                     </arguments>
                 </bean>
             </item>
-            <item name="sessionCookieConfig">
-                <bean class="com.aspectran.undertow.server.session.SessionCookieConfig"/>
+        </properties>
+    </bean>
+
+    <bean id="tow.webActivityServlet" class="com.aspectran.undertow.server.handlers.servlet.TowServlet" scope="prototype">
+        <arguments>
+            <item>web-activity-servlet</item>
+            <item>com.aspectran.web.startup.servlet.WebActivityServlet</item>
+        </arguments>
+        <properties>
+            <item name="mappings" type="array">
+                <value>/</value>
+            </item>
+            <item name="loadOnStartup" valueType="int">1</item>
+        </properties>
+    </bean>
+
+    <bean id="tow.webActivityFilter" class="com.aspectran.undertow.server.handlers.servlet.TowFilter" scope="prototype">
+        <arguments>
+            <item>web-activity-filter</item>
+            <item>com.aspectran.web.startup.filter.WebActivityFilter</item>
+        </arguments>
+        <properties>
+            <item name="initParams" type="map">
+                <entry name="bypasses">
+                    /assets/**
+                    /css/**
+                    /images/**
+                    /**/*.html
+                </entry>
             </item>
         </properties>
     </bean>
