@@ -49,9 +49,10 @@
 
     <bean id="tow.defaultServletContext" class="com.aspectran.undertow.server.handlers.servlet.TowServletContext" scope="prototype">
         <properties>
-            <item name="deploymentName">jpetsotre.war</item>
+            <item name="deploymentName">root.war</item>
             <item name="contextPath">/</item>
             <item name="resourceBasePath">/webapps/root</item>
+            <item name="scratchDir">/temp</item>
             <item name="servlets" type="array">
                 <value>#{tow.webActivityServlet}</value>
                 <value>#{tow.jspServlet}</value>
@@ -70,7 +71,10 @@
             <item name="servletContainerInitializers" type="array">
                 <bean class="com.aspectran.undertow.server.handlers.servlet.TowJasperInitializer">
                     <properties>
-                        <item name="tldResourcePath">/WEB-INF/</item>
+                        <item name="jarsToScan" type="array">
+                            <value>/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar</value>
+                            <value>/WEB-INF/lib/taglibs-standard-jstlel-1.2.5.jar</value>
+                        </item>
                     </properties>
                 </bean>
             </item>
