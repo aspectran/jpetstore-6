@@ -51,9 +51,10 @@
         <properties>
             <item name="deploymentName">jpetsotre.war</item>
             <item name="contextPath">/</item>
-            <item name="resourceBase">/webapps/default/assets</item>
+            <item name="resourceBasePath">/webapps/root</item>
             <item name="servlets" type="array">
                 <value>#{tow.webActivityServlet}</value>
+                <value>#{tow.jspServlet}</value>
             </item>
             <item name="filters" type="array">
                 <value>#{tow.webActivityFilter}</value>
@@ -64,6 +65,13 @@
                         <item>web-activity-filter</item>
                         <item>web-activity-servlet</item>
                     </arguments>
+                </bean>
+            </item>
+            <item name="servletContainerInitializers" type="array">
+                <bean class="com.aspectran.undertow.server.handlers.servlet.TowJasperInitializer">
+                    <properties>
+                        <item name="tldResourcePath">/WEB-INF/</item>
+                    </properties>
                 </bean>
             </item>
             <item name="inheritRootWebService" valueType="boolean">true</item>
@@ -97,6 +105,19 @@
                     /**/*.html
                 </entry>
             </item>
+        </properties>
+    </bean>
+
+    <bean id="tow.jspServlet" class="com.aspectran.undertow.server.handlers.servlet.TowServlet" scope="prototype">
+        <arguments>
+            <item>Default Jsp Servlet</item>
+            <item>org.apache.jasper.servlet.JspServlet</item>
+        </arguments>
+        <properties>
+            <item name="mappings" type="array">
+                <value>*.jsp</value>
+            </item>
+            <item name="loadOnStartup" valueType="int">0</item>
         </properties>
     </bean>
 

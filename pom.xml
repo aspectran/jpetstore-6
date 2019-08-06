@@ -122,11 +122,6 @@
         </dependency>
         <dependency>
             <groupId>com.aspectran</groupId>
-            <artifactId>aspectran-with-jetty</artifactId>
-            <version>${aspectran.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.aspectran</groupId>
             <artifactId>aspectran-with-undertow</artifactId>
             <version>${aspectran.version}</version>
         </dependency>
@@ -192,7 +187,9 @@
         <dependency>
             <groupId>org.owasp.esapi</groupId>
             <artifactId>esapi</artifactId>
-            <version>2.1.0.1</version>
+            <version>2.2.0.0</version>
+            <scope>compile</scope>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 </project>
