@@ -33,13 +33,13 @@
         </properties>
     </bean>
 
-    <bean id="tow.defaultServletHandler" class="com.aspectran.undertow.server.handlers.servlet.ServletHandlerFactoryBean" scope="prototype">
+    <bean id="tow.defaultServletHandler" class="com.aspectran.undertow.server.servlet.ServletHandlerFactoryBean" scope="prototype">
         <properties>
             <item name="towServletContainer">#{tow.defaultServletContainer}</item>
         </properties>
     </bean>
 
-    <bean id="tow.defaultServletContainer" class="com.aspectran.undertow.server.handlers.servlet.TowServletContainer" scope="prototype">
+    <bean id="tow.defaultServletContainer" class="com.aspectran.undertow.server.servlet.TowServletContainer" scope="prototype">
         <properties>
             <item name="towServletContexts" type="array">
                 <value>#{tow.defaultServletContext}</value>
@@ -47,7 +47,7 @@
         </properties>
     </bean>
 
-    <bean id="tow.defaultServletContext" class="com.aspectran.undertow.server.handlers.servlet.TowServletContext" scope="prototype">
+    <bean id="tow.defaultServletContext" class="com.aspectran.undertow.server.servlet.TowServletContext" scope="prototype">
         <properties>
             <item name="deploymentName">root.war</item>
             <item name="contextPath">/</item>
@@ -61,7 +61,7 @@
                 <value>#{tow.webActivityFilter}</value>
             </item>
             <item name="filterServletMappings" type="array">
-                <bean class="com.aspectran.undertow.server.handlers.servlet.TowFilterServletMapping">
+                <bean class="com.aspectran.undertow.server.servlet.TowFilterServletMapping">
                     <arguments>
                         <item>web-activity-filter</item>
                         <item>web-activity-servlet</item>
@@ -69,7 +69,7 @@
                 </bean>
             </item>
             <item name="servletContainerInitializers" type="array">
-                <bean class="com.aspectran.undertow.server.handlers.servlet.TowJasperInitializer">
+                <bean class="com.aspectran.undertow.server.servlet.TowJasperInitializer">
                     <properties>
                         <item name="jarsToScan" type="array">
                             <value>/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar</value>
@@ -82,7 +82,7 @@
         </properties>
     </bean>
 
-    <bean id="tow.webActivityServlet" class="com.aspectran.undertow.server.handlers.servlet.TowServlet" scope="prototype">
+    <bean id="tow.webActivityServlet" class="com.aspectran.undertow.server.servlet.TowServlet" scope="prototype">
         <arguments>
             <item>web-activity-servlet</item>
             <item>com.aspectran.web.startup.servlet.WebActivityServlet</item>
@@ -95,7 +95,7 @@
         </properties>
     </bean>
 
-    <bean id="tow.webActivityFilter" class="com.aspectran.undertow.server.handlers.servlet.TowFilter" scope="prototype">
+    <bean id="tow.webActivityFilter" class="com.aspectran.undertow.server.servlet.TowFilter" scope="prototype">
         <arguments>
             <item>web-activity-filter</item>
             <item>com.aspectran.web.startup.filter.WebActivityFilter</item>
@@ -112,7 +112,7 @@
         </properties>
     </bean>
 
-    <bean id="tow.jspServlet" class="com.aspectran.undertow.server.handlers.servlet.TowServlet" scope="prototype">
+    <bean id="tow.jspServlet" class="com.aspectran.undertow.server.servlet.TowServlet" scope="prototype">
         <arguments>
             <item>Default Jsp Servlet</item>
             <item>org.apache.jasper.servlet.JspServlet</item>
