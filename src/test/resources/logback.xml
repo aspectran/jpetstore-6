@@ -8,6 +8,9 @@
     <Logger name="com.aspectran" level="debug" additivity="false">
         <appender-ref ref="STDOUT"/>
     </Logger>
+    <logger name="com.aspectran.core.component.session" level="warn" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
     <Logger name="org.quartz" level="info" additivity="false">
         <appender-ref ref="STDOUT"/>
     </Logger>

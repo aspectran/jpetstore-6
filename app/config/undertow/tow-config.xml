@@ -33,7 +33,7 @@
         </properties>
     </bean>
 
-    <bean id="tow.defaultServletHandler" class="com.aspectran.undertow.server.servlet.ServletHandlerFactoryBean" scope="prototype">
+    <bean id="tow.defaultServletHandler" class="com.aspectran.undertow.server.servlet.ServletHandlerFactoryBean">
         <properties>
             <item name="towServletContainer">#{tow.defaultServletContainer}</item>
         </properties>
@@ -53,6 +53,10 @@
             <item name="contextPath">/</item>
             <item name="resourceBasePath">/webapps/root</item>
             <item name="scratchDir">/temp</item>
+            <item name="sessionManager">#{tow.sessionManger}</item>
+            <item name="servletSessionConfig">
+                <bean class="io.undertow.servlet.api.ServletSessionConfig"/>
+            </item>
             <item name="servlets" type="array">
                 <value>#{tow.webActivityServlet}</value>
                 <value>#{tow.jspServlet}</value>
@@ -79,6 +83,26 @@
                 </bean>
             </item>
             <item name="inheritRootWebService" valueType="boolean">true</item>
+        </properties>
+    </bean>
+
+    <bean id="tow.sessionManger" class="com.aspectran.undertow.server.session.TowSessionManager" scope="prototype">
+        <properties>
+            <item name="sessionManagerConfig">
+                <bean class="com.aspectran.core.context.config.SessionManagerConfig">
+                    <arguments>
+                        <item>
+                            timeout: 1800
+                            maxSessions: 100000
+                            storeType: file
+                            fileStore: {
+                            storeDir: /temp/sessions/tow
+                            deleteUnrestorableFiles: true
+                            }
+                        </item>
+                    </arguments>
+                </bean>
+            </item>
         </properties>
     </bean>
 

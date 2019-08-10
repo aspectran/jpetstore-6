@@ -40,6 +40,9 @@
         <appender-ref ref="FILE-AUDIT"/>
         <appender-ref ref="FILE-ERROR"/>
     </logger>
+    <logger name="com.aspectran.core.component.session" level="warn" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
     <logger name="org.quartz" level="info" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
