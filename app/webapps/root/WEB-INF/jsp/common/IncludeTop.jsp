@@ -44,7 +44,7 @@
 				<a href="/account/signoff">Sign Out</a>
 			</c:if>
 			<img align="middle" src="/images/separator.gif"/>
-			<a href="../help.html">?</a>
+			<a href="/help.html">?</a>
 		</div>
 	</div>
 
