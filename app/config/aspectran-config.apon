@@ -86,6 +86,9 @@ web: {
     defaultServletName: default
     exposals: {
         +: /**
+        -: /assets/**
+        -: /css/**
+        -: /images/**
         -: /favicon.ico
     }
 }

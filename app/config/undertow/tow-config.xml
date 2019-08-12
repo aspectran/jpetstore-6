@@ -96,9 +96,10 @@
                             maxSessions: 100000
                             storeType: file
                             fileStore: {
-                            storeDir: /temp/sessions/tow
-                            deleteUnrestorableFiles: true
+                                storeDir: /temp/sessions/tow
+                                deleteUnrestorableFiles: true
                             }
+                            startup: true
                         </item>
                     </arguments>
                 </bean>
