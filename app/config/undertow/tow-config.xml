@@ -10,8 +10,8 @@
     <environment>
         <properties>
             <item name="tow.server.startup" valueType="boolean">true</item>
-            <item name="tow.server.listener1.port" valueType="int">8080</item>
-            <item name="tow.server.listener1.host">0.0.0.0</item>
+            <item name="tow.server.listener-1.port" valueType="int">8080</item>
+            <item name="tow.server.listener-1.host">0.0.0.0</item>
         </properties>
     </environment>
 
@@ -23,8 +23,8 @@
                     <bean class="io.undertow.Undertow$ListenerBuilder">
                         <properties>
                             <item name="type">#{field:io.undertow.Undertow$ListenerType^HTTP}</item>
-                            <item name="port" valueType="int">%{tow.server.listener1.port}</item>
-                            <item name="host">%{tow.server.listener1.host}</item>
+                            <item name="port" valueType="int">%{tow.server.listener-1.port}</item>
+                            <item name="host">%{tow.server.listener-1.host}</item>
                         </properties>
                     </bean>
                 </value>
@@ -36,10 +36,11 @@
     <bean id="tow.defaultServletHandler" class="com.aspectran.undertow.server.servlet.ServletHandlerFactoryBean">
         <properties>
             <item name="towServletContainer">#{tow.defaultServletContainer}</item>
+            <item name="staticResourceHandler">#{tow.defaultStaticResourceHandler}</item>
         </properties>
     </bean>
 
-    <bean id="tow.defaultServletContainer" class="com.aspectran.undertow.server.servlet.TowServletContainer" scope="prototype">
+    <bean id="tow.defaultServletContainer" class="com.aspectran.undertow.server.servlet.TowServletContainer">
         <properties>
             <item name="towServletContexts" type="array">
                 <value>#{tow.defaultServletContext}</value>
@@ -47,11 +48,31 @@
         </properties>
     </bean>
 
-    <bean id="tow.defaultServletContext" class="com.aspectran.undertow.server.servlet.TowServletContext" scope="prototype">
+    <bean id="tow.defaultResourceManager" class="com.aspectran.undertow.server.resource.TowResourceManager">
+        <properties>
+            <item name="base">/webapps/root</item>
+        </properties>
+    </bean>
+
+    <bean id="tow.defaultStaticResourceHandler" class="com.aspectran.undertow.server.resource.StaticResourceHandler">
+        <arguments>
+            <item>#{tow.defaultResourceManager}</item>
+        </arguments>
+        <properties>
+            <item name="staticResourcePaths" type="array">
+                <value>/assets/**</value>
+                <value>/css/**</value>
+                <value>/images/**</value>
+                <value>/**/*.html</value>
+            </item>
+        </properties>
+    </bean>
+
+    <bean id="tow.defaultServletContext" class="com.aspectran.undertow.server.servlet.TowServletContext">
         <properties>
             <item name="deploymentName">root.war</item>
             <item name="contextPath">/</item>
-            <item name="resourceBasePath">/webapps/root</item>
+            <item name="resourceManager">#{tow.defaultResourceManager}</item>
             <item name="scratchDir">/temp</item>
             <item name="sessionManager">#{tow.sessionManger}</item>
             <item name="servletSessionConfig">
@@ -125,16 +146,6 @@
             <item>web-activity-filter</item>
             <item>com.aspectran.web.startup.filter.WebActivityFilter</item>
         </arguments>
-        <properties>
-            <item name="initParams" type="map">
-                <entry name="bypasses">
-                    /assets/**
-                    /css/**
-                    /images/**
-                    /**/*.html
-                </entry>
-            </item>
-        </properties>
     </bean>
 
     <bean id="tow.jspServlet" class="com.aspectran.undertow.server.servlet.TowServlet" scope="prototype">
@@ -145,6 +156,13 @@
         <properties>
             <item name="mappings" type="array">
                 <value>*.jsp</value>
+                <value>*.jspf</value>
+                <value>*.jspx</value>
+                <value>*.xsp</value>
+                <value>*.JSP</value>
+                <value>*.JSPF</value>
+                <value>*.JSPX</value>
+                <value>*.XSP</value>
             </item>
             <item name="loadOnStartup" valueType="int">0</item>
         </properties>

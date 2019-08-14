@@ -141,7 +141,7 @@
     <bean id="jetty.customRequestLog" class="org.eclipse.jetty.server.CustomRequestLog" scope="prototype">
         <arguments>
             <item>#{jetty.asyncRequestLogWriter}</item>
-            <item>#{field:org.eclipse.jetty.server.CustomRequestLog^EXTENDED_NCSA_FORMAT}</item>
+            <item tokenize="false">%{client}a - %u %{yyyy-MM-dd HH:mm:ss ZZZ|GMT+9}t "%r" %s %O "%{Referer}i" "%{User-Agent}i"</item>
         </arguments>
     </bean>
 
@@ -151,7 +151,7 @@
         </arguments>
         <properties>
             <item name="filenameDateFormat">yyyy_MM_dd</item>
-            <item name="retainDays" valueType="int">90</item>
+            <item name="retainDays" valueType="int">30</item>
             <item name="append" valueType="boolean">true</item>
             <item name="timeZone">GMT+9</item>
         </properties>

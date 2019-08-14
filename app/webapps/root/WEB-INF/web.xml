@@ -18,6 +18,7 @@
                 /css/**
                 /images/**
                 /**/*.html
+                /**/*.jsp
             </param-value>
         </init-param>
     </filter>
