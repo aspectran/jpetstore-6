@@ -4,6 +4,7 @@ import com.aspectran.core.activity.Translet;
 import com.aspectran.core.adapter.RequestAdapter;
 import com.aspectran.core.component.bean.annotation.AvoidAdvice;
 import com.aspectran.core.component.bean.aware.ClassLoaderAware;
+import com.aspectran.core.util.ClassUtils;
 import com.aspectran.core.util.apon.ArrayParameters;
 import org.owasp.esapi.Encoder;
 import org.owasp.esapi.reference.DefaultEncoder;
@@ -51,12 +52,11 @@ public class XSSPreventionFilter implements ClassLoaderAware {
             //                  OracleCodec, PercentCodec, UnixCodec, VBScriptCodec, WindowsCodec
             List<String> codecList = Arrays.asList("HTMLEntityCodec", "PercentCodec", "JavaScriptCodec");
 
-            ClassLoader originalClassLoader = Thread.currentThread().getContextClassLoader();
+            ClassLoader originalClassLoader = ClassUtils.overrideThreadContextClassLoader(classLoader);
             try {
-                Thread.currentThread().setContextClassLoader(classLoader);
                 this.esapiEncoder = new DefaultEncoder(codecList);
             } finally {
-                Thread.currentThread().setContextClassLoader(originalClassLoader);
+                ClassUtils.restoreThreadContextClassLoader(originalClassLoader);
             }
         } else {
             this.esapiEncoder = null;

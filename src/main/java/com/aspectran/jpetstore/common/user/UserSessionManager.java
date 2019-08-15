@@ -39,7 +39,7 @@ public class UserSessionManager implements ActivityContextAware {
     }
 
     public void expire() {
-        getSessionAdapter().removeAttribute(USER_SESSION_KEY);
+        getSessionAdapter().invalidate();
     }
 
     public void checkUserAuthenticated() {

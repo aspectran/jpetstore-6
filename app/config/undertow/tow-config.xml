@@ -73,7 +73,7 @@
             <item name="deploymentName">root.war</item>
             <item name="contextPath">/</item>
             <item name="resourceManager">#{tow.defaultResourceManager}</item>
-            <item name="scratchDir">/temp</item>
+            <item name="scratchDir">/temp/_root</item>
             <item name="sessionManager">#{tow.sessionManger}</item>
             <item name="servletSessionConfig">
                 <bean class="io.undertow.servlet.api.ServletSessionConfig"/>
@@ -113,8 +113,11 @@
                 <bean class="com.aspectran.core.context.config.SessionManagerConfig">
                     <arguments>
                         <item>
-                            timeout: 1800
-                            maxSessions: 100000
+                            workerName: node0
+                            maxSessions: 99999
+                            maxIdleSeconds: 1800
+                            evictionIdleSeconds: 900
+                            scavengingIntervalSeconds: 600
                             storeType: file
                             fileStore: {
                                 storeDir: /temp/sessions/tow

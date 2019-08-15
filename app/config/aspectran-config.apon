@@ -11,11 +11,6 @@ context: {
             dev
         ]
     }
-    autoReload: {
-        reloadMode: hard
-        scanIntervalSeconds: 5
-        startup: false
-    }
     singleton: true
 }
 scheduler: {
