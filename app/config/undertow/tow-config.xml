@@ -35,15 +35,29 @@
 
     <bean id="tow.defaultServletHandler" class="com.aspectran.undertow.server.servlet.ServletHandlerFactoryBean">
         <properties>
-            <item name="towServletContainer">#{tow.defaultServletContainer}</item>
-            <item name="staticResourceHandler">#{tow.defaultStaticResourceHandler}</item>
-        </properties>
-    </bean>
-
-    <bean id="tow.defaultServletContainer" class="com.aspectran.undertow.server.servlet.TowServletContainer">
-        <properties>
-            <item name="towServletContexts" type="array">
-                <value>#{tow.defaultServletContext}</value>
+            <item name="towServletContainer">
+                <bean class="com.aspectran.undertow.server.servlet.TowServletContainer">
+                    <properties>
+                        <item name="towServletContexts" type="array">
+                            <value>#{tow.defaultServletContext}</value>
+                        </item>
+                    </properties>
+                </bean>
+            </item>
+            <item name="staticResourceHandler">
+                <bean class="com.aspectran.undertow.server.resource.StaticResourceHandler">
+                    <arguments>
+                        <item>#{tow.defaultResourceManager}</item>
+                    </arguments>
+                    <properties>
+                        <item name="staticResourcePaths" type="array">
+                            <value>/assets/**</value>
+                            <value>/css/**</value>
+                            <value>/images/**</value>
+                            <value>/**/*.html</value>
+                        </item>
+                    </properties>
+                </bean>
             </item>
         </properties>
     </bean>
@@ -51,20 +65,6 @@
     <bean id="tow.defaultResourceManager" class="com.aspectran.undertow.server.resource.TowResourceManager">
         <properties>
             <item name="base">/webapps/root</item>
-        </properties>
-    </bean>
-
-    <bean id="tow.defaultStaticResourceHandler" class="com.aspectran.undertow.server.resource.StaticResourceHandler">
-        <arguments>
-            <item>#{tow.defaultResourceManager}</item>
-        </arguments>
-        <properties>
-            <item name="staticResourcePaths" type="array">
-                <value>/assets/**</value>
-                <value>/css/**</value>
-                <value>/images/**</value>
-                <value>/**/*.html</value>
-            </item>
         </properties>
     </bean>
 
@@ -79,11 +79,45 @@
                 <bean class="io.undertow.servlet.api.ServletSessionConfig"/>
             </item>
             <item name="servlets" type="array">
-                <value>#{tow.webActivityServlet}</value>
-                <value>#{tow.jspServlet}</value>
+                <bean class="com.aspectran.undertow.server.servlet.TowServlet">
+                    <arguments>
+                        <item>Default Jsp Servlet</item>
+                        <item>org.apache.jasper.servlet.JspServlet</item>
+                    </arguments>
+                    <properties>
+                        <item name="mappings" type="array">
+                            <value>*.jsp</value>
+                            <value>*.jspf</value>
+                            <value>*.jspx</value>
+                            <value>*.xsp</value>
+                            <value>*.JSP</value>
+                            <value>*.JSPF</value>
+                            <value>*.JSPX</value>
+                            <value>*.XSP</value>
+                        </item>
+                        <item name="loadOnStartup" valueType="int">0</item>
+                    </properties>
+                </bean>
+                <bean class="com.aspectran.undertow.server.servlet.TowServlet">
+                    <arguments>
+                        <item>web-activity-servlet</item>
+                        <item>com.aspectran.web.startup.servlet.WebActivityServlet</item>
+                    </arguments>
+                    <properties>
+                        <item name="mappings" type="array">
+                            <value>/</value>
+                        </item>
+                        <item name="loadOnStartup" valueType="int">1</item>
+                    </properties>
+                </bean>
             </item>
             <item name="filters" type="array">
-                <value>#{tow.webActivityFilter}</value>
+                <bean class="com.aspectran.undertow.server.servlet.TowFilter">
+                    <arguments>
+                        <item>web-activity-filter</item>
+                        <item>com.aspectran.web.startup.filter.WebActivityFilter</item>
+                    </arguments>
+                </bean>
             </item>
             <item name="filterServletMappings" type="array">
                 <bean class="com.aspectran.undertow.server.servlet.TowFilterServletMapping">
@@ -107,7 +141,7 @@
         </properties>
     </bean>
 
-    <bean id="tow.sessionManger" class="com.aspectran.undertow.server.session.TowSessionManager" scope="prototype">
+    <bean id="tow.sessionManger" class="com.aspectran.undertow.server.session.TowSessionManager">
         <properties>
             <item name="sessionManagerConfig">
                 <bean class="com.aspectran.core.context.config.SessionManagerConfig">
@@ -128,46 +162,6 @@
                     </arguments>
                 </bean>
             </item>
-        </properties>
-    </bean>
-
-    <bean id="tow.webActivityServlet" class="com.aspectran.undertow.server.servlet.TowServlet" scope="prototype">
-        <arguments>
-            <item>web-activity-servlet</item>
-            <item>com.aspectran.web.startup.servlet.WebActivityServlet</item>
-        </arguments>
-        <properties>
-            <item name="mappings" type="array">
-                <value>/</value>
-            </item>
-            <item name="loadOnStartup" valueType="int">1</item>
-        </properties>
-    </bean>
-
-    <bean id="tow.webActivityFilter" class="com.aspectran.undertow.server.servlet.TowFilter" scope="prototype">
-        <arguments>
-            <item>web-activity-filter</item>
-            <item>com.aspectran.web.startup.filter.WebActivityFilter</item>
-        </arguments>
-    </bean>
-
-    <bean id="tow.jspServlet" class="com.aspectran.undertow.server.servlet.TowServlet" scope="prototype">
-        <arguments>
-            <item>Default Jsp Servlet</item>
-            <item>org.apache.jasper.servlet.JspServlet</item>
-        </arguments>
-        <properties>
-            <item name="mappings" type="array">
-                <value>*.jsp</value>
-                <value>*.jspf</value>
-                <value>*.jspx</value>
-                <value>*.xsp</value>
-                <value>*.JSP</value>
-                <value>*.JSPF</value>
-                <value>*.JSPX</value>
-                <value>*.XSP</value>
-            </item>
-            <item name="loadOnStartup" valueType="int">0</item>
         </properties>
     </bean>
 
