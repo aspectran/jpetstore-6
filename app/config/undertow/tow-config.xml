@@ -45,12 +45,12 @@
                 </bean>
             </item>
             <item name="staticResourceHandler">
-                <bean class="com.aspectran.undertow.server.resource.StaticResourceHandler">
+                <bean class="com.aspectran.undertow.server.resource.StaticResourceHandler" initMethod="autoDetect">
                     <arguments>
                         <item>#{tow.defaultResourceManager}</item>
                     </arguments>
                     <properties>
-                        <item name="staticResourcePaths" type="array">
+                        <item name="resourceLocations" type="array">
                             <value>/assets/**</value>
                             <value>/css/**</value>
                             <value>/images/**</value>
