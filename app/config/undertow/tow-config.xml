@@ -29,11 +29,19 @@
                     </bean>
                 </value>
             </item>
+            <item name="serverOptions">
+                <bean class="com.aspectran.undertow.server.TowServerOptions">
+                    <properties>
+                        <item name="decodeUrl" valueType="boolean">true</item>
+                        <item name="urlCharset">UTF-8</item>
+                    </properties>
+                </bean>
+            </item>
             <item name="handler">#{tow.accessLogHandler}</item>
         </properties>
     </bean>
 
-    <bean id="tow.accessLogHandler" class="com.aspectran.undertow.server.accesslog.AccessLogHandlerFactoryBean">
+    <bean id="tow.accessLogHandler" class="com.aspectran.undertow.server.accesslog.AccessLogHandlerFactoryBean" scope="prototype">
         <properties>
             <item name="handler">#{tow.encodingHandler}</item>
             <item name="formatString">combined</item>
@@ -41,7 +49,7 @@
         </properties>
     </bean>
 
-    <bean id="tow.encodingHandler" class="com.aspectran.undertow.server.encoding.EncodingHandlerFactoryBean">
+    <bean id="tow.encodingHandler" class="com.aspectran.undertow.server.encoding.EncodingHandlerFactoryBean" scope="prototype">
         <properties>
             <item name="handler">#{tow.servletHandler}</item>
             <item name="contentEncodingProviders" type="array">
@@ -51,7 +59,7 @@
         </properties>
     </bean>
 
-    <bean id="tow.servletHandler" class="com.aspectran.undertow.server.servlet.ServletHandlerFactoryBean">
+    <bean id="tow.servletHandler" class="com.aspectran.undertow.server.servlet.ServletHandlerFactoryBean" scope="prototype">
         <properties>
             <item name="towServletContainer">
                 <bean class="com.aspectran.undertow.server.servlet.TowServletContainer">
@@ -62,35 +70,34 @@
                     </properties>
                 </bean>
             </item>
-            <item name="staticResourceHandler">
-                <bean class="com.aspectran.undertow.server.resource.StaticResourceHandler" initMethod="autoDetect">
-                    <arguments>
-                        <item>#{tow.resourceManager}</item>
-                    </arguments>
-                    <properties>
-                        <item name="resourcePathPatterns">
-                            <bean class="com.aspectran.undertow.server.resource.ResourcePathPatterns">
-                                <arguments>
-                                    <item>
-                                        +: /assets/**
-                                        -: /assets/aaa.bbb
-                                    </item>
-                                </arguments>
-                            </bean>
-                        </item>
-                    </properties>
-                </bean>
-            </item>
+            <item name="staticResourceHandler">#{tow.staticResourceManager}</item>
         </properties>
     </bean>
 
-    <bean id="tow.resourceManager" class="com.aspectran.undertow.server.resource.TowResourceManager">
+    <bean id="tow.resourceManager" class="com.aspectran.undertow.server.resource.TowResourceManager" scope="prototype">
         <properties>
             <item name="base">/webapps/root</item>
         </properties>
     </bean>
 
-    <bean id="tow.defaultServletContext" class="com.aspectran.undertow.server.servlet.TowServletContext">
+    <bean id="tow.staticResourceManager" class="com.aspectran.undertow.server.resource.StaticResourceHandler" initMethod="autoDetect" scope="prototype">
+        <arguments>
+            <item>#{tow.resourceManager}</item>
+        </arguments>
+        <properties>
+            <item name="resourcePathPatterns">
+                <bean class="com.aspectran.undertow.server.resource.ResourcePathPatterns">
+                    <arguments>
+                        <item>
+                            +: /favicon.ico
+                        </item>
+                    </arguments>
+                </bean>
+            </item>
+        </properties>
+    </bean>
+
+    <bean id="tow.defaultServletContext" class="com.aspectran.undertow.server.servlet.TowServletContext" scope="prototype">
         <properties>
             <item name="deploymentName">root.war</item>
             <item name="contextPath">/</item>
