@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <appender name="FILE-AUDIT" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${aspectran.basePath}/logs/scheduler-report.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${aspectran.basePath}/logs/archived/scheduler-report.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>10MB</maxFileSize>
-            <maxHistory>30</maxHistory>
-            <totalSizeCap>1GB</totalSizeCap>
-        </rollingPolicy>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
-        </encoder>
-    </appender>
-    <appender name="FILE-ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>ERROR</level>
-        </filter>
-        <file>${aspectran.basePath}/logs/scheduler-error.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${aspectran.basePath}/logs/archived/scheduler-error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>10MB</maxFileSize>
-            <maxHistory>30</maxHistory>
-            <totalSizeCap>1GB</totalSizeCap>
-        </rollingPolicy>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
-        </encoder>
-    </appender>
+    <include file="${aspectran.basePath}/logback-scheduler.xml"/>
+    <include file="${aspectran.basePath}/logback-undertow.xml"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%-5level %d{yyyy-MM-dd HH:mm:ss} [%thread] %msg - %logger{30}.%M\(%line\)%n</pattern>
@@ -39,11 +14,6 @@
     </appender>
     <logger name="com.aspectran" level="debug" additivity="false">
         <appender-ref ref="STDOUT"/>
-    </logger>
-    <logger name="com.aspectran.scheduler.service.JobActivityReport" level="debug" additivity="false">
-        <appender-ref ref="STDOUT"/>
-        <appender-ref ref="FILE-AUDIT"/>
-        <appender-ref ref="FILE-ERROR"/>
     </logger>
     <logger name="com.aspectran.core.component.session" level="warn" additivity="false">
         <appender-ref ref="STDOUT" />

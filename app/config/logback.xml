@@ -10,13 +10,7 @@
     <logger name="com.aspectran" level="info" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
-    <logger name="com.aspectran.core.component.session" level="warn" additivity="false">
-        <appender-ref ref="STDOUT" />
-    </logger>
-    <logger name="org.quartz" level="info" additivity="false">
-        <appender-ref ref="STDOUT"/>
-    </logger>
-    <logger name="org.eclipse.jetty" level="error" additivity="false">
+    <logger name="com.aspectran.core.component.session" level="info" additivity="false">
         <appender-ref ref="STDOUT" />
     </logger>
     <root level="info">
