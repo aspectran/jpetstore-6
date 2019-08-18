@@ -29,6 +29,14 @@
                     </bean>
                 </value>
             </item>
+            <item name="handler">#{tow.defaultAccessLogHandler}</item>
+        </properties>
+    </bean>
+
+    <bean id="tow.defaultAccessLogHandler" class="com.aspectran.undertow.server.accesslog.AccessLogHandlerFactoryBean">
+        <properties>
+            <item name="category">io.undertow.accesslog</item>
+            <item name="formatString">combined</item>
             <item name="handler">#{tow.defaultServletHandler}</item>
         </properties>
     </bean>
@@ -50,11 +58,15 @@
                         <item>#{tow.defaultResourceManager}</item>
                     </arguments>
                     <properties>
-                        <item name="resourceLocations" type="array">
-                            <value>/assets/**</value>
-                            <value>/css/**</value>
-                            <value>/images/**</value>
-                            <value>/**/*.html</value>
+                        <item name="resourcePathPatterns">
+                            <bean class="com.aspectran.undertow.server.resource.ResourcePathPatterns">
+                                <arguments>
+                                    <item>
+                                        +: /assets/**
+                                        -: /assets/aaa.bbb
+                                    </item>
+                                </arguments>
+                            </bean>
                         </item>
                     </properties>
                 </bean>
