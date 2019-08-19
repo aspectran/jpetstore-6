@@ -56,6 +56,18 @@
                 <value>gzip</value>
                 <value>deflate</value>
             </item>
+            <item name="maxContentSize" valueType="long">2048</item>
+            <item name="mediaTypes" type="array">
+                <value>text/html</value>
+                <value>text/xml</value>
+                <value>text/plain</value>
+                <value>text/css</value>
+                <value>text/javascript</value>
+                <value>application/javascript</value>
+                <value>application/json</value>
+                <value>application/xml</value>
+                <value>application/apon</value>
+            </item>
         </properties>
     </bean>
 
