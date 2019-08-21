@@ -10,24 +10,21 @@
     <environment>
         <properties>
             <item name="tow.server.startup" valueType="boolean">true</item>
-            <item name="tow.server.listener-1.port" valueType="int">8080</item>
-            <item name="tow.server.listener-1.host">0.0.0.0</item>
+            <item name="tow.server.listener.http.port" valueType="int">8080</item>
+            <item name="tow.server.listener.http.host">0.0.0.0</item>
         </properties>
     </environment>
 
     <bean id="tow.server" class="com.aspectran.undertow.server.TowServer">
         <properties>
             <item name="autoStart">%{tow.server.startup}</item>
-            <item name="listeners" type="array">
-                <value>
-                    <bean class="io.undertow.Undertow$ListenerBuilder">
-                        <properties>
-                            <item name="type">#{field:io.undertow.Undertow$ListenerType^HTTP}</item>
-                            <item name="port" valueType="int">%{tow.server.listener-1.port}</item>
-                            <item name="host">%{tow.server.listener-1.host}</item>
-                        </properties>
-                    </bean>
-                </value>
+            <item name="httpListeners" type="array">
+                <bean class="com.aspectran.undertow.server.HttpListenerConfig">
+                    <properties>
+                        <item name="port" valueType="int">%{tow.server.listener.http.port}</item>
+                        <item name="host">%{tow.server.listener.http.host}</item>
+                    </properties>
+                </bean>
             </item>
             <item name="serverOptions">
                 <bean class="com.aspectran.undertow.server.TowServerOptions">
