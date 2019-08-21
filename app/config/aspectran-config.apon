@@ -36,6 +36,7 @@ shell: {
     )
     prompt: "{{green}}jpetstore>{{reset}} "
     commands: [
+        com.aspectran.shell.command.builtins.UndertowCommand
         com.aspectran.shell.command.builtins.TransletCommand
         com.aspectran.shell.command.builtins.AspectCommand
         com.aspectran.shell.command.builtins.JobCommand

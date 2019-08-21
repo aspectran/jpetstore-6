@@ -5,9 +5,9 @@
 
     <description style="apon">
         |
-        |{{bold}}The Jetty Server is currently running.{{bold:off}}
-        |Use the command '{{GREEN}}jetty{{reset}}' to control the Jetty Server.
-        |When your Jetty Server is running, point your web browser to:
+        |{{bold}}The Undertow Server is currently running.{{bold:off}}
+        |Use the command '{{GREEN}}undertow{{reset}}' to control the Undertow Server.
+        |When your Undertow Server is running, point your web browser to:
         |   {{81}}http://localhost:8080/{{fg:reset}}
         |
     </description>
