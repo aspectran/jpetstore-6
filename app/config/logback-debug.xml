@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <include file="${aspectran.basePath}/logback-scheduler.xml"/>
-    <include file="${aspectran.basePath}/logback-undertow.xml"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%-5level %d{yyyy-MM-dd HH:mm:ss} [%thread] %msg - %logger{30}.%M\(%line\)%n</pattern>
@@ -28,4 +26,6 @@
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="DAEMON"/>
     </root>
+    <include optional="true" file="${aspectran.basePath}/config/logback-scheduler.xml"/>
+    <include optional="true" file="${aspectran.basePath}/config/logback-undertow.xml"/>
 </configuration>

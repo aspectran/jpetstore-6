@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration>
+<included>
     <!-- Undertow Access Logging -->
     <appender name="UNDERTOW-ACCESS-LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${aspectran.basePath}/logs/undertow-access.log</file>
@@ -16,4 +16,4 @@
     <logger name="io.undertow.accesslog" level="info" additivity="false">
         <appender-ref ref="UNDERTOW-ACCESS-LOG"/>
     </logger>
-</configuration>
+</included>
