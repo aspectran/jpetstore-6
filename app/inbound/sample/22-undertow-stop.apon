@@ -1,5 +1,5 @@
-# Stop the Jetty server
-command: jetty
+# Stop the Undertow server
+command: undertow
 parameters: {
     item: {
         name: mode
@@ -7,6 +7,6 @@ parameters: {
     }
     item: {
         name: server
-        value: jetty.server
+        value: tow.server
     }
 }

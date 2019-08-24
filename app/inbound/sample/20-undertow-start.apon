@@ -1,5 +1,5 @@
-# Start the Jetty server
-command: jetty
+# Start the Undertow server
+command: undertow
 parameters: {
     item: {
         name: mode
@@ -7,6 +7,6 @@ parameters: {
     }
     item: {
         name: server
-        value: jetty.server
+        value: tow.server
     }
 }
