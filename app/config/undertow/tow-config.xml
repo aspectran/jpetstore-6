@@ -34,6 +34,13 @@
                     </properties>
                 </bean>
             </item>
+            <item name="workerOptions">
+                <bean class="com.aspectran.undertow.server.TowOptions">
+                    <properties>
+                        <item name="workerName">TOW</item>
+                    </properties>
+                </bean>
+            </item>
             <item name="handler">#{tow.accessLogHandler}</item>
         </properties>
     </bean>
