@@ -27,7 +27,7 @@
                 </bean>
             </item>
             <item name="serverOptions">
-                <bean class="com.aspectran.undertow.server.TowServerOptions">
+                <bean class="com.aspectran.undertow.server.TowOptions">
                     <properties>
                         <item name="decodeUrl" valueType="boolean">true</item>
                         <item name="urlCharset">UTF-8</item>
