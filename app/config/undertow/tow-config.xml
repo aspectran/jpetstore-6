@@ -38,7 +38,8 @@
         </properties>
     </bean>
 
-    <bean id="tow.accessLogHandler" class="com.aspectran.undertow.server.accesslog.AccessLogHandlerFactoryBean" scope="prototype">
+    <bean id="tow.accessLogHandler" class="com.aspectran.undertow.server.accesslog.AccessLogHandlerFactoryBean"
+          scope="prototype">
         <properties>
             <item name="handler">#{tow.encodingHandler}</item>
             <item name="formatString">combined</item>
@@ -46,7 +47,8 @@
         </properties>
     </bean>
 
-    <bean id="tow.encodingHandler" class="com.aspectran.undertow.server.encoding.EncodingHandlerFactoryBean" scope="prototype">
+    <bean id="tow.encodingHandler" class="com.aspectran.undertow.server.encoding.EncodingHandlerFactoryBean"
+          scope="prototype">
         <properties>
             <item name="handler">#{tow.servletHandler}</item>
             <item name="contentEncodingProviders" type="array">
@@ -68,7 +70,8 @@
         </properties>
     </bean>
 
-    <bean id="tow.servletHandler" class="com.aspectran.undertow.server.servlet.ServletHandlerFactoryBean" scope="prototype">
+    <bean id="tow.servletHandler" class="com.aspectran.undertow.server.servlet.ServletHandlerFactoryBean"
+          scope="prototype">
         <properties>
             <item name="towServletContainer">
                 <bean class="com.aspectran.undertow.server.servlet.TowServletContainer">
@@ -89,7 +92,8 @@
         </properties>
     </bean>
 
-    <bean id="tow.staticResourceManager" class="com.aspectran.undertow.server.resource.StaticResourceHandler" initMethod="autoDetect" scope="prototype">
+    <bean id="tow.staticResourceManager" class="com.aspectran.undertow.server.resource.StaticResourceHandler"
+          initMethod="autoDetect" scope="prototype">
         <arguments>
             <item>#{tow.resourceManager}</item>
         </arguments>
@@ -99,6 +103,7 @@
                     <arguments>
                         <item>
                             +: /favicon.ico
+                            +: /robots.txt
                         </item>
                     </arguments>
                 </bean>
@@ -106,7 +111,8 @@
         </properties>
     </bean>
 
-    <bean id="tow.defaultServletContext" class="com.aspectran.undertow.server.servlet.TowServletContext" scope="prototype">
+    <bean id="tow.defaultServletContext" class="com.aspectran.undertow.server.servlet.TowServletContext"
+          scope="prototype">
         <properties>
             <item name="deploymentName">root.war</item>
             <item name="contextPath">/</item>
