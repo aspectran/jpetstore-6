@@ -5,26 +5,20 @@
             <pattern>%-5level %d{yyyy-MM-dd HH:mm:ss} [%thread] %msg - %logger{30}.%M\(%line\)%n</pattern>
         </encoder>
     </appender>
-    <appender name="DAEMON" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%-5level %d{yyyy-MM-dd HH:mm:ss} [%thread] %msg%n</pattern>
-        </encoder>
-    </appender>
     <logger name="com.aspectran" level="debug" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
     <logger name="com.aspectran.core.component.session" level="warn" additivity="false">
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="STDOUT"/>
     </logger>
     <logger name="org.quartz" level="info" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
     <logger name="org.eclipse.jetty" level="error" additivity="false">
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="STDOUT"/>
     </logger>
     <root level="info">
         <appender-ref ref="STDOUT"/>
-        <appender-ref ref="DAEMON"/>
     </root>
     <include optional="true" file="${aspectran.basePath}/config/logback-scheduler.xml"/>
     <include optional="true" file="${aspectran.basePath}/config/logback-undertow.xml"/>
