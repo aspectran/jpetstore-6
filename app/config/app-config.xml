@@ -5,9 +5,8 @@
 
     <description style="apon">
         |
-        |{{bold}}The Undertow Server is currently running.{{bold:off}}
         |Use the command '{{GREEN}}undertow{{reset}}' to control the Undertow Server.
-        |When your Undertow Server is running, point your web browser to:
+        |Since Undertow Server is running, have your web browser point to:
         |   {{81}}http://localhost:8080/{{fg:reset}}
         |
     </description>
