@@ -111,6 +111,7 @@
                         <item>
                             +: /favicon.ico
                             +: /robots.txt
+                            +: /ads.txt
                         </item>
                     </arguments>
                 </bean>
