@@ -26,8 +26,7 @@ set PR_INSTALL=%BASE_DIR%\bin\procrun\prunsrv.exe
 goto is-detected
 :is-amd64
 echo Current System Architecture: amd64
-set PR_INSTALL=%BASE_DIR%\bin\procrun\prunsrv_amd64.exe
-goto is-detected
+set PR_INSTALL=%BASE_DIR%\bin\procrun\amd64\prunsrv.exe
 :is-detected
 if not exist "%PR_INSTALL%" goto invalid-installer
 
@@ -35,11 +34,11 @@ echo Windows Service Name: %SERVICE_NAME%
 echo Aspectran Home: %BASE_DIR%
 
 rem Service log configuration
-set PR_LOGPREFIX=%SERVICE_NAME%
 set PR_LOGPATH=%BASE_DIR%\logs
+set PR_LOGPREFIX=%SERVICE_NAME%
+set PR_LOGLEVEL=Debug
 set PR_STDOUTPUT=%BASE_DIR%\logs\%SERVICE_NAME%.out
 set PR_STDERROR=%BASE_DIR%\logs\%SERVICE_NAME%.err
-set PR_LOGLEVEL=Debug
 
 rem Path to java installation
 set PR_JVM=%JAVA_HOME%\jre\bin\server\jvm.dll
@@ -64,8 +63,8 @@ set PR_STOPCLASS=com.aspectran.daemon.ProcrunDaemon
 set PR_STOPMETHOD=stop
 
 rem JVM configuration
-set PR_JVMMS=128
-set PR_JVMMX=512
+set PR_JVMMS=256
+set PR_JVMMX=1024
 set PR_JVMSS=4096
 set PR_JVMOPTIONS=-Duser.language=en;-Duser.region=US;^
 -Djava.awt.headless=true;^
@@ -76,28 +75,28 @@ set PR_JVMOPTIONS=-Duser.language=en;-Duser.region=US;^
 
 echo Creating Service...
 %PR_INSTALL% //IS/%SERVICE_NAME% ^
-  --DisplayName="%SERVICE_NAME%" ^
-  --Install="%PR_INSTALL%" ^
-  --Startup="%PR_STARTUP%" ^
-  --LogPath="%PR_LOGPATH%" ^
-  --LogPrefix="%PR_LOGPREFIX%" ^
-  --LogLevel="%PR_LOGLEVEL%" ^
-  --StdOutput="%PR_STDOUTPUT%" ^
-  --StdError="%PR_STDERROR%" ^
-  --JavaHome="%JAVA_HOME%" ^
-  --Jvm="%PR_JVM%" ^
-  --JvmMs="%PR_JVMMS%" ^
-  --JvmMx="%PR_JVMMX%" ^
-  --JvmSs="%PR_JVMSS%" ^
-  --JvmOptions="%PR_JVMOPTIONS%" ^
-  --Classpath="%PR_CLASSPATH%" ^
-  --StartMode="%PR_STARTMODE%" ^
-  --StartClass="%PR_STARTCLASS%" ^
-  --StartMethod="%PR_STARTMETHOD%" ^
-  --StartParams="%PR_STARTPARAMS%" ^
-  --StopMode="%PR_STOPMODE%" ^
-  --StopClass="%PR_STOPCLASS%" ^
-  --StopMethod="%PR_STOPMETHOD%"
+--DisplayName="%SERVICE_NAME%" ^
+--Install="%PR_INSTALL%" ^
+--Startup="%PR_STARTUP%" ^
+--LogPath="%PR_LOGPATH%" ^
+--LogPrefix="%PR_LOGPREFIX%" ^
+--LogLevel="%PR_LOGLEVEL%" ^
+--StdOutput="%PR_STDOUTPUT%" ^
+--StdError="%PR_STDERROR%" ^
+--JavaHome="%JAVA_HOME%" ^
+--Jvm="%PR_JVM%" ^
+--JvmMs="%PR_JVMMS%" ^
+--JvmMx="%PR_JVMMX%" ^
+--JvmSs="%PR_JVMSS%" ^
+--JvmOptions="%PR_JVMOPTIONS%" ^
+--Classpath="%PR_CLASSPATH%" ^
+--StartMode="%PR_STARTMODE%" ^
+--StartClass="%PR_STARTCLASS%" ^
+--StartMethod="%PR_STARTMETHOD%" ^
+--StartParams="%PR_STARTPARAMS%" ^
+--StopMode="%PR_STOPMODE%" ^
+--StopClass="%PR_STOPCLASS%" ^
+--StopMethod="%PR_STOPMETHOD%"
  
 if not errorlevel 1 (
   echo For easy management, copy the prunmgr.exe file with the same name as the service name.
