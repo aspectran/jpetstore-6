@@ -22,9 +22,8 @@
         </properties>
     </bean>
 
+    <append file="/config/server/server-config.xml"/>
     <append file="/config/error-report-dev.xml" profile="dev"/>
-    <append file="/config/undertow/tow-config.xml" profile="!jetty"/>
-    <append file="/config/jetty/jetty-config.xml" profile="jetty"/>
     <append file="/config/mybatis/db-tx-config.xml"/>
     <append file="/config/web/web-config.xml"/>
 
