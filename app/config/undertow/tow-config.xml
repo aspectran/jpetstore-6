@@ -9,7 +9,8 @@
 
     <environment>
         <properties>
-            <item name="tow.server.startup" valueType="boolean">true</item>
+            <item name="tow.server.autoStartup" valueType="boolean">true</item>
+            <item name="tow.server.stopDelayTime" valueType="int">1000</item>
             <item name="tow.server.listener.http.port" valueType="int">8080</item>
             <item name="tow.server.listener.http.host">0.0.0.0</item>
         </properties>
@@ -17,7 +18,8 @@
 
     <bean id="tow.server" class="com.aspectran.undertow.server.TowServer">
         <properties>
-            <item name="autoStart">%{tow.server.startup}</item>
+            <item name="autoStartup">%{tow.server.autoStartup}</item>
+            <item name="stopDelayTime" valueType="int">%{tow.server.stopDelayTime}</item>
             <item name="httpListeners" type="array">
                 <bean class="com.aspectran.undertow.server.HttpListenerConfig">
                     <properties>
@@ -127,7 +129,7 @@
             <item name="contextPath">/</item>
             <item name="resourceManager">#{tow.resourceManager}</item>
             <item name="scratchDir">/temp/_root</item>
-            <item name="sessionManager">#{tow.sessionManger}</item>
+            <item name="sessionManager">#{tow.sessionManager}</item>
             <item name="servletSessionConfig">
                 <bean class="io.undertow.servlet.api.ServletSessionConfig"/>
             </item>
@@ -194,7 +196,7 @@
         </properties>
     </bean>
 
-    <bean id="tow.sessionManger" class="com.aspectran.undertow.server.session.TowSessionManager">
+    <bean id="tow.sessionManager" class="com.aspectran.undertow.server.session.TowSessionManager">
         <properties>
             <item name="sessionManagerConfig">
                 <bean class="com.aspectran.core.context.config.SessionManagerConfig">
