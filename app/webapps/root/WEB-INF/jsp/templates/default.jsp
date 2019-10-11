@@ -73,7 +73,7 @@
             <div class="top-bar-left">
                 <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
                     <li>
-                        <a href="/catalog/">Examples</a>
+                        <a href="/catalog/" title="Demo Applications made with Aspectran">Demo Apps</a>
                         <ul class="menu" data-submenu data-close-on-click-inside="false">
                             <li><a href="/catalog/">JPetStore Demo</a></li>
                         </ul>
