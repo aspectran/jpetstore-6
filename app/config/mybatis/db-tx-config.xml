@@ -53,7 +53,7 @@
               data source.
             * No PreparedStatements will be reused, and no updates will be batched.
         </description>
-        <joinpoint target="translet">
+        <joinpoint>
             pointcut: {
                 +: **@simpleSqlSession
             }
@@ -76,7 +76,7 @@
             Advice to handle database transactions in batch mode.
             Batches all updates (including inserts and deletes), SELECTs can be run as needed.
         </description>
-        <joinpoint target="translet">
+        <joinpoint>
             pointcut: {
                 +: **@batchSqlSession
             }
@@ -103,7 +103,7 @@
             Advice to handle database transactions in reuse mode.
             PreparedStatements will be reused.
         </description>
-        <joinpoint target="translet">
+        <joinpoint>
             pointcut: {
                 +: **@reuseSqlSession
             }

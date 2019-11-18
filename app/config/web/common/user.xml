@@ -9,7 +9,7 @@
             and stores it as a request attribute.
             The attribute name is "user".
         </description>
-        <joinpoint target="translet">
+        <joinpoint>
             pointcut: {
                 +: /order/**
                 +: /account/edit**

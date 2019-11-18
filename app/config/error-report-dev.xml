@@ -8,7 +8,6 @@
             Prints a simple error message to the console if an unexpected error occurs during processing of the translet.
             Outputs an error page that matches the type of content being rendered.
         </description>
-        <joinpoint target="translet"/>
         <exception>
             <thrown>
                 <transform type="text">
