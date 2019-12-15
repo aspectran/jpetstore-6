@@ -4,6 +4,7 @@ import com.aspectran.core.activity.Translet;
 import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
+import com.aspectran.core.component.bean.annotation.Scope;
 import com.aspectran.core.context.rule.type.ScopeType;
 import com.aspectran.web.support.http.HttpStatusSetter;
 
@@ -14,7 +15,8 @@ import java.util.Map;
 import java.util.Set;
 
 @Component
-@Bean(id = "beanValidator", scope = ScopeType.REQUEST)
+@Bean(id = "beanValidator")
+@Scope(ScopeType.REQUEST)
 public class BeanValidator {
 
     private final Validator validator;

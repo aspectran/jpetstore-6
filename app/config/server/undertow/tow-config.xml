@@ -155,17 +155,23 @@
                             maxIdleSeconds: 1800
                             evictionIdleSeconds: 900
                             scavengingIntervalSeconds: 600
-                            nonPersistentAttributes: [
-                                io.undertow.websocket.current-connections
-                            ]
-                            storeType: file
-                            fileStore: {
-                                storeDir: /temp/sessions/tow
-                                deleteUnrestorableFiles: true
-                            }
+                            removeUnloadableSessions: true
+                            clustered: true
                             startup: true
                         </item>
                     </arguments>
+                </bean>
+            </item>
+        </properties>
+        <properties>
+            <item name="sessionStoreFactory">
+                <bean class="com.aspectran.core.component.session.FileSessionStoreFactory">
+                    <properties>
+                        <item name="storeDir">/temp/sessions/tow</item>
+                        <item name="nonPersistentAttributes" type="array">
+                            <value>io.undertow.websocket.current-connections</value>
+                        </item>
+                    </properties>
                 </bean>
             </item>
         </properties>
