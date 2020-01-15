@@ -21,15 +21,18 @@
             <pattern>%-5level %relative [%thread] %msg - %logger{30}.%M\(%line\)%n</pattern>
         </encoder>
     </appender>
-    <Logger name="com.aspectran" level="debug" additivity="false">
+    <logger name="com.aspectran" level="debug" additivity="false">
         <appender-ref ref="STDOUT"/>
-    </Logger>
+    </logger>
     <logger name="com.aspectran.core.component.session" level="debug" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
-    <Logger name="org.quartz" level="info" additivity="false">
+    <logger name="org.quartz" level="info" additivity="false">
         <appender-ref ref="STDOUT"/>
-    </Logger>
+    </logger>
+    <logger name="com.aspectran.jpetstore" level="debug" additivity="false">
+        <appender-ref ref="APP-OUT"/>
+    </logger>
     <root level="info">
         <appender-ref ref="STDOUT"/>
     </root>

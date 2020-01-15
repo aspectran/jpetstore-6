@@ -11,7 +11,7 @@
         <properties>
             <item name="tow.server.startup" valueType="boolean">true</item>
             <item name="tow.server.stopDelayTime" valueType="int">1000</item>
-            <item name="tow.server.listener.http.port" valueType="int">8080</item>
+            <item name="tow.server.listener.http.port" valueType="int">8081</item>
             <item name="tow.server.listener.http.host">0.0.0.0</item>
         </properties>
     </environment>
@@ -163,7 +163,25 @@
                 </bean>
             </item>
         </properties>
-        <properties>
+        <properties profile="prod">
+            <item name="sessionStoreFactory">
+                <bean class="com.aspectran.core.component.session.redis.lettuce.DefaultLettuceSessionStoreFactory">
+                    <properties>
+                        <item name="poolConfig">
+                            <bean class="com.aspectran.core.component.session.redis.lettuce.RedisConnectionPoolConfig">
+                                <properties>
+                                    <item name="uri">redis://redis-001.el2p2o.0001.apn2.cache.amazonaws.com:6379/2</item>
+                                </properties>
+                            </bean>
+                        </item>
+                        <item name="nonPersistentAttributes" type="array">
+                            <value>io.undertow.websocket.current-connections</value>
+                        </item>
+                    </properties>
+                </bean>
+            </item>
+        </properties>
+        <properties profile="!prod">
             <item name="sessionStoreFactory">
                 <bean class="com.aspectran.core.component.session.FileSessionStoreFactory">
                     <properties>
