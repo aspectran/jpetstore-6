@@ -26,7 +26,7 @@ This is another implementation of MyBatis sample application (https://github.com
   $ ./shell.sh
   ```
 
-- Access in your browser at http://localhost:8080
+- Access in your browser at http://localhost:8081
 
   ```
   Username: j2ee  
