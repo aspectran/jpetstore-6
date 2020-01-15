@@ -18,7 +18,7 @@
         <appender-ref ref="STDOUT"/>
     </logger>
     <logger name="com.aspectran.jpetstore" level="debug" additivity="false">
-        <appender-ref ref="APP-OUT"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
     <root level="info">
         <appender-ref ref="STDOUT"/>
