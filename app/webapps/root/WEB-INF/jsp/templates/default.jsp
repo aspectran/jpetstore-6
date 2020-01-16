@@ -64,7 +64,7 @@
         </div>
     </div>
     <div class="top-bar" id="gnb-menu" style="display:none">
-        <div class="row">
+        <div class="row ${page.style}">
             <div class="top-bar-logo">
                 <div class="circle">
                     <a class="logo" href="/" title="Aspectran"><img src="https://aspectran.com/assets/img/aspectran-site-logo.png" alt="Aspectran"/></a>
@@ -77,6 +77,9 @@
                         <ul class="menu" data-submenu data-close-on-click-inside="false">
                             <li><a href="/catalog/">JPetStore Demo</a></li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="/apm/">APM</a>
                     </li>
                 </ul>
             </div>
@@ -120,7 +123,7 @@
 </nav>
 <section itemscope itemtype="http://schema.org/Article">
     <div id="masthead">
-        <div class="row">
+        <div class="row ${page.style}">
             <div class="small-12 columns">
                 <header>
                     <p class="subheadline" itemprop="alternativeHeadline">${page.subheadline}</p>
@@ -139,7 +142,7 @@
                 </div>
             </div>
         </div>
-        <div class="row breadcrumbs-bar">
+        <div class="row breadcrumbs-bar ${page.style}">
             <div class="columns">
                 <nav role="navigation" aria-label="You are here:">
                     <ul class="breadcrumbs" itemprop="breadcrumb">
@@ -149,6 +152,14 @@
             </div>
         </div>
     </div>
+    <c:if test="${page.style eq 'expanded'}">
+    <div class="row expanded">
+        <c:if test="${not empty INCLUDE_PAGE}">
+            <jsp:include page="/WEB-INF/jsp/${INCLUDE_PAGE}.jsp"/>
+        </c:if>
+    </div>
+    </c:if>
+    <c:if test="${page.style ne 'expanded'}">
     <div class="row">
         <div class="large-12 columns">
             <div class="row content" style="padding-bottom:0;">
@@ -160,8 +171,9 @@
             </div>
         </div>
     </div>
+    </c:if>
 </section>
-<div id="up-to-top" class="row">
+<div id="up-to-top" class="row ${page.style}">
     <div class="small-12 columns" style="text-align: right;">
         <a class="iconfont" href="#top-of-page">&#xf108;</a>
     </div>
