@@ -12,8 +12,12 @@
 
 . /home/aspectran/jpetstore/app.conf
 
-"$DEPLOY_DIR/bin/jsvc-daemon.sh" --proc-name "$PROC_NAME" --pid-file "$PID_FILE" --user "$DAEMON_USER" $1
+"$DEPLOY_DIR/bin/jsvc-daemon.sh" \
+  --proc-name "$PROC_NAME" \
+  --pid-file "$PID_FILE" \
+  --user "$DAEMON_USER" \
+  $1
 
-if [ -f "$PID_FILE" ]; then
-  chown "$DAEMON_USER" "$PID_FILE"
-fi
+[ -f "$PID_FILE" ] && chown "$DAEMON_USER" "$PID_FILE"
+[ -f "$DAEMON_OUT" ] && chown "$DAEMON_USER" "$DAEMON_OUT"
+[ -f "$DAEMON_ERR" ] && chown "$DAEMON_USER" "$DAEMON_ERR"
