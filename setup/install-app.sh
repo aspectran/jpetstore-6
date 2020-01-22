@@ -8,6 +8,9 @@ if [ ! -d "$REPO_DIR" ]; then
   [ ! -d "$BUILD_DIR" ] && mkdir "$BUILD_DIR"
   cd "$BUILD_DIR" || exit
   git clone "$REPO_URL" "$APP_NAME"
+else
+  cd "$REPO_DIR" || exit
+  git pull origin master
 fi
 
 cp "$REPO_DIR/setup/app.conf" "$BASE_DIR" || exit

@@ -10,7 +10,7 @@
 # Description:       Start/stop Aspectran daemons
 ### END INIT INFO
 
-. /home/aspectran/demo-app/app.conf
+. /home/aspectran/jpetstore/app.conf
 
 "$DEPLOY_DIR/bin/jsvc-daemon.sh" --proc-name "$PROC_NAME" --pid-file "$PID_FILE" --user "$DAEMON_USER" $1
 
