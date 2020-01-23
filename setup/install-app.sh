@@ -20,7 +20,10 @@ cp "$REPO_DIR/setup/install-service.sh" "$BASE_DIR/setup" || exit
 cp "$REPO_DIR/setup/uninstall-service.sh" "$BASE_DIR/setup" || exit
 chmod +x "$BASE_DIR"/setup/*.sh
 
+echo "--------------------------------------------------------------------------"
 echo "Your application installation is complete."
-echo ""
-echo "To run this application as a service, run the following script:"
+echo "To register this application as a service, run the following script:"
 echo "  $BASE_DIR/setup/install-service.sh"
+echo "You can also remove a registered service by running the following script:"
+echo "  $BASE_DIR/setup/uninstall-service.sh"
+echo "--------------------------------------------------------------------------"
