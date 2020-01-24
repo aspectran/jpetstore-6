@@ -16,7 +16,6 @@
 #Header {
     background-color: #333;
     color: #eaac00;
-    margin: 0 -15px;
 }
 
 #Logo {
@@ -96,7 +95,6 @@ body > #Menu {
     background-color: #333;
     color: #fff;
     overflow: auto;
-    margin: 15px -15px 0;
     border-radius: 0 0 10px 10px;
 }
 
@@ -127,13 +125,13 @@ body > #Banner {
 }
 
 #Content {
-    margin: 15px 0 0 0;
-    padding: 0;
+    padding: 15px;
     width: 100%;
     min-height: 200px;
     border-width: 0;
     clear: both;
     position: relative;
+    background-color: #fff;
 }
 
 #Content h3 {
@@ -253,7 +251,6 @@ body > #Banner {
     padding: 10px;
     background-color: #eaac00;
     text-align: center;
-    margin: -15px -15px 20px -15px;
 }
 #MessageBar p {
     margin: 0;

@@ -150,14 +150,10 @@
     </div>
     </c:if>
     <c:if test="${page.style ne 'fluid'}">
-    <div class="grid-container">
-        <div class="grid-x grid-padding-x">
-            <div class="cell content" style="min-width:900px;padding-bottom:0;">
-                <c:if test="${not empty INCLUDE_PAGE}">
-                    <jsp:include page="/WEB-INF/jsp/${INCLUDE_PAGE}.jsp"/>
-                </c:if>
-            </div>
-        </div>
+    <div class="grid-container" style="min-width:900px;padding:0;">
+        <c:if test="${not empty INCLUDE_PAGE}">
+            <jsp:include page="/WEB-INF/jsp/${INCLUDE_PAGE}.jsp"/>
+        </c:if>
     </div>
     </c:if>
 </section>
