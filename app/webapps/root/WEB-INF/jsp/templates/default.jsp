@@ -59,7 +59,7 @@
         <div class="title-bar-center">
             <a href="#top-of-page">Aspectran</a>
         </div>
-        <div class="title-bar-right" data-toggle>
+        <div class="title-bar-right" data-toggle="gnb-menu">
             <a class="menu-icon" title="Menu"></a>
         </div>
     </div>
