@@ -8,7 +8,7 @@
     <meta name="google" content="notranslate">
     <title>JPetStore Demo</title>
     <meta name="description" content="JPetStore is a full web application built on top of MyBatis 3, Aspectran 6."/>
-    <link rel="stylesheet" type="text/css" href="https://aspectran.com/assets/css/styles_aspectran.css"/>
+    <link rel="stylesheet" type="text/css" href="https://aspectran.com/assets/css/aspectran.css"/>
     <link rel="stylesheet" type="text/css" href="/css/jpetstore.css"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway:500,500i,700" rel="stylesheet">
     <script src="https://aspectran.com/assets/js/modernizr-custom.js"></script>
@@ -64,7 +64,7 @@
         </div>
     </div>
     <div class="top-bar" id="gnb-menu" style="display:none">
-        <div class="row ${page.style}">
+        <div class="grid-container ${page.style}">
             <div class="top-bar-logo">
                 <div class="circle">
                     <a class="logo" href="/" title="Aspectran"><img src="https://aspectran.com/assets/img/aspectran-site-logo.png" alt="Aspectran"/></a>
@@ -97,10 +97,11 @@
             </div>
         </div>
         <div class="breadcrumbs-bar" style="display:none" data-hide-for="medium down">
-            <div class="row ${page.style}">
+            <div class="grid-container ${page.style}">
                 <nav role="navigation" aria-label="You are here:">
                     <ul class="breadcrumbs" itemprop="breadcrumb">
                         <li><a href="https://aspectran.com/">Aspectran</a></li>
+                        <li><a href="/">Demo</a></li>
                     </ul>
                 </nav>
             </div>
@@ -109,122 +110,101 @@
 </nav>
 <section itemscope itemtype="http://schema.org/Article">
     <div id="masthead">
-        <div class="row ${page.style}">
-            <div class="small-12 columns">
-                <header>
-                    <p class="subheadline" itemprop="alternativeHeadline">${page.subheadline}</p>
-                    <h1 itemprop="headline">JPetStore Demo</h1>
-                    <p class="teaser" itemprop="description">
-                        JPetStore is a full web application built on top of MyBatis 3, Aspectran 6.
-                    </p>
-                </header>
-                <div class="hexagons">
-                    <div class="hexagon hex1"></div>
-                    <div class="hexagon hex2"></div>
-                    <div class="hexagon hex3"></div>
-                    <div class="hexagon hex4"></div>
-                    <div class="hexagon hex5"></div>
-                    <div class="hexagon hex6"></div>
+        <div class="grid-container ${page.style}">
+            <div class="grid-x">
+                <div class="small-12 cell">
+                    <header>
+                        <p class="subheadline" itemprop="alternativeHeadline">${page.subheadline}</p>
+                        <h1 itemprop="headline">JPetStore Demo</h1>
+                        <p class="teaser" itemprop="description">
+                            JPetStore is a full web application built on top of MyBatis 3, Aspectran 6.
+                        </p>
+                    </header>
+                    <div class="hexagons">
+                        <div class="hexagon hex1"></div>
+                        <div class="hexagon hex2"></div>
+                        <div class="hexagon hex3"></div>
+                        <div class="hexagon hex4"></div>
+                        <div class="hexagon hex5"></div>
+                        <div class="hexagon hex6"></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row breadcrumbs-bar ${page.style}">
-            <div class="columns">
+        <div class="grid-container grid-x breadcrumbs-bar ${page.style}">
+            <div class="cell">
                 <nav role="navigation" aria-label="You are here:">
                     <ul class="breadcrumbs" itemprop="breadcrumb">
                         <li><a href="https://aspectran.com/">Aspectran</a></li>
+                        <li><a href="/">Demo</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </div>
-    <c:if test="${page.style eq 'expanded'}">
-    <div class="row content expanded">
+    <c:if test="${page.style eq 'fluid'}">
+    <div class="grid-container fluid cell content">
         <c:if test="${not empty INCLUDE_PAGE}">
             <jsp:include page="/WEB-INF/jsp/${INCLUDE_PAGE}.jsp"/>
         </c:if>
     </div>
     </c:if>
-    <c:if test="${page.style ne 'expanded'}">
-    <div class="row">
-        <div class="large-12 columns">
-            <div class="row content" style="padding-bottom:0;">
-                <div class="xlarge-10 xlarge-offset-1 columns" style="min-width:900px">
-                    <c:if test="${not empty INCLUDE_PAGE}">
-                        <jsp:include page="/WEB-INF/jsp/${INCLUDE_PAGE}.jsp"/>
-                    </c:if>
-                </div>
+    <c:if test="${page.style ne 'fluid'}">
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="cell content" style="min-width:900px;padding-bottom:0;">
+                <c:if test="${not empty INCLUDE_PAGE}">
+                    <jsp:include page="/WEB-INF/jsp/${INCLUDE_PAGE}.jsp"/>
+                </c:if>
             </div>
         </div>
     </div>
     </c:if>
 </section>
-<div id="up-to-top" class="row ${page.style}">
-    <div class="small-12 columns" style="text-align: right;">
-        <a class="iconfont" href="#top-of-page">&#xf108;</a>
+<div class="grid-container ${page.style}">
+    <div id="up-to-top" class="grid-x">
+        <div class="small-12 cell" style="text-align: right;">
+            <a class="iconfont" href="#top-of-page">&#xf108;</a>
+        </div>
     </div>
 </div>
 <footer id="footer-content">
     <div id="footer">
-        <div class="row">
-            <div class="medium-2 large-1 columns hide-for-small-only t5">
-                <h5><a class="logo" href="https://aspectran.com/info/" title="Aspectran"><img src="https://aspectran.com/assets/img/aspectran-logo-grey-x100.png" width="100" height="100" title="Aspectran"/></a></h5>
-            </div>
-            <div class="medium-4 large-4 columns">
-                <a href="https://aspectran.com/info/"><h5>About Aspectran</h5></a>
-                <p>
-                    <a href="https://aspectran.com/info/">Aspectran is a Java framework for building Web and command-line applications.</a>
-                </p>
-            </div>
-            <div class="small-6 medium-3 large-3 large-offset-1 columns">
-                <h5>Navigation</h5>
-                <ul class="no-bullet">
-                    <li class="">
-                        <a href="https://aspectran.com/getting-started/" title="">Getting-Started</a>
-                    </li>
-                    <li class="">
-                        <a href="https://aspectran.com/docs/" title="">Documentation</a>
-                    </li>
-                    <li class="" >
-                        <a href="https://aspectran.com/guides/" title="">Guides</a>
-                    </li>
-                    <li class="" >
-                        <a href="https://aspectran.com/projects/" title="">Projects</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="small-6 medium-3 large-3 columns">
-                <h5>Services</h5>
-                <ul class="no-bullet">
-                    <li>
-                        <a href="https://aspectran.com/support/" title="Aspectran Support">Support</a>
-                    </li>
-                    <li>
-                        <a href="https://aspectran.com/feed.xml" title="Subscribe to RSS Feed">RSS</a>
-                    </li>
-                    <li>
-                        <a href="https://aspectran.com/atom.xml" title="Subscribe to Atom Feed">Atom</a>
-                    </li>
-                    <li>
-                        <a href="https://aspectran.com/sitemap.xml"  title="Sitemap for Google Webmaster Tools">sitemap.xml</a>
-                    </li>
-                </ul>
+        <div class="grid-container">
+            <div class="grid-x grid-padding-x">
+                <div class="medium-2 large-1 cell hide-for-small-only t5">
+                    <h5><a class="logo" href="https://aspectran.com/aspectran/about/" title="Aspectran"><img src="https://aspectran.com/assets/img/aspectran-logo-grey-x100.png" width="100" height="100" alt="Aspectran" title="Aspectran"/></a></h5>
+                </div>
+                <div class="medium-4 large-4 cell">
+                    <a href="https://aspectran.com/aspectran/about/"><h5>About Aspectran</h5></a>
+                    <p><a href="https://aspectran.com/aspectran/about/">Aspectran is a Java framework for building Web and command-line applications.</a></p>
+                </div>
+                <div class="small-6 medium-3 large-3 large-offset-1 cell">
+                    <h5>Get Involved</h5>
+                    <ul class="no-bullet">
+                        <li class="icon-github"><a href="https://github.com/aspectran" target="_blank" title="" class="external">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="small-6 medium-3 large-3 cell">
+                    <h5>Support</h5>
+                    <ul class="no-bullet">
+                        <li><a href="https://aspectran.com/support/faq/" title="FAQ">FAQ</a></li>
+                        <li> <a href="https://aspectran.com/support/contact/" title="Contact">Contact</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
     <div id="subfooter">
-        <nav class="row b30">
-            <section id="subfooter-left" class="medium-6 columns credits">
-                <p>© 2008-2020 The Aspectran Project. All rights reserved.</p>
-            </section>
-            <section id="subfooter-right" class="medium-6 columns social-icons">
-                <ul>
-                    <li><a href="http://github.com/topframe" target="_blank" class="icon-github" title="Code and more ..."></a></li>
-                    <li><a href="http://twitter.com/aspectran" target="_blank" class="icon-twitter" title="Always the latest news from aspectran there on Twitter"></a></li>
-                    <li><a href="http://www.facebook.com/aspectran" target="_blank" class="icon-facebook" title="Let's be friends!"></a></li>
-                </ul>
-            </section>
-        </nav>
+        <div class="grid-container">
+            <nav class="grid-x b30">
+                <section id="subfooter-left" class="medium-6 cell credits">
+                    <p>Copyright © 2008-2020 The Aspectran Project</p>
+                </section>
+                <section id="subfooter-right" class="medium-6 cell social-icons">
+                </section>
+            </nav>
+        </div>
     </div>
 </footer>
 <script src="https://aspectran.com/assets/js/foundation.min.js"></script>
