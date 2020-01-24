@@ -143,7 +143,7 @@
         </div>
     </div>
     <c:if test="${page.style eq 'fluid'}">
-    <div class="grid-container fluid cell content">
+    <div class="grid-container fluid cell content" style="border-radius:0">
         <c:if test="${not empty INCLUDE_PAGE}">
             <jsp:include page="/WEB-INF/jsp/${INCLUDE_PAGE}.jsp"/>
         </c:if>
