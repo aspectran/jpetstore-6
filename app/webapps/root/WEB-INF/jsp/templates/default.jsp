@@ -289,11 +289,11 @@
 <script>
     $(document).ready(function() {
         $(".lazy-sticky").each(function() {
-            let $win = $(window);
-            let $this = $(this);
-            let upToTopHeight = $("#up-to-top").height() + 30 + 60;
+            const $win = $(window);
+            const $this = $(this);
+            const baseOffsetTop = $this.offset().top;
+            const upToTopHeight = $("#up-to-top").height() + 30 + 60;
             let footerHeight = $("#footer-content").height() + upToTopHeight;
-            let baseOffsetTop = $this.offset().top;
             let offsetTop = 0;
             let thisHeight = $this.height();
             let winHeight = $win.height();
@@ -334,8 +334,7 @@
                     let topBarHeight = $("#navigation.fixed .top-bar").height()||0;
                     if (immediate || (scrollTop > baseOffsetTop + topBarHeight + offsetTop + thisHeight - 20) ||
                         (scrollTop < baseOffsetTop + topBarHeight + offsetTop)) {
-                        let tocOffsetLeftBase = $this.offset().left;
-                        if (tocOffsetLeftBase > 100) {
+                        if ($this.offset().left >= 15 && $this.width() < 500) {
                             if (scrollTimer) {
                                 clearInterval(scrollTimer);
                                 scrollTimer = null;
@@ -346,7 +345,7 @@
                                 if (scrollTop < baseOffsetTop + topBarHeight) {
                                     scrollTop = 0;
                                 } else {
-                                    scrollTop = scrollTop - baseOffsetTop + topBarHeight + 10;
+                                    scrollTop = scrollTop - baseOffsetTop + topBarHeight + 30;
                                 }
                                 if (scrollTop > $(document).height() - footerHeight - thisHeight - baseOffsetTop + topBarHeight) {
                                     scrollTop = $(document).height() - footerHeight - thisHeight - baseOffsetTop + topBarHeight;
@@ -370,8 +369,7 @@
                 }
             });
             $win.resize(function() {
-                let tocOffsetLeftBase = $this.offset().left;
-                if (tocOffsetLeftBase <= 100) {
+                if ($this.offset().left < 15 || $this.width() >= 500) {
                     clearInterval(scrollTimer);
                     $this.css("top", 0);
                 } else {
