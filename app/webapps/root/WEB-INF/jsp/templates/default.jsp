@@ -178,14 +178,14 @@
                 <div class="small-6 medium-3 large-3 large-offset-1 cell">
                     <h5>Get Involved</h5>
                     <ul class="no-bullet">
-                        <li class="icon-github"><a href="https://github.com/aspectran" target="_blank" title="" class="external">GitHub</a></li>
+                        <li class="icon-github"> <a href="https://github.com/aspectran" target="_blank" title="" class="external">GitHub</a></li>
                     </ul>
                 </div>
                 <div class="small-6 medium-3 large-3 cell">
                     <h5>Support</h5>
                     <ul class="no-bullet">
                         <li><a href="https://aspectran.com/support/faq/" title="FAQ">FAQ</a></li>
-                        <li> <a href="https://aspectran.com/support/contact/" title="Contact">Contact</a></li>
+                        <li><a href="https://aspectran.com/support/contact/" title="Contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
