@@ -73,9 +73,9 @@
             <div class="top-bar-left">
                 <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
                     <li>
-                        <a href="/catalog/" title="Demo Applications made with Aspectran">Demo Apps</a>
+                        <a href="/" title="Demo Applications made with Aspectran">Demo Apps</a>
                         <ul class="menu" data-submenu data-close-on-click-inside="false">
-                            <li><a href="/catalog/">JPetStore Demo</a></li>
+                            <li><a href="/">JPetStore Demo</a></li>
                         </ul>
                     </li>
                     <li>
@@ -100,8 +100,8 @@
             <div class="grid-container ${page.style}">
                 <nav role="navigation" aria-label="You are here:">
                     <ul class="breadcrumbs" itemprop="breadcrumb">
-                        <li><a href="https://aspectran.com/">Aspectran</a></li>
-                        <li><a href="/">Demo</a></li>
+                        <li><a href="/">Demo Apps</a></li>
+                        <li><a href="/">JPetStore Demo</a></li>
                     </ul>
                 </nav>
             </div>
@@ -135,18 +135,18 @@
             <div class="cell">
                 <nav role="navigation" aria-label="You are here:">
                     <ul class="breadcrumbs" itemprop="breadcrumb">
-                        <li><a href="https://aspectran.com/">Aspectran</a></li>
-                        <li><a href="/">Demo</a></li>
+                        <li><a href="/">Demo Apps</a></li>
+                        <li><a href="/">JPetStore Demo</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </div>
     <c:if test="${page.style eq 'fluid'}">
-    <div class="grid-container fluid cell content" style="border-radius:0">
-        <c:if test="${not empty INCLUDE_PAGE}">
-            <jsp:include page="/WEB-INF/jsp/${INCLUDE_PAGE}.jsp"/>
-        </c:if>
+    <div class="grid-container fluid cell contour">
+                <c:if test="${not empty INCLUDE_PAGE}">
+                    <jsp:include page="/WEB-INF/jsp/${INCLUDE_PAGE}.jsp"/>
+                </c:if>
     </div>
     </c:if>
     <c:if test="${page.style ne 'fluid'}">

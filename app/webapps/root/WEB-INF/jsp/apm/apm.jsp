@@ -27,7 +27,7 @@
     </div>
 </div>
 <div class="grid-x grid-padding-x">
-    <div class="cell small-12 t20">
+    <div class="cell t20">
         <h3>Application Log</h3>
         <div class="log-container">
             <div class="log-header">
