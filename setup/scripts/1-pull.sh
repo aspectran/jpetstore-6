@@ -2,9 +2,8 @@
 
 . ./app.conf
 
-[ ! -d "$BUILD_DIR" ] && mkdir "$BUILD_DIR"
-
 if [ ! -d "$REPO_DIR" ]; then
+  [ ! -d "$BUILD_DIR" ] && mkdir "$BUILD_DIR"
   cd "$BUILD_DIR" || exit
   git clone "$REPO" "$APP_NAME"
 else
