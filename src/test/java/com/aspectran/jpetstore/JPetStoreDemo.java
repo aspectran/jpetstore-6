@@ -24,11 +24,9 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Test for JPetStoreDemo.
- *
- * <p>Created: 2017. 11. 19.</p>
+ * Main entry point for the application.
  */
-public class JPetStoreDemoTest {
+public class JPetStoreDemo {
 
     public static void main(String[] args) {
         try {
