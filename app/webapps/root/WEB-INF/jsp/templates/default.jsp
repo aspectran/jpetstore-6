@@ -233,9 +233,13 @@
                     }
                 } else {
                     if (!navFixed) {
-                        $nav.addClass("fixed");
-                        $nav.hide().fadeIn(500);
-                        navFixed = true;
+                        if ($nav.hasClass("immediate")) {
+                            $nav.removeClass("immediate")
+                        } else {
+                            $nav.addClass("fixed");
+                            $nav.hide().fadeIn(500);
+                            navFixed = true;
+                        }
                     }
                 }
                 lastScrollTop = scrollTop;
@@ -244,7 +248,7 @@
         }, 200);
         /* google search */
         $("form[name=google_quick_search]").submit(function(event) {
-            window.open('https://www.google.com/search?q=' + this.keyword.value + '+site:http%3A%2F%2F0.0.0.0%3A4000');
+            window.open('https://www.google.com/search?q=' + this.keyword.value + '+site:{{ site.url | cgi_escape }}');
             event.preventDefault();
         });
     });
@@ -279,13 +283,7 @@
                 immediate = true;
                 let anchor = $(this).attr("anchor");
                 if (anchor !== "top-of-page") {
-                    setTimeout(function() {
-                        let offset = $("#" + anchor).offset();
-                        if (offset) {
-                            immediate = true;
-                            $win.scrollTop(offset.top - $("#navigation.fixed .top-bar").height()||0);
-                        }
-                    }, 300);
+                    $("#navigation").addClass("immediate");
                 }
             });
             $win.scroll(function() {
@@ -364,8 +362,9 @@
 <script>
     /* Creating custom :external selector */
     $.expr[':'].external = function(obj) {
-        return !obj.href.match(/^javascript\:/)
-            && !obj.href.match(/^mailto\:/)
+        return obj.href
+            && !obj.href.match(/^javascript:/)
+            && !obj.href.match(/^mailto:/)
             && (obj.hostname !== location.hostname);
     };
     $(function() {
