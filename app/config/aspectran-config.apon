@@ -27,7 +27,6 @@ shell: {
         |{{GREEN }} / /_/ / ____/  __/ /_ ___/ / /_/ /_/ / /  /  __/
         |{{CYAN  }} \____/_/    \___/\__//____/\__/\____/_/   \___/
         |{{CYAN  }}==================================================
-        |{{reset }}
         |{{RED   }}Welcome To JPetStore Demo 1.0 SNAPSHOT
         |{{reset }}
         |If you want a list of all supported built-in commands, type '{{GREEN}}help{{reset}}'.
