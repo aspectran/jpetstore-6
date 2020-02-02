@@ -70,10 +70,10 @@
                 </div>
             </div>
             <div class="top-bar-left">
-                <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
+                <ul class="dropdown menu" data-dropdown-menu>
                     <li>
                         <a href="/" title="Demo Applications made with Aspectran">Demo Apps</a>
-                        <ul class="submenu menu vertical" data-submenu data-close-on-click-inside="false">
+                        <ul class="submenu menu vertical" data-submenu>
                             <li><a href="/">JPetStore Demo</a></li>
                         </ul>
                     </li>
