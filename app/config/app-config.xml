@@ -9,6 +9,8 @@
         |Since Undertow Server is running, have your web browser point to:
         |   {{81}}http://localhost:8081/{{fg:reset}}
         |
+        |Current profile: #{currentEnvironment^activeProfiles}
+        |
     </description>
 
     <bean id="basePath" class="com.aspectran.core.support.BasePathFactoryBean"/>

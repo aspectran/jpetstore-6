@@ -7,7 +7,7 @@ context: {
         com.aspectran.jpetstore
     ]
     profiles: {
-        active: [
+        default: [
             dev
         ]
     }
