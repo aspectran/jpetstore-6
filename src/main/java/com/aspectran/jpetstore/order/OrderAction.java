@@ -21,16 +21,16 @@ import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.core.component.bean.annotation.Dispatch;
-import com.aspectran.core.component.bean.annotation.Parameter;
+import com.aspectran.core.component.bean.annotation.Item;
 import com.aspectran.core.component.bean.annotation.Redirect;
 import com.aspectran.core.component.bean.annotation.Request;
 import com.aspectran.core.component.bean.annotation.Required;
 import com.aspectran.jpetstore.account.domain.Account;
+import com.aspectran.jpetstore.cart.domain.Cart;
 import com.aspectran.jpetstore.cart.service.CartService;
+import com.aspectran.jpetstore.common.user.UserSessionManager;
 import com.aspectran.jpetstore.common.validation.BeanValidator;
 import com.aspectran.jpetstore.order.domain.Order;
-import com.aspectran.jpetstore.cart.domain.Cart;
-import com.aspectran.jpetstore.common.user.UserSessionManager;
 import com.aspectran.jpetstore.order.service.OrderService;
 
 import java.util.List;
@@ -140,8 +140,8 @@ public class OrderAction {
     @Redirect(
             path = "/order/viewOrder",
             parameters = {
-                    @Parameter(name = "orderId", value = "@{order^orderId}"),
-                    @Parameter(name = "submitted", value = "true")
+                    @Item(name = "orderId", value = "@{order^orderId}"),
+                    @Item(name = "submitted", value = "true")
             }
     )
     @Action("order")
