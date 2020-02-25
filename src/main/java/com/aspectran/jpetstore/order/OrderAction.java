@@ -21,7 +21,7 @@ import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.core.component.bean.annotation.Dispatch;
-import com.aspectran.core.component.bean.annotation.Item;
+import com.aspectran.core.component.bean.annotation.ParamItem;
 import com.aspectran.core.component.bean.annotation.Redirect;
 import com.aspectran.core.component.bean.annotation.Request;
 import com.aspectran.core.component.bean.annotation.Required;
@@ -140,8 +140,8 @@ public class OrderAction {
     @Redirect(
             path = "/order/viewOrder",
             parameters = {
-                    @Item(name = "orderId", value = "@{order^orderId}"),
-                    @Item(name = "submitted", value = "true")
+                    @ParamItem(name = "orderId", value = "@{order^orderId}"),
+                    @ParamItem(name = "submitted", value = "true")
             }
     )
     @Action("order")
