@@ -1,28 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <!-- Undertow Access Logging -->
-    <appender name="UNDERTOW-ACCESS-LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${aspectran.basePath}/logs/undertow-access.log</file>
+    <appender name="APP-OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${aspectran.basePath}/logs/app.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${aspectran.basePath}/logs/archived/undertow-access.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${aspectran.basePath}/logs/archived/app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>10MB</maxFileSize>
             <maxHistory>30</maxHistory>
             <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <charset>UTF-8</charset>
-            <pattern>%msg%n</pattern>
-        </encoder>
-    </appender>
-    <logger name="io.undertow.accesslog" level="info" additivity="false">
-        <appender-ref ref="UNDERTOW-ACCESS-LOG"/>
-    </logger>
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%-5level %relative [%thread] %msg - %logger{30}.%M\(%line\)%n</pattern>
+            <pattern>%-5level %d{yyyy-MM-dd HH:mm:ss} [%thread] %msg - %logger{30}.%M\(%line\)%n</pattern>
         </encoder>
     </appender>
     <logger name="com.aspectran" level="debug" additivity="false">
+        <appender-ref ref="APP-OUT"/>
+    </logger>
+    <logger name="com.aspectran.core.component.session" level="debug" additivity="false">
+        <appender-ref ref="APP-OUT"/>
+    </logger>
+    <logger name="org.quartz" level="info" additivity="false">
+        <appender-ref ref="APP-OUT"/>
+    </logger>
+    <logger name="org.apache.ibatis" level="error" additivity="false">
+        <appender-ref ref="APP-OUT"/>
+    </logger>
+    <Logger name="com.aspectran.jpetstore" level="debug" additivity="false">
+        <appender-ref ref="APP-OUT"/>
+    </Logger>
+    <root level="info">
+        <appender-ref ref="APP-OUT"/>
+    </root>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-5level %d{yyyy-MM-dd HH:mm:ss} [%thread] %msg - %logger{30}.%M\(%line\)%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="com.aspectran" level="debug" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="com.aspectran.core.scheduler.service.JobActivityReport" level="debug" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
     <logger name="com.aspectran.core.component.session" level="debug" additivity="false">
@@ -31,10 +49,15 @@
     <logger name="org.quartz" level="info" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
+    <logger name="org.apache.ibatis" level="error" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
     <logger name="com.aspectran.jpetstore" level="debug" additivity="false">
-        <appender-ref ref="APP-OUT"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
     <root level="info">
         <appender-ref ref="STDOUT"/>
     </root>
+    <include optional="true" file="${aspectran.basePath}/config/logback-scheduler.xml"/>
+    <include optional="true" file="${aspectran.basePath}/config/logback-undertow.xml"/>
 </configuration>
