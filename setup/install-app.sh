@@ -31,6 +31,7 @@ fi
 
 rm -rf "${DEPLOY_DIR:?}"/bin/*
 [ -d "$REPO_DIR/app/bin" ] && cp -pR "$REPO_DIR"/app/bin/* "$DEPLOY_DIR/bin"
+chmod +x "$DEPLOY_DIR"/bin/*.sh
 
 [ -d "$REPO_DIR/app/commands/sample" ] && rm -rf "${DEPLOY_DIR:?}"/commands/sample/*
 [ -d "$REPO_DIR/app/commands/sample" ] && cp -pR "$REPO_DIR"/app/commands/sample/* "$DEPLOY_DIR/commands/sample"
