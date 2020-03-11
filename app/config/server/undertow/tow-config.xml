@@ -186,9 +186,16 @@
         <properties>
             <item name="towServletContainer">#{tow.server^towServletContainer}</item>
             <item name="staticResourceHandler">#{tow.staticResourceHandler}</item>
+        </properties>
+        <properties profile="!prod">
             <item name="outerHandlerChainWrappers" type="array">
                 <value>#{tow.encodingHandlerWrapper}</value>
                 <value>#{tow.accessLogHandlerWrapper}</value>
+            </item>
+        </properties>
+        <properties profile="prod">
+            <item name="outerHandlerChainWrappers" type="array">
+                <value>#{tow.encodingHandlerWrapper}</value>
             </item>
         </properties>
     </bean>
