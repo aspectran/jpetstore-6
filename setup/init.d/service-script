@@ -15,6 +15,13 @@
 DAEMON_OUT="$DEPLOY_DIR/logs/daemon.out"
 DAEMON_ERR="$DEPLOY_DIR/logs/daemon.err"
 
+case "$1" in
+start)
+  [ -f "$PID_FILE" ] && rm -f "$PID_FILE"
+  [ -f "$LOCK_FILE" ] && rm -f "$LOCK_FILE"
+  ;;
+esac
+
 "$DEPLOY_DIR/bin/jsvc-daemon.sh" \
   --proc-name "$PROC_NAME" \
   --pid-file "$PID_FILE" \
