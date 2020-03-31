@@ -16,7 +16,7 @@ context: {
 scheduler: {
     startDelaySeconds: 3
     waitOnShutdown: true
-    startup: false
+    enabled: false
 }
 shell: {
     greetings: (
