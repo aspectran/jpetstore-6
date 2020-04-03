@@ -19,9 +19,9 @@ import com.aspectran.core.component.bean.annotation.Autowired;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.jpetstore.account.domain.Account;
+import com.aspectran.jpetstore.common.mybatis.SimpleSqlSession;
 import com.aspectran.jpetstore.common.mybatis.mapper.AccountMapper;
 import org.apache.ibatis.session.SqlSession;
-import com.aspectran.jpetstore.common.mybatis.SimpleSqlSession;
 
 import java.util.Optional;
 

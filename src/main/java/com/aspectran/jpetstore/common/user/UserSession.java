@@ -16,9 +16,9 @@
 package com.aspectran.jpetstore.common.user;
 
 import com.aspectran.jpetstore.account.domain.Account;
+import com.aspectran.jpetstore.cart.domain.Cart;
 import com.aspectran.jpetstore.catalog.domain.Product;
 import com.aspectran.jpetstore.order.domain.Order;
-import com.aspectran.jpetstore.cart.domain.Cart;
 
 import java.io.Serializable;
 import java.util.List;

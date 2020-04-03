@@ -20,12 +20,12 @@ import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.jpetstore.catalog.domain.Category;
 import com.aspectran.jpetstore.catalog.domain.Product;
+import com.aspectran.jpetstore.common.mybatis.SimpleSqlSession;
 import com.aspectran.jpetstore.common.mybatis.mapper.CategoryMapper;
 import com.aspectran.jpetstore.common.mybatis.mapper.ItemMapper;
 import com.aspectran.jpetstore.common.mybatis.mapper.ProductMapper;
 import com.aspectran.jpetstore.order.domain.Item;
 import org.apache.ibatis.session.SqlSession;
-import com.aspectran.jpetstore.common.mybatis.SimpleSqlSession;
 
 import java.util.ArrayList;
 import java.util.List;
