@@ -27,24 +27,24 @@
 
 	<table>
 		<colgroup>
-			<col style="width: 30%"/>
+			<col style="width: 20%"/>
 			<col style="width: 30%"/>
 			<col/>
 		</colgroup>
 		<tr>
-			<th>&nbsp;</th>
 			<th>Product ID</th>
 			<th>Name</th>
+			<th>Description</th>
 		</tr>
 		<c:forEach var="product" items="${productList}">
 			<tr>
 				<td>
-					<a href="/catalog/products/${product.productId}">${product.description}</a>
-				</td>
-				<td>
 					<strong><a href="/catalog/products/${product.productId}">${product.productId}</a></strong>
 				</td>
 				<td>${product.name}</td>
+				<td style="text-align: left">
+					<a href="/catalog/products/${product.productId}">${product.description}</a>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>

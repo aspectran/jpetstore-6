@@ -64,16 +64,8 @@ body > #Menu {
     line-height: 9ex;
 }
 
-#Search input {
-    color: #eaac00;
-    margin: 1px;
-    width: 66%;
-    float: left;
-}
 #Search button {
-    margin: 0;
-    width: 33%;
-    float: left;
+    background-color: #588519;
 }
 
 #QuickLinks {

@@ -72,7 +72,7 @@
             <div class="top-bar-left">
                 <ul class="dropdown menu" data-dropdown-menu>
                     <li>
-                        <a href="/" title="Demo Applications made with Aspectran">Demo Apps</a>
+                        <a title="Demo Applications made with Aspectran">Demo Apps</a>
                         <ul class="submenu menu vertical" data-submenu>
                             <li><a href="/">JPetStore Demo</a></li>
                         </ul>
@@ -142,9 +142,9 @@
     </div>
     <c:if test="${page.style eq 'fluid'}">
     <div class="grid-container fluid cell contour">
-                <c:if test="${not empty INCLUDE_PAGE}">
-                    <jsp:include page="/WEB-INF/jsp/${INCLUDE_PAGE}.jsp"/>
-                </c:if>
+        <c:if test="${not empty INCLUDE_PAGE}">
+            <jsp:include page="/WEB-INF/jsp/${INCLUDE_PAGE}.jsp"/>
+        </c:if>
     </div>
     </c:if>
     <c:if test="${page.style ne 'fluid'}">
@@ -167,11 +167,11 @@
         <div class="grid-container">
             <div class="grid-x grid-padding-x">
                 <div class="medium-2 large-1 cell hide-for-small-only t5">
-                    <h5><a class="logo" href="https://aspectran.com/aspectran/" title="Aspectran"><img src="https://aspectran.com/assets/img/aspectran-logo-grey-x100.png" width="100" height="100" alt="Aspectran" title="Aspectran"/></a></h5>
+                    <h5><a class="logo" href="https://aspectran.com/en/aspectran/" title="Aspectran"><img src="https://aspectran.com/assets/img/aspectran-logo-grey-x100.png" width="100" height="100" alt="Aspectran" title="Aspectran"/></a></h5>
                 </div>
                 <div class="medium-4 large-4 cell">
-                    <a href="https://aspectran.com/aspectran/"><h5>About Aspectran</h5></a>
-                    <p><a href="https://aspectran.com/aspectran/">Aspectran is a framework for developing Java applications that can be used to build simple shell applications and large enterprise web applications.</a></p>
+                    <a href="https://aspectran.com/en/aspectran/"><h5>About Aspectran</h5></a>
+                    <p><a href="https://aspectran.com/en/aspectran/">Aspectran is a framework for developing Java applications that can be used to build simple shell applications and large enterprise web applications.</a></p>
                 </div>
                 <div class="small-6 medium-3 large-3 large-offset-1 cell">
                     <h5>Get Involved</h5>
