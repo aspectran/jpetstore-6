@@ -2,4 +2,4 @@
 
 ./1-pull.sh
 ./3-deploy_config.sh
-./5-deploy_webapps.sh
+./4-deploy_webapps.sh
