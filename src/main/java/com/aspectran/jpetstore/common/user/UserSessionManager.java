@@ -21,6 +21,7 @@ import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.core.component.bean.aware.ActivityContextAware;
 import com.aspectran.core.context.ActivityContext;
+import com.aspectran.core.util.Assert;
 
 @Component
 @Bean("userSessionManager")
@@ -32,7 +33,7 @@ public class UserSessionManager implements ActivityContextAware {
      */
     public static final String USER_SESSION_KEY = "user";
 
-    private ActivityContext activityContext;
+    private ActivityContext context;
 
     protected void save(UserSession userSession) {
         getSessionAdapter().setAttribute(USER_SESSION_KEY, userSession);
@@ -70,20 +71,19 @@ public class UserSessionManager implements ActivityContextAware {
     }
 
     private SessionAdapter getSessionAdapter() {
-        if (activityContext == null) {
-            throw new IllegalArgumentException("ActivityContext is not injected");
-        }
-        SessionAdapter sessionAdapter = activityContext.getCurrentActivity().getSessionAdapter();
+        Assert.state(context != null, "No ActivityContext configured");
+        SessionAdapter sessionAdapter = context.getCurrentActivity().getSessionAdapter();
         if (sessionAdapter == null) {
             throw new UnsupportedOperationException("There is no SessionAdapter in " +
-                    activityContext.getCurrentActivity());
+                    context.getCurrentActivity());
         }
         return sessionAdapter;
     }
 
     @Override
-    public void setActivityContext(ActivityContext activityContext) {
-        this.activityContext = activityContext;
+    @AvoidAdvice
+    public void setActivityContext(ActivityContext context) {
+        this.context = context;
     }
 
 }
