@@ -3,7 +3,7 @@
         "http://aspectran.github.io/dtd/aspectran-6.dtd">
 <aspectran>
 
-    <append file="/config/server/undertow/tow-config.xml" profile="!jetty"/>
+    <append file="/config/server/undertow/undertow-config.xml" profile="!jetty"/>
     <append file="/config/server/jetty/jetty-config.xml" profile="jetty"/>
 
 </aspectran>
