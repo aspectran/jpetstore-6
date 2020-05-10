@@ -71,10 +71,10 @@ public class UserSessionManager implements ActivityContextAware {
     }
 
     private SessionAdapter getSessionAdapter() {
-        Assert.state(context != null, "No ActivityContext configured");
+        Assert.state(context != null, "ActivityContext is not injected");
         SessionAdapter sessionAdapter = context.getCurrentActivity().getSessionAdapter();
         if (sessionAdapter == null) {
-            throw new UnsupportedOperationException("There is no SessionAdapter in " +
+            throw new UnsupportedOperationException("No such SessionAdapter in " +
                     context.getCurrentActivity());
         }
         return sessionAdapter;
