@@ -47,7 +47,7 @@
     <append file="/config/web/apm/apm.xml"/>
 
     <translet name="/">
-        <transform type="text">
+        <transform format="text">
             <template style="apon">
                 |Hello~
             </template>

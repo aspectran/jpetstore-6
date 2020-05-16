@@ -10,7 +10,7 @@
         </description>
         <exception>
             <thrown>
-                <transform type="text">
+                <transform format="text">
                     <template style="apon">
                         |
                         |An Error Occurred!
@@ -21,7 +21,7 @@
                         |
                     </template>
                 </transform>
-                <transform type="text" contentType="text/html" default="true">
+                <transform format="text" contentType="text/html" default="true">
                     <template style="apon">
                         <![CDATA[
                         |<html>
