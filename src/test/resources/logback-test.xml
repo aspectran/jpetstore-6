@@ -16,6 +16,9 @@
     <logger name="com.aspectran" level="debug" additivity="false">
         <appender-ref ref="APP-OUT"/>
     </logger>
+    <logger name="com.aspectran.core.scheduler.service.JobActivityReport" level="debug" additivity="false">
+        <appender-ref ref="APP-OUT"/>
+    </logger>
     <logger name="com.aspectran.core.component.session" level="debug" additivity="false">
         <appender-ref ref="APP-OUT"/>
     </logger>
@@ -58,6 +61,7 @@
     <root level="info">
         <appender-ref ref="STDOUT"/>
     </root>
+
     <include optional="true" file="${aspectran.basePath}/config/logback-scheduler.xml"/>
     <include optional="true" file="${aspectran.basePath}/config/logback-undertow.xml"/>
 </configuration>
