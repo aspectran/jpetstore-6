@@ -30,17 +30,17 @@ import com.aspectran.jpetstore.cart.service.CartService;
 import java.util.Iterator;
 
 /**
- * The Class CartAction.
+ * The Class CartActivity.
  *
  * @author Juho Jeong
  */
 @Component
-@Bean("cartAction")
-public class CartAction {
+@Bean
+public class CartActivity {
 
     private final CartService cartService;
 
-    public CartAction(CartService cartService) {
+    public CartActivity(CartService cartService) {
         this.cartService = cartService;
     }
 

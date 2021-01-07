@@ -35,13 +35,13 @@ import com.aspectran.jpetstore.common.validation.BeanValidator;
 import java.util.List;
 
 /**
- * The Class AccountAction.
+ * The Class AccountActivity.
  *
  * @author Juho Jeong
  */
 @Component
-@Bean("accountAction")
-public class AccountAction {
+@Bean
+public class AccountActivity {
 
     @Autowired
     public AccountService accountService;

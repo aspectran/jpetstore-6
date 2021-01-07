@@ -36,13 +36,13 @@ import com.aspectran.jpetstore.order.service.OrderService;
 import java.util.List;
 
 /**
- * The Class OrderAction.
+ * The Class OrderActivity.
  *
  * @author Juho Jeong
  */
 @Component
-@Bean("orderAction")
-public class OrderAction {
+@Bean
+public class OrderActivity {
 
     @Autowired
     public OrderService orderService;

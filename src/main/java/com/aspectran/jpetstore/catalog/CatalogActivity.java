@@ -32,18 +32,18 @@ import com.aspectran.jpetstore.order.domain.Item;
 import java.util.List;
 
 /**
- * The Class CatalogAction.
+ * The Class CatalogActivity.
  *
  * @author Juho Jeong
  */
 @Component
-@Bean("catalogAction")
-public class CatalogAction {
+@Bean
+public class CatalogActivity {
 
-    private CatalogService catalogService;
+    private final CatalogService catalogService;
 
     @Autowired
-    public CatalogAction(CatalogService catalogService) {
+    public CatalogActivity(CatalogService catalogService) {
         this.catalogService = catalogService;
     }
 
