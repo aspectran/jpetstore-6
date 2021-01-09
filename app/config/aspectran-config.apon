@@ -1,3 +1,8 @@
+system: {
+    properties: {
+        aspectran.encryption.password: 1234
+    }
+}
 context: {
     root: /config/app-config.xml
     resources: [
