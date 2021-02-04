@@ -7,15 +7,15 @@ import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.core.component.bean.annotation.Scope;
 import com.aspectran.core.context.rule.type.ScopeType;
 import com.aspectran.web.support.http.HttpStatusSetter;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validator;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 @Component
-@Bean(id = "beanValidator")
+@Bean("beanValidator")
 @Scope(ScopeType.REQUEST)
 public class BeanValidator {
 
@@ -28,6 +28,7 @@ public class BeanValidator {
         this.validator = validator;
     }
 
+    @SuppressWarnings("rawtypes")
     public <T> Map<String, String> validate(Translet translet, T model, Class<?>... groups) {
         Set<ConstraintViolation<T>> constraintViolations = validator.validate(model, groups);
         if (!constraintViolations.isEmpty()) {

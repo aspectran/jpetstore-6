@@ -38,9 +38,6 @@ public class LineItem implements Serializable {
     private Item item;
     private BigDecimal total;
 
-    public LineItem() {
-    }
-
     /**
      * Instantiates a new line item.
      *
@@ -86,8 +83,8 @@ public class LineItem implements Serializable {
         return unitPrice;
     }
 
-    public void setUnitPrice(BigDecimal unitprice) {
-        this.unitPrice = unitprice;
+    public void setUnitPrice(BigDecimal unitPrice) {
+        this.unitPrice = unitPrice;
     }
 
     public BigDecimal getTotal() {

@@ -16,9 +16,9 @@
 package com.aspectran.jpetstore.common.validation;
 
 import com.aspectran.core.util.BeanUtils;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
 

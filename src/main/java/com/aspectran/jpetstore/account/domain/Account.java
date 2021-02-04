@@ -17,12 +17,12 @@ package com.aspectran.jpetstore.account.domain;
 
 import com.aspectran.jpetstore.common.validation.RepeatedField;
 import com.aspectran.jpetstore.common.validation.TelephoneNumber;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.groups.Default;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-import javax.validation.groups.Default;
 import java.io.Serializable;
 
 /**

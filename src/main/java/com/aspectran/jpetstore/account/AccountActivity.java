@@ -143,7 +143,6 @@ public class AccountActivity {
             userSession.setAccount(account);
             userSession.setProducts(products);
             userSession.setAuthenticated(true);
-
             if (StringUtils.hasLength(referer)) {
                 translet.redirect(referer);
             }
