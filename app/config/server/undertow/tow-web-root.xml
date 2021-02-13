@@ -92,13 +92,13 @@
             <item name="servletContainer">#{tow.server^servletContainer}</item>
             <item name="staticResourceHandler">#{tow.web.root.staticResourceHandler}</item>
         </properties>
-        <properties profile="!prod">
+        <properties profile="prod">
             <item name="outerHandlerChainWrappers" type="array">
                 <value>#{tow.encodingHandlerWrapper}</value>
                 <value>#{tow.accessLogHandlerWrapper}</value>
             </item>
         </properties>
-        <properties profile="prod">
+        <properties profile="!prod">
             <item name="outerHandlerChainWrappers" type="array">
                 <value>#{tow.encodingHandlerWrapper}</value>
             </item>
