@@ -17,25 +17,25 @@ fi
 [ ! -d "$DEPLOY_DIR" ] && mkdir "$DEPLOY_DIR"
 [ ! -d "$RESTORE_DIR" ] && mkdir "$RESTORE_DIR"
 [ ! -d "$DEPLOY_DIR/bin" ] && mkdir "$DEPLOY_DIR/bin"
-[ -d "$REPO_DIR/app/commands" ] && [ ! -d "$DEPLOY_DIR/commands" ] && mkdir "$DEPLOY_DIR/commands"
-[ -d "$REPO_DIR/app/commands" ] && [ ! -d "$DEPLOY_DIR/commands/completed" ] && mkdir "$DEPLOY_DIR/commands/completed"
-[ -d "$REPO_DIR/app/commands" ] && [ ! -d "$DEPLOY_DIR/commands/failed" ] && mkdir "$DEPLOY_DIR/commands/failed"
-[ -d "$REPO_DIR/app/commands" ] && [ ! -d "$DEPLOY_DIR/commands/incoming" ] && mkdir "$DEPLOY_DIR/commands/incoming"
-[ -d "$REPO_DIR/app/commands" ] && [ ! -d "$DEPLOY_DIR/commands/queued" ] && mkdir "$DEPLOY_DIR/commands/queued"
-[ -d "$REPO_DIR/app/commands/sample" ] && [ ! -d "$DEPLOY_DIR/commands/sample" ] && mkdir "$DEPLOY_DIR/commands/sample"
+[ -d "$REPO_DIR/app/cmd" ] && [ ! -d "$DEPLOY_DIR/cmd" ] && mkdir "$DEPLOY_DIR/cmd"
+[ -d "$REPO_DIR/app/cmd" ] && [ ! -d "$DEPLOY_DIR/cmd/completed" ] && mkdir "$DEPLOY_DIR/cmd/completed"
+[ -d "$REPO_DIR/app/cmd" ] && [ ! -d "$DEPLOY_DIR/cmd/failed" ] && mkdir "$DEPLOY_DIR/cmd/failed"
+[ -d "$REPO_DIR/app/cmd" ] && [ ! -d "$DEPLOY_DIR/cmd/incoming" ] && mkdir "$DEPLOY_DIR/cmd/incoming"
+[ -d "$REPO_DIR/app/cmd" ] && [ ! -d "$DEPLOY_DIR/cmd/queued" ] && mkdir "$DEPLOY_DIR/cmd/queued"
+[ -d "$REPO_DIR/app/cmd/sample" ] && [ ! -d "$DEPLOY_DIR/cmd/sample" ] && mkdir "$DEPLOY_DIR/cmd/sample"
 [ ! -d "$DEPLOY_DIR/config" ] && mkdir "$DEPLOY_DIR/config"
 [ ! -d "$DEPLOY_DIR/lib" ] && mkdir "$DEPLOY_DIR/lib"
 [ ! -d "$DEPLOY_DIR/logs" ] && mkdir "$DEPLOY_DIR/logs"
 [ ! -d "$DEPLOY_DIR/temp" ] && mkdir "$DEPLOY_DIR/temp"
 [ ! -d "$DEPLOY_DIR/work" ] && mkdir "$DEPLOY_DIR/work"
-[ -d "$REPO_DIR/app/webapps" ] && [ ! -d "$DEPLOY_DIR/webapps" ] && mkdir "$DEPLOY_DIR/webapps"
+[ -d "$REPO_DIR/app/webroot" ] && [ ! -d "$DEPLOY_DIR/webroot" ] && mkdir "$DEPLOY_DIR/webroot"
 
 rm -rf "${DEPLOY_DIR:?}"/bin/*
 [ -d "$REPO_DIR/app/bin" ] && cp -pR "$REPO_DIR"/app/bin/* "$DEPLOY_DIR/bin"
 chmod +x "$DEPLOY_DIR"/bin/*.sh
 
-[ -d "$REPO_DIR/app/commands/sample" ] && rm -rf "${DEPLOY_DIR:?}"/commands/sample/*
-[ -d "$REPO_DIR/app/commands/sample" ] && cp -pR "$REPO_DIR"/app/commands/sample/* "$DEPLOY_DIR/commands/sample"
+[ -d "$REPO_DIR/app/cmd/sample" ] && rm -rf "${DEPLOY_DIR:?}"/cmd/sample/*
+[ -d "$REPO_DIR/app/cmd/sample" ] && cp -pR "$REPO_DIR"/app/cmd/sample/* "$DEPLOY_DIR/cmd/sample"
 
 cp "$REPO_DIR/setup/app.conf" "$BASE_DIR" || exit
 cp "$REPO_DIR"/setup/scripts/*.sh "$BASE_DIR" || exit
