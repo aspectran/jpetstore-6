@@ -41,7 +41,6 @@ public class XSSPreventionFilter implements ClassLoaderAware {
 
     /**
      * It is recommended to canonicalize using the ESAPI library to avoid encoded attacks.
-     *
      * @param canonicalize true if enabling canonicalization of the input using the
      *                     ESAPI library, false otherwise
      */

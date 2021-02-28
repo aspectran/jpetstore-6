@@ -51,7 +51,6 @@ public class AccountService {
 
     /**
      * Insert account.
-     *
      * @param account the account
      */
     public void insertAccount(Account account) {
@@ -63,7 +62,6 @@ public class AccountService {
 
     /**
      * Update account.
-     *
      * @param account the account
      */
     public void updateAccount(Account account) {

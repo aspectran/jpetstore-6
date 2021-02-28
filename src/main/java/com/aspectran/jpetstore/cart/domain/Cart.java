@@ -60,7 +60,6 @@ public class Cart implements Serializable {
 
     /**
      * Adds the item.
-     *
      * @param item the item
      * @param isInStock the is in stock
      */
@@ -79,7 +78,6 @@ public class Cart implements Serializable {
 
     /**
      * Removes the item by id.
-     *
      * @param itemId the item id
      * @return the item
      */
@@ -95,7 +93,6 @@ public class Cart implements Serializable {
 
     /**
      * Increment quantity by item id.
-     *
      * @param itemId the item id
      */
     public void incrementQuantityByItemId(String itemId) {
@@ -110,7 +107,6 @@ public class Cart implements Serializable {
 
     /**
      * Gets the sub total.
-     *
      * @return the sub total
      */
     public BigDecimal getSubTotal() {

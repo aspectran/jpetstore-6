@@ -360,7 +360,6 @@ public class Order implements Serializable {
 
     /**
      * Inits the order.
-     *
      * @param account
      *          the account
      * @param cart
