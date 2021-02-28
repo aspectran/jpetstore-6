@@ -46,7 +46,7 @@
                     <properties>
                         <item name="servletContexts" type="array">
                             <value>#{tow.web.root.servletContext}</value>
-                            <value>#{tow.web.h2console.servletContext}</value>
+                            <!--<value>#{tow.web.h2console.servletContext}</value>-->
                         </item>
                     </properties>
                 </bean>
