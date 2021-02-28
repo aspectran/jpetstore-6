@@ -10,7 +10,7 @@ if [ ! -d "$REPO_DIR" ]; then
   git clone "$REPO_URL" "$APP_NAME"
 else
   cd "$REPO_DIR" || exit
-  git pull origin master
+  git pull
 fi
 
 # create directory structure
