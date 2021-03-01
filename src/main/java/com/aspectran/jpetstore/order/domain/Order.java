@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2010-2018 the original author or authors.
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -361,10 +361,8 @@ public class Order implements Serializable {
     /**
      * Inits the order.
      *
-     * @param account
-     *          the account
-     * @param cart
-     *          the cart
+     * @param account the account
+     * @param cart the cart
      */
     public void initialize(Account account, Cart cart) {
 

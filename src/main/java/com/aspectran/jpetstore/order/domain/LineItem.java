@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2010-2018 the original author or authors.
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,13 +38,14 @@ public class LineItem implements Serializable {
     private Item item;
     private BigDecimal total;
 
+    public LineItem() {
+    }
+
     /**
      * Instantiates a new line item.
      *
-     * @param lineNumber
-     *          the line number
-     * @param cartItem
-     *          the cart item
+     * @param lineNumber the line number
+     * @param cartItem the cart item
      */
     public LineItem(int lineNumber, CartItem cartItem) {
         this.lineNumber = lineNumber;

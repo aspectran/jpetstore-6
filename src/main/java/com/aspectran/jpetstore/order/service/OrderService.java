@@ -50,7 +50,6 @@ public class OrderService {
 
     /**
      * Insert order.
-     *
      * @param order the order
      */
     public void insertOrder(Order order) {
@@ -78,7 +77,6 @@ public class OrderService {
 
     /**
      * Delete order.
-     *
      * @param orderId the order id
      */
     public void deleteOrder(int orderId) {
@@ -88,7 +86,6 @@ public class OrderService {
 
     /**
      * Gets the order.
-     *
      * @param orderId the order id
      * @return the order
      */
@@ -111,7 +108,6 @@ public class OrderService {
 
     /**
      * Gets the orders by username.
-     *
      * @param username the username
      * @return the orders by username
      */
@@ -121,7 +117,6 @@ public class OrderService {
 
     /**
      * Gets the next id.
-     *
      * @param name the name
      * @return the next id
      */
