@@ -116,6 +116,7 @@
                                         <exclude>org.apache.logging.log4j:log4j-slf4j-impl</exclude>
                                         <exclude>org.slf4j:slf4j-log4j12</exclude>
                                         <exclude>org.slf4j:slf4j-jdk14</exclude>
+                                        <exclude>org.slf4j:slf4j-simple</exclude>
                                     </excludes>
                                 </bannedDependencies>
                             </rules>
@@ -254,6 +255,10 @@
                 <exclusion>
                     <groupId>commons-logging</groupId>
                     <artifactId>commons-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-simple</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
