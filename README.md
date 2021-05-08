@@ -23,7 +23,7 @@ This is another implementation of MyBatis sample application (https://github.com
 
   ```bash
   $ cd app/bin
-  $ ./shell.sh
+  $ ./jline-shell.sh
   ```
 
 - Access in your browser at http://localhost:8081
