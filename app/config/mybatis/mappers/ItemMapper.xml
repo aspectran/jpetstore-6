@@ -41,11 +41,11 @@
       ATTR5 AS attribute5
     FROM ITEM I, PRODUCT P
     WHERE P.PRODUCTID = I.PRODUCTID
-    AND I.PRODUCTID = #{value}
+      AND I.PRODUCTID = #{value}
   </select>
 
   <select id="getItem" resultType="com.aspectran.jpetstore.order.domain.Item">
-    select
+    SELECT
       I.ITEMID,
       LISTPRICE,
       UNITCOST,
@@ -61,10 +61,10 @@
       ATTR4 AS attribute4,
       ATTR5 AS attribute5,
       QTY AS quantity
-    from ITEM I, INVENTORY V, PRODUCT P
-    where P.PRODUCTID = I.PRODUCTID
-      and I.ITEMID = V.ITEMID
-      and I.ITEMID = #{value}
+    FROM ITEM I, INVENTORY V, PRODUCT P
+    WHERE P.PRODUCTID = I.PRODUCTID
+      AND I.ITEMID = V.ITEMID
+      AND I.ITEMID = #{value}
   </select>
 
   <select id="getInventoryQuantity" resultType="int">

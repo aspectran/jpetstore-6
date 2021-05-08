@@ -104,11 +104,11 @@
     <bind name="bannerOptionValue" value="_parameter.isBannerOption() ? 1 : 0" />
 
     UPDATE PROFILE SET
-    LANGPREF = #{languagePreference},
-    FAVCATEGORY = #{favouriteCategoryId},
-    MYLISTOPT = #{listOptionValue},
-    BANNEROPT = #{bannerOptionValue}
-    WHERE USERID = #{username}
+      LANGPREF = #{languagePreference},
+      FAVCATEGORY = #{favouriteCategoryId},
+      MYLISTOPT = #{listOptionValue},
+      BANNEROPT = #{bannerOptionValue}
+      WHERE USERID = #{username}
   </update>
 
   <insert id="insertProfile" parameterType="com.aspectran.jpetstore.account.domain.Account">

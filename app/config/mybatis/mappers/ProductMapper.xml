@@ -27,8 +27,8 @@
     SELECT
       PRODUCTID,
       NAME,
-      DESCN as description,
-      CATEGORY as categoryId
+      DESCN AS description,
+      CATEGORY AS categoryId
     FROM PRODUCT
     WHERE PRODUCTID = #{productId}
   </select>
@@ -37,20 +37,20 @@
     SELECT
       PRODUCTID,
       NAME,
-      DESCN as description,
-      CATEGORY as categoryId
+      DESCN AS description,
+      CATEGORY AS categoryId
     FROM PRODUCT
     WHERE CATEGORY = #{value}
   </select>
 
   <select id="searchProductList" resultType="com.aspectran.jpetstore.catalog.domain.Product">
-    select
+    SELECT
       PRODUCTID,
       NAME,
-      DESCN as description,
-      CATEGORY as categoryId
-    from PRODUCT
-    WHERE lower(name) like #{value}
+      DESCN AS description,
+      CATEGORY AS categoryId
+    FROM PRODUCT
+    WHERE lower(name) LIKE #{value}
   </select>
 
 </mapper>

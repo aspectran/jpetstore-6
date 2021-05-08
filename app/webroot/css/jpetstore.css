@@ -241,8 +241,10 @@ body > #Banner {
 
 #MessageBar {
     padding: 10px;
+    margin-bottom: 10px;
     background-color: #eaac00;
     text-align: center;
+    border-radius: 10px;
 }
 #MessageBar p {
     margin: 0;

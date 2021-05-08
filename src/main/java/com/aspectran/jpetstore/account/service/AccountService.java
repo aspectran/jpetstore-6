@@ -51,7 +51,6 @@ public class AccountService {
 
     /**
      * Insert account.
-     *
      * @param account the account
      */
     public void insertAccount(Account account) {
@@ -63,7 +62,6 @@ public class AccountService {
 
     /**
      * Update account.
-     *
      * @param account the account
      */
     public void updateAccount(Account account) {
@@ -71,8 +69,12 @@ public class AccountService {
         accountMapper.updateAccount(account);
         accountMapper.updateProfile(account);
 
-        Optional.ofNullable(account.getPassword()).filter(password -> password.length() > 0)
-                .ifPresent(password -> accountMapper.updateSignon(account));
+        //j2ee user's password cannot be changed in this demo application
+        if (!"j2ee".equals(account.getUsername())) {
+            Optional.ofNullable(account.getPassword())
+                    .filter(password -> password.length() > 0)
+                    .ifPresent(password -> accountMapper.updateSignon(account));
+        }
     }
 
 }
