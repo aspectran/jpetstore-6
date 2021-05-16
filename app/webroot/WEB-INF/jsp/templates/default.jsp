@@ -62,10 +62,7 @@
             <div class="top-bar-left">
                 <ul class="dropdown menu" data-dropdown-menu>
                     <li>
-                        <a title="Demo Applications made with Aspectran">Demo Apps</a>
-                        <ul class="submenu menu vertical" data-submenu>
-                            <li><a href="/">JPetStore Demo</a></li>
-                        </ul>
+                        <a href="/">JPetStore Demo</a>
                     </li>
                     <li>
                         <a href="/apm/">APM</a>
@@ -73,6 +70,16 @@
                 </ul>
             </div>
             <div class="top-bar-right">
+                <ul class="dropdown menu" data-dropdown-menu>
+                    <li>
+                        <a title="Demo Applications made with Aspectran">More Demo Apps</a>
+                        <ul class="submenu menu vertical" data-submenu>
+                            <li><a href="https://demo.aspectran.com">Aspectran Demo</a></li>
+                            <li><a href="https://log-relayer.aspectran.com">Log Relayer</a></li>
+                            <li><a href="https://skylark.aspectran.com">Skylark Terminal</a></li>
+                        </ul>
+                    </li>
+                </ul>
                 <div class="quick-search-box">
                     <form name="google_quick_search">
                         <div class="input-group">
