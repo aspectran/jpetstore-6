@@ -33,7 +33,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aspectran.version>7.0.2</aspectran.version>
+        <aspectran.version>7.0.3-SNAPSHOT</aspectran.version>
         <slf4j.version>1.7.30</slf4j.version>
         <logback.version>1.2.3</logback.version>
     </properties>
@@ -163,12 +163,12 @@
     <dependencies>
         <dependency>
             <groupId>com.aspectran</groupId>
-            <artifactId>aspectran-shell-jline</artifactId>
+            <artifactId>aspectran-daemon</artifactId>
             <version>${aspectran.version}</version>
         </dependency>
         <dependency>
             <groupId>com.aspectran</groupId>
-            <artifactId>aspectran-daemon</artifactId>
+            <artifactId>aspectran-shell-jline</artifactId>
             <version>${aspectran.version}</version>
         </dependency>
         <dependency>
